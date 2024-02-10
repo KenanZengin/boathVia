@@ -1,0 +1,13 @@
+// Max Width Responsive
+@mixin BootstrapMaxWidthResponsive($point) {
+    @media (max-width: (map-get($breakpoints, $point) - 1)) {
+           @content
+    }
+}
+
+//Min Width Responsive
+@mixin BootstrapMinWidthResponsive($point) {
+    @media (min-width: map-get($breakpoints, $point)) {
+           @content
+    }
+}
