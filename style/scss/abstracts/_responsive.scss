@@ -11,3 +11,38 @@
            @content
     }
 }
+
+
+// TODO:  when project finished Container delete
+.container_add{
+    width: 100%;
+   margin: auto;
+}
+@media(min-width:640px){
+    .container_add{
+        width: 640px;
+    }
+}
+@media(min-width:768px){
+    .container_add{
+        width: 768px;
+    }
+}
+@media(min-width:1024px){
+    .container_add{
+        width: 1024px;
+    }
+}
+@media(min-width:1280px){
+    .container_add{
+        width: 1280px;
+        
+    }
+}
+
+@media(min-width:1540px){
+    .container_add{
+        width: 1540px;
+        
+    }
+}

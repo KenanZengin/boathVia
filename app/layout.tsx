@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Lato } from "next/font/google";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "../style/global.scss"
+import Header from "@/backbone/header";
+// import { Container } from "react-bootstrap";
 
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Lato({ 
+  subsets: ["latin"],
+  weight: ["400"] 
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,8 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {children}
+      <body className={`${inter.className} container_add`}>
+        {/* TODO: Add Container */}
+          <Header />  
+          {children}
       </body>
     </html>
   );

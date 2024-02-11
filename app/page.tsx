@@ -1,11 +1,9 @@
-
-
-
+import Sections from "@/components/homepage/sections";
 
 export default function HomePage() {
   return (
-    <div>
-        test
-    </div>  
+    <main className="main">
+      <Sections />
+    </main>
   );
 }
