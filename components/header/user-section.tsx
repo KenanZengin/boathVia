@@ -3,6 +3,7 @@
 import Dropdown from "react-bootstrap/Dropdown";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { LuUserCircle2 } from "react-icons/lu";
+import Link from "next/link";
 
 const UserSection = () => {
   return (
@@ -12,18 +13,18 @@ const UserSection = () => {
             <LuUserCircle2 size={24} />
         </Dropdown.Toggle>
         <Dropdown.Menu className="user_section">
-            <Dropdown.Item as={"a"} href="/">
+            <Link href="/">
                 Login
-            </Dropdown.Item>
-            <Dropdown.Item as={"a"} href="/">
+            </Link>
+            <Link href="/">
                 Register
-            </Dropdown.Item>
-            {/* <Dropdown.Item as={"a"}>
+            </Link>
+            {/* <Link>
                 Add your boat to Teknevia
-            </Dropdown.Item> */}
-             <Dropdown.Item as={"a"} href="/">
+            </Link> */}
+             <Link href="/">
                 Help Center
-            </Dropdown.Item>
+            </Link>
         </Dropdown.Menu>
     </Dropdown>
   )

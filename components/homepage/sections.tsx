@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import Sea from "../../public/img/homepage.jpg"
+import SearchInput from '../search-input'
 
 const Sections = () => {
   return (
@@ -12,7 +13,13 @@ const Sections = () => {
                 </span>
             </div>
             <div className="searching">
-                <h1>Rent a boat with one click!</h1>
+                <h1 className="title">
+                    Rent a boat with one click!
+                </h1>
+                <SearchInput />
+                <p>
+                    Turkey's first boat rental platform where you can book instantly!
+                </p>
             </div>
         </section>
     </div>
