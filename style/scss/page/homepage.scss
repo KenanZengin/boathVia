@@ -4,6 +4,11 @@
     .sections{
         .section{
             &_1{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 450px;
+                height: 450px;
                 .abso-img{
                     position: absolute;
                     top: 0;
@@ -51,6 +56,50 @@
                         line-height: 2rem;
                         max-width: 32rem;
                         text-align: center;
+                        margin-top: 1.75rem;
+                    }
+                }
+            }
+            &_2{
+                margin-top: 3rem;
+                .carts{
+                    display: grid;
+                    grid-template-columns: repeat(3,1fr);
+                    .cart_2{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 1rem;
+                        padding: 1rem;
+                        border: 1px solid #e5e7eb;
+                        border-radius: 6px;
+                        width: 400px;
+                        max-width: 400px;
+                        .cart_imj{
+                           svg{
+                            color: #178a87;
+                           }
+                        }
+                        .cart-info{
+                            p{
+                                font-size: 1.1rem;
+                                font-weight: 500;
+                                margin-bottom: 1rem;
+                            }
+                            span{
+                                font-size: .9375rem;
+                                color: #768498;
+                            }
+                        }
+                    }
+                    .cart_2:first-child{
+                        justify-self: flex-start;
+                    }
+                    .cart_2:nth-child(2){
+                        justify-self: center;
+                    }
+                    .cart_2:last-child{
+                        justify-self: flex-end;
                     }
                 }
             }

@@ -16,6 +16,15 @@
         svg:nth-child(2){
             margin-left: 12px;
         }
+        .search-content{
+            padding: 15px 25px;
+            border-radius: 30px;
+            min-width: var(--wV);
+            text-align: left;
+            background-color: #fff;
+            color:#082f3e;
+            font-size: 1.1rem;
+        }
     }
     &-menu{
         inset: auto !important;
@@ -73,9 +82,44 @@
     }
     &-menu.search_input{
         min-width: 100%;
+        transform: translate(0px, 5px) !important;
+        overflow-x: auto;
+        .dropdown-header{
+            padding: 12px 0 12px 50px;
+            position: sticky;
+            z-index: 999;
+            top: 0;
+            width: 100%;
+            border-bottom: 1px solid #178a87;
+            background-color: #fff;
+            svg{
+                color: #178a87;
+                position: absolute;
+                left: 20px;
+                top: calc(50% - 11px);
+            }
+            span{
+                font-size: 1.2rem;
+                color: #000;
+            }
+        }
+        .dropdown-divider{
+            background-color: #178a87;
+            margin: 0;
+        }
        .locations{
-        display: flex;
-        flex-direction: column;
+            display: flex;
+            flex-direction: column;
+            max-height: 192px;
+            a{
+                padding-left: 50px;
+            }
        }
+    }
+    .search-all{
+        position: absolute;
+        color: #178a87;
+        top: calc(50% - 25px);
+        right: 2px;
     }
 }

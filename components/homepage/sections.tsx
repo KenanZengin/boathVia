@@ -1,27 +1,14 @@
-import Image from 'next/image'
+import Section_1 from "./section1"
+import Section_2 from "./section2"
+import Section_3 from "./section3"
 
-import Sea from "../../public/img/homepage.jpg"
-import SearchInput from '../search-input'
 
 const Sections = () => {
   return (
     <div className="sections">
-        <section className='section_1'>
-            <div className="abso-img">
-                <span>
-                    <Image src={Sea} alt="HomePage Image" />
-                </span>
-            </div>
-            <div className="searching">
-                <h1 className="title">
-                    Rent a boat with one click!
-                </h1>
-                <SearchInput />
-                <p>
-                    Turkey's first boat rental platform where you can book instantly!
-                </p>
-            </div>
-        </section>
+        <Section_1 />
+        <Section_2 />
+        <Section_3 />
     </div>
   )
 }

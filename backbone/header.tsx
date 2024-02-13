@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
-import logo from "../public/img/logo.png"
 import ChangeLang from '@/components/header/lang';
 import UserSection from '@/components/header/user-section';
+
+import logo from "../public/img/basic/logo.png"
 
 const Header = () => {
   return (
