@@ -1,0 +1,88 @@
+.card{
+    width: 324px;
+    min-width: 324px;
+    padding: 0 12px;
+    border: 0;
+    position: relative;
+    img{
+        min-width: 300px;
+        width: 300px;
+        height: 240px;
+        min-height: 240px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+    &-header,&-text{
+        border-bottom: 0;
+    }
+    &-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0 5px 0 !important;
+        .location{
+            font-size: 1rem;
+            line-height: 1.25rem;
+            font-weight: 500;
+            color: rgb(8, 47, 62);
+        }
+        .star{
+            display: flex;
+            align-items: center;
+            color: rgb(8, 47, 62);
+            font-size: 0.75rem;
+            svg{
+                color: #178a87;
+                margin-right: 2px;
+            }
+        }
+    }
+    &-body{
+        display: flex;
+        flex-direction: column;
+        align-items:flex-start;
+        padding-bottom: 8px !important;
+        gap: 5px;
+        .category,.capacity{
+            font-size: 0.9375rem;
+            color: rgb(100, 116, 139);
+            font-weight: 500;
+        }
+    }
+    &-footer{
+        border-top: 0;
+        .price,.time{
+            font-size: 1.25rem;
+            line-height: 1.5rem;
+            display: inline-block;
+        }
+        .price{
+            color: rgb(8, 47, 62);
+        }
+        .time{
+            color: rgb(100, 116, 139);
+        }
+    }
+    &-body,&-header,&-footer{
+        padding: 0;
+    }
+    &-action{
+        max-width: 300px;
+        position: absolute;
+        top: 8px;
+        width: 100%;
+        padding: 0 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        .reservesion{
+            background-color: #5457cd;
+            text-align: center;
+            padding: 6px 10px;
+            border-radius: 1rem;
+            font-size: .875rem;
+            line-height: 1rem;
+        }
+    }
+}

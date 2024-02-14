@@ -1,0 +1,27 @@
+[
+    {
+        "id" : 1,
+        "kind" : "Marriage Proposal on Yacht",
+        "info" : "Love declaration in the middle of the Bosphorus",
+        "img_path" : "/img/organization/marriage-proposal.png"  
+    },
+    {
+        "id" : 2,
+        "kind" : "Birthday on Boat",
+        "info" : "Celebrate your new year at sea with your friends",
+        "img_path" : "/img/organization/birthday.png"  
+    },
+    {
+        "id" : 3,
+        "kind" : "Wedding on Boat",
+        "info" : "Enter the world of marriage on a wonderful boat",
+        "img_path" : "/img/organization/wedding.png"  
+    },
+    {
+        "id" : 4,
+        "kind" : "Corporate Entertainment on Boat",
+        "info" : "Give your employees a break for fun",
+        "img_path" : "/img/organization/corporate.png"  
+    }
+
+]
