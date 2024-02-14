@@ -3,6 +3,7 @@ import { Lato } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../style/global.scss"
 import Header from "@/backbone/header";
+import Footer from "@/backbone/footer";
 // import { Container } from "react-bootstrap";
 
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         {/* TODO: Add Container */}
           <Header />  
           {children}
+          <Footer />
       </body>
     </html>
   );

@@ -1,0 +1,87 @@
+.footer{
+    width: 100%;
+    margin-top: 50px;
+    .socials{
+        padding: 30px 0;
+        background-color: #fafaf9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        a{
+            color: #082f3e;
+        }
+    }
+    .link-groups{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 30px 0;
+        .links{
+            display: flex;
+            flex-direction: column;
+            .title{
+                color:  rgb(8, 47, 62);
+                font-size: 1rem;
+                font-weight: 500;
+                list-style: 1.125rem;
+                padding-bottom: 12px;
+                border-bottom: 1px solid rgb(8, 47, 62);
+            }
+            .line{
+                height: 1px;
+                width: 100%;
+                background-color: rgb(8, 47, 62);
+                display: inline-block;
+                margin: 6px 0;
+            }
+            nav{
+                margin-top: 12px;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                a{
+                    display: inline-block;
+                    color: rgb(8, 47, 62);
+                    font-size: 0.9375rem;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                } 
+            }
+            .infos{
+                display: flex;
+                flex-direction: column;
+                span{
+                    display: inline-block;
+                    background-color: #fff;
+                    padding: 8px 24px;
+                    border: 1px solid #178a87;
+                    color: #178a87;
+                    transition: .4s all;
+                    border-radius: 6px;
+                    box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);;
+                    &:hover{
+                        background-color: #178a87;
+                        color: #fff;
+                    }
+                }
+                a:first-child{
+                    margin: 15px 0;
+                }
+                a{
+                    margin-bottom: 8px;
+                    color: rgb(8, 47, 62);
+                }
+                .downloads{
+                    display: flex;
+                    flex-direction: column;
+                    img{
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+
+    }
+}
