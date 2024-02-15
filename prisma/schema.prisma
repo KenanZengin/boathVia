@@ -1,0 +1,23 @@
+
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Ships{
+  id String @id @default(cuid())
+  location String
+  star Float
+  comment Int
+  category String
+  capacity Int
+  hour_price Int
+  img_path String
+}

@@ -19,8 +19,8 @@ const ShipCard = ({data}:{data:ShipsCartProps}) => {
           </p>
           <span className="star">           
             <GoStarFill size={15} />
-            {star}&nbsp;&nbsp;
-            {comment > 0 ? `(${comment})` : ""}
+            {star > 0 ? star : ""}&nbsp;&nbsp;
+            {comment > 0 ? `(${comment})` : "New"}
           </span>
         </Card.Header>
         <Card.Body>  

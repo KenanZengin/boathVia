@@ -7,9 +7,6 @@ import {  OrganizationCartProps } from '@/types';
 
 const Section_4 = ( ) => {
     
-  console.log(data);
-  
-
   return (
     <section className='section_4' >
       <div className="head">

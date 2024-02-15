@@ -5,6 +5,8 @@
         border: 0;
         padding: 0;
         margin: 0;
+        transition:0s all !important;
+        
         &::after{
             content: none;
         }
@@ -23,7 +25,8 @@
             text-align: left;
             background-color: #fff;
             color:#082f3e;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            border: 1px solid #e5e7eb;
         }
     }
     &-menu{

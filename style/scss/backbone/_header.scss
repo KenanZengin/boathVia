@@ -8,7 +8,6 @@
     background-color: transparent;
     &-web{
         height: 100%;
-        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -30,6 +29,7 @@
                             text-decoration: underline;
                         }
                     }
+                  
                 }
                 &-item.user-section{
                     display: flex;
@@ -38,6 +38,38 @@
                     border-radius: 30px;
                     padding: 6px 8px;
                 }
+            }
+        }
+    }
+    .stno{
+        color: #fff !important;
+    }
+    .stok{
+        color: #082f3e !important;
+        border-color: #f3f4f6 !important;
+    }
+}
+
+.sticky_header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    color: #082f3e;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);
+    .header-web-right .btnsarea-item.user-section{
+        border-color: #e5e7eb !important;
+    }
+    .dropdown > button{
+        color: #082f3e;
+        &:hover,&:focus,&:active,&:focus-visible{
+            color: #082f3e;
+        }
+    }
+    .btnsarea{
+        &-item{
+            a{
+                color: #082f3e;
             }
         }
     }

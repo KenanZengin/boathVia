@@ -1,7 +1,6 @@
 export interface ShipsCartProps{
-  id: number,
   location: string,
-  star: string | number,
+  star: number,
   comment: number,
   category: string,
   capacity: number,

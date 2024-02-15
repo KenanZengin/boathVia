@@ -16,7 +16,7 @@ const Section_3 = ({data}: {data:Array<ShipsCartProps>} ) => {
       <div className="head">
         <div className="title">
           <h3>Boats You Can Book Instantly</h3>
-          <p>Boats that you can book without waiting for the owner's approval</p>
+          <p>Boats that you can book without waiting for the owner&apos;s approval</p>
         </div>
         <Link href={"/"}>
           See All &gt;
@@ -28,9 +28,9 @@ const Section_3 = ({data}: {data:Array<ShipsCartProps>} ) => {
           lazyPreloadPrevNext={5}
           loopAdditionalSlides={5}
         >
-        {data.map((data: ShipsCartProps)=>(
-            <SwiperSlide>
-              <ShipCard data={data} key={data.id} /> 
+        {data.map((data: ShipsCartProps, i: number)=>(
+            <SwiperSlide key={i}>
+              <ShipCard data={data}  /> 
             </SwiperSlide>
           ))}
       </Swiper>

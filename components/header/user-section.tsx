@@ -8,7 +8,7 @@ import Link from "next/link";
 const UserSection = () => {
   return (
     <Dropdown>
-        <Dropdown.Toggle title="User action">
+        <Dropdown.Toggle title="User action"  >
             <RxHamburgerMenu size={24} />
             <LuUserCircle2 size={24} />
         </Dropdown.Toggle>

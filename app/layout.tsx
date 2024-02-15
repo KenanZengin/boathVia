@@ -22,13 +22,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html lang="en">
-      <body className={`${inter.className} container_add`}>
+      <body className={`${inter.className}`}>
         {/* TODO: Add Container */}
           <Header />  
-          {children}
-          <Footer />
+          <div className="container_add">
+            {children}
+            <Footer />
+          </div>
       </body>
     </html>
   );

@@ -14,7 +14,7 @@ const Section_1 = () => {
             <h1 className="title">
                 Rent a boat with one click!
             </h1>
-            <SearchInput widthValue={25} />
+            <SearchInput widthValue={23} />
             <p>
                 Turkey&apos;s first boat rental platform where you can book instantly!
             </p>

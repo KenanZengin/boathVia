@@ -1,8 +1,8 @@
 "use client"
 
 import Link from "next/link";
-import Dropdown from "react-bootstrap/Dropdown";
 import { CSSProperties } from "react";
+import Dropdown from "react-bootstrap/Dropdown";
 
 import { IoSearchCircle   } from "react-icons/io5";
 import { TfiLocationArrow } from "react-icons/tfi";
