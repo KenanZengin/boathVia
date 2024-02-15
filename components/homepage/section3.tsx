@@ -7,11 +7,9 @@ import ShipCard from '../cart/ship-card';
 import 'swiper/css';
 
 
-
-
-
-
 const Section_3 = ({data}: {data:Array<ShipsCartProps>} ) => {
+
+
  
   return (
     <section className='section_3' >
@@ -25,25 +23,16 @@ const Section_3 = ({data}: {data:Array<ShipsCartProps>} ) => {
         </Link>
       </div>
       <Swiper
-          slidesPerView={1}
-          defaultValue={1}
-          lazyPreloadPrevNext={1}
+          slidesPerView={5}
+          defaultValue={5}
+          lazyPreloadPrevNext={5}
+          loopAdditionalSlides={5}
         >
-        <SwiperSlide  >
-          {data.map((data: ShipsCartProps)=>(
-            data.id < 6 && <ShipCard data={data} key={data.id} /> 
+        {data.map((data: ShipsCartProps)=>(
+            <SwiperSlide>
+              <ShipCard data={data} key={data.id} /> 
+            </SwiperSlide>
           ))}
-        </SwiperSlide>
-        <SwiperSlide >
-          {data.map((data: ShipsCartProps)=>(
-            data.id >= 6  && data.id < 11 && <ShipCard data={data}  key={data.id} />
-          ))}
-        </SwiperSlide>
-        <SwiperSlide >
-          {data.map((data: ShipsCartProps)=>(
-            data.id >= 11  && data.id < 13 && <ShipCard data={data} key={data.id} />
-          ))}
-        </SwiperSlide>
       </Swiper>
     </section>
   )
