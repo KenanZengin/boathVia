@@ -13,7 +13,6 @@ import SearchInput from '@/components/search-input';
 const Header = () => {
 
   const pathname = usePathname();
-  console.log(pathname);
   
   const [scrollY, setScrollY] = useState<number>(0);
   const [test,setTest] = useState(false)

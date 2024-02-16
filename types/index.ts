@@ -1,4 +1,5 @@
 export interface ShipsCartProps{
+  id?: string,
   location: string,
   star: number,
   comment: number,

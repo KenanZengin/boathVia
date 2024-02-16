@@ -1,0 +1,110 @@
+[
+    {
+        "location" : "Bebek, Istanbul",
+        "star" : 4.92,
+        "comment" : 22,
+        "category" : "Motor Yatch",
+        "capacity" : 12,
+        "hour_price" : 2500,
+        "img_path" : "/img/ships/ship_1.png"  
+    },
+    {
+        "location" : "Uskudar, Istanbul",
+        "star" : 0,
+        "comment" : 0,
+        "category" : "Motor Yatch",
+        "capacity" : 12,
+        "hour_price" : 1875,
+        "img_path" : "/img/ships/ship_2.png"  
+    },
+    {
+        "location" : "Bebek, Istanbul",
+        "star" : 4.95,
+        "comment" : 61,
+        "category" : "Motor Yatch",
+        "capacity" : 10,
+        "hour_price" : 2500,
+        "img_path" : "/img/ships/ship_3.png"  
+    },
+    {
+        "location" : "Karakoy, Istanbul",
+        "star" : 4.9,
+        "comment" : 63,
+        "category" : "Motor Yatch",
+        "capacity" : 8,
+        "hour_price" : 2300,
+        "img_path" : "/img/ships/ship_4.png"  
+    },
+    {
+        "location" : "Eminonu, Istanbul",
+        "star" : 4.92,
+        "comment" : 36,
+        "category" : "Motor Yatch",
+        "capacity" : 12,
+        "hour_price" : 2500,
+        "img_path" : "/img/ships/ship_5.png"  
+    },
+    {
+        "location" : "Bebek, Istanbul",
+        "star" : 4.97,
+        "comment" : 51,
+        "category" : "Motor Yatch",
+        "capacity" : 30,
+        "hour_price" : 2700,
+        "img_path" : "/img/ships/ship_6.png"  
+    },
+    {
+        "location" : "Bebek, Istanbul",
+        "star" : 4.82,
+        "comment" : 11,
+        "category" : "Motor Yatch",
+        "capacity" : 12,
+        "hour_price" : 2500,
+        "img_path" : "/img/ships/ship_7.png"  
+    },
+    {
+        "location" : "Eminonu, Istanbul",
+        "star" : 4.83,
+        "comment" : 39,
+        "category" : "Motor Yatch",
+        "capacity" : 12,
+        "hour_price" : 1500,
+        "img_path" : "/img/ships/ship_8.png"  
+    },
+    {
+        "location" : "Istinye, Istanbul",
+        "star" : 4.9,
+        "comment" : 21,
+        "category" : "Motor Yatch",
+        "capacity" : 30,
+        "hour_price" : 3000,
+        "img_path" : "/img/ships/ship_9.png"  
+    },
+    {
+        "location" : "Anadolu Hisari, Istanbul",
+        "star" : 0,
+        "comment" : 0,
+        "category" : "Motor Yatch",
+        "capacity" : 10,
+        "hour_price" : 2500,
+        "img_path" : "/img/ships/ship_10.png"  
+    },
+    {
+        "location" : "Uskudar, Istanbul",
+        "star" : 4.76,
+        "comment" : 20,
+        "category" : "Motor Yatch",
+        "capacity" : 10,
+        "hour_price" : 2000,
+        "img_path" : "/img/ships/ship_11.png"  
+    },
+    {
+        "location" : "Kadikoy, Istanbul",
+        "star" : 4.86,
+        "comment" : 43,
+        "category" : "Motor Yatch",
+        "capacity" : 22,
+        "hour_price" : 2000,
+        "img_path" : "/img/ships/ship_12.png"  
+    }
+]

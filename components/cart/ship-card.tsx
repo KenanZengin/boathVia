@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image';
 import Card from 'react-bootstrap/Card';
 
@@ -8,8 +9,8 @@ import { ShipsCartProps } from '@/types';
 
 const ShipCard = ({data}:{data:ShipsCartProps}) => {
 
-  const {location, star, comment, category, capacity, hour_price, img_path} = data;
-
+  const {location, star, comment, category, capacity, hour_price, img_path} =  data;
+  
   return (
     <Card className='test'>
         <Image src={img_path} alt='ship' width={300} height={240}  />

@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link";
-import { CSSProperties } from "react";
+import { useSearchParams } from "next/navigation";
+import { CSSProperties, Suspense } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 
 import { IoSearchCircle   } from "react-icons/io5";
@@ -17,53 +18,64 @@ interface Props{
 }
 
 const SearchInput = ({widthValue}: Props) => {
+
+  const searchParams = useSearchParams();
+  const locationn = searchParams.get("location");
+
+
   return (
-    <Dropdown>
+        <Dropdown autoClose={"outside"}>
         <Dropdown.Toggle title="Select Location">
-           <div className="search-content" style={{"--wV":`${widthValue}rem`} as MyCustomCSS}>
-                <span>Where dou you want to board the boat?</span>
-           </div>
+          
+                <div className="search-content" style={{"--wV":`${widthValue}rem`} as MyCustomCSS}>
+                        <span>{typeof locationn==="string" && locationn.length > 0 ? locationn  : "Where dou you want to board the boat?"}</span>
+                </div>
+          
         </Dropdown.Toggle>
-        <Dropdown.Menu className="search_input">
+        <Dropdown.Menu className="search_input" rootCloseEvent="mousedown">
            <Dropdown.Header>
                 <TfiLocationArrow size={22}/>
-                <span>Istanbul</span>
+                <Link href={"/shiplist?location=Istanbul"}>
+                        <span>Istanbul</span>
+                </Link>
            </Dropdown.Header>
            <div className="locations">
-                <Link href={"/"}>
+                
+                <Link href={"/ship-charter/4.86"}>
                         Kandilli
                 </Link>
-                <Link href={"/"}>
+               
+                <Link href={"/shiplist?location=Kuleli"}>
                         Kuleli
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/shiplist?location=Arnatuvkoy"}>
                         Arnatuvkoy
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/shiplist?location=Bebek"}>
                         Bebek
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/shiplist?location=Kandilli"}>
                         Kandilli
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/shiplist?location=Kuleli"}>
                         Kuleli
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/shiplist?location=Arnatuvkoy"}>
                         Arnatuvkoy
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/shiplist?location=Bebek"}>
                         Bebek
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/shiplist?location=Arnatuvkoy"}>
                         Arnatuvkoy
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/shiplist?location=Bebek"}>
                         Bebek
                 </Link>
            </div>
         </Dropdown.Menu>
-        <Link href={"https://www.youtube.com/watch?v=rBpVtdB1a6w"} className="search-all">
-                <IoSearchCircle   size={50} />
+        <Link href={"/shiplist"} className="search-all">
+                <IoSearchCircle size={50} />
         </Link>
     </Dropdown>
   )

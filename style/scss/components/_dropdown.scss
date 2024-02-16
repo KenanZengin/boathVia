@@ -88,13 +88,16 @@
         transform: translate(0px, 5px) !important;
         overflow-x: auto;
         .dropdown-header{
-            padding: 12px 0 12px 50px;
+            padding: 0 0 0 50px;
             position: sticky;
             z-index: 999;
             top: 0;
             width: 100%;
             border-bottom: 1px solid #178a87;
             background-color: #fff;
+            &:hover{
+                background-color: rgb(248, 250, 245)
+            }
             svg{
                 color: #178a87;
                 position: absolute;

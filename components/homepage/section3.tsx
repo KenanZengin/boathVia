@@ -9,8 +9,6 @@ import 'swiper/css';
 
 const Section_3 = ({data}: {data:Array<ShipsCartProps>} ) => {
 
-
- 
   return (
     <section className='section_3' >
       <div className="head">
