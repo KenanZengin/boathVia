@@ -1,9 +1,8 @@
-import Image from "next/image"
 import Link from 'next/link';
-
-import data from "../../data/organization.json"
-import OrganizationCard from "../cart/organization-card";
 import {  OrganizationCartProps } from '@/types';
+
+import data from "../../server/data/organization.json"
+import OrganizationCard from "../cart/organization-card";
 
 const Section_4 = ( ) => {
     

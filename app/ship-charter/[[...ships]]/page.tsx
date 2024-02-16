@@ -1,5 +1,5 @@
 
-import { getShips } from "@/actions/ships"
+import { getShips } from "@/server/actions/ships"
 import ShipCard from "@/components/cart/ship-card";
 
 

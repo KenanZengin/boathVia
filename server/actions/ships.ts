@@ -1,6 +1,6 @@
 "use server"
 
-import { db } from "@/database/db"
+import { db } from "@/server/db/db"
 
 export const getShips = async () => {
 
