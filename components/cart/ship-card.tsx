@@ -9,14 +9,14 @@ import { ShipsCartProps } from '@/types';
 
 const ShipCard = ({data}:{data:ShipsCartProps}) => {
 
-  const {location, star, comment, category, capacity, hour_price, img_path} =  data;
+  const {city,district, star, comment, category, capacity, hour_price, img_path} =  data;
   
   return (
     <Card className='test'>
         <Image src={img_path} alt='ship' width={300} height={240}  />
         <Card.Header>
           <p className="location">
-            {location}
+            {`${city} ${district}`}
           </p>
           <span className="star">           
             <GoStarFill size={15} />

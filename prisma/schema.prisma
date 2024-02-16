@@ -13,7 +13,8 @@ generator client {
 
 model Ships{
   id String @id @default(cuid())
-  location String
+  city String
+  district String
   star Float
   comment Int
   category String

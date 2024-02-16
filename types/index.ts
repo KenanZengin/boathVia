@@ -1,6 +1,7 @@
 export interface ShipsCartProps{
   id?: string,
-  location: string,
+  city: string,
+  district: string,
   star: number,
   comment: number,
   category: string,
