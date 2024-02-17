@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { CSSProperties, Suspense } from "react";
+import { CSSProperties } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 
 import { IoSearchCircle   } from "react-icons/io5";
@@ -20,8 +20,13 @@ interface Props{
 const SearchInput = ({widthValue}: Props) => {
 
   const searchParams = useSearchParams();
-  const locationn = searchParams.get("location");
+  const locationn: string | null = searchParams.get("location");
+  
+  const locations = ["Istanbul","Kadikoy","Uskudar","Levent","Karakoy","Kurucesme","AnadoluHisari","Eminonu","Istinye","Bebek"];
 
+  const test = locations.some((item) => item === locationn);
+  console.log(test);
+  
 
   return (
         <Dropdown autoClose={"outside"}>
@@ -41,7 +46,7 @@ const SearchInput = ({widthValue}: Props) => {
                 </Dropdown.Header>
                 <div className="locations">
                         
-                        <Link href={"/ship-charter/4.86"}>
+                        <Link href={"/ship-charter?location=Kadikoy"}>
                                 Kandilli
                         </Link>
                 

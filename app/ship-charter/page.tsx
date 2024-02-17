@@ -3,9 +3,10 @@ import { getShips } from "@/server/actions/ships"
 import ShipCard from "@/components/cart/ship-card";
 
 
-const Ships = async ({params}:{params: {ships: string}}) => {
+const Ships = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
 
   const data = await getShips();
+
     
   return (
     <div className="shiplist">
