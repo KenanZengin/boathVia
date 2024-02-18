@@ -24,62 +24,56 @@ const SearchInput = ({widthValue}: Props) => {
   
   const locations = ["Istanbul","Kadikoy","Uskudar","Levent","Karakoy","Kurucesme","AnadoluHisari","Eminonu","Istinye","Bebek"];
 
-  const test = locations.some((item) => item === locationn);
-  console.log(test);
-  
 
   return (
         <Dropdown autoClose={"outside"}>
                 <Dropdown.Toggle title="Select Location">
-                
                         <div className="search-content" style={{"--wV":`${widthValue}rem`} as MyCustomCSS}>
-                                <span>{typeof locationn==="string" && locationn.length > 0 ? locationn  : "Where dou you want to board the boat?"}</span>
-                        </div>
-                
+                                <span>  {
+                                                locations.some((item) => item === locationn) ? locationn  : "Where dou you want to board the boat?"
+                                        }
+                                </span>
+                        </div>        
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="search_input" rootCloseEvent="mousedown">
                 <Dropdown.Header>
                         <TfiLocationArrow size={22}/>
-                        <Link href={"/shiplist?location=Istanbul"}>
+                        <Link href={"/ship-charter?location=Istanbul"}>
                                 <span>Istanbul</span>
                         </Link>
                 </Dropdown.Header>
                 <div className="locations">
-                        
-                        <Link href={"/ship-charter?location=Kadikoy"}>
-                                Kandilli
+
+                        <Link href={"/ship-charter?location=Kadikoy&city=Istanbul"}>
+                                Kadikoy
                         </Link>
-                
-                        <Link href={"/shiplist?location=Kuleli"}>
-                                Kuleli
+                        <Link href={"/ship-charter?location=Uskudar&city=Istanbul"}>
+                                Uskudar
                         </Link>
-                        <Link href={"/shiplist?location=Arnatuvkoy"}>
-                                Arnatuvkoy
+                        <Link href={"/ship-charter?location=Levent&city=Istanbul"}>
+                                Levent
                         </Link>
-                        <Link href={"/shiplist?location=Bebek"}>
-                                Bebek
+                        <Link href={"/ship-charter?location=Karakoy&city=Istanbul"}>
+                                Karakoy
                         </Link>
-                        <Link href={"/shiplist?location=Kandilli"}>
-                                Kandilli
+                        <Link href={"/ship-charter?location=Kurucesme&city=Istanbul"}>
+                                Kurucesme
                         </Link>
-                        <Link href={"/shiplist?location=Kuleli"}>
-                                Kuleli
+                        <Link href={"/ship-charter?location=AnadoluHisari&city=Istanbul"}>
+                                AnadoluHisari
                         </Link>
-                        <Link href={"/shiplist?location=Arnatuvkoy"}>
-                                Arnatuvkoy
+                        <Link href={"/ship-charter?location=Eminonu&city=Istanbul"}>
+                                Eminonu
                         </Link>
-                        <Link href={"/shiplist?location=Bebek"}>
-                                Bebek
+                        <Link href={"/ship-charter?location=Istinye&city=Istanbul"}>
+                                Istinye
                         </Link>
-                        <Link href={"/shiplist?location=Arnatuvkoy"}>
-                                Arnatuvkoy
-                        </Link>
-                        <Link href={"/shiplist?location=Bebek"}>
+                        <Link href={"/ship-charter?location=Bebek&city=Istanbul"}>
                                 Bebek
                         </Link>
                 </div>
                 </Dropdown.Menu>
-                <Link href={"/shiplist"} className="search-all">
+                <Link href={"/ship-charter?location=All"} className="search-all">
                         <IoSearchCircle size={50} />
                 </Link>
         </Dropdown>

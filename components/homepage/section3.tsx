@@ -16,7 +16,7 @@ const Section_3 = ({data}: {data:Array<ShipsCartProps>} ) => {
           <h3>Boats You Can Book Instantly</h3>
           <p>Boats that you can book without waiting for the owner&apos;s approval</p>
         </div>
-        <Link href={"/"}>
+        <Link href={"/ship-charter?location=All"}>
           See All &gt;
         </Link>
       </div>

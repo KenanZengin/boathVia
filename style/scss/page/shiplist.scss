@@ -1,9 +1,74 @@
 .shiplist{
+    margin: 20px 0;
+    .info{
+        padding: 10px 0;
+        .bread-crumb{
+            display: flex;
+            a{
+                font-size: 0.875rem;
+            }
+            a:not(:last-child){
+                color: rgb(16, 112, 118);
+            }
+            a:last-child{
+                color: #000;
+            }
+            a:not(:last-child){
+                span{
+                    text-decoration: underline;
+                }
+                &::after{
+                    content: ">";
+                    color: rgb(16, 112, 118);
+                    font-size: 0.875rem;
+                    margin: 0 4px;
+                    text-decoration: none;
+                }
+            }
 
+        }
+        .options{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.25rem;
+            .title{
+                h1{
+                    color: rgb(8, 47, 62);
+                    font-size: 1.5rem;
+                    line-height: 2rem;
+                }
+                p{
+                    color: rgb(100, 116, 139);
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                }
+            }
+            .arrangement{
+               button{
+                color: rgb(8, 47, 62);
+                border: 1px solid rgb(69, 184, 171);
+                border-radius: 6px;
+                padding: 8px 16px;
+                background-color: #fff;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 200px;
+                white-space: nowrap;
+
+                } 
+            }
+        }
+    }
     .ships{
-        margin: 100px 0;
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        justify-items: center;
+        padding: 2rem 0;
+        &-wrapper{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            justify-items: center;
+            row-gap: 2rem;
+        }
     }
 }
