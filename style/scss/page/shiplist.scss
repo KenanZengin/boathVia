@@ -46,19 +46,59 @@
                 }
             }
             .arrangement{
-               button{
-                color: rgb(8, 47, 62);
-                border: 1px solid rgb(69, 184, 171);
-                border-radius: 6px;
-                padding: 8px 16px;
-                background-color: #fff;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 200px;
-                white-space: nowrap;
+                position: relative;
+                button{
+                    color: rgb(8, 47, 62);
+                    border: 1px solid rgb(69, 184, 171);
+                    border-radius: 6px;
+                    padding: 8px 16px;
+                    background-color: #fff;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 170px;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    user-select: none;
+                    // & > input[type="checkbox"]{
+                    //     position: absolute;
+                    //     z-index: -999;
+                    //     appearance: none;
+                    //     width: 0;
+                    //     height: 0;
+                    //     user-select: none;
 
+                    // }
+                }
+                .sort{
+                    display: flex;
+                    flex-direction: column;
+                    border-radius: 6px;
+                    border: 1px solid rgb(69, 184, 171);
+                    position: absolute;
+                    z-index: 999;
+                    width: 100%;
+                    background-color: #fff;
+                    button{
+                        font-size: 0.9375rem;
+                        color: rgb(8, 47, 62);
+                        width: 100%;
+                        display: inline-block;
+                        padding: 4px 16px;
+                        user-select: none;
+                        border: none;
+                        text-align: left;
+                        &:hover{
+                            background-color: rgb(69, 184, 171);
+                            color: #fff;
+                        }
+                    }
+                    button.actived{
+                        background-color: rgb(69, 184, 171);
+                        color: #fff;
+                    }
                 } 
+                
             }
         }
     }

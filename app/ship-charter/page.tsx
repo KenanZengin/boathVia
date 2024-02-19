@@ -5,12 +5,12 @@ import ShipCard from "@/components/cart/ship-card";
 import Link from "next/link";
 
 import { MdKeyboardArrowDown } from "react-icons/md";
+import Sort from "@/components/sort";
 
 const Ships = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
 
-  const {ships, error} = await getShips(searchParams.location);
+  const {ships, error} = await getShips(searchParams.location,searchParams.sort);
 
-    
   return (
     <main className="shiplist">
       <div className="info">
@@ -34,28 +34,24 @@ const Ships = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
             )}
            </nav>
         </div>
-        <div className="options">
+        <div className="options" tabIndex={10}>
           <div className="title">
             <h1>{searchParams.location} Boat and Yacht Charter</h1>
             <p>{ships?.length} results found</p>
           </div>
-          <div className="arrangement">
-            <button>
-              <span>Suggested order</span>
-              <MdKeyboardArrowDown size={25} />
-            </button>
-          </div>
+          <Sort searchParams={searchParams} />
         </div>
       </div>
       <div className="ships">
         <div className="ships-wrapper">
           {ships && ships.map((item)=>(
-                <ShipCard data={item} key={item.id} />
+              <ShipCard data={item} key={item.id} />
             )) 
           }
         </div>
       </div>
       {error && <div>{error}</div>}
+     
     </main>
   )
 }

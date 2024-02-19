@@ -1,4 +1,5 @@
 
+import { ShipsCartProps } from "@/types";
 import Section_1 from "./section1"
 import Section_2 from "./section2"
 import Section_3 from "./section3"
@@ -9,13 +10,14 @@ import { getShips } from "@/server/actions/ships";
 
 const Sections = async () => {
 
-  const data = await getShips();
+  const { ships } = await getShips();
   
+
   return (
     <div className="sections">
         <Section_1 />
         <Section_2 />
-        <Section_3 data={data.ships}/>
+        <Section_3 data={ships}/>
         <Section_4 />
         <Section5 />
     </div>
