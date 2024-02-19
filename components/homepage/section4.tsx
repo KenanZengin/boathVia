@@ -1,8 +1,8 @@
 import Link from 'next/link';
+import OrganizationCard from "../cart/organization-card";
 import {  OrganizationCartProps } from '@/types';
 
 import data from "../../server/data/organization.json"
-import OrganizationCard from "../cart/organization-card";
 
 const Section_4 = ( ) => {
     
@@ -13,7 +13,7 @@ const Section_4 = ( ) => {
           <h3>What do you want to rent a boat for?</h3>
           <p>Organizations you can do by renting an hourly boat</p>
         </div>
-        <Link href={"/"}>
+        <Link href={"/services/allservices"}>
           See All &gt;
         </Link>
       </div>

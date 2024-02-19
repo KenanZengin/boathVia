@@ -10,7 +10,7 @@ generator client {
 }
 
 model Ships{
-  id String @id @default(cuid())
+  id String @id @default(cuid()) @unique
   city String
   district String
   star Float
@@ -18,5 +18,12 @@ model Ships{
   category String
   capacity Int
   hour_price Int
-  img_path String
+  img_path String @unique
+}
+
+model Services{
+  id String @id @default(cuid()) @unique
+  kind String
+  info String
+  img_path String @unique
 }

@@ -1,27 +1,128 @@
 [
     {
-        "id" : 1,
-        "kind" : "Marriage Proposal on Yacht",
-        "info" : "Love declaration in the middle of the Bosphorus",
-        "img_path" : "/img/organization/marriage-proposal.png"  
+        
+        "kind" : "After Part",
+        "info" : "Continue the fun on the sea",
+        "img_path" : "/img/organization/after-party.png"  
     },
     {
-        "id" : 2,
+        
         "kind" : "Birthday on Boat",
         "info" : "Celebrate your new year at sea with your friends",
         "img_path" : "/img/organization/birthday.png"  
     },
     {
-        "id" : 3,
-        "kind" : "Wedding on Boat",
-        "info" : "Enter the world of marriage on a wonderful boat",
-        "img_path" : "/img/organization/wedding.png"  
+        
+        "kind" : "Black Sea Swimming Tour",
+        "info" : "Try jumping from a boat into the sea in Istanbul",
+        "img_path" : "/img/organization/black-sea-swimming-tour.png"  
     },
     {
-        "id" : 4,
+        
+        "kind" : "Breakfast on Boat",
+        "info" : "Taste your first meal of the day in the blue",
+        "img_path" : "/img/organization/breakfast.png"  
+    },
+    {
+        
+        "kind" : "Sunnah on Boat",
+        "info" : "Celebrate your child's circumcision on the boat",
+        "img_path" : "/img/organization/circumcision.png"  
+    },
+    {
+        
         "kind" : "Corporate Entertainment on Boat",
         "info" : "Give your employees a break for fun",
         "img_path" : "/img/organization/corporate.png"  
-    }
+    },
+    {
+        
+        "kind" : "Romantic Dinner on Yacht",
+        "info" : " A romantic moment under the lights of the Bosphorus",
+        "img_path" : "/img/organization/corporate-dinner.png"  
+    },
+    {
+        
+        "kind" : "Engagement Henna Party on Boat",
+        "info" : "Let your last step before the wedding be on the boat",
+        "img_path" : "/img/organization/engagement.png"  
+    },
+    {
+        
+        "kind" : "Fasil on Boat",
+        "info" : "Enjoy the fun with the Fasil (Raqi night with music) team",
+        "img_path" : "/img/organization/fasil.png"  
+    },
+    {
+        
+        "kind" : " Fishing Tour",
+        "info" : "Try out boating and fishing",
+        "img_path" : "/img/organization/fishing-tours.png"  
+    },
+    {
+        
+        "kind" : "Graduation Party on Boa",
+        "info" : "Make your graduation excitement unforgettable",
+        "img_path" : "/img/organization/graduation.png"  
+    },
+    {
+        
+        "kind" : "Iftar on Boat",
+        "info" : "Experience the blessings of Ramadan on the sea",
+        "img_path" : "/img/organization/iftar.png"  
+    },
+    {
+        
+        "kind" : "Islands Tour",
+        "info" : "Enjoy the wonderful islands view from the boat",
+        "img_path" : "/img/organization/islands-tour.png"  
+    },
+    {
+        
+        "kind" : "Launch on Boat",
+        "info" : "Promote your product on the Bosphorus",
+        "img_path" : "/img/organization/launch.png"  
+    },
+    {
+        
+        "kind" : "Marriage Proposal on Yacht",
+        "info" : "Love declaration in the middle of the Bosphorus",
+        "img_path" : "/img/organization/marriage-proposal.png"  
+    },
+    {
+        
+        "kind" : "New Year's party on Boat",
+        "info" : "Experience the New Year’s fun above the sea",
+        "img_path" : "/img/organization/new-year-party.png"  
+    },
+    {
+        
+        "kind" : "Islands Tour",
+        "info" : "Provide a great venue for your professional shoot",
+        "img_path" : "/img/organization/photograph-and-video.png"  
+    },
+    {
 
+        "kind" : "Romantic Dinner on Yacht",
+        "info" : "A romantic moment under the lights of the Bosphorus",
+        "img_path" : "/img/organization/romantic-dinner.png"  
+    },
+    {
+        
+        "kind" : "Sea Transport",
+        "info" : "Go by boat to wherever you want to go",
+        "img_path" : "/img/organization/sea-transport.png"  
+    },
+    {
+        
+        "kind" : "Private Parties In Istanbul on Boat",
+        "info" : "Have fun on a wonderful boat",
+        "img_path" : "/img/organization/special-party.png"  
+    },
+    {
+        
+        "kind" : "Wedding on Boat",
+        "info" : "Enter the world of marriage on a wonderful boat",
+        "img_path" : "/img/organization/wedding.png"  
+    }
 ]
