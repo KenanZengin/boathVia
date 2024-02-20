@@ -5,14 +5,16 @@ import Card from 'react-bootstrap/Card';
 import { GoStarFill } from "react-icons/go";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { ShipsCartProps } from '@/types';
+import Link from 'next/link';
 
 
 const ShipCard = ({data}:{data:ShipsCartProps}) => {
 
-  const {city,district, star, comment, category, capacity, hour_price, img_path} =  data;
+  const {id,city,district, star, comment, category, capacity, hour_price, img_path} =  data;
   
   return (
     <Card className='test'>
+      <Link href={`/ship-detail/${id}`}>
         <Image src={img_path} alt='ship' width={300} height={240}  />
         <Card.Header>
           <p className="location">
@@ -43,6 +45,7 @@ const ShipCard = ({data}:{data:ShipsCartProps}) => {
             <IoMdHeartEmpty size={28} />
           </span>
         </div>
+      </Link>
     </Card>
   )
 }

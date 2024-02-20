@@ -1,0 +1,25 @@
+.bread-crumb{
+    display: flex;
+    a{
+        font-size: 0.875rem;
+    }
+    a:not(:last-child){
+        color: rgb(16, 112, 118);
+    }
+    a:last-child{
+        color: #000;
+    }
+    a:not(:last-child){
+        span{
+            text-decoration: underline;
+        }
+        &::after{
+            content: ">";
+            color: rgb(16, 112, 118);
+            font-size: 0.875rem;
+            margin: 0 4px;
+            text-decoration: none;
+        }
+    }
+
+}

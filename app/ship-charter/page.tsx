@@ -2,10 +2,9 @@
 
 import { getShips } from "@/server/actions/ships"
 import ShipCard from "@/components/cart/ship-card";
-import Link from "next/link";
 
-import { MdKeyboardArrowDown } from "react-icons/md";
 import Sort from "@/components/sort";
+import BreadCrumb from "@/components/bread-crumb";
 
 const Ships = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
 
@@ -14,26 +13,7 @@ const Ships = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
   return (
     <main className="shiplist">
       <div className="info">
-        <div className="bread-crumb">
-           <nav>
-            <Link href={"/"}>
-              <span>Teknevia.com</span>
-            </Link>
-            <Link href={"/ship-charter?location=All"}>
-              <span>Yacht rental</span>
-            </Link>
-            {searchParams?.city && (
-              <Link href={`/ship-charter?location=${searchParams.city}`}>
-                <span>{searchParams.city}</span>
-              </Link>
-            )}
-             {searchParams?.location && searchParams?.location !=="All" && (
-              <Link href={`/ship-charter?location=${searchParams.location}&city=${searchParams?.city}`}>
-                <span>{searchParams.location}</span>
-              </Link>
-            )}
-           </nav>
-        </div>
+        <BreadCrumb searchParams={searchParams} />
         <div className="options" tabIndex={10}>
           <div className="title">
             <h1>{searchParams.location} Boat and Yacht Charter</h1>

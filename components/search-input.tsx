@@ -90,9 +90,7 @@ const SearchInput = ({widthValue}: Props) => {
                                                 ))}
                                         </div>
                         
-                                </div>
-                                
-                               
+                                </div>  
                        </div>
                 )}
                  <Link href={"/ship-charter?location=All"} className="search-all">

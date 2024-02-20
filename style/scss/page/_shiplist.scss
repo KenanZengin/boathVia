@@ -2,31 +2,7 @@
     margin: 20px 0;
     .info{
         padding: 10px 0;
-        .bread-crumb{
-            display: flex;
-            a{
-                font-size: 0.875rem;
-            }
-            a:not(:last-child){
-                color: rgb(16, 112, 118);
-            }
-            a:last-child{
-                color: #000;
-            }
-            a:not(:last-child){
-                span{
-                    text-decoration: underline;
-                }
-                &::after{
-                    content: ">";
-                    color: rgb(16, 112, 118);
-                    font-size: 0.875rem;
-                    margin: 0 4px;
-                    text-decoration: none;
-                }
-            }
-
-        }
+      
         .options{
             width: 100%;
             display: flex;
@@ -115,10 +91,19 @@
         &-wrapper{
             .organization-cards{
                 width: 100%;
-                display: grid;
-                grid-template-columns: repeat(4,1fr);
-                justify-items: center;
-                align-items: center;
+                
+                margin-bottom: 25px;
+                .services-title{
+                    color: rgb(8, 47, 62);
+                    font-size: 1.25rem;
+                    margin-bottom: 20px;
+                }
+                .services-list{
+                    display: grid;
+                    grid-template-columns: repeat(4,1fr);
+                    justify-items: center;
+                    row-gap: 30px;
+                }
                 .organization-card{
                     width: 280px;
                     
@@ -127,6 +112,7 @@
                         max-width: 100%;
                         height: 445px;
                         max-height: 445px;
+                        border-radius: 6px;
                     }
                     .card-content{
                         margin-top: 10px;
@@ -159,3 +145,4 @@
         }
     }
 }
+

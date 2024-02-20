@@ -12,8 +12,8 @@ export interface ShipsCartProps{
 
 
 export interface OrganizationCartProps{
-  id: number,
+  id?: string,
   kind: string,
   info: string,
-  img_path: string
+  img_path_2: string
 }

@@ -18,12 +18,13 @@ model Ships{
   category String
   capacity Int
   hour_price Int
-  img_path String @unique
+  img_path String 
+  full_hours String[]
 }
 
 model Services{
   id String @id @default(cuid()) @unique
   kind String
   info String
-  img_path String @unique
+  img_path_2 String 
 }

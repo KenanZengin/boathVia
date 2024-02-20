@@ -2,9 +2,13 @@ import Link from 'next/link';
 import OrganizationCard from "../cart/organization-card";
 import {  OrganizationCartProps } from '@/types';
 
-import data from "../../server/data/organization.json"
+import { getServices } from '@/server/actions/ships-event';
 
-const Section_4 = ( ) => {
+const Section_4 = async () => {
+
+  const { services, error } = await getServices();
+  
+
     
   return (
     <section className='section_4' >
@@ -18,8 +22,8 @@ const Section_4 = ( ) => {
         </Link>
       </div>
       <div className="organization-cards">
-        {data.map((data:OrganizationCartProps)=>(
-            <OrganizationCard data={data} key={data.id}/>
+        {services?.map((data:OrganizationCartProps, i:number)=>(
+          i < 4 && <OrganizationCard data={data} key={data.id}/>
         ))}
       </div>
     </section>

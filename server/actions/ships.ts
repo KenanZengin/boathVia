@@ -5,8 +5,6 @@ import { db } from "@/server/db/db"
 export const getShips = async (location:string = "Istanbul", sorts?:string) => {
 
 
-
-
     if(location==="All"){
         const ships = await db.ships.findMany({});
 
@@ -83,3 +81,17 @@ export const getShips = async (location:string = "Istanbul", sorts?:string) => {
     
 }
 
+
+export const getShip = async (id:string) => {
+
+    const ship = await db.ships.findFirst({
+        where:{
+            id
+        }
+    });
+
+    if(!ship) return { error : "Ship not found"};
+
+    return {ship}
+
+}

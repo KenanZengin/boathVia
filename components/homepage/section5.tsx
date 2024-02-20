@@ -9,7 +9,7 @@ const Section5 = () => {
             <div className="title">
                 <h3>Boat Types</h3>
             </div>
-            <Link href={"/"}>
+            <Link href={"/ship-charter?location=All"}>
                 See All &gt;
             </Link>
         </div>
