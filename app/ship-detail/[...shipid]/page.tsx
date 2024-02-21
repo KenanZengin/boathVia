@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { CSSProperties } from "react";
 import ShipImages from "@/components/ship-detail/images";
 import { getShip } from "@/server/actions/ships"
 
@@ -10,15 +11,27 @@ import { FiShare } from "react-icons/fi";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { BsLightningChargeFill } from "react-icons/bs";
 import { TiStopwatch } from "react-icons/ti";
+import { FaStar } from "react-icons/fa";
+import PriceCard from "@/components/cart/price-card";
+
+
+
+interface MyCustomCSS extends CSSProperties {
+    '--rod-w': string;
+}
+
+
 
 const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
 
     const {ship} = await getShip(params.shipid.toString());
 
 
+    
+
 
     return (
-        <main className="ship-detail" style={{"height":"200vh"}}>
+        <main className="ship-detail">
             <article className="ship-detail-wrapper">
                 <div className="ship-head">
                     <div className="ship-path">
@@ -131,9 +144,101 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
                             We would be happy to see you with our experienced and friendly team for a pleasant tour on the Bosphorus. 😊
                             </p>
                         </div>
+                        <div className="terms">
+                            <h2>Features</h2>
+                            <div className="ters_p">
+                                <span><span>Vehicle Type:</span>Motor Yatch</span>
+                                <span><span>Last Maintenance Year:</span> 2023  </span>
+                                <span><span>Vehicle Length:</span>23</span>
+                                <span><span>Built Material:</span>Wood</span>
+                                <span><span>Year of Construction</span>2023</span>
+                                <span><span>Number of Toilets:</span>2</span>
+                               <span><span>Flag:</span>Turkey</span>
+                            </div>
+                        </div>
+                        <div className="terms">
+                            <h2>Have a question?</h2>
+                            <div className="question">
+                                <span>Teknevia customer representative is with you in your rentals.</span>
+                                <Link href={"/"}>Click and send a message</Link>
+                            </div>
+                        </div>
+                        <div className="comments">
+                            <div className="point">
+                                <FaStar size={23} />
+                                <p>{ship?.star}</p>
+                                <span>({ship?.comment})</span>
+                            </div>
+                            <div className="raiting">
+                                <div className="score">
+                                    <p>Cleaning</p>
+                                    <span className="rod">
+                                        <span className="rod-val" style={{"--rod-w":`${ship && (ship?.star / 5) * 100}%`} as MyCustomCSS}></span>
+                                    </span>
+                                    <p>{ship?.star}</p>
+                                </div>
+                                <div className="score">
+                                    <p>Communication</p>
+                                    <span className="rod">
+                                        <span className="rod-val" style={{"--rod-w":`${ship && (ship?.star / 5) * 100}%`} as MyCustomCSS}></span>
+                                    </span>
+                                    <p>{ship?.star}</p>
+                                </div>
+                                <div className="score">
+                                    <p>Service</p>
+                                    <span className="rod">
+                                        <span className="rod-val" style={{"--rod-w":`${ship && (ship?.star / 5) * 100}%`} as MyCustomCSS}></span>
+                                    </span>
+                                    <p>{ship?.star}</p>
+                                </div>
+                                <div className="score">
+                                    <p>Price / Performance</p>
+                                    <span className="rod">
+                                        <span className="rod-val" style={{"--rod-w":`${ship && (ship?.star / 5) * 100}%`} as MyCustomCSS}></span>
+                                    </span>
+                                    <p>{ship?.star}</p>
+                                </div>
+                            </div>
+                            <div className="user-comments">
+                                <div className="comment">
+                                    <div className="user-info">
+                                        <div className="name">
+                                            <p>Ke***** Ze***</p>
+                                            <FaStar size={23} />
+                                            <p>5.0</p>
+                                        </div>
+                                        <span className="date">
+                                            15 Feb 2024 Thu
+                                        </span>
+                                    </div>
+                                    <div className="comment-text">
+                                        <span>Overall good</span>
+                                        <p>The boat was very good, the captain and staff took very good care of us.</p>
+                                    </div>
+                                </div>
+                                <div className="comment">
+                                    <div className="user-info">
+                                        <div className="name">
+                                            <p>Im***** Ze***</p>
+                                            <FaStar size={23} />
+                                            <p>4.8</p>
+                                        </div>
+                                        <span className="date">
+                                            13 Feb 2024 Wed
+                                        </span>
+                                    </div>
+                                    <div className="comment-text">
+                                        <span>Overall good</span>
+                                        <p>Everything was exactly as expected, we had a great time.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className="price">
-                        
+                        <div className="price-wrapper">
+                           <PriceCard ship={ship}/>
+                        </div>
                     </div>
                 </div>
             </article>

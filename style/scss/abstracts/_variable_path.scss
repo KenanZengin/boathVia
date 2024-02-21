@@ -1,0 +1,10 @@
+
+/* Site Main Path Settings */
+$cache-busting:                     #{'?v='} + unique_id();
+$path-assets-url:                   "/assets";
+$path-font-url :                    "/font";
+$path-assets-url-lp:                "../..";
+$path-fonts-url:                    "#{$path-assets-url}/fonts";
+$path-img-url:                      "/img";
+$path-img-url-icons:                "#{$path-img-url}/icons";
+/* Site Main Path Settings */
