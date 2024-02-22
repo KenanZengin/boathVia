@@ -5,7 +5,6 @@ import { ShipsCartProps } from "@/types";
 
 import { FaStar } from "react-icons/fa";
 import { FiPlusCircle, FiMinusCircle } from "react-icons/fi";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import MyDatePicker from "../date/date";
 
 
@@ -109,3 +108,5 @@ const PriceCard = ({ship}:{ship: ShipsCartProps | undefined}) => {
 }
 
 export default PriceCard
+
+

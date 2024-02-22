@@ -360,8 +360,7 @@
                                 border-radius: 4px;
                                 display: flex;
                                 align-items: center;
-                                input{
-                                }
+                               
                             }
                         }
                         .port,.duration{
@@ -421,18 +420,32 @@
                                                         background-color: rgb(241 245 249) !important;
                                                     }
                                                 }
-                                               
-                                                .react-datepicker__day--keyboard-selected,.react-datepicker__day--selected{
+                                                .react-datepicker__day--today{
+                                                    background-color: #cff9e9 !important;
+                                                    color: rgb(8, 47, 62) !important;
+                                                    &:hover{
+                                                        background-color: #cff9e9  !important;
+                                                        color: rgb(8, 47, 62) !important;
+                                                    }
+                                                }
+                                                .react-datepicker__day--selected{
                                                     background-color: #178A87 !important;
                                                     color: #fff !important;
                                                     &:hover{
                                                         background-color: #178A87 !important;
+                                                        color: #fff !important;
                                                     }
                                                 }
-                                                .react-datepicker__day--today{
-                                                    background-color: #cff9e9 !important;
-                                                    color: rgb(8, 47, 62);
+                                                .react-datepicker__day--keyboard-selected{
+                                                    background-color: #fff;
                                                 }
+                                            }
+                                        }
+                                        .react-datepicker__day--disabled{
+                                            color:rgb(203, 213, 225) !important;
+                                            text-decoration: line-through;
+                                            &:hover{
+                                                cursor: not-allowed;
                                             }
                                         }
                                     }
@@ -446,6 +459,34 @@
                                                 ul{
                                                     li{
                                                         color: rgb(8, 47, 62);
+                                                        line-height: 1rem;
+                                                        font-size: 0.875rem;
+                                                        padding: 6px 8px !important;
+                                                        margin: 0 5px !important;
+                                                        &:hover{
+                                                            background-color: rgb(241 245 249);
+                                                        }
+                                                    }
+                                                   
+                                                    .react-datepicker__time-list-item--selected{
+                                                        background-color: #178a87;
+                                                        color: #fff;
+                                                        border-radius: 8px;
+                                                        &:hover{
+                                                            background-color: #178a87 !important;
+                                                            color: #fff !important;
+                                                        }
+                                                    }
+                                                    .react-datepicker__time-list-item--disabled{
+                                                        background-color: #fff !important;
+                                                        color:rgb(203, 213, 225) !important;
+                                                        text-decoration: line-through;
+                                                        &:hover{
+                                                            background-color: #fff !important;
+                                                            cursor: not-allowed;
+                                                            color:rgb(203, 213, 225) !important;
+                                                            text-decoration: line-through;
+                                                        }
                                                     }
                                                 }
                                             }

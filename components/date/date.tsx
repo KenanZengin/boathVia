@@ -11,8 +11,26 @@ const MyDatePicker = () => {
     setSelectedDate(date);
 
     if (date) {
-      const fakeData = [{ date: new Date(2024, 1, 25, 21, 0) },{ date: new Date(2024, 1, 24, 20, 0) }]; // Örnek fake veri
-      const selectedDateStr = date.toISOString().split('T')[0]; // Seçilen tarihin string hali (YYYY-MM-DD)
+      const selectedDateStr = date.toISOString().split('T')[0]; 
+      const fakeData = [{ date: new Date(2024, 1, 25, 21, 0) },{ date: new Date(2024, 1, 24, 20, 0) }]; 
+
+      const isExcludedTime = fakeData.some(data => {
+        const dataDateStr = data.date.toISOString().split('T')[0]; 
+        const dataHour = data.date.getHours();
+        const dataMinute = data.date.getMinutes();
+        
+        return dataDateStr === selectedDateStr && dataHour === date.getHours() && dataMinute === date.getMinutes();
+      });
+
+      if (isExcludedTime) {
+    
+        setSelectedDate(null);
+        setExcludedTimes([]);
+
+        setSelectedDate(new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12, 0));
+        return;
+      }
+
       const excludedTimesForDate = fakeData
         .filter(data => {
           const dataDateStr = data.date.toISOString().split('T')[0];
@@ -20,6 +38,9 @@ const MyDatePicker = () => {
         })
         .map(data => data.date);
       setExcludedTimes(excludedTimesForDate);
+    } else {
+      setSelectedDate(null);
+      setExcludedTimes([]); 
     }
   };
 
@@ -34,6 +55,7 @@ const MyDatePicker = () => {
         timeFormat="HH:mm"  
         timeIntervals={60}
         minDate={new Date()}
+        shouldCloseOnSelect={false}
       />
       
     </div>
@@ -41,5 +63,25 @@ const MyDatePicker = () => {
 };
 
 export default MyDatePicker;
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
