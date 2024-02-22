@@ -27,8 +27,7 @@ const Services = async () => {
         <div className="options" tabIndex={10}>
           <div className="title">
             <h1>Boat Organizations on Bosphorus</h1>
-          </div>
-          
+          </div> 
         </div>
       </div>
       <div className="services">
@@ -67,6 +66,6 @@ const Services = async () => {
       </div>
   </main>
   )
-}
+} 
 
 export default Services

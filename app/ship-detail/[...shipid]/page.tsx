@@ -13,6 +13,7 @@ import { BsLightningChargeFill } from "react-icons/bs";
 import { TiStopwatch } from "react-icons/ti";
 import { FaStar } from "react-icons/fa";
 import PriceCard from "@/components/cart/price-card";
+import Section_3 from "@/components/homepage/section3";
 
 
 
@@ -25,10 +26,6 @@ interface MyCustomCSS extends CSSProperties {
 const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
 
     const {ship} = await getShip(params.shipid.toString());
-
-
-    
-
 
     return (
         <main className="ship-detail">
@@ -242,6 +239,7 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
                     </div>
                 </div>
             </article>
+            <Section_3  maks={4}/>
         </main>
     )
 }

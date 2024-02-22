@@ -1,0 +1,41 @@
+.categories_ships{
+    margin: 20px 0;
+    padding: 0 15px;
+    &_wrapper{
+        .info{
+            padding: 10px 0;
+            .title{
+                h1{
+                    margin:20px 0 32px;
+                    color: rgb(8, 47, 62);
+                    font-size: 1.75rem;
+                }
+            }
+        }
+        .steps{
+            margin-bottom: 10px;
+            padding: 20px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            p{
+                display: flex;
+                align-items: center;
+                color: rgb(8, 47, 62);
+                font-size: 1rem;
+                line-height: 1.5rem;
+                span{
+                    padding: 6px 10px;
+                    border-radius: 9999px;
+                    background-color: #178A87;
+                    color: #fff;
+                    display: inline-block;
+                    margin-right: 5px;
+                    line-height: 1rem;
+                }
+            }
+        }
+    }
+}

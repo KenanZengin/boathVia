@@ -22,10 +22,10 @@ const BreadCrumb = ({searchParams}:{searchParams: ParamsProps}) => {
             <span>{searchParams.city}</span>
             </Link>
         )}
-            {searchParams?.location && searchParams?.location !=="All" && (
-            <Link href={`/ship-charter?location=${searchParams.location}&city=${searchParams?.city}`}>
-            <span>{searchParams.location}</span>
-            </Link>
+        {searchParams?.location && searchParams?.location !=="All" && (
+        <Link href={`/ship-charter?location=${searchParams.location}&city=${searchParams?.city}`}>
+        <span>{searchParams.location}</span>
+        </Link>
         )}
         </nav>
     </div>

@@ -52,6 +52,9 @@
                 display: block;
                 width: 100%;
                 height: 100%;
+                img{
+                    object-fit: cover;
+                }
             }
            }
            div:first-child{
@@ -246,16 +249,19 @@
             .price{
                 width: 400px;
                 min-width: 400px;
+                position: relative;
                 &-wrapper{
-                    height: 500px;
                     padding: 16px;
                     border: 1px solid #e5e7eb;
                     border-radius: 6px;
                     box-shadow: 0 0 #0000, 0 0 #0000,0 0 #0000, 0 0 #0000,0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
+                    position: sticky;
+                    top: 0;
                     .head{
                         display: flex;
                         justify-content: space-between;
                         align-items: baseline;
+                        margin-bottom: 20px;
                         .price-v{
                             display: flex;
                             align-items: baseline;
@@ -371,12 +377,14 @@
                         }
                         .date{
                             .react-datepicker-popper{
+                                transform: translate(-113px, 128px) !important;
                                 .react-datepicker__triangle{
                                     display: none;
                                 }
                                 .react-datepicker{
                                     box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
                                     border-color: rgb(203 213 225);
+                                    display: flex;
                                     .react-datepicker__month-container{
                                         background-color: #fff;
                                         .react-datepicker__header{
@@ -511,9 +519,64 @@
                             }
                         }
                     }
+                    .order{
+                        margin: 2rem 0 1rem ;
+                        button{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 100%;
+                            max-width: 100%;
+                            background-color: #178A87;
+                            color: #fff;
+                            font-size: 1rem;
+                            padding: 16px 0;
+                            border-radius: 6px;
+                            transition: background-color .2s ease-in;
+                            &:hover{
+                                background-color: #107076;
+                            }
+                        }
+                        .right{
+                            color: rgb(100, 116, 139);
+                            font-size: 0.875rem;
+                            line-height: 1rem;
+                            text-align: center;
+                            margin-top: 16px;
+                            display: block;
+                        }
+                        .price-calculate{
+                            margin-top: 1rem;
+                            .calc,.total{
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                margin-bottom: 12px;
+                            }
+                            .calc{
+                                border-bottom: 1px solid rgb(8, 47, 62);
+                                span{
+                                    color: #6B838C;
+                                    font-size: 0.875rem;
+                                    margin-bottom: 12px;
+                                }
+                            }
+                            .total{
+                                p{
+                                    font-size: 1.125rem;
+                                    color: rgb(8, 47, 62);
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        }
+        }   
+    }
+    .swiper-wrapper{
+        display: flex !important;
+        justify-content: space-between !important;
     }
 }
 

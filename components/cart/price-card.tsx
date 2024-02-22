@@ -12,7 +12,7 @@ import MyDatePicker from "../date/date";
 const PriceCard = ({ship}:{ship: ShipsCartProps | undefined}) => {
 
   const [hour,setHour] = useState<number>(2);
-  const [people,setPeople] = useState<number>(0);
+  const [people,setPeople] = useState<number>(1);
 
 
   const handleHourIncrement =  () => {
@@ -28,9 +28,8 @@ const PriceCard = ({ship}:{ship: ShipsCartProps | undefined}) => {
   };
 
   const handlePeopleDecrement =  () => {
-    if(people > 0) setPeople(people - 1);
+    if(people > 1) setPeople(people - 1);
   };
-
 
 
   return (
@@ -88,7 +87,7 @@ const PriceCard = ({ship}:{ship: ShipsCartProps | undefined}) => {
                 <div className="opt-in">
                         <button onClick={handlePeopleDecrement}><FiMinusCircle size={25}/></button>
 
-                           <div className="opt-in-p">
+                        <div className="opt-in-p">
                                 <input
                                     type="number"   
                                     inputMode="numeric"
@@ -97,9 +96,35 @@ const PriceCard = ({ship}:{ship: ShipsCartProps | undefined}) => {
                                     min={0}
                                     value={people}
                                 />
-                           </div>
+                        </div>
                         
                         <button onClick={handlePeopleIncrement}><FiPlusCircle size={25}/></button>
+                </div>
+            </div>
+        </div>
+        <div className="order">
+            <button>
+                Reserve!
+            </button>
+            <span className="right">
+                Since instant booking is active, you will be directed to the payment page.
+            </span>
+            <div className="price-calculate">
+                <div className="calc">
+                    <span>TRY {ship?.hour_price} x {hour} hours</span>
+                    <span>TRY {ship?.hour_price && ship?.hour_price * hour}</span>
+                </div>
+                <div className="total">
+                    <p>Total amount</p>
+                    <p>TRY {ship?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number(ship?.hour_price * hour))}</p>
+                </div>
+                <div className="total">
+                    <p>Online prepayment amount</p>
+                    <p>TRY {ship?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number((ship?.hour_price * (0.4 * hour)).toFixed(2)))}</p>
+                </div>
+                <div className="total">
+                    <p>Amount to be paid on board</p>
+                    <p>TRY {ship?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number((ship?.hour_price * (0.6 * hour)).toFixed(2)))}</p>
                 </div>
             </div>
         </div>
