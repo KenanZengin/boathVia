@@ -13,10 +13,10 @@ const UserSection = () => {
             <LuUserCircle2 size={24} />
         </Dropdown.Toggle>
         <Dropdown.Menu className="user_section">
-            <Link href="/">
+            <Link href="/auth/login">
                 Login
             </Link>
-            <Link href="/">
+            <Link href="/auth/register">
                 Register
             </Link>
             {/* <Link>
