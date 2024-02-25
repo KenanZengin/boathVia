@@ -16,5 +16,9 @@ export const RegisterSchema = z.object({
     }),
     phone: z.string().min(10).max(10,{
         message:"Minumum 10 charecters required for phone number"
-    })
+    }),
+    rights: z.boolean().refine(
+        (value) => value === true,
+        {message: "You must agree to the terms and conditions"}
+    )
 })
