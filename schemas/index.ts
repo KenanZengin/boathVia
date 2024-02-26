@@ -20,5 +20,5 @@ export const RegisterSchema = z.object({
     rights: z.boolean().refine(
         (value) => value === true,
         {message: "You must agree to the terms and conditions"}
-    )
+    ),
 })
