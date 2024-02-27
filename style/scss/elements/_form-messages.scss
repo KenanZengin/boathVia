@@ -1,0 +1,20 @@
+.form-message{
+    width: max-content;
+    text-align: center;
+    position: absolute;
+    top: -25px;
+    p{
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: .9375rem;
+        font-weight: 500;
+    }
+    .success{
+        background-color: #16C784;
+    }
+    .error{
+        background-color: #EA3943;
+    }
+}

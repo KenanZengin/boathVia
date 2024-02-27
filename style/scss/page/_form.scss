@@ -6,6 +6,7 @@
     flex-direction: column;
     align-items: center;
     &-content{
+        position: relative;
         width: 550px;
         min-width: 550px;
         padding: 20px;
@@ -41,16 +42,7 @@
                         align-items: flex-start;
                         gap: 12px;
                         flex:1;
-                        input{
-                            width: 100%;
-                            padding: 12px 16px;
-                            border: 1px solid #45B8AB;
-                            border-radius: 6px;
-                            box-shadow:  0 0 #000, 0 0 #0000,  0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px -1px rgba(0, 0, 0, .1);
-                            &:focus{
-                                box-shadow: rgba(#45B8AB, 0.3) 0px 0px 0px 4px;
-                            }
-                        }
+                       
                         label{
                             color: rgb(8, 47, 62);
                             font-size: 1rem;
@@ -71,27 +63,25 @@
                         color: rgb(8, 47, 62);
                         font-size: 1rem;
                     }
-                    input{
-                        padding: 12px 16px;
-                        border: 1px solid #45B8AB;
-                        border-radius: 6px;
-                        box-shadow:  0 0 #000, 0 0 #0000,  0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px -1px rgba(0, 0, 0, .1);
-                        &:focus{
-                            box-shadow: rgba(#45B8AB, 0.3) 0px 0px 0px 4px;
-                        }
-                    }
+                  
                     svg{
                         position: absolute;
                         right:10px;
-                        top: 54%;
                         color: #45B8AB;
                         cursor: pointer;
+                    }
+                    .form-ok{
+                        top: 54%;
+                    }
+                    .form-er{
+                        top: 39%;
                     }
                 }
                 .form-v{
                     display: flex;
                     align-items: center;
                     gap: 10px;
+                    flex-wrap: wrap;
                     label{
                         color: rgb(8, 47, 62);
                         a{
@@ -145,6 +135,7 @@
                         
                         
                     }
+                    
                 }
                 button{
                     margin: 15px 0;
@@ -160,6 +151,29 @@
                     &:hover{
                         background-color: #107076;
                     }
+                }
+                input:not([type="checkbox"]){
+                    width: 100%;
+                    padding: 12px 16px;
+                    border-radius: 6px;
+                    box-shadow:  0 0 #000, 0 0 #0000,  0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px -1px rgba(0, 0, 0, .1);
+                }
+                .success-input{
+                    border: 1px solid #45B8AB;
+                    &:focus{
+                        box-shadow: rgba(#45B8AB, 0.3) 0px 0px 0px 4px;
+                    }
+                }
+                .error-input{
+                    border: 1px solid rgb(234, 57, 67);
+                    box-shadow: 0 0 0 4px rgba(234,57,67,.2) !important;
+                    &:focus{
+                        box-shadow: 0 0 0 4px rgba(234,57,67,.2);
+                    }
+                }
+                .form-error-msg{
+                    color: #FA1648;
+                    font-size: 0.9375rem;
                 }
             }
         }

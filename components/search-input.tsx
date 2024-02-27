@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { CSSProperties, useEffect, useRef, useState } from "react";
-import Dropdown from "react-bootstrap/Dropdown";
 
 import { IoSearchCircle   } from "react-icons/io5";
 import { TfiLocationArrow } from "react-icons/tfi";

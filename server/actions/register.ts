@@ -2,6 +2,9 @@
 
 import * as z from "zod"
 import { RegisterSchema } from "@/schemas"
+import { getUserByEmail } from "../data/user";
+import { db } from "../db/db";
+import { hash } from "bcrypt";
 
 
 export const record = async (values : z.infer<typeof RegisterSchema>) => {
@@ -9,12 +12,31 @@ export const record = async (values : z.infer<typeof RegisterSchema>) => {
     const validatedFields = RegisterSchema.safeParse(values);
 
     if(!validatedFields.success){
-        return { error : "Invalid fields."}
+        return { error : "Invalid fields."};
     }
 
     const {name, surname, email, phone, password, rights } = validatedFields.data;
     
+    const existingUser = await getUserByEmail(email);
+
+    if(existingUser){
+        return { error : "Email already in use!"};
+    }
+
+    const hashedPassword = await hash(password,12);
+    
+    await db.user.create({
+        data:{
+            name,
+            surname,
+            email,
+            phone,
+            password: hashedPassword,
+            rights
+        }
+    });
     
 
+    return { success : "Registration completed"}
 
 }
