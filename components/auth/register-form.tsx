@@ -23,11 +23,11 @@ const RegisterForm = () => {
     const { handleSubmit, register, formState: {errors, isValid}, } = useForm<z.infer<typeof RegisterSchema>>({
         resolver: zodResolver(RegisterSchema),
         defaultValues:{
-            name: "111111",
-            surname: "111111",
+            name: "",
+            surname: "",
             email: "",
-            password: "1111111111",
-            phone: "1111111111",
+            password: "",
+            phone: "",
             rights: false
         }
     });
