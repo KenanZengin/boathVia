@@ -1,11 +1,18 @@
 "use client"
 
+import Link from "next/link";
 import Dropdown from "react-bootstrap/Dropdown";
+import { useCurrentUser } from "@/hooks/client/use-auth";
+
 import { RxHamburgerMenu } from "react-icons/rx";
 import { LuUserCircle2 } from "react-icons/lu";
-import Link from "next/link";
 
 const UserSection = () => {
+  
+  const user = useCurrentUser();
+  console.log("user:",user);
+  
+
   return (
     <Dropdown>
         <Dropdown.Toggle title="User action"  >
@@ -19,12 +26,13 @@ const UserSection = () => {
             <Link href="/auth/register">
                 Register
             </Link>
-            {/* <Link>
-                Add your boat to Teknevia
-            </Link> */}
+            
              <Link href="/">
                 Help Center
             </Link>
+            {/* <Link>
+                Add your boat to Teknevia
+            </Link> */}
         </Dropdown.Menu>
     </Dropdown>
   )

@@ -1,15 +1,31 @@
+"use client"
+
+import { useEffect, useState } from 'react';
+import { Toast } from 'react-bootstrap';
+import { MdError } from "react-icons/md";
 
 const FormError = ({message}:{message?:string}) => {
 
-    if(!message) return null;
+  const [show, setShow] = useState<boolean | undefined>(true);
+
+
+  if(!message) return null;
+
+
+  setTimeout(() => {
+    setShow(false); 
+  }, 8000);
+ 
+  const handleClose = () => setShow(false);
+
+  return (
+    <Toast onClose={handleClose} show={show}>
+      <Toast.Header>
+        <p><MdError size={24}/>{message}</p>
+      </Toast.Header>
+    </Toast>
+  );
+};
+
   
-    return (
-      <div className="form-message">
-        <p className="error">
-            {message}
-        </p>
-      </div>
-    )
-  }
-  
-  export default FormError
+export default FormError

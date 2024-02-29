@@ -17,22 +17,27 @@ const Header = () => {
   const [scrollY, setScrollY] = useState<number>(0);
   
   useEffect(() => {
-    if(pathname == "/"){
+    if(pathname === "/"){
       const handleScroll = () => {
         setScrollY(window.scrollY);
       };
       handleScroll();
       window.addEventListener("scroll", handleScroll);
+      console.log(scrollY);
       return () => {
         window.removeEventListener("scroll", handleScroll);
-      };
+      }; 
+      console.log(scrollY);
+      
     }
+    
   }, [pathname]);
+  
   
   
 
   return (
-    <header className={`header ${ !pathname.startsWith("/ship-detail/") ? pathname === "/"? scrollY > 482 ? "sticky_header" : "" : "sticky_header": "other_page" }`}>
+    <header className={`header ${ !pathname.startsWith("/ship-detail/") ? pathname === "/" ? scrollY > 482 ? "sticky_header" : "" : "sticky_header": "other_page" }`}>
       <div className="header-web container_add">
         <div className="header-web-left">
           <div className="headlogo">

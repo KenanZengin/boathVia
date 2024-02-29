@@ -22,3 +22,13 @@ export const RegisterSchema = z.object({
         {message: "You must agree to the terms and conditions"}
     ),
 })
+
+
+export const LoginSchema = z.object({
+    email: z.string().email({
+        message: "Email is required"
+    }),
+    password: z.string().min(6,{
+        message: "Minumum 6 characters required"
+    }),
+})

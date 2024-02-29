@@ -7,10 +7,11 @@ import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { RegisterSchema } from "@/schemas"
 import { record } from "@/server/actions/register"
+import FormError from "../form-error"
+
 
 import { FaRegEyeSlash } from "react-icons/fa";
 import { IoIosEye } from "react-icons/io";
-import FormError from "../form-error"
 
 
 const RegisterForm = () => {
@@ -140,14 +141,15 @@ const RegisterForm = () => {
                         <label htmlFor="phone">I have read and accept <Link href={"/"}>the terms of use</Link></label><br />
                         {errors.rights?.message && <p className="form-error-msg">{errors.rights.message}</p>}
                     </div>
-                    <button type="submit" disabled={isPending}>
-                        {formState ?"Registration completed" :"Register"}
+                    <button className="send-btn" type="submit" disabled={isPending}>
+                        { formState ? "Registration completed" : "Register" }
                     </button>
-                    <FormError message={formError} />
+                    
                 </form>
             </div>
-            <div className="already">Login <Link href={"/"}>Already a member?</Link></div>
+            <div className="already">Login <Link href={"/auth/login"}>Already a member?</Link></div>
        </div>
+       <FormError message={formError} />
     </main>
     )
 }

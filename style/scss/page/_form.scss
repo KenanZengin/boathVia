@@ -137,7 +137,7 @@
                     }
                     
                 }
-                button{
+                .send-btn{
                     margin: 15px 0;
                     width: 100%;
                     padding: 12px 0;
@@ -177,13 +177,18 @@
                 }
             }
         }
-        .already{
+        .already,.reset-pass{
             text-align: center;
             color: rgb(8, 47, 62);
             a{
                 color: #3B8A87;
-                text-decoration: underline;
+                &:hover{
+                    text-decoration: underline;
+                }
             }
+        }
+        .reset-pass{
+            margin-top: 10px;
         }
     }
     
