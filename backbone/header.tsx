@@ -26,14 +26,12 @@ const Header = () => {
       console.log(scrollY);
       return () => {
         window.removeEventListener("scroll", handleScroll);
-      }; 
-      console.log(scrollY);
-      
+      };       
     }
-    
   }, [pathname]);
   
   
+  console.log(scrollY);
   
 
   return (
