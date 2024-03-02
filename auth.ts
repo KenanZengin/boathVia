@@ -3,13 +3,14 @@ import authConfig from "./auth.config"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { db } from "./server/db/db"
 import { getUserById } from "./server/data/user"
-import { UserRole } from "@prisma/client"
+import { UserLanguage, UserRole } from "@prisma/client"
 
 
 export type ExtendUser = DefaultSession["user"] & {
     surname: string,
     phone: string,
-    password: string
+    password: string,
+    lang: UserLanguage
 };
 
 declare module "next-auth"{
@@ -39,6 +40,7 @@ signOut
                 session.user.surname = token.surname as string;
                 session.user.phone = token.phone as string;
                 session.user.password = token.password as string;
+                session.user.lang = token.lang as UserLanguage;
             }
 
 
@@ -55,6 +57,7 @@ signOut
             token.surname = existingUser.surname;
             token.phone = existingUser.phone;
             token.password = existingUser.password;
+            token.lang = existingUser.language;
 
             return token
         }

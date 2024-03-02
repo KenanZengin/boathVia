@@ -5,10 +5,10 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import ChangeLang from '@/components/header/lang';
 import UserSection from '@/components/header/user-section';
+import SearchInput from '@/components/search-input';
 
 import logo from "../public/img/basic/logo.png"
 import logo2 from "../public/img/basic/logo_2.png"
-import SearchInput from '@/components/search-input';
 
 const Header = () => {
 
@@ -30,8 +30,7 @@ const Header = () => {
     }
   }, [pathname]);
   
-  
-  
+
 
   return (
     <header className={`header ${ !pathname.startsWith("/ship-detail/") ? pathname === "/" ? scrollY > 482 ? "sticky_header" : "" : "sticky_header": "other_page" }`}>

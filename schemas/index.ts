@@ -1,4 +1,5 @@
 import * as z from "zod"
+import { UserLanguage } from "@prisma/client"
 
 
 export const RegisterSchema = z.object({
@@ -38,9 +39,10 @@ export const SettingsSchema = z.object({
     name: z.optional(z.string()),
     surname: z.optional(z.string()),
     email: z.optional(z.string().email()),
-    password: z.optional(z.string().min(6)),
-    newPassword: z.optional(z.string().min(6)),
-    phone: z.optional(z.string().min(6).max(10))
+    password: z.optional(z.string()),
+    newPassword: z.optional(z.string()),
+    phone: z.optional(z.string()),
+    lang: z.optional(z.nativeEnum(UserLanguage)),
 })
     .refine((data)=>{
         if(data.password && !data.newPassword){

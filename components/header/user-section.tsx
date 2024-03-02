@@ -8,10 +8,12 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { LuUserCircle2 } from "react-icons/lu";
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { signOut } from "next-auth/react";
+import { logout } from "@/hooks/client/logout";
 
 const UserSection = () => {
 
   const user = useCurrentUser();
+  
   
   return (
     <Dropdown>
@@ -35,7 +37,7 @@ const UserSection = () => {
                         <Link href="/">
                         Privacy & Security
                         </Link>
-                        <button onClick={() => signOut()}>
+                        <button onClick={logout}>
                             Sign out
                         </button>
                         <Link href="/">

@@ -36,9 +36,12 @@ enum UserRole {
   USER
 }
 
+enum UserLanguage {
+  ENG
+  TR
+}
 
 model User{
-
   id String @id @default(cuid())
   name String?
   surname String?
@@ -47,6 +50,7 @@ model User{
   phone String?
   rights Boolean @default(false)
   role UserRole @default(USER)
+  language UserLanguage @default(ENG)
   image String?
   accounts Account[]
   emailVerified DateTime?

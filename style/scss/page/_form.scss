@@ -152,12 +152,13 @@
                         background-color: #107076;
                     }
                 }
-                input:not([type="checkbox"]){
+                input:not([type="checkbox"]):not([type="radio"]){
                     width: 100%;
                     padding: 12px 16px;
                     border-radius: 6px;
                     box-shadow:  0 0 #000, 0 0 #0000,  0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px -1px rgba(0, 0, 0, .1);
                 }
+                
                 .success-input{
                     border: 1px solid #45B8AB;
                     &:focus{
@@ -174,6 +175,63 @@
                 .form-error-msg{
                     color: #FA1648;
                     font-size: 0.9375rem;
+                }
+                .form-l{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                   .lang-op{
+                        display: flex;
+                        align-items: center;
+                        gap: 7px;
+                        input[type="radio"]{
+                            -webkit-flex-shrink: 0;
+                            -ms-flex-negative: 0;
+                            flex-shrink: 0;
+                            position: relative;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            -ms-appearance: none;
+                            appearance: none;
+                            background-color: #fff;
+                            margin: 0 20px 0 0;
+                            width: 1.3rem;
+                            height: 1.3rem;
+                            border: 1px solid #178a87;
+                            -webkit-border-radius: 0.25rem;
+                            -moz-border-radius: .25rem;
+                            border-radius: 0.25rem;
+                            cursor: pointer;
+                            
+                            &:checked{
+                               background-color: #178a87;
+                               &::before{
+                                content: "";
+                                -webkit-transform: scale(1);
+                                -moz-transform: scale(1);
+                                -ms-transform: scale(1);
+                                -o-transform: scale(1);
+                                transform: scale(1);
+                                -webkit-transform-origin: bottom left;
+                            -moz-transform-origin: bottom left;
+                            -ms-transform-origin: bottom left;
+                            -o-transform-origin: bottom left;
+                            transform-origin: bottom left;
+                            -webkit-clip-path: polygon(28% 38%, 41% 53%, 75% 24%, 86% 38%, 40% 78%, 15% 50%);
+                            clip-path: polygon(28% 38%, 41% 53%, 75% 24%, 86% 38%, 40% 78%, 15% 50%);
+                            width: 1rem;
+                            height: 1rem;
+                            background-color:#fff;
+                            position: absolute;
+                            top: 1px;
+                            left: 1px;
+                        }
+                            }
+                            
+                            
+                        }
+                        
+                   }
                 }
             }
         }
@@ -193,3 +251,5 @@
     }
     
 }
+
+

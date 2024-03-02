@@ -1,15 +1,9 @@
 import SettingsForm from "@/components/auth/settings-form"
 
-
 const Profile =  () => {
-    
-
-   
-
   return (
     <div>
-     
-        <SettingsForm />
+      <SettingsForm />
     </div>
   )
 }
