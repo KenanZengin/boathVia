@@ -39,7 +39,7 @@
         min-width: max-content;
         padding: 0;
 
-        .dropdown-item,a{
+        .dropdown-item,a,button{
             display: block;
             padding: 12px 0;
             line-height: 24px;
@@ -69,7 +69,7 @@
     &-menu.user_section{
         min-width: 220px;
         text-align: center;
-        a{
+        a,button{
             text-align: left;
             padding-left: 24px;
             color: #000 !important;

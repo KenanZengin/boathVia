@@ -31,7 +31,6 @@ const Header = () => {
   }, [pathname]);
   
   
-  console.log(scrollY);
   
 
   return (

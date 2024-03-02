@@ -32,3 +32,32 @@ export const LoginSchema = z.object({
         message: "Minumum 6 characters required"
     }),
 })
+
+
+export const SettingsSchema = z.object({
+    name: z.optional(z.string()),
+    surname: z.optional(z.string()),
+    email: z.optional(z.string().email()),
+    password: z.optional(z.string().min(6)),
+    newPassword: z.optional(z.string().min(6)),
+    phone: z.optional(z.string().min(6).max(10))
+})
+    .refine((data)=>{
+        if(data.password && !data.newPassword){
+            return false
+        }
+        return true;
+    },{
+        message: "New Password is requreid",
+        path: ["newPassword"]
+    })
+    .refine((data)=>{
+        if(!data.password && data.newPassword){
+            return false
+        }
+
+        return true
+    },{
+        message: "Password is required",
+        path: ["password"]
+    })
