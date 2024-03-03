@@ -22,8 +22,6 @@ model Ships{
   hour_price Int
   img_path String 
   full_hours String[]
-
-  @@index([id])
 }
 
 model Services{
@@ -56,8 +54,6 @@ model User{
   image String?
   emailVerified DateTime?
   userFavShips UserFavShips?
-
-  @@index([id])
 }
 
 model UserFavShips {

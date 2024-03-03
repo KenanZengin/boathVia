@@ -6,6 +6,7 @@ import { GoStarFill } from "react-icons/go";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { ShipsCartProps } from '@/types';
 import Link from 'next/link';
+import { addFav } from '@/server/actions/favships';
 
 
 const ShipCard = ({data}:{data:ShipsCartProps}) => {
@@ -13,7 +14,9 @@ const ShipCard = ({data}:{data:ShipsCartProps}) => {
   const {id,city,district, star, comment, category, capacity, hour_price, img_path} =  data;
 
   const addFavorite = () => {
-    console.log("ID:",id);
+    if(id){
+      addFav(id).then((data)=>console.log(data))
+    }
   }
   
   return (
