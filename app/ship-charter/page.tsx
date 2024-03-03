@@ -31,7 +31,6 @@ const Ships = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
         </div>
       </div>
       {error && <div>{error}</div>}
-     
     </main>
   )
 }

@@ -6,15 +6,22 @@ import { MdError } from "react-icons/md";
 
 const FormError = ({message}:{message?:string}) => {
 
-  const [show, setShow] = useState<boolean | undefined>(true);
+  const [show, setShow] = useState<boolean | undefined>(!!message);
 
 
-  if(!message) return null;
 
+  useEffect(() => {
+    if(message){
+      setShow(true);
+      const timeout = setTimeout(() => {
+        setShow(false);
+      }, 8000);
+      return () => clearTimeout(timeout);
 
-  setTimeout(() => {
-    setShow(false); 
-  }, 8000);
+    }
+  }, [message]);
+
+  if(!message ) return null;
  
   const handleClose = () => setShow(false);
 

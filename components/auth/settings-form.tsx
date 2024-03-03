@@ -11,15 +11,20 @@ import { useState, useTransition } from 'react';
 import { IoIosEye } from 'react-icons/io';
 import { FaRegEyeSlash } from 'react-icons/fa';
 import { UserLanguage } from '@prisma/client';
+import { settings } from '@/server/actions/settings';
+import FormError from '../form-error';
 
 const SettingsForm = () => {
 
 
     const user = useCurrentUser();
     
+    
+    
     const [isPending, startTransition] = useTransition();
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [showNewPassword, setShowNewPassword] = useState<boolean>(false);
+    const [formError, setFormError] = useState<string | undefined>("")
 
 
     
@@ -37,10 +42,22 @@ const SettingsForm = () => {
     })
 
     const onSubmit = (values: z.infer<typeof SettingsSchema>) => {
-
-        console.log(values);
         
+        setFormError("");
+
+        startTransition(()=>{
+            settings(values)
+                .then((data)=>{
+                    
+                    if(data.error){
+                        setFormError(data.error);
+                    }
+                })
+        })
     }
+
+    console.log(formError);
+    
 
   return (
     <main className="auth-form">
@@ -56,7 +73,7 @@ const SettingsForm = () => {
                             type="text" 
                             id="name" 
                             placeholder={user?.name || ""}
-                            className={`${errors.phone ? "error-input" : "success-input"}`}
+                            className={`${errors.name ? "error-input" : "success-input"}`}
                             {...register("name")} 
                             disabled={isPending} 
                         /> 
@@ -158,10 +175,10 @@ const SettingsForm = () => {
                     <button className="send-btn" type="submit" >
                         Save
                     </button>
-                    
                 </form>
             </div>
         </div>
+        <FormError message={formError} />
     </main>
   )
 }

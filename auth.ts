@@ -7,10 +7,13 @@ import { UserLanguage, UserRole } from "@prisma/client"
 
 
 export type ExtendUser = DefaultSession["user"] & {
+    id: string
+    name: string,
     surname: string,
     phone: string,
+    email: string,
     password: string,
-    lang: UserLanguage
+    lang: UserLanguage,
 };
 
 declare module "next-auth"{
@@ -37,8 +40,10 @@ signOut
             }
 
             if(session.user){
+                session.user.name = token.name as string;
                 session.user.surname = token.surname as string;
                 session.user.phone = token.phone as string;
+                session.user.email = token.email as string;
                 session.user.password = token.password as string;
                 session.user.lang = token.lang as UserLanguage;
             }
@@ -54,7 +59,9 @@ signOut
 
             if(!existingUser) return token;
 
+            token.name = existingUser.name;
             token.surname = existingUser.surname;
+            token.email = existingUser.email;
             token.phone = existingUser.phone;
             token.password = existingUser.password;
             token.lang = existingUser.language;

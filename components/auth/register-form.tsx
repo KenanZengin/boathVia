@@ -21,6 +21,7 @@ const RegisterForm = () => {
     const [formState, setFormState] = useState<boolean>(false);
     const [formError, setFormError] = useState<string | undefined>("")
 
+
     const { handleSubmit, register, formState: {errors, isValid}, } = useForm<z.infer<typeof RegisterSchema>>({
         resolver: zodResolver(RegisterSchema),
         defaultValues:{
@@ -35,11 +36,12 @@ const RegisterForm = () => {
 
     const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
 
-        setFormError("");
+        setFormError("")
 
         startTransition(() => {
             record(values)
-                .then((data)=>{                    
+                .then((data)=>{          
+                    console.log(data.error);
                     if(data.success){
                         setFormState(true);
                     }
@@ -149,7 +151,7 @@ const RegisterForm = () => {
             </div>
             <div className="already">Login <Link href={"/auth/login"}>Already a member?</Link></div>
        </div>
-       <FormError message={formError} />
+        <FormError message={formError}  />
     </main>
     )
 }

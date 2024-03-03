@@ -74,3 +74,8 @@ model Account {
 
   @@unique([provider, providerAccountId])
 }
+
+model UserFavShips{
+  id String @id @default(cuid())
+  shipId String
+}

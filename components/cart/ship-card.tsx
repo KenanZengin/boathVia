@@ -11,6 +11,10 @@ import Link from 'next/link';
 const ShipCard = ({data}:{data:ShipsCartProps}) => {
 
   const {id,city,district, star, comment, category, capacity, hour_price, img_path} =  data;
+
+  const addFavorite = () => {
+    console.log("ID:",id);
+  }
   
   return (
     <Card className='test'>
@@ -41,11 +45,12 @@ const ShipCard = ({data}:{data:ShipsCartProps}) => {
           <p className="reservesion">
             ⚡️ Immediately Reservable 
           </p>
-          <span role="button">
-            <IoMdHeartEmpty size={28} />
-          </span>
+         
         </div>
       </Link>
+      <span role="button" className='addFav' onClick={addFavorite}>
+        <IoMdHeartEmpty size={28} />
+      </span>
     </Card>
   )
 }
