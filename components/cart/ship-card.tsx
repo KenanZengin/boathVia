@@ -7,15 +7,18 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { ShipsCartProps } from '@/types';
 import Link from 'next/link';
 import { addFav } from '@/server/actions/favships';
+import { useRouter } from 'next/navigation';
 
 
 const ShipCard = ({data}:{data:ShipsCartProps}) => {
 
   const {id,city,district, star, comment, category, capacity, hour_price, img_path} =  data;
+  const router = useRouter();
 
   const addFavorite = () => {
     if(id){
-      addFav(id).then((data)=>console.log(data))
+      addFav(id).then((data)=>console.log(data));
+      router.refresh();
     }
   }
   

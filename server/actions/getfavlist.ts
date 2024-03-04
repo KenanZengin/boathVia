@@ -20,6 +20,10 @@ export const getfavlist = async () => {
         },
     })
 
+    if(favShipsId === null && !favShipsId){
+        return { error : "No ship registration"};
+    } 
+
     const favShips = await db.ships.findMany({
         where:{
             id:{
@@ -27,6 +31,8 @@ export const getfavlist = async () => {
             }
         }
     })
+    
+    
 
     return {favShips}
 

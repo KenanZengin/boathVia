@@ -33,14 +33,14 @@ const Header = () => {
 
 
   return (
-    <header className={`header ${ !pathname.startsWith("/ship-detail/") ? pathname === "/" ? scrollY > 482 ? "sticky_header" : "" : "sticky_header": "other_page" }`}>
+    <header className={`header ${ !pathname.startsWith("/ship-detail/") ? pathname === "/" || pathname ==="/helpcenter" ? scrollY > 482 ? "sticky_header" : "" : "sticky_header": "other_page" }`}>
       <div className="header-web container_add">
         <div className="header-web-left">
           <div className="headlogo">
             <Link href={"/"}>
               <Image src=
                 {
-                  pathname === "/"  ? scrollY > 482 
+                  pathname === "/" || pathname ==="/helpcenter"  ? scrollY > 482 
                     ? logo2 : logo
                     : logo2
                 } 
@@ -49,7 +49,7 @@ const Header = () => {
             </Link>
           </div>
         </div>
-        {pathname === "/" ? scrollY > 482 
+        {pathname === "/" || pathname ==="/helpcenter" ? scrollY > 482 
           ?   
             ( <div className="header-web-center">
                 <SearchInput widthValue={23} />

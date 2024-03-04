@@ -34,9 +34,6 @@ const UserSection = () => {
                         <Link href="/">
                             Personal Information
                         </Link>
-                        <Link href="/">
-                        Privacy & Security
-                        </Link>
                         <button onClick={logout}>
                             Sign out
                         </button>
