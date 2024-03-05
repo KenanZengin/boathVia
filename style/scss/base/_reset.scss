@@ -21,6 +21,9 @@ time, mark, audio, video {
 body{
 	overflow-x: hidden;
 }
+html{
+	scroll-behavior: smooth;
+}
 .noselect{
 	-webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
