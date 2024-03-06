@@ -40,17 +40,17 @@ const SearchInput = ({widthValue}: Props) => {
   const locations = ["Istanbul","Kadikoy","Uskudar","Levent","Karakoy","Kurucesme","AnadoluHisari","Eminonu","Istinye","Bebek"];
 
         useEffect(() => {
-        const handleClickOutside = (event: Event) => {
-          if (open && !sortMenuRef.current?.contains(event.target as Node)) {
-            setOpen(false);
-          }
-        };
-      
-        document.addEventListener('click', handleClickOutside);
-      
-        return () => {
-          document.removeEventListener('click', handleClickOutside);
-        };
+                const handleClickOutside = (event: Event) => {
+                if (open && !sortMenuRef.current?.contains(event.target as Node)) {
+                setOpen(false);
+                }
+                };
+        
+                document.addEventListener('click', handleClickOutside);
+        
+                return () => {
+                document.removeEventListener('click', handleClickOutside);
+                };
         }, [open])
     
 

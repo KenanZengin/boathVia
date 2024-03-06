@@ -60,8 +60,8 @@
     .header-web-right .btnsarea-item.user-section{
         border-color: #e5e7eb !important;
     }
-    .dropdown > button{
-        color: #082f3e;
+    .dropdown > button, .mydropdown-menu > button svg{
+        color: #082f3e !important;
         &:hover,&:focus,&:active,&:focus-visible{
             color: #082f3e;
         }
@@ -79,12 +79,13 @@
     box-shadow: 0 0 rgba(0, 0, 0, 0), 0 0 rgba(0, 0, 0, 0), 0 0 rgba(0, 0, 0, 0), 0 0 rgba(0, 0, 0, 0), 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
     .btnsarea{
         &-item * svg {
-            color: #082f3e;
+            color: #082f3e !important;
         }
         &-item{
             a{
                 color: #082f3e !important;
             }
+            
         }
     }
     .user-section{

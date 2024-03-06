@@ -1,4 +1,4 @@
-.dropdown{
+.dropdown,.mydropdown-menu{
     button{
         background-color: inherit !important;
         border-color: inherit !important;
@@ -38,7 +38,6 @@
         right: 0 !important;
         min-width: max-content;
         padding: 0;
-
         .dropdown-item,a,button{
             display: block;
             padding: 12px 0;
@@ -53,7 +52,7 @@
         button{
             text-align: center;
         }
-        .dropdown-item.actived{
+        a.actived{
             color: #178a87 !important;
             background-color: rgb(248, 250, 245) !important;
             pointer-events: auto !important;
@@ -73,6 +72,8 @@
             text-align: left;
             padding-left: 24px;
             color: #000 !important;
+            width: 100%;
+            display: block;
             &:hover{
                 text-decoration: none !important;
             }
@@ -218,3 +219,47 @@
 }
 
 
+.mydropdown-menu{
+    position: relative;
+    button{
+        svg{
+            color: #fff;
+        }
+    }
+    .menu{
+        position: absolute;
+        right: 0;
+        top: 40px;
+        min-width: 220px;
+        text-align: center;
+        padding: 0;
+        box-shadow:0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
+        border-radius: 0.375rem;
+        background-color: #fff;
+        a,button{
+            display: block;
+            text-align: left;
+            padding: 12px 0 12px 24px;
+            line-height: 1.5rem;
+            color: rgb(8, 47, 62) !important;
+            width: 100%;
+            display: block;
+            background-color: #fff;
+            border-radius: 0.375rem;
+            &:hover{
+                text-decoration: none !important;
+                background-color: rgb(248, 250, 245) !important;
+            }
+        }
+        a.actived{
+            color: #178a87 !important;
+            background-color: rgb(248, 250, 245) !important;
+            pointer-events: auto !important;
+            &:hover{
+                cursor: not-allowed !important; 
+            }
+        }
+        
+    }
+    
+}
