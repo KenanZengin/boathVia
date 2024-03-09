@@ -289,7 +289,8 @@
                         }
                     }
                     .options{
-                        display: grid;
+                        form{
+                            display: grid;
                         grid-template-columns: repeat(2,1fr);
                         border: 1px solid #64748B;
                         border-radius: 12px;
@@ -518,6 +519,7 @@
                                     }
                                 }
                             }
+                        }
                         }
                     }
                     .order{

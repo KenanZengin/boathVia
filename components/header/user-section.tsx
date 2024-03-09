@@ -49,19 +49,19 @@ const UserSection = () => {
                     {user 
                         ?
                             <>
-                                <Link href="/auth/login">
-                                Reservation
-                                </Link>
-                                <Link href="/auth/register" >
-                                Favorites
-                                </Link>
                                 <Link href="/">
+                                    Reservation
+                                </Link>
+                                <Link href="/favorites" >
+                                    Favorites
+                                </Link>
+                                <Link href="/profile">
                                     Personal Information
                                 </Link>
                                 <button onClick={logout}>
                                     Sign out
                                 </button>
-                                <Link href="/">
+                                <Link href="/helpcenter">
                                     Help Center
                                 </Link>
                             </>
@@ -73,7 +73,7 @@ const UserSection = () => {
                                 <Link href="/auth/register">
                                     Register
                                 </Link>
-                                <Link href="/">
+                                <Link href="/helpcenter">
                                     Help Center
                                 </Link>
                             </>

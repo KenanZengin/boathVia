@@ -11,6 +11,8 @@ import { login } from "@/server/actions/login"
 import { FaRegEyeSlash } from "react-icons/fa";
 import { IoIosEye } from "react-icons/io";
 import FormError from "../form-error"
+import FormSuccess from "../form-success"
+import { useRouter } from "next/navigation"
 
 
 const LoginForm = () => {
@@ -19,6 +21,7 @@ const LoginForm = () => {
     const [showPassword,setShowPassword] = useState<boolean>(false);
     const [formState, setFormState] = useState<boolean>(false);
     const [formError, setFormError] = useState<string | undefined>("")
+    const [formSuccess, setFormSuccess] = useState<string | undefined>("")
 
     const { handleSubmit, register, formState: {errors, isSubmitting}, reset } = useForm<z.infer<typeof LoginSchema>>({
         resolver: zodResolver(LoginSchema),
@@ -33,6 +36,7 @@ const LoginForm = () => {
         console.log("values",values);
         
         setFormError("");
+        setFormState(false);
 
         startTransition(() => {
             login(values)
@@ -40,8 +44,10 @@ const LoginForm = () => {
                     if(data?.error){
                         setFormError(data?.error);
                     }
+                    if(data?.success){
+                        setFormState(true)
+                    }
                 })
-    
         });
         
     };
@@ -90,7 +96,7 @@ const LoginForm = () => {
                     </div>
                    
                     <button className="send-btn" type="submit" disabled={isPending}>
-                        Login
+                      {formState ? "Login process successful" : "Login"}  
                     </button>
                     
                 </form>
@@ -99,6 +105,7 @@ const LoginForm = () => {
             <div className="reset-pass">Did you forget your password? <Link href={"/"}>Reset Password</Link></div>
        </div>
        <FormError message={formError} />
+       <FormSuccess message={formSuccess} />
     </main>
     )
 }

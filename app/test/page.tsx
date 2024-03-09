@@ -1,45 +1,21 @@
 "use client"
 
-import Link from 'next/link';
-import { useState } from 'react';
-import Dropdown from 'react-bootstrap/Dropdown';
 
-function BasicExample() {
+const TEST = () => {
 
-    const test = () => {
-        
-        const deneme0 = document.querySelector(".testo.show");
-        const deneme = document.querySelector(".testo .dropdown-menu.show");
-        const button = document.querySelector('.testo .dropdown-toggle.show');
-        console.log(button);
-        
-        console.log(deneme);
-        if(deneme && button && deneme0){
-            deneme.classList.remove("show")
-            button.classList.remove("show")
-            deneme0.classList.remove("show")
-            button.setAttribute("aria-expanded","false")
-        }
-        
-        
+    const startDate = new Date('Sat Mar 09 2024 12:00:00 GMT+0300 (GMT+03:00)');
+    const duration = 3;
+    const hours = [];
+    for (let i = 0; i < duration; i++) {
+        const startDateTime = new Date(startDate.getTime() + (i * 3600000));
+        hours.push(startDateTime);
     }
+      
+    console.log(hours);
 
   return (
-    <Dropdown className='testo'>
-      <Dropdown.Toggle variant="success" id="dropdown-basic"  >
-        Dropdown Button
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        <Dropdown.Item href="#">Action</Dropdown.Item>
-        <Dropdown.Item href="#">Another action</Dropdown.Item>
-        <Dropdown.Item href="/">Something else</Dropdown.Item>
-       
-        <Link href={"#"} data-rr-ui-dropdown-item className='dropdown-item' onClick={test} >TEST</Link>
-      </Dropdown.Menu>
-    </Dropdown>
-    
-  );
+    <div>TEST</div>
+  )
 }
 
-export default BasicExample;
+export default TEST

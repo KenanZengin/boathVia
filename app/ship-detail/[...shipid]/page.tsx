@@ -12,8 +12,8 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { BsLightningChargeFill } from "react-icons/bs";
 import { TiStopwatch } from "react-icons/ti";
 import { FaStar } from "react-icons/fa";
-import PriceCard from "@/components/cart/price-card";
 import Section_3 from "@/components/homepage/section3";
+import ReservationForm from "@/components/forms/reservation-form";
 
 
 
@@ -234,7 +234,7 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
                     </div>
                     <div className="price">
                         <div className="price-wrapper">
-                           <PriceCard ship={ship}/>
+                           <ReservationForm ship={ship}/>
                         </div>
                     </div>
                 </div>

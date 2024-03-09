@@ -1,4 +1,4 @@
-import SettingsForm from "@/components/auth/settings-form"
+import SettingsForm from "@/components/forms/settings-form"
 
 const Profile =  () => {
   return (

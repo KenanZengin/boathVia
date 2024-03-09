@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import {useEffect, useState, useTransition} from "react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
@@ -8,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { RegisterSchema } from "@/schemas"
 import { record } from "@/server/actions/register"
 import FormError from "../form-error"
+import FormSuccess from "../form-success"
 
 
 import { FaRegEyeSlash } from "react-icons/fa";
@@ -19,7 +21,10 @@ const RegisterForm = () => {
     const [isPending, startTransition] = useTransition();
     const [showPassword,setShowPassword] = useState<boolean>(false);
     const [formState, setFormState] = useState<boolean>(false);
-    const [formError, setFormError] = useState<string | undefined>("")
+    const [formError, setFormError] = useState<string | undefined>("");
+    const [formSuccess, setFormSuccess] = useState<string | undefined>("");
+
+    const router = useRouter();
 
 
     const { handleSubmit, register, formState: {errors, isValid}, } = useForm<z.infer<typeof RegisterSchema>>({
@@ -44,6 +49,12 @@ const RegisterForm = () => {
                     console.log(data.error);
                     if(data.success){
                         setFormState(true);
+                        setFormSuccess(data.success)
+                        setTimeout(()=>{
+                            router.push(
+                                "/auth/login"
+                            )
+                        },2000)
                     }
                     if(data.error){
                         setFormError(data.error);
@@ -152,6 +163,7 @@ const RegisterForm = () => {
             <div className="already">Login <Link href={"/auth/login"}>Already a member?</Link></div>
        </div>
         <FormError message={formError}  />
+        <FormSuccess message={formSuccess}  />
     </main>
     )
 }

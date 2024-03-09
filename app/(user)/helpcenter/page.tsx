@@ -1,17 +1,18 @@
 "use client"
 
+import Link from 'next/link';
 import Image from 'next/image'
 import { useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 
 import Help from "@/public/img/basic/help.png"
-import Link from 'next/link';
+import { AccordionEventKey } from 'react-bootstrap/esm/AccordionContext';
 
 
 const HelpCnter = () => {
 
 
-    const [activeKey, setActiveKey] = useState<any>("");
+    const [activeKey, setActiveKey] = useState<AccordionEventKey>();
     const [show,setShow] = useState<boolean>(false)
     const [show2,setShow2] = useState<boolean>(false)
     const [search,setSearch] = useState<string>("");
@@ -25,126 +26,127 @@ const HelpCnter = () => {
     }
     
     const questions: QuestionProps[] = [
-  {
-    "category": "Visitors",
-    "subcategory": "Account Management",
-    "question": "How can I change my password?",
-    "eventKey": "0",
-  },
-  {
-    "category": "Visitors",
-    "subcategory": "Account Management",
-    "question": "I forgot my password, what can I do?",
-    "eventKey": "1",
-  },
-  {
-    "category": "Visitors",
-    "subcategory": "Account Management",
-    "question": "How can I register?",
-    "eventKey": "12",
-  },
-  {
-    "category": "Visitors",
-    "subcategory": "Account Management",
-    "question": "How can I turn off email notifications?",
-    "eventKey": "13",
-  },
-  {
-    "category": "Visitors",
-    "subcategory": "Cancellation Conditions",
-    "question": "Something is damaged on the boat, what should I do?",
-    "eventKey": "5",
-  },
-  {
-    "category": "Visitors",
-    "subcategory": "Cancellation Conditions",
-    "question": "We had a dispute with the Boat Owner, what should I do?",
-    "eventKey": "6",
-  },
-  {
-    "category": "Visitors",
-    "subcategory": "Cancellation Conditions",
-    "question": "What should I do if there is no boat whose details are shared in Teknevia when I go to the boat?",
-    "eventKey": "55",
-  },
-  {
-    "category": "Visitors",
-    "subcategory": "Cancellation Conditions",
-    "question": "May I cancel my reservation?",
-    "eventKey": "66",
-  },
-  {
-    "category": "Visitors",
-    "subcategory": "Cancellation Conditions",
-    "question": "May I change my reservation? How can I do that?",
-    "eventKey": "51",
-  },
-  {
-    "category": "Visitors",
-    "subcategory": "Cancellation Conditions",
-    "question": "Can I cancel my rental because of the weather?",
-    "eventKey": "61",
-  },
-  {
-    "category": "Visitors",
-    "subcategory": "General Information",
-    "question": "What is Teknevia?",
-    "eventKey": "62",
-  },
-  {
-    "category": "Visitors",
-    "subcategory": "General Information",
-    "question": "Is Teknevia a travel agency?",
-    "eventKey": "8",
-  },
-  {
-    "category": "Visitors",
-    "subcategory": "General Information",
-    "question": "Is Teknevia safe?",
-    "eventKey": "71",
-  },
-  {
-    "category": "Boat Owners",
-    "subcategory": "Account Management",
-    "question": "How do I open a partner account?",
-    "eventKey": "3",
-  },
-  {
-    "category": "Boat Owners",
-    "subcategory": "Account Management",
-    "question": "How can I change my password?",
-    "eventKey": "4",
-  },
-  {
-    "category": "Boat Owners",
-    "subcategory": "Account Management",
-    "question": "I forgot my password, what can I do?",
-    "eventKey": "31",
-  },
-  {
-    "category": "Reservation Process",
-    "subcategory": "Account Management",
-    "question": "Can I rent a boat by the hour?",
-    "eventKey": "9",
-    
-  },
-  {
-    "category": "Reservation Process",
-    "subcategory": "Account Management",
-    "question": "How does the reservation process work?",
-    "eventKey": "10",
-  }
+        {
+            "category": "Visitors",
+            "subcategory": "Account Management",
+            "question": "How can I change my password?",
+            "eventKey": "0",
+        },
+        {
+            "category": "Visitors",
+            "subcategory": "Account Management",
+            "question": "I forgot my password, what can I do?",
+            "eventKey": "1",
+        },
+        {
+            "category": "Visitors",
+            "subcategory": "Account Management",
+            "question": "How can I register?",
+            "eventKey": "12",
+        },
+        {
+            "category": "Visitors",
+            "subcategory": "Account Management",
+            "question": "How can I turn off email notifications?",
+            "eventKey": "13",
+        },
+        {
+            "category": "Visitors",
+            "subcategory": "Cancellation Conditions",
+            "question": "Something is damaged on the boat, what should I do?",
+            "eventKey": "5",
+        },
+        {
+            "category": "Visitors",
+            "subcategory": "Cancellation Conditions",
+            "question": "We had a dispute with the Boat Owner, what should I do?",
+            "eventKey": "6",
+        },
+        {
+            "category": "Visitors",
+            "subcategory": "Cancellation Conditions",
+            "question": "What should I do if there is no boat whose details are shared in Teknevia when I go to the boat?",
+            "eventKey": "55",
+        },
+        {
+            "category": "Visitors",
+            "subcategory": "Cancellation Conditions",
+            "question": "May I cancel my reservation?",
+            "eventKey": "66",
+        },
+        {
+            "category": "Visitors",
+            "subcategory": "Cancellation Conditions",
+            "question": "May I change my reservation? How can I do that?",
+            "eventKey": "51",
+        },
+        {
+            "category": "Visitors",
+            "subcategory": "Cancellation Conditions",
+            "question": "Can I cancel my rental because of the weather?",
+            "eventKey": "61",
+        },
+        {
+            "category": "Visitors",
+            "subcategory": "General Information",
+            "question": "What is Teknevia?",
+            "eventKey": "62",
+        },
+        {
+            "category": "Visitors",
+            "subcategory": "General Information",
+            "question": "Is Teknevia a travel agency?",
+            "eventKey": "8",
+        },
+        {
+            "category": "Visitors",
+            "subcategory": "General Information",
+            "question": "Is Teknevia safe?",
+            "eventKey": "71",
+        },
+        {
+            "category": "Boat Owners",
+            "subcategory": "Account Management",
+            "question": "How do I open a partner account?",
+            "eventKey": "3",
+        },
+        {
+            "category": "Boat Owners",
+            "subcategory": "Account Management",
+            "question": "How can I change my password?",
+            "eventKey": "4",
+        },
+        {
+            "category": "Boat Owners",
+            "subcategory": "Account Management",
+            "question": "I forgot my password, what can I do?",
+            "eventKey": "31",
+        },
+        {
+            "category": "Reservation Process",
+            "subcategory": "Account Management",
+            "question": "Can I rent a boat by the hour?",
+            "eventKey": "9",
+            
+        },
+        {
+            "category": "Reservation Process",
+            "subcategory": "Account Management",
+            "question": "How does the reservation process work?",
+            "eventKey": "10",
+        }
     ];
 
     const activeAccordion = (key:string) => {
-        
+
+        setSearch("");
         setActiveKey(key);
         setShow2(false);
-        
+        setShow(false);
     }
     
     
-    const onClick = (eventKey:any) => {
+    const onSelect = (eventKey: AccordionEventKey  ) => {
         
         if (eventKey !== activeKey) {
           setActiveKey(eventKey);
@@ -216,7 +218,7 @@ const HelpCnter = () => {
         </section>
         <div className="questions">
             <div className="questions-card">
-                <Accordion activeKey={activeKey} onSelect={onClick}>
+                <Accordion activeKey={activeKey} onSelect={onSelect}>
                     <div className="accordion-head">
                         <span className="user-type">
                             Visitors
@@ -278,7 +280,7 @@ const HelpCnter = () => {
                 </Accordion>
             </div>
             <div className="questions-card">
-            <Accordion activeKey={activeKey} onSelect={onClick}>
+            <Accordion activeKey={activeKey} onSelect={onSelect}>
                 <div className="accordion-head">
                     <span className="user-type">
                     Boat Owners
@@ -327,7 +329,7 @@ const HelpCnter = () => {
             </Accordion>
             </div>
             <div className="questions-card">
-            <Accordion activeKey={activeKey} onSelect={onClick}>
+            <Accordion activeKey={activeKey} onSelect={onSelect}>
                 <div className="accordion-head">
                     <span className="user-type">
                         Visitors
@@ -411,7 +413,7 @@ const HelpCnter = () => {
             </Accordion>
             </div>
             <div className="questions-card">
-            <Accordion activeKey={activeKey} onSelect={onClick}>
+            <Accordion activeKey={activeKey} onSelect={onSelect}>
                 <div className="accordion-head">
                     <span className="user-type">
                         Visitors
@@ -459,7 +461,7 @@ const HelpCnter = () => {
             </Accordion>
             </div>
             <div className="questions-card">
-            <Accordion activeKey={activeKey} onSelect={onClick}>
+            <Accordion activeKey={activeKey} onSelect={onSelect}>
                 <div className="accordion-head">
                     <span className="user-type">
                         Visitors

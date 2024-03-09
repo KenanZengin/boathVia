@@ -35,6 +35,15 @@ export const LoginSchema = z.object({
 })
 
 
+
+export const ReservationSchema = z.object({
+    port: z.string(),
+    duration: z.number(),
+    people: z.number(),
+    time: z.date(),
+})
+
+
 export const SettingsSchema = z.object({
     name: z.optional(z.string()),
     surname: z.optional(z.string()),
@@ -63,3 +72,10 @@ export const SettingsSchema = z.object({
         message: "Password is required",
         path: ["password"]
     })
+
+
+
+
+
+
+

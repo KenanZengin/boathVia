@@ -4,7 +4,7 @@ import { useCurrentUser } from '@/hooks/client/use-auth';
 import * as z from "zod"
 import { SettingsSchema } from '@/schemas';
 import { useForm } from 'react-hook-form';
-import LogOutButton from '@/components/auth/logout-button';
+import LogOutButton from '@/components/forms/logout-button';
 import Link from 'next/link';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState, useTransition } from 'react';

@@ -1,7 +1,8 @@
 
 
-export const publicRoutes = [
-    "/settings",
+export const PrivateRoutes = [
+    "/profile",
+    "/favorites"
 ];
 
 export const authRoutes = [
@@ -11,4 +12,4 @@ export const authRoutes = [
 
 export const apiAuthPrefix = "api/auth";
 
-export const DEFAULT_LOGIN_REDİRECT = "/settings";
+export const DEFAULT_LOGIN_REDİRECT = "/";

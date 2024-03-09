@@ -15,7 +15,7 @@ export const login = async(values : z.infer<typeof LoginSchema>) => {
     const validateFields = LoginSchema.safeParse(values);
 
     if(!validateFields.success){
-        return { error : "Invaliz fields"};
+        return { error : "Invalid fields"};
     }
 
     const { email, password } = validateFields.data;
@@ -34,6 +34,8 @@ export const login = async(values : z.infer<typeof LoginSchema>) => {
             password,
             redirectTo: "/profile"
         })
+
+        return { success : "Login process successful"}
         
     } catch (error) {
 

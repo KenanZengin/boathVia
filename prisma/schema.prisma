@@ -6,7 +6,6 @@ datasource db {
 }
 
 
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -22,6 +21,7 @@ model Ships{
   hour_price Int
   img_path String 
   full_hours String[]
+  reservation ReservationCalendar?
 
   @@index([id])
 }
@@ -66,8 +66,34 @@ model UserFavShips {
   shipsId String[]
 
   user User @relation(fields: [userId],references: [id],onDelete: Cascade)
-
 } 
+
+
+
+
+
+model UserReservation{
+  id String @id @default(cuid())
+  userId String 
+  shipId String 
+  port String
+  people Int
+  duration Int
+  time DateTime[]
+
+
+  
+
+}
+
+
+model ReservationCalendar{
+  id String @id @default(cuid())
+  shipId String @unique
+  time DateTime[]
+
+  ships Ships @relation(fields: [shipId],references: [id],onDelete: Cascade)
+}
 
 
 

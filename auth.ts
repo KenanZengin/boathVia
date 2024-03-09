@@ -30,6 +30,7 @@ signOut
 } = NextAuth({
     pages:{
         signIn: "/auth/login",
+        signOut: "/",
     },
     callbacks:{
 

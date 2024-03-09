@@ -26,7 +26,7 @@ const FormError = ({message}:{message?:string}) => {
   const handleClose = () => setShow(false);
 
   return (
-    <Toast onClose={handleClose} show={show}>
+    <Toast onClose={handleClose} show={show} className='toast-error'>
       <Toast.Header>
         <p><MdError size={24}/>{message}</p>
       </Toast.Header>

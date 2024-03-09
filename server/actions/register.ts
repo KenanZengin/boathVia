@@ -37,6 +37,6 @@ export const record = async (values : z.infer<typeof RegisterSchema>) => {
     });
     
 
-    return { success : "Registration completed"}
+    return { success : "Registration completed, you are directed to the login page"}
 
 }
