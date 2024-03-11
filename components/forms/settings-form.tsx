@@ -19,14 +19,10 @@ const SettingsForm = () => {
 
     const user = useCurrentUser();
     
-    
-    
     const [isPending, startTransition] = useTransition();
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [showNewPassword, setShowNewPassword] = useState<boolean>(false);
     const [formError, setFormError] = useState<string | undefined>("")
-
-
     
     const { handleSubmit, register, formState: { errors } } = useForm<z.infer<typeof SettingsSchema>>({
         resolver: zodResolver(SettingsSchema),

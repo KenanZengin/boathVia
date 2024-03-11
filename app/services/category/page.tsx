@@ -46,10 +46,10 @@ const Categories = async ({searchParams}:{searchParams:{[key:string]: string}}) 
         </section>
         <div className="ships">
             <div className="ships-wrapper">
-            {ships && ships.map((item)=>(
+            {/* {ships && ships.map((item)=>(
                 <ShipCard data={item} key={item.id} />
                 )) 
-            }
+            } */}
             </div>
       </div>
    </main>

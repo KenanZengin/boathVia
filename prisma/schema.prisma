@@ -5,7 +5,6 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -14,13 +13,13 @@ model Ships{
   id String @id @default(cuid()) @unique
   city String
   district String
+  port String[]
   star Float
   comment Int
   category String
   capacity Int
   hour_price Int
   img_path String 
-  full_hours String[]
   reservation ReservationCalendar?
 
   @@index([id])
@@ -63,13 +62,10 @@ model User{
 model UserFavShips {
   id String @id @default(cuid())
   userId String @unique
-  shipsId String[]
+  ships String[]
 
   user User @relation(fields: [userId],references: [id],onDelete: Cascade)
 } 
-
-
-
 
 
 model UserReservation{
@@ -80,9 +76,9 @@ model UserReservation{
   people Int
   duration Int
   time DateTime[]
-
-
-  
+  payment Boolean @default(false)
+  status Boolean @default(false)
+  img_path String 
 
 }
 

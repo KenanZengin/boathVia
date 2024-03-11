@@ -14,14 +14,17 @@ const MyDatePicker = ({ setValue, shipId }: {
   shipId: string | undefined;
 }) => {
 
-  const defaultDate = new Date();
-  defaultDate.setHours(0, 0, 0);  
-  const [selectedDate, setSelectedDate] = useState<Date | null>(defaultDate);
+
+  
+  const [selectedDate, setSelectedDate] = useState<Date | null>();
   const [excludedTimes, setExcludedTimes] = useState<Date[]>([]);
   const [reservedTimes, setReservedTimes] = useState<Date[]>([]);
-  console.log("selectedDate",selectedDate);
+  //const [teste, setTeste] = useState<any>();
+
 
   useEffect(() => {
+    //const now = new Date();
+    //setTeste(now.setHours(now.getHours(), now.getMinutes(), 0, 0));
     if (shipId) {
       getShipReservationCalendar(shipId).then((data) => {
         if (data) {
@@ -34,6 +37,7 @@ const MyDatePicker = ({ setValue, shipId }: {
   }, [shipId]);
 
   const handleDateChange = (date: Date | null) => {
+
     if (date && date.getTime()) {
       const isReservedTime  = reservedTimes.some((item) => item.getTime() === date.getTime())
       if(isReservedTime ){
@@ -49,6 +53,8 @@ const MyDatePicker = ({ setValue, shipId }: {
     } else {
       setExcludedTimes([]);
     }
+
+
   };
 
   const handleExcludedTimes = (date: Date, reservedTimes: Date[]) => {
@@ -59,7 +65,9 @@ const MyDatePicker = ({ setValue, shipId }: {
   };
 
  
-  
+  const defaultDate = new Date();
+  defaultDate.setHours(0, 0, 0);  
+
 
   return (
     <div>
@@ -71,7 +79,8 @@ const MyDatePicker = ({ setValue, shipId }: {
         dateFormat="dd.MM.yyyy HH:mm"
         timeFormat="HH:mm"
         timeIntervals={60}
-        minDate={defaultDate}
+        minDate={new Date()}
+        //minTime={teste}
         shouldCloseOnSelect={false}
       />
     </div>

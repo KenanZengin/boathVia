@@ -25,7 +25,7 @@ export const record = async (values : z.infer<typeof RegisterSchema>) => {
 
     const hashedPassword = await hash(password,12);
     
-    await db.user.create({
+    const user = await db.user.create({
         data:{
             name,
             surname,
@@ -36,6 +36,11 @@ export const record = async (values : z.infer<typeof RegisterSchema>) => {
         }
     });
     
+    await db.userFavShips.create({
+        data:{
+            userId:user.id
+        }
+    })
 
     return { success : "Registration completed, you are directed to the login page"}
 

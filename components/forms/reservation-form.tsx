@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { ShipsCartProps } from "@/types";
 import * as z from "zod"
@@ -17,6 +18,7 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
 
   const [hour,setHour] = useState<number>(2);
   const [people,setPeople] = useState<number>(2);
+  const router = useRouter();
   
 
 
@@ -51,12 +53,14 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
     }
   };
 
+  const defaultDate = new Date();
+  defaultDate.setHours(0, 0, 0);  
 
   const {handleSubmit, register, formState: {errors},setValue} = useForm<z.infer<typeof ReservationSchema>>({
     resolver: zodResolver(ReservationSchema),
     defaultValues:{
         port: "Kandilli",
-        time: new Date(),
+        time: defaultDate,
         duration: hour,
         people: people,
         
@@ -65,13 +69,18 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
 
   const onSubmit = (values: z.infer<typeof ReservationSchema>) => {
 
-    console.log(values);
     
-    // if(ship && ship.id){
-    //     reservation(values,ship?.id).then((data)=>console.log(data))
-    // }
-    
-  }
+    if(ship && ship.id && values){
+        reservation(values,ship?.id).then((data)=>{
+                if(data.status === true){
+                    router.push(
+                        `/payment?id=${data.reservationId}`
+                    )
+                }
+            }
+        )
+    }
+}
 
 
   return (

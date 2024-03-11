@@ -1,12 +1,16 @@
 import Link from 'next/link';
 import ShortList from "../cart/ship-sort-list"
 import { getShips } from "@/server/actions/ships";
+import { currentUserId } from '@/hooks/server/auth';
+import { getUserfavShip } from '@/hooks/server/favships';
 
 
 
 const Section_3 = async  ({title,comment,link,maks}:{title?:string,comment?:string,link?:boolean,maks:number}) => {
 
   const { ships } = await getShips();
+  const user = await currentUserId();
+  const userFavList = await getUserfavShip()
 
   return (
     <section className='section_3' >
@@ -21,7 +25,7 @@ const Section_3 = async  ({title,comment,link,maks}:{title?:string,comment?:stri
           </Link>
       )}
     </div>
-    <ShortList data={ships} maksLimit={maks} />
+    <ShortList data={ships} maksLimit={maks} userId={user} userFavList={userFavList.ships?.ships} />
   </section>
   )
 }

@@ -89,6 +89,21 @@
         position: absolute;
         right: 19px;
         top: 5px;
+        .heart{
+
+            path:first-child{
+                color: #5457cd;
+                opacity: 1;
+            }
+            path:last-child{
+                color: #fff;
+            }
+        }
+    }
+    .added{
+        color: #5457cd;
+    }
+    .noadded{
         color: #fff;
     }
 }

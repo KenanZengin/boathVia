@@ -1,76 +1,54 @@
 "use server"
 
-import { currentUser } from "@/hooks/server/auth";
-import { getShipsById } from "../data/ships"
 import { db } from "../db/db";
-import { getfavShips } from "@/hooks/server/favships";
+import { getUserfavShips } from "@/hooks/server/favships";
 
 
-export const addFav = async(id: string) => {
+export const addFav = async(id: string, userId: string) => {
 
 
-    const existingShpis = await getShipsById(id);
-
-    if(!existingShpis){
-        return {error : "No such ship was found"}
-    }
-
-    const checkUser = await currentUser();
-
-    if(!checkUser){
+    
+    if(!userId){
         return { error : "To add ships to your favorite list, you must first log in"}
     }
 
-    const favShips = await getfavShips(checkUser.id);
+    const favShips = await getUserfavShips(userId);
+    
+    const checkFav = favShips?.some((filterId) => filterId == id);
+  
+    if(checkFav){
 
-    if(favShips && favShips.id ){
+       
+        const newFavSet =  favShips?.filter((filterId) => filterId !== id);
+       
 
-        const checkFav = favShips.shipsId.some((filterId) => filterId == id);
-
-        if(checkFav){
-
-            const newFavSet = favShips.shipsId.filter((filterId) => filterId !== id);
-            console.log("newFavSet",newFavSet);
-            
-
-            await db.userFavShips.update({
-                where:{
-                    id: favShips.id
-                },
-                data:{
-                    shipsId: newFavSet
-                }
-                
-            })
-
-            return { success : "Silme işlemi başarılı"}
-        }
-
-
+        
         await db.userFavShips.update({
             where:{
-                id: favShips.id
+                userId: userId
             },
             data:{
-                shipsId:{
-                    push: id
-                }
+                ships: newFavSet
             }
+            
         })
-
-        return { success : "New ships add"}
+       
+        return { success : "Deletion successful", add : false}
     }
-    
 
-    await db.userFavShips.create({
+
+    await db.userFavShips.update({
+        where:{
+            userId: userId
+        },
         data:{
-            userId: checkUser.id,
-            shipsId: [id]
+            ships:{
+                push: id
+            }
         }
     })
+   
 
-    return { success : "ships add"}
-
-
+    return { success : "New ships add", add: true}   
 
 }

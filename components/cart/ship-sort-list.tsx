@@ -6,7 +6,8 @@ import ShipCard from '../cart/ship-card';
 import 'swiper/css';
 
 
-const ShortList = ({data, maksLimit}: {data:Array<ShipsCartProps> | undefined, maksLimit:number} ) => {
+const ShortList = ({data, maksLimit, userId, userFavList}: {userFavList:string[] | undefined,data:Array<ShipsCartProps> | undefined, maksLimit:number, userId: string | undefined} ) => {
+
 
   return (
    
@@ -18,7 +19,7 @@ const ShortList = ({data, maksLimit}: {data:Array<ShipsCartProps> | undefined, m
       >
       {data?.map((data: ShipsCartProps, i: number)=>(
           i < maksLimit && <SwiperSlide key={i}>
-          <ShipCard data={data}  /> 
+          <ShipCard data={data} userId={userId} userFavList={userFavList}  /> 
         </SwiperSlide> 
         ))}
     </Swiper>

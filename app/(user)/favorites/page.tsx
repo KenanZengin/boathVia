@@ -1,12 +1,12 @@
 import ShipCard from '@/components/cart/ship-card';
+import { currentUserId } from '@/hooks/server/auth';
+import { getUserfavShip } from '@/hooks/server/favships';
 import { getfavlist } from '@/server/actions/getfavlist'
-import React from 'react'
 
 const FavoriteList = async () => {
 
   const getFavShip = await getfavlist();
 
-  
   return (
    <div className="shiplist">
       <div className="info">
@@ -17,10 +17,10 @@ const FavoriteList = async () => {
         </div>
       </div>
      <div className="ships">
-      {getFavShip.favShips && getFavShip.favShips.length > 0 
+      {getFavShip.getFavShips && getFavShip.getFavShips.length > 0 
         ?  <div className="ships-wrapper">
-              {getFavShip && getFavShip.favShips?.map((item)=>(
-                <ShipCard data={item} key={item.id} />
+              {getFavShip.getFavShips && getFavShip.getFavShips.map((item)=>(
+                <ShipCard data={item} key={item.id}  userFavList={getFavShip.favShips.ships} userId={getFavShip.checkUser}/>
               ))}
           </div>
         : <p>There are no ships registered in your favorites list</p>}

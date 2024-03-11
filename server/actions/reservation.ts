@@ -11,10 +11,10 @@ import { PrismaClientValidationError } from "@prisma/client/runtime/library";
 
 
 
-process.env.TZ = "Europe/Istanbul";
 
 
 export const reservation = async (values:z.infer<typeof ReservationSchema>,shipId: string) => {
+
 
     const validateFields = ReservationSchema.safeParse(values);
     
@@ -33,6 +33,8 @@ export const reservation = async (values:z.infer<typeof ReservationSchema>,shipI
         return { error : "You should log in to rent a ship" }
     }
 
+    
+    
     const ship = await getShipsById(shipId);
     if(!ship){
         return { error : "No such ship is registered" }
@@ -84,16 +86,20 @@ export const reservation = async (values:z.infer<typeof ReservationSchema>,shipI
 
 
     try {
-        await db.userReservation.create({
+        var reservationInfo = await db.userReservation.create({
             data:{
                 userId: user.id,
                 shipId: shipId,
                 port,
                 people,
                 duration,
-                time: hours
+                time: hours,
+                img_path: ship.img_path,
             }
         });
+        
+
+        
     } catch (error) {
         
         if(error instanceof PrismaClientValidationError){
@@ -103,7 +109,7 @@ export const reservation = async (values:z.infer<typeof ReservationSchema>,shipI
         return { error }
     }
 
+    return { status : true , reservationId: reservationInfo.id }
 
    
-    return { success : "Reseverdation add" }
 }

@@ -66,7 +66,7 @@ signOut
             token.phone = existingUser.phone;
             token.password = existingUser.password;
             token.lang = existingUser.language;
-
+            
             return token
         }
     },

@@ -1,40 +1,41 @@
 "use server"
 
-import { currentUser } from "@/hooks/server/auth"
-import { getfavShips } from "@/hooks/server/favships"
+import { currentUserId } from "@/hooks/server/auth"
 import { db } from "../db/db";
 
 
 
 export const getfavlist = async () => {
 
-    const getUserId = await currentUser();
+  
+    const checkUser = await currentUserId();
 
-    if(!getUserId){
-        return { error : "You must be logged in to see your favorite list." };
-    }
-
-    const favShipsId = await db.userFavShips.findUnique({
+    const favShips = await db.userFavShips.findUnique({
         where:{
-            userId: getUserId.id
+            userId: checkUser
         },
+        select:{
+            ships:true
+        }
     })
+   
 
-    if(favShipsId === null && !favShipsId){
+    if(favShips === null && !favShips){
         return { error : "No ship registration"};
     } 
 
-    const favShips = await db.ships.findMany({
+    const getFavShips = await db.ships.findMany({
         where:{
             id:{
-                in: favShipsId?.shipsId
+                in: favShips.ships
             }
         }
     })
+
+    return {getFavShips,favShips,checkUser}
     
     
 
-    return {favShips}
 
 
 }
