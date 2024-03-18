@@ -10,6 +10,6 @@ export const authRoutes = [
     "/auth/register"
 ];
 
-export const apiAuthPrefix = "api/auth";
+export const apiAuthPrefix = "api/";
 
 export const DEFAULT_LOGIN_REDİRECT = "/";

@@ -1,11 +1,20 @@
-import ShipCard from "@/components/cart/ship-card";
-import { getShips } from "@/server/actions/ships"
+
 import Link from "next/link"
+
+
+const getShipsData = async (location :string="All", sort?: string) => {
+const res = await fetch(`http://localhost:3000/api/ships/getShips?location=${location}&sort=${sort}`)
+const data = await res.json();
+
+return data
+}
+  
+
 
 
 const Categories = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
 
-  const { ships, error } = await getShips();
+  const data = await getShipsData(searchParams.location,searchParams.sort);
 
   return (
    <main className="categories_ships">

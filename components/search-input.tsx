@@ -1,8 +1,6 @@
-"use client"
-
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { CSSProperties, useEffect, useRef, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { CSSProperties, memo, useEffect, useRef, useState } from "react";
 
 import { IoSearchCircle   } from "react-icons/io5";
 import { TfiLocationArrow } from "react-icons/tfi";
@@ -12,78 +10,47 @@ interface MyCustomCSS extends CSSProperties {
         '--wV': string;
 }
 
-interface Props{
-        widthValue: number
-}
 
-const locations = [
-        "Istanbul",
-        "Kadikoy",
-        "Uskudar",
-        "Levent",
-        "Karakoy",
-        "Kurucesme",
-        "AnadoluHisari",
-        "Eminonu",
-        "Istinye",
-        "Bebek"
-];
 
-const SearchInput = ({widthValue}: Props) => {
 
-  const [open,setOpen] = useState<boolean>(false)
-  const sortMenuRef = useRef<HTMLDivElement>(null);
+const SearchInput = ({widthValue,location}: {widthValue: number,location?:string | null}) => {
 
-  const searchParams = useSearchParams();
-  const locationn: string | null = searchParams.get("location");
+       
   
-  const locations = ["Istanbul","Kadikoy","Uskudar","Levent","Karakoy","Kurucesme","AnadoluHisari","Eminonu","Istinye","Bebek"];
+  
+  const locations = ["İstanbul","Beykoz","Karakoy","Kurucesme","AnadoluHisari","Eminonu","Istinye","Bebek"];
 
-        useEffect(() => {
-                const handleClickOutside = (event: Event) => {
-                if (open && !sortMenuRef.current?.contains(event.target as Node)) {
-                setOpen(false);
-                }
-                };
-        
-                document.addEventListener('click', handleClickOutside);
-        
-                return () => {
-                document.removeEventListener('click', handleClickOutside);
-                };
-        }, [open])
     
 
   return (
         <div className="search_location">
                 <button 
-                  onClick={() => setOpen(!open)} 
-                  className={` search_location_select ${open ? "shaowed" : ""}`}  
+                  //onClick={() => setOpen(!open)} 
+                  //className={` search_location_select ${open ? "shaowed" : ""}`}  
+                  className={` search_location_select`}  
                   title="Select Location" style={{"--wV":`${widthValue}rem`} as MyCustomCSS}
                 >
                         
                         <span>  {
-                                        locations.some((item) => item === locationn) ? locationn  : "Where dou you want to board the boat?"
+                                        locations.some((item) => item === location) ? location  : "Where dou you want to board the boat?"
                                 }
                         </span>
                                 
                 </button>
-                
-                {open && (
-                       <div  
-                          ref={sortMenuRef} onClick={()=>setOpen(!open)} className="search_location_list"
+                <div  
+                            className="search_location_list"
                         >
                                 <div className="lists_items"  >
                                         <div className="lists_items_header">
                                                 <TfiLocationArrow size={22}/>
-                                                <Link href={"/ship-charter?location=Istanbul"}>
+                                                <Link href={"/ship-charter?location=İstanbul"}>
                                                         <span>Istanbul</span>
                                                 </Link>
                                         </div>
                                 
                                         <div className="locations">
                                                 {locations.map((location, index) => (
-                                                        <Link key={index} href={`/ship-charter?location=${location}&city=Istanbul`}>
+                                                        <Link key={index} href={`/ship-charter?location=${location}`}>
                                                                 {location}
                                                         </Link>
                                                 ))}
@@ -91,7 +58,7 @@ const SearchInput = ({widthValue}: Props) => {
                         
                                 </div>  
                        </div>
-                )}
+               
                  <Link href={"/ship-charter?location=All"} className="search-all">
                         <IoSearchCircle size={50} />
                 </Link>

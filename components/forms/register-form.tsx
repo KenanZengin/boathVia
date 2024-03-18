@@ -8,12 +8,10 @@ import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { RegisterSchema } from "@/schemas"
 import { record } from "@/server/actions/register"
-import FormError from "../form-error"
-import FormSuccess from "../form-success"
-
 
 import { FaRegEyeSlash } from "react-icons/fa";
 import { IoIosEye } from "react-icons/io";
+import { MdError } from "react-icons/md"
 
 
 const RegisterForm = () => {
@@ -21,8 +19,8 @@ const RegisterForm = () => {
     const [isPending, startTransition] = useTransition();
     const [showPassword,setShowPassword] = useState<boolean>(false);
     const [formState, setFormState] = useState<boolean>(false);
-    const [formError, setFormError] = useState<string | undefined>("");
-    const [formSuccess, setFormSuccess] = useState<string | undefined>("");
+    const [formError, setFormError] = useState<string | undefined>()
+    const [formSuccess, setFormSuccess] = useState<string | undefined>()
 
     const router = useRouter();
 
@@ -41,7 +39,8 @@ const RegisterForm = () => {
 
     const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
 
-        setFormError("")
+        setFormError(undefined);
+        setFormState(false);
 
         startTransition(() => {
             record(values)
@@ -54,7 +53,7 @@ const RegisterForm = () => {
                             router.push(
                                 "/auth/login"
                             )
-                        },2000)
+                        },3000)
                     }
                     if(data.error){
                         setFormError(data.error);
@@ -137,17 +136,17 @@ const RegisterForm = () => {
                             {...register("password")} 
                             disabled={isPending} 
                         />
-                        {showPassword 
+                        {/* {showPassword 
                             ?  
                                 <IoIosEye className={`${errors.password ? "form-er" : "form-ok"}`}   onClick={() => setShowPassword(false) } size={25} />
                             :   <FaRegEyeSlash className={`${errors.password  ? "form-er" : "form-ok"}`} onClick={() => setShowPassword(true) } size={25} />
-                        }
+                        } */}
                         {errors.password?.message && <p className="form-error-msg">{errors.password.message}</p>}
                     </div>
                     <div className="form-v">
                         <input 
                             type="checkbox" 
-                            id="rights" 
+                            id="rights"     
                             {...register("rights")} 
                             disabled={isPending}
                         /> 
@@ -162,8 +161,16 @@ const RegisterForm = () => {
             </div>
             <div className="already">Login <Link href={"/auth/login"}>Already a member?</Link></div>
        </div>
-        <FormError message={formError}  />
-        <FormSuccess message={formSuccess}  />
+       {formError &&  <div className="form-message">
+            <div className="form-message-content error">
+                <p> <MdError size={24}/>{formError}</p>
+            </div>
+        </div>}
+        {formSuccess &&  <div className="form-message">
+            <div className="form-message-content success">
+                <p> <MdError size={24}/>{formSuccess}</p>
+            </div>
+        </div>}
     </main>
     )
 }

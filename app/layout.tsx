@@ -33,7 +33,7 @@ export default async function RootLayout({
      <html lang="en">
       <body className={`${inter.className}`}>
         {/* TODO: Add Container */}
-          <Header />  
+          <Header session={session}/>  
           <div className="container_add">
             {children}
             <Footer />
@@ -43,3 +43,5 @@ export default async function RootLayout({
    </SessionProvider>
   );
 }
+
+

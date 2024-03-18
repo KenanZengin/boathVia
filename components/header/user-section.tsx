@@ -14,11 +14,11 @@ import { TfiLocationArrow } from "react-icons/tfi";
 
 import { RxHamburgerMenu } from "react-icons/rx";
 import { LuUserCircle2 } from "react-icons/lu";
+import { Session } from "next-auth";
 
 
-const UserSection = () => {
+const UserSection = ({session}:{session: Session | null}) => {
 
-  const user = useCurrentUser();
   
   const [open,setOpen] = useState<boolean>(false)
   const sortMenuRef = useRef<HTMLDivElement>(null);
@@ -46,7 +46,7 @@ const UserSection = () => {
         {
             open && (
                 <div className="menu user_section" ref={sortMenuRef} onClick={()=>setOpen(!open)}>
-                    {user 
+                    {session && session.user 
                         ?
                             <>
                                 <Link href="/">
@@ -63,6 +63,9 @@ const UserSection = () => {
                                 </button>
                                 <Link href="/helpcenter">
                                     Help Center
+                                </Link>
+                                <Link href="/test">
+                                    TEST
                                 </Link>
                             </>
                         :

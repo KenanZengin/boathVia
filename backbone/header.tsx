@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import ChangeLang from '@/components/header/lang';
 import UserSection from '@/components/header/user-section';
@@ -9,11 +9,14 @@ import SearchInput from '@/components/search-input';
 
 import logo from "../public/img/basic/logo.png"
 import logo2 from "../public/img/basic/logo_2.png"
+import { Session } from 'next-auth';
 
-const Header = () => {
+const Header = ({session}:{session:Session | null}) => {
 
   const pathname = usePathname();
-  
+  const searchParams = useSearchParams();
+  const location = searchParams.get("location");
+
   const [scrollY, setScrollY] = useState<number>(0);
   
   useEffect(() => {
@@ -29,6 +32,7 @@ const Header = () => {
       };       
     }
   }, [pathname]);
+  
   
 
 
@@ -52,12 +56,12 @@ const Header = () => {
         {pathname === "/" || pathname ==="/helpcenter" ? scrollY > 482 
           ?   
             ( <div className="header-web-center">
-                <SearchInput widthValue={23} />
+                <SearchInput widthValue={23} location={location} />
               </div>
             ) : "" 
           : (
               <div className="header-web-center">
-                <SearchInput widthValue={23} />
+                <SearchInput widthValue={23} location={location}/>
               </div>
             )
           }
@@ -74,7 +78,7 @@ const Header = () => {
             </div>
             <div className="btnsarea-item user-section">
               {/*TODO: ADD USER API  */}
-              <UserSection />
+              <UserSection session={session} />
             </div>
           </div>
         </div>

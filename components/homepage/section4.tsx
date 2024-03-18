@@ -2,12 +2,20 @@ import Link from 'next/link';
 import OrganizationCard from "../cart/organization-card";
 import {  OrganizationCartProps } from '@/types';
 
-import { getServices } from '@/server/actions/ships-event';
+
+const getServices = async () => {
+  const res = await fetch(`http://localhost:3000/api/ships/getServices`);
+  const data = await res.json();
+
+  return data
+}
+
 
 const Section_4 = async () => {
 
-  const { services, error } = await getServices();
   
+  const data = await getServices();
+
 
     
   return (
@@ -22,7 +30,7 @@ const Section_4 = async () => {
         </Link>
       </div>
       <div className="organization-cards">
-        {services?.map((data:OrganizationCartProps, i:number)=>(
+        {data?.map((data:OrganizationCartProps, i:number)=>(
           i < 4 && <OrganizationCard data={data} key={data.id}/>
         ))}
       </div>

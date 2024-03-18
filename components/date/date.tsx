@@ -1,3 +1,4 @@
+"use client"
 import { getShipReservationCalendar } from '@/server/data/calendar';
 import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
@@ -19,43 +20,55 @@ const MyDatePicker = ({ setValue, shipId }: {
   const [selectedDate, setSelectedDate] = useState<Date | null>();
   const [excludedTimes, setExcludedTimes] = useState<Date[]>([]);
   const [reservedTimes, setReservedTimes] = useState<Date[]>([]);
-  //const [teste, setTeste] = useState<any>();
+  const [teste, setTeste] = useState<any>();
 
 
-  useEffect(() => {
-    //const now = new Date();
-    //setTeste(now.setHours(now.getHours(), now.getMinutes(), 0, 0));
-    if (shipId) {
-      getShipReservationCalendar(shipId).then((data) => {
-        if (data) {
-          if (data.time) {
-            setReservedTimes(data.time.map((timeStr) => new Date(timeStr.getTime() - (3600000 * 3))));
-          }
-        }
-      });
-    }
-  }, [shipId]);
+   useEffect(() => {
+    //  const now = new Date();
+    //  setTeste(now.setHours(now.getHours(), now.getMinutes(), 0, 0));
+     if (shipId) {
+       getShipReservationCalendar(shipId).then((data) => {
+         if (data) {
+           if (data.time) {
+             setReservedTimes(data.time.map((timeStr) => new Date(timeStr.getTime() - (3600000 * 3))));
+           }
+         }
+       });
+     }
+   }, [shipId]);
 
   const handleDateChange = (date: Date | null) => {
-
-    if (date && date.getTime()) {
-      const isReservedTime  = reservedTimes.some((item) => item.getTime() === date.getTime())
-      if(isReservedTime ){
-        date.setHours(12, 0, 0, 0);
-      }
-
-      setValue("time", date);
+    if (!date) {
+      return; 
     }
+  
+    date.setMinutes(0, 0, 0); 
+  
+    const today = new Date();
+    const userTimezoneOffset = new Date().getTimezoneOffset(); 
+  
+    if (date.getTime() < today.getTime() || 
+        (date.getDate() === today.getDate() && date.getTime() < today.getTime() - userTimezoneOffset * 60000)) {
+      setSelectedDate(null); 
+      return;
+    }
+  
+    const isReservedTime = reservedTimes.some((item) => item.getTime() === date.getTime());
+  
+    if (isReservedTime) {
+      date.setHours(12, 0, 0, 0); 
+    }
+  
+    setValue("time", date); 
     setSelectedDate(date);
   
-    if (date) {
-      handleExcludedTimes(date, reservedTimes);
-    } else {
-      setExcludedTimes([]);
-    }
-
-
+    handleExcludedTimes(date, reservedTimes);
   };
+
+  const handleCalendarOpen = () =>{
+    handleDateChange( new Date() );
+  };
+
 
   const handleExcludedTimes = (date: Date, reservedTimes: Date[]) => {
     const excludedTimesForDate = reservedTimes
@@ -63,11 +76,10 @@ const MyDatePicker = ({ setValue, shipId }: {
       .map((data) => data);
     setExcludedTimes(excludedTimesForDate);
   };
-
+  
  
   const defaultDate = new Date();
   defaultDate.setHours(0, 0, 0);  
-
 
   return (
     <div>
@@ -80,9 +92,11 @@ const MyDatePicker = ({ setValue, shipId }: {
         timeFormat="HH:mm"
         timeIntervals={60}
         minDate={new Date()}
-        //minTime={teste}
+        filterTime={(time)=>time.getTime() >= new Date().getTime()}
         shouldCloseOnSelect={false}
-      />
+        onCalendarOpen={handleCalendarOpen}
+        
+        />
     </div>
   );
 };

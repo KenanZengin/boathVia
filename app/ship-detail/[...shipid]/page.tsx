@@ -22,11 +22,19 @@ interface MyCustomCSS extends CSSProperties {
 }
 
 
+ const getShipData = async (id :string) => {
+    const res = await fetch(`http://localhost:3000/api/ships/getShip?id=${id}`)
+    const data = await res.json();
+
+    return data 
+}
+
 
 const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
 
-    const {ship} = await getShip(params.shipid.toString());
-
+   const data = await getShipData(params.shipid.toString());
+   console.log("DATA",data);
+   
     return (
         <main className="ship-detail">
             <article className="ship-detail-wrapper">
@@ -41,16 +49,16 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
                                     <span>Yacht rental</span>
                                 </Link>
                             
-                                <Link href={`/ship-charter?location=${ship?.city}`}>
-                                <span>{ship?.city}</span>
+                                <Link href={`/ship-charter?location=${data?.city}`}>
+                                <span>{data?.city}</span>
                                 </Link>
                                 
-                                <Link href={`/ship-charter?location=${ship?.district}&city=${ship?.city}`}>
-                                <span>{ship?.district}</span>
+                                <Link href={`/ship-charter?location=${data?.district}&city=${data?.city}`}>
+                                <span>{data?.district}</span>
                                 </Link>
 
                                 <Link href={`/ship-charter?location=All`}>
-                                <span>{ship?.category}</span>
+                                <span>{data?.category}</span>
                                 </Link>
 
                                 <Link href={`#`}>
@@ -65,7 +73,7 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
                                 Rental Custom made 23m Motor Yacht - 130
                             </h1>
                             <p>
-                                {ship?.district}, {ship?.city}
+                                {data?.district}, {data?.city}
                             </p>
                         </div>
                         <div className="share">
@@ -81,15 +89,15 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
 
                     </div>
                 </div>
-                <ShipImages img_path={ship?.img_path} />
+                <ShipImages img_path={data?.img_path} />
                 <div className="ship-info">
                     <div className="data">
                         <div className="capacity">
                             <div className="info">
                                 <p>Luxury Motoryacht - Owner: Halil</p>
-                                <span>Dining Capacity: {ship?.capacity} - Full Capacity: {ship?.capacity}</span>
+                                <span>Dining Capacity: {data?.capacity} - Full Capacity: {data?.capacity}</span>
                             </div>
-                            <Image src={ship?.img_path || ""} alt="profile" width={48} height={48}  />
+                            <Image src={data?.img_path || ""} alt="profile" width={48} height={48}  />
                         </div>
                         <div className="terms">
                             <h2>Rental Terms</h2>
@@ -163,37 +171,37 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
                         <div className="comments">
                             <div className="point">
                                 <FaStar size={23} />
-                                <p>{ship?.star}</p>
-                                <span>({ship?.comment})</span>
+                                <p>{data?.star}</p>
+                                <span>({data?.comment})</span>
                             </div>
                             <div className="raiting">
                                 <div className="score">
                                     <p>Cleaning</p>
                                     <span className="rod">
-                                        <span className="rod-val" style={{"--rod-w":`${ship && (ship?.star / 5) * 100}%`} as MyCustomCSS}></span>
+                                        <span className="rod-val" style={{"--rod-w":`${data && (data?.star / 5) * 100}%`} as MyCustomCSS}></span>
                                     </span>
-                                    <p>{ship?.star}</p>
+                                    <p>{data?.star}</p>
                                 </div>
                                 <div className="score">
                                     <p>Communication</p>
                                     <span className="rod">
-                                        <span className="rod-val" style={{"--rod-w":`${ship && (ship?.star / 5) * 100}%`} as MyCustomCSS}></span>
+                                        <span className="rod-val" style={{"--rod-w":`${data && (data?.star / 5) * 100}%`} as MyCustomCSS}></span>
                                     </span>
-                                    <p>{ship?.star}</p>
+                                    <p>{data?.star}</p>
                                 </div>
                                 <div className="score">
                                     <p>Service</p>
                                     <span className="rod">
-                                        <span className="rod-val" style={{"--rod-w":`${ship && (ship?.star / 5) * 100}%`} as MyCustomCSS}></span>
+                                        <span className="rod-val" style={{"--rod-w":`${data && (data?.star / 5) * 100}%`} as MyCustomCSS}></span>
                                     </span>
-                                    <p>{ship?.star}</p>
+                                    <p>{data?.star}</p>
                                 </div>
                                 <div className="score">
                                     <p>Price / Performance</p>
                                     <span className="rod">
-                                        <span className="rod-val" style={{"--rod-w":`${ship && (ship?.star / 5) * 100}%`} as MyCustomCSS}></span>
+                                        <span className="rod-val" style={{"--rod-w":`${data && (data?.star / 5) * 100}%`} as MyCustomCSS}></span>
                                     </span>
-                                    <p>{ship?.star}</p>
+                                    <p>{data?.star}</p>
                                 </div>
                             </div>
                             <div className="user-comments">
@@ -234,12 +242,13 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
                     </div>
                     <div className="price">
                         <div className="price-wrapper">
-                           <ReservationForm ship={ship}/>
+                           <ReservationForm ship={data}/>
                         </div>
                     </div>
                 </div>
             </article>
-            <Section_3  maks={4}/>
+            {/* <Section_3  maks={4}/> */}
+            TEST
         </main>
     )
 }

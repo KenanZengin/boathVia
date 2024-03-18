@@ -3,12 +3,19 @@ import Link from "next/link"
 
 import OrganizationCard from "@/components/cart/organization-card"
 import {  OrganizationCartProps } from '@/types';
-import { getServices } from "@/server/actions/ships-event";
 
+
+
+const getServices = async () => {
+  const res = await fetch(`http://localhost:3000/api/ships/getServices`);
+  const data = await res.json();
+
+  return data
+}
 
 const Services = async () => {
 
-  const { services, error } = await getServices();
+  const data = await getServices();
 
   return (
     <main className="serviceslist">
@@ -37,7 +44,7 @@ const Services = async () => {
                     Popular Organizations
                   </p>
                   <div className="services-list">
-                    {services?.map((data:OrganizationCartProps, i: number)=>(
+                    {data?.map((data:OrganizationCartProps, i: number)=>(
                         i < 4 && <OrganizationCard data={data} key={data.id}/>
                     ))}
                   </div>
@@ -47,7 +54,7 @@ const Services = async () => {
                   Corporate Organizations
                   </p>
                   <div className="services-list">
-                    {services?.map((data:OrganizationCartProps, i: number)=>(
+                    {data?.map((data:OrganizationCartProps, i: number)=>(
                       i >= 4 && i < 8 && <OrganizationCard data={data} key={data.id}/>
                     ))}   
                   </div>
@@ -57,7 +64,7 @@ const Services = async () => {
                     Other Organizations
                   </p>
                   <div className="services-list">
-                    {services?.map((data:OrganizationCartProps, i: number)=>(
+                    {data?.map((data:OrganizationCartProps, i: number)=>(
                         i >= 8 && <OrganizationCard data={data} key={data.id}/>
                     ))}
                   </div>

@@ -13,6 +13,7 @@ import { IoIosEye } from "react-icons/io";
 import FormError from "../form-error"
 import FormSuccess from "../form-success"
 import { useRouter } from "next/navigation"
+import { MdError } from "react-icons/md"
 
 
 const LoginForm = () => {
@@ -20,8 +21,8 @@ const LoginForm = () => {
     const [isPending, startTransition] = useTransition();
     const [showPassword,setShowPassword] = useState<boolean>(false);
     const [formState, setFormState] = useState<boolean>(false);
-    const [formError, setFormError] = useState<string | undefined>("")
-    const [formSuccess, setFormSuccess] = useState<string | undefined>("")
+    const [formError, setFormError] = useState<string | undefined>()
+    const [formSuccess, setFormSuccess] = useState<string | undefined>()
 
     const { handleSubmit, register, formState: {errors, isSubmitting}, reset } = useForm<z.infer<typeof LoginSchema>>({
         resolver: zodResolver(LoginSchema),
@@ -35,7 +36,7 @@ const LoginForm = () => {
 
         console.log("values",values);
         
-        setFormError("");
+        setFormError(undefined);
         setFormState(false);
 
         startTransition(() => {
@@ -52,6 +53,7 @@ const LoginForm = () => {
         
     };
 
+    
     
 
     
@@ -104,15 +106,13 @@ const LoginForm = () => {
             <div className="already">Aren&apos;t you a member? <Link href={"/auth/register"}>Register?</Link></div>
             <div className="reset-pass">Did you forget your password? <Link href={"/"}>Reset Password</Link></div>
        </div>
-       <FormError message={formError} />
-       <FormSuccess message={formSuccess} />
+       {formError &&  <div className="form-message">
+            <div className="form-message-content error">
+                <p> <MdError size={24}/>{formError}</p>
+            </div>
+        </div>}
     </main>
     )
 }
 
 export default LoginForm
-
-
-
-
-

@@ -3,13 +3,13 @@ import React from 'react'
 
 const Payment = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
 
-  const userCalendar = await getUserCalendar(searchParams.id);
-  console.log({userCalendar});
+  // const userCalendar = await getUserCalendar(searchParams.id);
+  // console.log({userCalendar});
   
 
   return (
     <div>
-        {searchParams.id}
+      {searchParams.id}
     </div>
   )
 }

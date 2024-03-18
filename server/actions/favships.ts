@@ -1,10 +1,11 @@
 "use server"
 
+import { ShipsCartProps } from "@/types";
 import { db } from "../db/db";
 import { getUserfavShips } from "@/hooks/server/favships";
 
 
-export const addFav = async(id: string, userId: string) => {
+export const addFav = async(shipId: string, userId: string) => {
 
 
     
@@ -13,13 +14,15 @@ export const addFav = async(id: string, userId: string) => {
     }
 
     const favShips = await getUserfavShips(userId);
+    console.log("favShips",favShips);
     
-    const checkFav = favShips?.some((filterId) => filterId == id);
+
+    const checkFav = favShips?.some((filterId) => filterId == shipId);
   
     if(checkFav){
 
        
-        const newFavSet =  favShips?.filter((filterId) => filterId !== id);
+        const newFavSet =  favShips?.filter((filterId) => filterId !== shipId);
        
 
         
@@ -36,6 +39,9 @@ export const addFav = async(id: string, userId: string) => {
         return { success : "Deletion successful", add : false}
     }
 
+  
+
+   
 
     await db.userFavShips.update({
         where:{
@@ -43,10 +49,11 @@ export const addFav = async(id: string, userId: string) => {
         },
         data:{
             ships:{
-                push: id
+                push:shipId
             }
         }
     })
+    
    
 
     return { success : "New ships add", add: true}   

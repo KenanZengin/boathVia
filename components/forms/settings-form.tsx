@@ -4,15 +4,13 @@ import { useCurrentUser } from '@/hooks/client/use-auth';
 import * as z from "zod"
 import { SettingsSchema } from '@/schemas';
 import { useForm } from 'react-hook-form';
-import LogOutButton from '@/components/forms/logout-button';
-import Link from 'next/link';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useState, useTransition } from 'react';
+import { memo, useState, useTransition } from 'react';
 import { IoIosEye } from 'react-icons/io';
 import { FaRegEyeSlash } from 'react-icons/fa';
 import { UserLanguage } from '@prisma/client';
 import { settings } from '@/server/actions/settings';
-import FormError from '../form-error';
+import { MdError } from 'react-icons/md';
 
 const SettingsForm = () => {
 
@@ -22,7 +20,7 @@ const SettingsForm = () => {
     const [isPending, startTransition] = useTransition();
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [showNewPassword, setShowNewPassword] = useState<boolean>(false);
-    const [formError, setFormError] = useState<string | undefined>("")
+    const [formError, setFormError] = useState<string | undefined>()
     
     const { handleSubmit, register, formState: { errors } } = useForm<z.infer<typeof SettingsSchema>>({
         resolver: zodResolver(SettingsSchema),
@@ -39,7 +37,7 @@ const SettingsForm = () => {
 
     const onSubmit = (values: z.infer<typeof SettingsSchema>) => {
         
-        setFormError("");
+        setFormError(undefined);
 
         startTransition(()=>{
             settings(values)
@@ -52,7 +50,6 @@ const SettingsForm = () => {
         })
     }
 
-    console.log(formError);
     
 
   return (
@@ -174,7 +171,11 @@ const SettingsForm = () => {
                 </form>
             </div>
         </div>
-        <FormError message={formError} />
+        {formError &&  <div className="form-message">
+            <div className="form-message-content error">
+                <p> <MdError size={24}/>{formError}</p>
+            </div>
+        </div>}
     </main>
   )
 }
