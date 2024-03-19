@@ -1,27 +1,16 @@
 import ShipCard from '@/components/cart/ship-card';
 import { currentUser, currentUserId } from '@/hooks/server/auth';
 import { getUserfavShip } from '@/hooks/server/favships';
+import {  getUserFavShips} from '@/hooks/server/getShips';
 import { getfavlist } from '@/server/actions/getfavlist'
 import { ShipsCartProps } from '@/types';
 
-
-const getUserFavShip = async (id:string | undefined) => {
-
-
-  const res = await fetch(`http://localhost:3000/api/ships/userFavShips?userId=${id}`);
-  const data = await res.json();
-
-  
-  return data
-
-} 
 
 
 
 const FavoriteList = async () => {
 
-  const userId = await currentUserId()
-  const favShip = await getUserFavShip(userId);
+  const favShip = await getUserFavShips();
 
   console.log(favShip);
   
@@ -37,10 +26,12 @@ const FavoriteList = async () => {
         </div>
       </div>
      <div className="ships">
-     {favShip  && favShip.ships.ships.map((item:ShipsCartProps)=>(
-          <ShipCard data={item} key={item.id} />
-        )) 
-      }
+        <div className="ships-wrapper">
+          {favShip  && favShip.ships.map((item:ShipsCartProps)=>(
+            <ShipCard data={item} userId={favShip.userId} key={item.id} favorite={true} />
+          )) 
+        }
+        </div>
     </div>
    </div>
   )

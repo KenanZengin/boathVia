@@ -15,23 +15,26 @@ import { IoIosHeart, IoMdHeartEmpty } from 'react-icons/io';
 import { PiHeartDuotone } from "react-icons/pi";
 import { usePathname, useRouter } from 'next/navigation';
 
-const ShipCard = ({data,userFavList,userId}:{data:ShipsCartProps,userFavList?:string[],userId?:string | undefined}) => {
+const ShipCard = ({data,userFavList,userId,favorite}:{data:ShipsCartProps,userFavList?:string[] | undefined,userId?:string | undefined,favorite?:boolean}) => {
   
   const {id,city,district, star, comment, category, capacity, hour_price, img_path} =  data;
  
   const router = useRouter();
   const pathName = usePathname();
-  const { update } = useSession()
-  //const [favStatus, setFavStatus] = useState<boolean | undefined | string >(id && userId && userFavList?.includes(id))
+  const [favStatus, setFavStatus] = useState<boolean | undefined | string >(id && userId && userFavList?.includes(id))
   const [noUser,setNoUser] = useState<string | undefined>()
   const [successfavMessage,setSuccessFavMessage] = useState<string | undefined>()
   const [deletefavMessage,setDeleteFavMessage] = useState<string | undefined>()
 
-   userId = "cltxgieuv0000ze9z2ir31n1r"
+
+  
+  
 
   const addFavorite = () => {
+
+
     if(data && data.id && userId){
-      //setFavStatus(()=> !favStatus)
+      setFavStatus(() => !favStatus)  
       addFav(data.id,userId).then((data)=>{
         //setFavStatus(()=>data.add);
         console.log(data);
@@ -42,9 +45,8 @@ const ShipCard = ({data,userFavList,userId}:{data:ShipsCartProps,userFavList?:st
         if(!data.add){
           setDeleteFavMessage("Deleted to your favorite list")
         }
-        update();
-        router.refresh();
-       
+        router.refresh()
+
       });
     }else{
       setNoUser("You must log in to add to your favorite list")
@@ -85,11 +87,8 @@ const ShipCard = ({data,userFavList,userId}:{data:ShipsCartProps,userFavList?:st
         
         </div>
       </Link>
-      {/* <span role="button" className={`addFav ${favStatus ? "added" : "noadded"}`}  onClick={addFavorite}>
-        {favStatus ? <PiHeartDuotone className='heart' size={28} /> :<IoMdHeartEmpty size={28} />}
-      </span> */}
-      <span onClick={addFavorite}>
-        <PiHeartDuotone className='heart' size={28} />
+      <span onClick={addFavorite} className={`addFav ${favStatus || favorite ? "added" : "noadded"}`}>
+        <PiHeartDuotone className={`${favStatus || favorite ? "heart" : ""}`} size={28} />
       </span>
     </Card>
 

@@ -3,14 +3,13 @@ import ShortList from "../cart/ship-sort-list"
 import { getShips } from "@/server/actions/ships";
 import { currentUserId } from '@/hooks/server/auth';
 import { getUserfavShip } from '@/hooks/server/favships';
+import { getShipsData, getUserFavShipsId } from '@/hooks/server/getShips';
 
 
 
 const Section_3 = async  ({title,comment,link,maks}:{title?:string,comment?:string,link?:boolean,maks:number}) => {
 
-  const { ships } = await getShips();
-  const user = await currentUserId();
-  const userFavList = await getUserfavShip()
+  const [ships,favShipsId] = await Promise.all([getShipsData(),getUserFavShipsId()])
 
   return (
     <section className='section_3' >
@@ -25,7 +24,7 @@ const Section_3 = async  ({title,comment,link,maks}:{title?:string,comment?:stri
           </Link>
       )}
     </div>
-    <ShortList data={ships} maksLimit={maks} userId={user} userFavList={userFavList.ships?.ships} />
+    <ShortList data={ships} maksLimit={maks} userFavList={favShipsId.ships.ships}  userId={favShipsId.userId}/>
   </section>
   )
 }

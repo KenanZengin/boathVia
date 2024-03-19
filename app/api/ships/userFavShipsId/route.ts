@@ -23,13 +23,10 @@ export async function GET(request:NextRequest){
     });
 
     
-    
-
 
     if(!ships) return NextResponse.json({error : "No record ship"})
 
 
     return NextResponse.json({ships,userId})
 
- 
 }

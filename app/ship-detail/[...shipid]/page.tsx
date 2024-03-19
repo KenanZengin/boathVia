@@ -14,6 +14,7 @@ import { TiStopwatch } from "react-icons/ti";
 import { FaStar } from "react-icons/fa";
 import Section_3 from "@/components/homepage/section3";
 import ReservationForm from "@/components/forms/reservation-form";
+import { getShipDetail } from "@/hooks/server/getShips";
 
 
 
@@ -22,18 +23,11 @@ interface MyCustomCSS extends CSSProperties {
 }
 
 
- const getShipData = async (id :string) => {
-    const res = await fetch(`http://localhost:3000/api/ships/getShip?id=${id}`)
-    const data = await res.json();
-
-    return data 
-}
 
 
 const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
 
-   const data = await getShipData(params.shipid.toString());
-   console.log("DATA",data);
+   const data = await getShipDetail(params.shipid.toString());
    
     return (
         <main className="ship-detail">
@@ -247,7 +241,7 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
                     </div>
                 </div>
             </article>
-            {/* <Section_3  maks={4}/> */}
+            <Section_3  maks={4}/>
             TEST
         </main>
     )
