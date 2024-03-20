@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { CSSProperties, memo, useEffect, useRef, useState } from "react";
@@ -16,16 +17,31 @@ interface MyCustomCSS extends CSSProperties {
 const SearchInput = ({widthValue,location}: {widthValue: number,location?:string | null}) => {
 
        
-  
+  const [open,setOpen] = useState<boolean>(false);
+  const toggleMenu = () => setOpen(!open);
   
   const locations = ["İstanbul","Beykoz","Karakoy","Kurucesme","AnadoluHisari","Eminonu","Istinye","Bebek"];
 
     
+  const menuRef = useRef<HTMLInputElement>(null); 
+
+  useEffect(() => {
+    document.addEventListener('click', handleOutsideClick);
+
+    return () => document.removeEventListener('click', handleOutsideClick);
+  }, [open]); 
+
+  const handleOutsideClick = (event: Event) => {
+        if (open &&  !menuRef.current?.contains(event.target as HTMLElement)) {
+          setOpen(false);
+        }
+  };
+    
 
   return (
-        <div className="search_location">
+        <div className="search_location"   >
                 <button 
-                  //onClick={() => setOpen(!open)} 
+                  onClick={toggleMenu}
                   //className={` search_location_select ${open ? "shaowed" : ""}`}  
                   className={` search_location_select`}  
                   title="Select Location" style={{"--wV":`${widthValue}rem`} as MyCustomCSS}
@@ -37,8 +53,10 @@ const SearchInput = ({widthValue,location}: {widthValue: number,location?:string
                         </span>
                                 
                 </button>
-                <div  
+                {open && <div  
                             className="search_location_list"
+                            ref={menuRef}
+                            onClick={toggleMenu}
                         >
                                 <div className="lists_items"  >
                                         <div className="lists_items_header">
@@ -57,8 +75,8 @@ const SearchInput = ({widthValue,location}: {widthValue: number,location?:string
                                         </div>
                         
                                 </div>  
-                       </div>
-               
+                </div>
+               }
                  <Link href={"/ship-charter?location=All"} className="search-all">
                         <IoSearchCircle size={50} />
                 </Link>

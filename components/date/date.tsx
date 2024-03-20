@@ -1,4 +1,3 @@
-"use client"
 import { getShipReservationCalendar } from '@/server/data/calendar';
 import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';

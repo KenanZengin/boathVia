@@ -1,4 +1,3 @@
-"use server"
 
 import Link from "next/link";
 import Image from "next/image";
@@ -27,7 +26,7 @@ interface MyCustomCSS extends CSSProperties {
 
 const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
 
-   const data = await getShipDetail(params.shipid.toString());
+   const data = await getShipDetail(params.shipid);
    
     return (
         <main className="ship-detail">

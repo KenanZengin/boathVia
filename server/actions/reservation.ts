@@ -13,8 +13,9 @@ import { PrismaClientValidationError } from "@prisma/client/runtime/library";
 
 
 
-export const reservation = async (values:z.infer<typeof ReservationSchema>,shipId: string) => {
+export const reservation = async (values:z.infer<typeof ReservationSchema>,shipId: string,hour_price: number) => {
 
+    
 
     const validateFields = ReservationSchema.safeParse(values);
     
@@ -46,23 +47,23 @@ export const reservation = async (values:z.infer<typeof ReservationSchema>,shipI
         return { error : "Ship not found" }
     }
 
-    const startDate = new Date(time.getTime() + ( 3 * 3600000 ));
+     const startDate = new Date(time.getTime() + ( 3 * 3600000 ));
     
-    const hours = [];
-    for (let i = 0; i < duration; i++) {
-        const startDateTime = new Date(startDate.getTime() + (i * 3600000));
+     const hours = [];
+     for (let i = 0; i < duration; i++) {
+         const startDateTime = new Date(startDate.getTime() + (i * 3600000));
         
-        hours.push(startDateTime);
-    }
+         hours.push(startDateTime);
+     }
 
     
     
-    const arrangementReservationCalendar = reservationCalendar.time.sort((a, b) => b.getTime() - a.getTime()); 
-    const commonElements = hours.filter(item => arrangementReservationCalendar.some(test => item.getTime() === test.getTime()));
+     const arrangementReservationCalendar = reservationCalendar.time.sort((a, b) => b.getTime() - a.getTime()); 
+     const commonElements = hours.filter(item => arrangementReservationCalendar.some(test => item.getTime() === test.getTime()));
 
-    if(commonElements.length > 0 && commonElements){
-        return { error : "The ship is full between these hours. Choose another watch."}
-    }
+     if(commonElements.length > 0 && commonElements){
+         return { error : "The ship is full between these hours. Choose another watch."}
+     }
 
     try {
         await db.reservationCalendar.updateMany({
@@ -83,33 +84,47 @@ export const reservation = async (values:z.infer<typeof ReservationSchema>,shipI
         return { error }
 
     }
+   
 
+    console.log("type",{
+        userid: typeof user.id,
+        shipid: typeof shipId,
+        pORT: typeof port,
+        peopLE: typeof people,
+        durationn: typeof duration,
+        timee: typeof hours,
+        imgp: typeof ship.img_path
+    });
+    
 
-    try {
-        var reservationInfo = await db.userReservation.create({
+    
+
+     try {
+
+        var reservationInfo =  await db.userReservation.create({
             data:{
                 userId: user.id,
                 shipId: shipId,
-                port,
-                people,
-                duration,
+                port: port,
+                people: people,
+                duration: duration,
                 time: hours,
                 img_path: ship.img_path,
+                hour_price: hour_price
             }
         });
         
 
         
-    } catch (error) {
+     } catch (error) {
         
-        if(error instanceof PrismaClientValidationError){
-            return { error : error.message, version: error.clientVersion}
-        }
+         if(error instanceof PrismaClientValidationError){
+             return { error : error.message, version: error.clientVersion}
+         }
 
-        return { error }
-    }
+         return { error }
+     }
 
-    return { status : true , reservationId: reservationInfo.id }
 
-   
+   return {status : true , reservationId: reservationInfo.id}
 }
