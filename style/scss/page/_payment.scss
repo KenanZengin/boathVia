@@ -6,9 +6,122 @@
             display: flex;
             justify-content: space-between;
             gap: 1rem;
-            padding-top: 25px;
             .reservation-info{
-                width: 70%;
+                width: 75%;
+                .reservation-detail{
+                    p{
+                        span{
+                            display: inline-block;
+                            font-size: 1rem;
+                            color:rgb(8, 47, 62);
+                            margin-bottom: 10px;
+
+                        }
+                        span:first-child{
+                            width: 10rem;
+                        }
+                    }
+                }
+                .reservation-advice{
+                    p{
+                        font-size: 1rem;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        padding: 8px 16px;
+                        margin: 16px 0;
+                        border-radius: 8px;
+                        line-height: 1.5rem;
+                    }
+                    p:first-child{
+                        background-color: #CFF9E9;
+                        color: rgb(11, 86, 99);
+                        border: 1px solid rgb(11, 86, 99);
+                    }
+                    p:last-child{
+                        background-color: #DADAFC;
+                        color: rgb(69, 71, 169);
+                        border: 1px solid #4547A9;
+                    }
+                }
+                .payment-forms{
+                    > form{
+                        margin: 25px 0;
+                        input[type="checkbox"]{
+                            -webkit-flex-shrink: 0;
+                            -ms-flex-negative: 0;
+                            flex-shrink: 0;
+                            position: relative;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            -ms-appearance: none;
+                            appearance: none;
+                            background-color: #fff;
+                            margin: 0;
+                            width: 1.3rem;
+                            height: 1.3rem;
+                            border: 1px solid #178a87;
+                            -webkit-border-radius: 0.25rem;
+                            -moz-border-radius: .25rem;
+                            border-radius: 0.25rem;
+                            cursor: pointer;
+                            
+                            &:checked{
+                               background-color: #178a87;
+                               &::before{
+                                content: "";
+                                -webkit-transform: scale(1);
+                                -moz-transform: scale(1);
+                                -ms-transform: scale(1);
+                                -o-transform: scale(1);
+                                transform: scale(1);
+                                -webkit-transform-origin: bottom left;
+                                -moz-transform-origin: bottom left;
+                                -ms-transform-origin: bottom left;
+                                -o-transform-origin: bottom left;
+                                transform-origin: bottom left;
+                                -webkit-clip-path: polygon(28% 38%, 41% 53%, 75% 24%, 86% 38%, 40% 78%, 15% 50%);
+                                clip-path: polygon(28% 38%, 41% 53%, 75% 24%, 86% 38%, 40% 78%, 15% 50%);
+                                width: 1rem;
+                                height: 1rem;
+                                background-color:#fff;
+                                position: absolute;
+                                top: 1px;
+                                left: 1px;
+                            }
+                        }}
+                        .payment-right{
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            font-size: 1rem;
+                            color: rgb(8, 47, 62);
+                            line-height: 1.5rem;
+                        }
+                        button{
+                            width: 100%;    
+                            text-align: center;
+                            margin: 15px 0;
+                            padding: 12px 0;
+                            border-radius: 8px;
+                            transition: .4s all;
+                        }
+                        .ok{
+                            background-color: #107076;
+                            color: #fff;
+                            cursor: pointer;
+                           
+                        }
+                        .not-ok{
+                            background-color: #E2E8F0;
+                            color: #082F64;
+                            cursor: not-allowed;
+                        }
+                    }
+                    .card-form{
+
+                    }
+                }
             }
             .reservation-ship-card{
                 width: 350px;
@@ -68,6 +181,13 @@
 
             }
             
+        }
+    }
+    &-id{
+        margin-bottom: 25px;
+        h3{
+            font-size: 1.5rem;
+            color: rgb(8, 47, 62);
         }
     }
 }

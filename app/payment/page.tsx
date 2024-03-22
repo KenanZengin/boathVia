@@ -4,6 +4,7 @@ import moment from 'moment';
 import { getUserCalendar } from '@/server/data/usercalendar'
 
 import { BsInfoCircle } from "react-icons/bs";
+import PaymentForm from '@/components/forms/payment-form';
 
 const Payment = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
 
@@ -23,38 +24,38 @@ const Payment = async ({searchParams}:{searchParams:{[key:string]: string}}) => 
   return (
    <main className="payment">
       <section className="payment-wrapper">
+        <div className="payment-id">
+          <h3>Payment for offer {userCalendar?.id.slice(0,5)}</h3>
+        </div>
         <div className="payment-info">
-          <div className="reservation-info">
-            <div className="payment-id">
-              <h3>Payment for offer {userCalendar?.id.slice(0,5)}</h3>
-            </div>
+          <div className="reservation-info">         
             <div className="reservation-detail">
               <p>
                   <span> Departure Port</span>
-                  <span>:{userCalendar?.port}</span>
+                  <span>: {userCalendar?.port}</span>
               </p>
               <p>
                   <span> Arrival Port</span>
-                  <span>:{userCalendar?.port}</span>
+                  <span>: {userCalendar?.port}</span>
               </p>
               <p>
                   <span> Starting Date</span>
-                  <span>:{date_start.format('DD MMM YYYY ddd HH:mm')}</span>
+                  <span>: {date_start.format('DD MMM YYYY ddd HH:mm')}</span>
               </p>
               <p>
                   <span> End Date</span>
-                  <span>:{date_end.format('DD MMM YYYY ddd HH:mm')}</span>
+                  <span>: {date_end.format('DD MMM YYYY ddd HH:mm')}</span>
               </p>
               <p>
                   <span> Number of People</span>
-                  <span>:{userCalendar?.people}</span>
+                  <span>: {userCalendar?.people}</span>
               </p>
             </div>
             <div className="reservation-advice">
               <p><BsInfoCircle size={20} />You can cancel your reservation in this vehicle until the last 168 hour.</p>
-              <p><BsInfoCircle size={20} />As long as it does not conflict with the vehicle's cancellation policy, you can only cancel free of charge within 3 days from the date of booking. If the reservation is less than 3 days away, no free cancellation is possible.</p>
-
+              <p><BsInfoCircle size={29} />As long as it does not conflict with the vehicle's cancellation policy, you can only cancel free of charge within 3 days from the date of booking. If the reservation is less than 3 days away, no free cancellation is possible.</p>
             </div>
+            <PaymentForm />
           </div>
           <div className="reservation-ship-card">
             <div className="reservation-ship-card-wrapper">

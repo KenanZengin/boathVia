@@ -35,6 +35,20 @@ export const LoginSchema = z.object({
 })
 
 
+export const CardSchema = z.object({
+    cardName: z.string().trim().nonempty(),
+    cardNumber: z.string().max(19).transform((value) => value.replace(/\s/g, "")),
+    cardMonth: z.string().max(2),
+    cardYear: z.string().max(2),
+    cardCvv : z.string().max(3)
+})
+
+export const PaymentSchema = z.object({
+    accepted: z.boolean().refine(
+        (value) => value === true,
+    )
+})
+
 
 export const ReservationSchema = z.object({
     port: z.string(),
