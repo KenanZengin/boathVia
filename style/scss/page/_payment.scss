@@ -118,9 +118,6 @@
                             cursor: not-allowed;
                         }
                     }
-                    .card-form{
-
-                    }
                 }
             }
             .reservation-ship-card{
@@ -191,3 +188,161 @@
         }
     }
 }
+.card-modal.fade{
+    margin: 0;
+    padding: 0;
+    .modal-dialog{
+        width: 75%;
+        max-width: 75%;
+        height: 100%;
+        border-radius: 8px;
+        padding: 0;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        .modal-content{
+            border:none !important;
+            height: 100%;
+            background-color: #fff;
+            height: 700px;
+            min-height: 500px;
+        }   
+        .modal-wrapper{
+            width: 75%; 
+            max-width: 75%;
+            margin: auto;         
+            .payment-options{
+                .card-option{
+                    border-top: 1px solid #DCDCDC;
+                    padding-top: 15px;
+                    .option-info{
+                        width: 25%;
+                        background-color: #178A87;
+                        color: #fff;
+                        text-align: center;
+                        padding: 5px 0;
+                        p{
+                            font-size: 1rem;
+                            margin-bottom: 10px;
+                        }
+                        span{
+                            font-size: 0.75rem;
+                            width: 7rem;
+                            display: inline-block;
+                        }
+                    }
+                    .total-price{
+                        margin: 32px 0;
+                        font-size: 0.9375rem;
+                        span{
+                            color: rgb(8, 47, 62);
+                            font-weight: 600;
+                        }
+                    }
+                    .card-form{
+                        position: relative;
+                        > form{
+                            display: flex;
+                            flex-direction: column;
+                            row-gap: 15px;
+                            padding: 0 40px;
+                            position: relative;
+                            label{
+                                display: flex;
+                                flex-direction: column;
+                                gap: 5px;
+                                position: relative;
+                                span{
+                                    color: rgb(8, 47, 62);
+                                }
+                                input[type="text"]{
+                                    padding: 10px;
+                                    border: 1px solid #178A87; 
+                                }
+                                .success-input{
+                                    border: 1px solid #45B8AB;
+                                    &:focus{
+                                        box-shadow: rgba(#45B8AB, 0.3) 0px 0px 0px 4px;
+                                    }
+                                }
+                                .error-input{
+                                    border: 1px solid rgb(234, 57, 67) !important;
+                                    box-shadow: 0 0 0 4px rgba(234,57,67,.2) !important;
+                                    &:focus{
+                                        box-shadow: 0 0 0 4px rgba(234,57,67,.2);
+                                    }
+                                }
+                            }
+                            .card-numbers{
+                                display: flex;
+                                align-items: flex-end;
+                                justify-content: space-between;
+                            }
+                            .card-number,.card-name{
+                                width: 40%;
+                            }
+                            .card-month,.card-year{
+                                width: 15%;
+                                input{
+                                    &::placeholder{
+                                        font-weight: 600;
+                                    }
+                                }
+                            }
+                            .card-month{
+                                position: relative;
+                                &::after{
+                                    content: "/";
+                                    font-size: 1.2rem;
+                                    font-weight: 600;
+                                    display: block;
+                                    position: absolute;
+                                    top: 50%;
+                                    right: -14%;
+                                }
+                            }
+                            button{
+                                width: 100%;    
+                                text-align: center;
+                                margin: 20px 0;
+                                padding: 12px 0;
+                                border-radius: 8px;
+                                transition: .4s all;
+                            }
+                            .ok{
+                                background-color: #107076;
+                                color: #fff;
+                                cursor: pointer;
+                               
+                            }
+                            .not-ok{
+                                background-color: #E2E8F0;
+                                color: #082F64;
+                                cursor: not-allowed;
+                            }
+                            .form-message{
+                                left: 28%;
+                                top: -25%;
+                            }
+                            
+                        }
+                        .card-services-img{
+                            margin-top: 40px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+        .close-model{
+            text-align: end;
+            padding: 10px;
+            margin-bottom: 50px;
+            button{
+                background-color: inherit;
+            }
+        }
+    }
+    
+}
+

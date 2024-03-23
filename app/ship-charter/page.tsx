@@ -37,7 +37,7 @@ const Ships = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
       <div className="ships">
         <div className="ships-wrapper">
           {ships.length > 0  && ships?.map((item:ShipsCartProps)=>(
-              <ShipCard data={item} key={item.id} userFavList={favShipsId.ships.ships} userId={favShipsId.userId} />
+              <ShipCard data={item} key={item.id} userFavList={favShipsId?.ships?.ships} userId={favShipsId.userId} />
             )) 
           }
           </div>

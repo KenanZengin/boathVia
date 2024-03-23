@@ -24,7 +24,7 @@ const Section_3 = async  ({title,comment,link,maks}:{title?:string,comment?:stri
           </Link>
       )}
     </div>
-    <ShortList data={ships} maksLimit={maks} userFavList={favShipsId.ships.ships}  userId={favShipsId.userId}/>
+    <ShortList data={ships} maksLimit={maks} userFavList={favShipsId?.ships?.ships}  userId={favShipsId.userId}/>
   </section>
   )
 }

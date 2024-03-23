@@ -33,8 +33,6 @@ const LoginForm = () => {
     });
 
     const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-
-        console.log("values",values);
         
         setFormError(undefined);
         setFormState(false);
@@ -54,9 +52,6 @@ const LoginForm = () => {
     };
 
     
-    
-
-    
     return (
     <main className="auth-form">
        <div className="auth-form-content">
@@ -64,9 +59,7 @@ const LoginForm = () => {
                 <h3>Login</h3>
             </div>
             <div className="form-wrapper">
-                <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
-                   
-                    
+                <form onSubmit={handleSubmit(onSubmit)} autoComplete="off"> 
                     <div className="form-w">
                         <label htmlFor="email">Email</label>
                         <input 

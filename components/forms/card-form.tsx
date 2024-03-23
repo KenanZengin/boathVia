@@ -1,64 +1,75 @@
 
-import React from "react"
 import { CardSchema } from "@/schemas"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
+import Image from "next/image"
 
+import cardService from "../../public/img/basic/cards.png"
+import { MdError } from "react-icons/md";
 
 const CardForm = ({children}:{children?:React.ReactNode}) => {
 
+
   const {handleSubmit, register, formState:{isValid,errors}} = useForm<z.infer<typeof CardSchema>>({
     resolver: zodResolver(CardSchema),
-    defaultValues:{
-        cardName: undefined ,
-        cardMonth: undefined,
-        cardYear: undefined,
-        cardCvv: undefined
-    }
+    
   })
+
+
+  
+  
      
   const onSubmit = (values:z.infer<typeof CardSchema>) => {
 
     console.log(values);
-    
+      
   }
+
+  const test = errors.cardCvv || errors.cardMonth || errors.cardName ||errors.cardNumber || errors.cardYear;
+
+  
+
+
+
 
   const handleCardNumberInput = (event:React.ChangeEvent<HTMLInputElement>) => {
     const { target } = event;
-    const formattedValue = target.value.replace(/\D/g, '').replace(/(.{4})/g, '$1 '); // Boşluk eklendi
+    const formattedValue = target.value.replace(/\D/g, '').replace(/(.{4})/g, '$1 ');
 
-    if (target.value.length > 16) {
-      target.value = target.value.slice(0, 16);
+    if (target.value.length > 19) {
+      return target.value = target.value.slice(0, 19);
     }
 
-    target.value = formattedValue.replace(/ \s*$/g, '');
+    return target.value = formattedValue.replace(/ \s*$/g, '');
   };
   
   const handleDigitInput = (event: React.ChangeEvent<HTMLInputElement>  ,maxLength:number) => {
     const { target } = event;
-    const value = target.value.replace(/\D/g, ''); // Sadece sayıları kabul et
-    console.log(value.length,maxLength);
+    const value = target.value.replace(/\D/g, ''); 
     
   
-    // Maksimum 2 karaktere sınırla
     if (value.length > maxLength) {
      return  target.value = value.slice(0, maxLength);
     }
   
-    // Değeri güncelle
     return target.value = value;
   };
 
 
   return (
-    <div className="cardform">
+    <div className="card-form">
       {children}
-      <form className="card-form" onSubmit={handleSubmit(onSubmit)}>
+      <form  onSubmit={handleSubmit(onSubmit)}>
         <div className="card-name">
           <label htmlFor="cardname">
             <span>Cardholder Name, Surname:</span>
-            <input type="text" id="cardname" {...register("cardName")} />
+            <input 
+              type="text" 
+              id="cardname" 
+              className={`${errors.cardName ? "error-input" : "success-input"}`}
+              {...register("cardName")} 
+            />
           </label>
         </div>
         <div className="card-numbers">
@@ -69,6 +80,7 @@ const CardForm = ({children}:{children?:React.ReactNode}) => {
                 type="text"
                 maxLength={19} 
                 id="cardnumber" 
+                className={`${errors.cardNumber ? "error-input" : "success-input"}`}
                 {...register("cardNumber")}
                 onInput={handleCardNumberInput} 
               />
@@ -81,10 +93,13 @@ const CardForm = ({children}:{children?:React.ReactNode}) => {
               <input 
                 type="text" 
                 id="cardmonth" 
+                placeholder="Month"
+                className={`${errors.cardMonth ? "error-input" : "success-input"}`}
                 maxLength={2} 
                 {...register("cardMonth")} 
                 onInput={(event: React.ChangeEvent<HTMLInputElement> ) => handleDigitInput(event,2)}
               />
+
             </label>
           </div>
           <div className="card-year">
@@ -92,37 +107,43 @@ const CardForm = ({children}:{children?:React.ReactNode}) => {
               <input 
                 type="text" 
                 id="cardyear" 
+                placeholder="Year"
+                className={`${errors.cardYear ? "error-input" : "success-input"}`}
                 maxLength={2} 
                 {...register("cardYear")} 
                 onInput={(event: React.ChangeEvent<HTMLInputElement> ) => handleDigitInput(event,2)}
               />
+
             </label>
           </div>
           <div className="card-cvv">
-            <label htmlFor="cvv">
+            <label htmlFor="cardcvv">
               <span>CVV/CVV2</span>
               <input 
                 type="text" 
                 id="cardcvv" 
                 maxLength={3}
+                className={`${errors.cardCvv ? "error-input" : "success-input"}`}
                 {...register("cardCvv")} 
                 onInput={(event: React.ChangeEvent<HTMLInputElement> ) => handleDigitInput(event,3)}
-
               />
             </label>
           </div>
-          <button type="submit">
-            Pay Now
-          </button>
-          <h1>
-          cardCvv:{errors.cardCvv?.message} <br/>
-          cardMonth:{errors.cardMonth?.message}<br/>
-          cardName:  {errors.cardName?.message}<br/>
-          cardNumber{errors.cardNumber?.message}<br/>
-          cardYear:{errors.cardYear?.message}<br/>
-          </h1>
         </div>
+        <button type="submit" className="ok"  >
+          Pay Now
+        </button>
+        {test &&  <div className="form-message">
+            <div className="form-message-content error">
+                <p> <MdError size={24}/>You must fill in your credit card information completely.</p>
+            </div>
+        </div>}
       </form>
+      
+      
+      <div className="card-services-img">
+          <Image src={cardService} alt="cards" />
+        </div>
     </div>
   )
 }
