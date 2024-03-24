@@ -139,8 +139,6 @@ const CardForm = ({children}:{children?:React.ReactNode}) => {
             </div>
         </div>}
       </form>
-      
-      
       <div className="card-services-img">
           <Image src={cardService} alt="cards" />
         </div>

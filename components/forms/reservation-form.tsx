@@ -105,9 +105,10 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
             <div className="port">
                     <span className="opt-inf">Port</span>
                     <div className="port-s">
-                        <select id="port" defaultValue={ship?.district} {...register("port")}>
-                            <option value="Kandilli">Kandilli</option>
-                            <option value="Bebek">Bebek</option>            
+                        <select id="port" defaultValue={ship?.district} {...register("port")}>  
+                            {ship?.port.map((item,i)=>(
+                                <option value={item} key={i}>{item}</option>
+                            ))}        
                         </select>
                     </div>
                 </div>

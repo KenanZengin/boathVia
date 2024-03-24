@@ -1,0 +1,52 @@
+.reservation{
+    .title-info{
+        margin: 20px 0;
+        span{
+            display: inline-block;
+            color: rgb(8, 47, 62);
+            font-weight: 500;
+            background-color: #F1F5F9;
+            padding: 15px;
+            border-radius: 12px;
+        }
+    }
+    &-carts{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin: 20px 0;
+        .reservation-cart{
+            .cart-info{
+                input[type="checkbox"]{
+                    opacity: 0;
+                    position: absolute;
+                    z-index: -999999999;
+                    left: -99999px;
+                    width: 0;
+                    height: 0;
+                }
+            }
+            .r-cart-content{
+                width: 316px;
+                height: 240px;
+                .content-img{
+                    position: relative;
+                    width: 316px;
+                    height: 240px;
+                    img{
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+            }
+            &:has(.cart-info input[type="checkbox"]:not(:checked)) .r-cart-content{
+                display: none;
+            }
+            &:has(.cart-info input[type="checkbox"]:checked) .r-cart-content{
+                display: block;
+            }
+        }
+    }
+}

@@ -75,11 +75,14 @@ model UserReservation{
   port String
   people Int
   duration Int
-  hour_price Int
+  hour_price Int//
   time DateTime[]
   payment Boolean @default(false)
   status Boolean @default(false)
-  img_path String 
+  img_path String //  
+  star Float //
+  comment Int //
+  record_date DateTime @default(now())
 
 }
 

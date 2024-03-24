@@ -53,7 +53,7 @@ const Payment = async ({searchParams}:{searchParams:{[key:string]: string}}) => 
             </div>
             <div className="reservation-advice">
               <p><BsInfoCircle size={20} />You can cancel your reservation in this vehicle until the last 168 hour.</p>
-              <p><BsInfoCircle size={29} />As long as it does not conflict with the vehicle's cancellation policy, you can only cancel free of charge within 3 days from the date of booking. If the reservation is less than 3 days away, no free cancellation is possible.</p>
+              <p><BsInfoCircle size={29} />As long as it does not conflict with the vehicle&apos;s cancellation policy, you can only cancel free of charge within 3 days from the date of booking. If the reservation is less than 3 days away, no free cancellation is possible.</p>
             </div>
             <PaymentForm />
           </div>

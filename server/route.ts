@@ -2,7 +2,9 @@
 
 export const PrivateRoutes = [
     "/profile",
-    "/favorites"
+    "/favorites",
+    "/payment",
+    "/reservation"
 ];
 
 export const authRoutes = [

@@ -26,17 +26,19 @@ const SearchInput = ({widthValue,location}: {widthValue: number,location?:string
   const menuRef = useRef<HTMLInputElement>(null); 
 
   useEffect(() => {
+
+    const handleOutsideClick = (event: Event) => {
+        if (open &&  !menuRef.current?.contains(event.target as HTMLElement)) {
+                setOpen(false);
+        }
+    };
+            
     document.addEventListener('click', handleOutsideClick);
 
     return () => document.removeEventListener('click', handleOutsideClick);
   }, [open]); 
 
-  const handleOutsideClick = (event: Event) => {
-        if (open &&  !menuRef.current?.contains(event.target as HTMLElement)) {
-          setOpen(false);
-        }
-  };
-    
+
 
   return (
         <div className="search_location"   >

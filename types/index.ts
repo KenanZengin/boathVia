@@ -7,7 +7,19 @@ export interface ShipsCartProps{
   category: string,
   capacity: number,
   hour_price: number,
-  img_path: string
+  img_path: string,
+  port: string[]
+}
+
+export interface ReservationCartProps extends ShipsCartProps{
+  userId: string,
+  shipId: string,
+  people: number,
+  duration: number,
+  time: Date[],
+  payment: boolean,
+  status: boolean,
+  record_date: Date,  
 }
 
 

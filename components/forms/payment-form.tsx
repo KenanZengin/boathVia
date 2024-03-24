@@ -43,6 +43,7 @@ const PaymentForm = () => {
         backdrop="static"
         keyboard={false}
         className="card-modal"
+        animation={false}
       >
         <div className="close-model">
             <button onClick={handleClose}>

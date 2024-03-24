@@ -37,3 +37,14 @@ export async function getShipDetail(id :string){
 
     return data 
 }
+
+
+export async function getUserReservation(){
+
+    const userId = await currentUserId()
+    const res = await fetch(`http://localhost:3000/api/ships/reservation?userId=${userId}`);
+    const data = await res.json();
+    
+    return data
+    
+} 

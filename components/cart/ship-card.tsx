@@ -36,7 +36,6 @@ const ShipCard = ({data,userFavList,userId,favorite}:{data:ShipsCartProps,userFa
     if(data && data.id && userId){
       setFavStatus(() => !favStatus)  
       addFav(data.id,userId).then((data)=>{
-        //setFavStatus(()=>data.add);
         console.log(data);
         
         if(data.add){

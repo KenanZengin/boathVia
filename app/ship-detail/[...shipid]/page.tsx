@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { CSSProperties } from "react";
 import ShipImages from "@/components/ship-detail/images";
-import { getShip } from "@/server/actions/ships"
 
 import { TfiTimer } from "react-icons/tfi";
 import { FiShare } from "react-icons/fi";

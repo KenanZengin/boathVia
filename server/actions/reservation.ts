@@ -86,16 +86,7 @@ export const reservation = async (values:z.infer<typeof ReservationSchema>,shipI
     }
    
 
-    console.log("type",{
-        userid: typeof user.id,
-        shipid: typeof shipId,
-        pORT: typeof port,
-        peopLE: typeof people,
-        durationn: typeof duration,
-        timee: typeof hours,
-        imgp: typeof ship.img_path
-    });
-    
+
 
     
 
@@ -110,7 +101,10 @@ export const reservation = async (values:z.infer<typeof ReservationSchema>,shipI
                 duration: duration,
                 time: hours,
                 img_path: ship.img_path,
-                hour_price: hour_price
+                hour_price: hour_price,
+                star: ship.star,
+                comment: ship.comment,
+                record_date: new Date()
             }
         });
         

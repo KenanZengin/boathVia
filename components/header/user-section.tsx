@@ -49,7 +49,7 @@ const UserSection = ({session}:{session: Session | null}) => {
                     {session && session.user 
                         ?
                             <>
-                                <Link href="/">
+                                <Link href="/reservation">
                                     Reservation
                                 </Link>
                                 <Link href="/favorites" >
@@ -63,9 +63,6 @@ const UserSection = ({session}:{session: Session | null}) => {
                                 </button>
                                 <Link href="/helpcenter">
                                     Help Center
-                                </Link>
-                                <Link href="/test">
-                                    TEST
                                 </Link>
                             </>
                         :
