@@ -75,7 +75,8 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
                 if(data.status === true){
                     router.push(
                         `/payment?id=${data.reservationId}`
-                    )
+                    );
+                    router.refresh();
                 }
             }
         )

@@ -13,10 +13,37 @@
     &-carts{
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 10px;
         margin: 20px 0;
-        .reservation-cart{
+        &:has(.reservation-cart .cart-info input[type="checkbox"]:not(:checked)) .reservation-cart{
+            border-radius: 999px;
             .cart-info{
+                &::before{
+                    transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                    bottom: 45%;
+                }
+            }
+        }
+        &:has(.reservation-cart .cart-info input[type="checkbox"]:checked) .reservation-cart{
+            border-radius: 12px;
+            .cart-info{
+                &::before{
+                    transform: rotate(225deg);
+                    -webkit-transform: rotate(225deg);
+                    bottom: 35%;
+                }
+            }
+        }
+
+        .reservation-cart{
+            margin: 25px 0;
+            border: 1px solid #CBD5E1;
+            border-radius: 999px;
+            .cart-info{
+                width: 100%;
+                padding: 16px 36px;
+                position: relative;
                 input[type="checkbox"]{
                     opacity: 0;
                     position: absolute;
@@ -25,18 +52,168 @@
                     width: 0;
                     height: 0;
                 }
+                .offer_id{
+                    display: flex;
+                    align-items: baseline;
+                    gap: 20px;
+                    color: rgb(8, 47, 62);
+                    p{
+                        font-size: 1.25rem;
+                    }
+                    span:last-child{
+                        padding: 5px 10px;
+                    }
+                    .no-payment{
+                        background-color: #FFD0CE;
+                        color: rgb(102, 24, 20);
+                        border-radius: 60px;
+                        font-size: 0.875rem;
+                    }
+                    
+                }
+                &::before{
+                    content: "";
+                    border: solid #1D4356;
+                    border-width: 0 2px 2px 0;
+                    display: inline-block;
+                    padding: 5px; 
+                    position: absolute;
+                    right: 2.5%;
+                    cursor: pointer;
+                }
+                
             }
             .r-cart-content{
-                width: 316px;
-                height: 240px;
-                .content-img{
-                    position: relative;
-                    width: 316px;
-                    height: 240px;
-                    img{
-                        object-fit: cover;
-                        width: 100%;
-                        height: 100%;
+                width: 100%;
+                border-top: 1px solid #CBD5E1;
+                padding: 16px 36px;
+                .r-cart-head{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 15px;
+                    .ship-info{
+                        p{
+                            display: flex;
+                            gap: 10px;
+                            align-items: center;
+                            span:first-child,span:nth-child(2){
+                                color: rgb(8, 47, 62);
+                            }
+                            span:last-child{
+                                color: rgb(100, 116, 139);
+                            }
+                            svg{
+                                color: #178A87;
+                            }
+                        }
+                    }
+                    .ship-record{
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        font-size: 0.875rem;
+                        p{
+                            padding: 5px 10px;
+                            background-color: #CFF9E9;
+                            border: 1px solid #042E42;
+                            border-radius: 40px;
+                            color: #042E42;
+                        }
+                        span{
+                            color: rgb(100, 116, 139);
+                        }
+                    }
+                }
+                .content-info{
+                    display: flex;
+                    justify-content: space-between;
+
+                   .ship-detail{
+                        display: flex;
+                        gap: 10px;
+                        .content-img{
+                            position: relative;
+                            width: 316px;
+                            height: 240px;
+                            img{
+                                object-fit: cover;
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 6px;
+                            }
+                        }
+                        .details{
+                            
+                            .detail{
+                                display: grid;
+                                grid-template-columns: repeat(2,1fr);
+                                width: 350px;
+                                max-width: 350px;
+                                align-content: start;
+                                gap: 20px;
+                                span{
+                                    display: inline-block;
+                                    font-size: 0.875rem;
+                                }
+                            }
+                            .go-detail{
+                                text-align: center;
+                                margin-top: 30px;
+                                a{
+                                    display: inline-block;
+                                    padding: 6px 16px;
+                                    color: rgb(23, 138, 135);
+                                    border: 1px solid rgb(23, 138, 135);
+                                    border-radius: 4px;
+                                    font-size: 0.875rem;
+                                    transition: all .5s ease;
+                                    &:hover{
+                                        background-color: #178A87;
+                                        color: #fff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .reservation-details{
+                        .detail{
+                            color: rgb(8, 47, 62);
+                            font-size: 1rem;
+                            white-space: nowrap;
+                            p{
+                                line-height: 1.125rem;
+                                margin-bottom: 12px;
+                                span{
+                                    display: inline-block;
+                                    width: 13rem;
+                                }
+                            }
+                        }
+                        .reservation-change{
+                            text-align: center;
+                            a{
+                                width: 100%;
+                                display: inline-block;
+                                padding: 10px 16px;
+                                color: rgb(23, 138, 135);
+                                border: 1px solid rgb(23, 138, 135);
+                                border-radius: 4px;
+                                transition: all .5s ease;
+                                background-color: #178A87;
+                                color: #fff;
+                                &:hover{
+                                    background-color: #fff;
+                                    color: #178A87;
+                                }
+                            }
+                            button{
+                                padding: 10px 16px;
+                                background-color: #fff;
+                                color: rgb(8, 47, 62);
+                                cursor: pointer;
+                            }
+                        }
                     }
                 }
 
