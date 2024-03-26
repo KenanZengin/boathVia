@@ -1,8 +1,8 @@
 .form-message{
     width: max-content;
     text-align: center;
-    position: absolute;
-    top: -10px;
+    position: fixed;
+    top: 100px;
     z-index: 99999999;
     animation: slideInY 0.4s forwards;
     &::after{

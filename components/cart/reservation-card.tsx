@@ -6,7 +6,7 @@ import moment from 'moment'
 import { FaStar } from "react-icons/fa";
 
 const ReservationCard = ({data}:{data:ReservationCartProps[]}) => {
- 
+   
     
     return (
     <div className='reservation-carts'>
@@ -20,22 +20,27 @@ const ReservationCard = ({data}:{data:ReservationCartProps[]}) => {
           
             const date_3 = moment(item?.time[item.time.length - 1]);
             const date_end = date_3.subtract(3,"hours");
-          
+
+           
 
             return(
                 <div className="reservation-cart" key={item.id}>
                     <label htmlFor={item.id?.toString()} className="cart-info">
+                        <div className='offer_id'>
+                            <p>Offer #{item.id?.slice(8,13)} </p> 
+                            <span>{item.people} person</span>
+                            {item.payment 
+                                ? <span className='yes-payment'>prepayment made</span> 
+                                : <span className='no-payment'>no advance payment</span>
+                            }
+                        </div>
                         <input 
                             type="checkbox" 
                             name={item.id?.toString()} 
                             id={item.id?.toString()}
-                            defaultChecked={true}
+                            defaultChecked
                         />
-                        <div className='offer_id'>
-                            <p>Offer #{item.id?.slice(8,13)} </p> 
-                            <span>{item.people} person</span>
-                            <span className='no-payment'>no advance payment</span>
-                        </div>
+                        <div className="arrow"></div>
                     </label>
                     <div className="r-cart-content">
                         <div className="r-cart-head">

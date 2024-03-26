@@ -15,34 +15,13 @@
         flex-direction: column;
         gap: 10px;
         margin: 20px 0;
-        &:has(.reservation-cart .cart-info input[type="checkbox"]:not(:checked)) .reservation-cart{
-            border-radius: 999px;
-            .cart-info{
-                &::before{
-                    transform: rotate(45deg);
-                    -webkit-transform: rotate(45deg);
-                    bottom: 45%;
-                }
-            }
-        }
-        &:has(.reservation-cart .cart-info input[type="checkbox"]:checked) .reservation-cart{
-            border-radius: 12px;
-            .cart-info{
-                &::before{
-                    transform: rotate(225deg);
-                    -webkit-transform: rotate(225deg);
-                    bottom: 35%;
-                }
-            }
-        }
-
         .reservation-cart{
             margin: 25px 0;
             border: 1px solid #CBD5E1;
-            border-radius: 999px;
+            border-radius: 12px;
             .cart-info{
                 width: 100%;
-                padding: 16px 36px;
+                padding: 20px 36px;
                 position: relative;
                 input[type="checkbox"]{
                     opacity: 0;
@@ -50,7 +29,33 @@
                     z-index: -999999999;
                     left: -99999px;
                     width: 0;
-                    height: 0;
+                    height: 0;  
+                }       
+                .arrow{
+                    &::before{
+                        content: "";
+                        border: solid #1D4356;
+                        border-width: 0 2px 2px 0;
+                        display: inline-block;
+                        padding: 5px; 
+                        position: absolute;
+                        right: 2.5%;
+                        cursor: pointer;
+                    }
+                }
+                input:checked + .arrow{
+                    &::before{
+                        transform: rotate(225deg);
+                        -webkit-transform: rotate(225deg);
+                        bottom: 35%;
+                    }
+                }
+                input:not(:checked) + .arrow{
+                    &::before{
+                        transform: rotate(45deg);
+                        -webkit-transform: rotate(45deg);
+                        bottom: 45%;
+                    }
                 }
                 .offer_id{
                     display: flex;
@@ -69,18 +74,15 @@
                         border-radius: 60px;
                         font-size: 0.875rem;
                     }
+                    .yes-payment{
+                        background-color: #D0FBCD;
+                        color: #03553e;
+                        border-radius: 60px;
+                        font-size: 0.875rem;
+                    }
                     
                 }
-                &::before{
-                    content: "";
-                    border: solid #1D4356;
-                    border-width: 0 2px 2px 0;
-                    display: inline-block;
-                    padding: 5px; 
-                    position: absolute;
-                    right: 2.5%;
-                    cursor: pointer;
-                }
+               
                 
             }
             .r-cart-content{

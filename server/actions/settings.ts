@@ -64,6 +64,6 @@ export const settings = async (
         }
     });
 
-    return { success : "Settings Update"}
+    return { success : "Changes saved"};
 
 }

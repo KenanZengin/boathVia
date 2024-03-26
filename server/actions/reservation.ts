@@ -81,7 +81,7 @@ export const reservation = async (values:z.infer<typeof ReservationSchema>,shipI
         if(error instanceof PrismaClientValidationError){
             return { error : error.message, version: error.clientVersion}
         }
-        return { error }
+        return { error: "There is a problem, we will solve it as soon as possible" }
 
     }
    
@@ -111,7 +111,7 @@ export const reservation = async (values:z.infer<typeof ReservationSchema>,shipI
              return { error : error.message, version: error.clientVersion}
          }
 
-         return { error }
+         return { error: "There is a problem, we will solve it as soon as possible" }
      }
 
 

@@ -4,6 +4,7 @@
     padding: 0 12px;
     border: 0;
     position: relative;
+    overflow: hidden;
     img{
         min-width: 300px;
         width: 300px;
@@ -89,6 +90,7 @@
         position: absolute;
         right: 19px;
         top: 5px;
+        cursor: pointer;
         .heart{
 
             path:first-child{
@@ -105,5 +107,18 @@
     }
     .noadded{
         color: #fff;
+    }
+    .form-message{
+        top: 0;
+        left: 12px;
+        position: absolute;
+        width: 300px;
+        &-content{
+            padding: 3px;
+            p{
+                font-size: 0.875rem;
+                padding: 6px;
+            }
+        }
     }
 }

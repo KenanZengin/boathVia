@@ -258,6 +258,7 @@
                     box-shadow: 0 0 #0000, 0 0 #0000,0 0 #0000, 0 0 #0000,0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
                     position: sticky;
                     top: 0;
+                    overflow: hidden;
                     .head{
                         display: flex;
                         justify-content: space-between;
@@ -291,10 +292,10 @@
                     .options{
                         form{
                             display: grid;
-                        grid-template-columns: repeat(2,1fr);
-                        border: 1px solid #64748B;
-                        border-radius: 12px;
-                        margin-top: 12px;
+                            grid-template-columns: repeat(2,1fr);
+                            border: 1px solid #64748B;
+                            border-radius: 12px;
+                            margin-top: 12px;
                         .port,.date,.duration,.people{
                             padding: 4px 12px 10px;
                             display: flex;
@@ -536,6 +537,7 @@
                             padding: 16px 0;
                             border-radius: 6px;
                             transition: background-color .2s ease-in;
+                            max-height: 51px;
                             &:hover{
                                 background-color: #107076;
                             }
@@ -572,6 +574,12 @@
                                 }
                             }
                         }
+                    }
+                    .form-message{
+                        position: absolute !important;
+                        width: 400px !important;
+                        top: 0 !important;
+                        left: 0;
                     }
                 }
             }

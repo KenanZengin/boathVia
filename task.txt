@@ -1,0 +1,19 @@
+**FRONT-END**
+-profile settingste başarılı olunca mesaj dön , save butotuna basınca bir loading ekle ++
+-reservationda ki card'daki oklara bak dönme işlemi olmuyor ve ödemenin durumuna göre bilgileri güncelle  ++
+-favori sayfasında 0 ürün varsa ona göre kullanıcıya bildir ve favorireler bir gemi eklediğimiz veya sildiğimizde bilgilendirme mesajı yayınla. tüm sayfalar için +++ 
+-detay sayfasında rezervasyon takviminden dönen hata mesajı varsa kullanıcıya göster ++
+-rezervasyon butouna basıcna loading ekle++
+-detay sayfasında ki portdaki buga bak++
+-takvimde de seçili saati aktif olarak seçiblen bir saat olsun her seferinde 12 olmasın ve seçilemez bir günde seçilen saat olursa 12 değil en yakın uygun saate atama yapsın
+-detay safyasında üst tarafda bulunan butonları ya aktif hale getir ya da kaldır
+-detay safyasında resimleri slader ekle 
+-detay sayfasını başka sekmede açtır
+-category?categoryname'den gidilen sayfayı incele gemiler gelmiyor
+-giriş veya çıkış yapılınca bir uyarı mesajı gösterebilirsen ekle
+-başka bir sayfaya giderken en üstte sayfanın yüklenme durumunu gösteren bir görüntü ekle çizginin dolma süresi gibi bişi.
+-favori , settings, sayfalarına gemilerin listelendiği ana sayfaya dönmeleri için ok ekle
+
+
+
+*BACK-END**

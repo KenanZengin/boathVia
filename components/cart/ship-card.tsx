@@ -14,6 +14,8 @@ import { GoStarFill } from "react-icons/go";
 import { IoIosHeart, IoMdHeartEmpty } from 'react-icons/io';
 import { PiHeartDuotone } from "react-icons/pi";
 import { usePathname, useRouter } from 'next/navigation';
+import { MdError } from 'react-icons/md';
+import { FaCheck } from 'react-icons/fa';
 
 const ShipCard = ({data,userFavList,userId,favorite}:{data:ShipsCartProps,userFavList?:string[] | undefined,userId?:string | undefined,favorite?:boolean}) => {
   
@@ -22,9 +24,8 @@ const ShipCard = ({data,userFavList,userId,favorite}:{data:ShipsCartProps,userFa
   const router = useRouter();
   const pathName = usePathname();
   const [favStatus, setFavStatus] = useState<boolean | undefined | string >(id && userId && userFavList?.includes(id))
-  const [noUser,setNoUser] = useState<string | undefined>()
-  const [successfavMessage,setSuccessFavMessage] = useState<string | undefined>()
-  const [deletefavMessage,setDeleteFavMessage] = useState<string | undefined>()
+  const [success,setSuccessMessage] = useState<string | undefined>()
+  const [error,setErrorMessage] = useState<string | undefined>()
 
 
   
@@ -32,65 +33,77 @@ const ShipCard = ({data,userFavList,userId,favorite}:{data:ShipsCartProps,userFa
 
   const addFavorite = () => {
 
-
+    setErrorMessage(undefined);
+    setSuccessMessage(undefined)
     if(data && data.id && userId){
-      setFavStatus(() => !favStatus)  
-      addFav(data.id,userId).then((data)=>{
-        console.log(data);
-        
-        if(data.add){
-          setSuccessFavMessage("Added to your favorite list")
-        }
-        if(!data.add){
-          setDeleteFavMessage("Deleted to your favorite list")
-        }
-        router.refresh()
-
-      });
-    }else{
-      setNoUser("You must log in to add to your favorite list")
+      setFavStatus(() => !favStatus);  
     }
+
+    if(data && data.id){
+      addFav(data.id,userId).then((data)=>{
+        if(data.error){
+          setErrorMessage(data.error)
+        }
+        if(data.success){
+          setSuccessMessage(data.success)
+          router.refresh();
+        }
+      });
+    }
+
   }
  
   
   return (
     
-    <Card className='card'>
-      <Link href={`/ship-detail/${id}`}>
-        <Image src={img_path} alt='ship' width={300} height={240}  />
-        <Card.Header>
-          <p className="location">
-            {`${city} ${district}`}
-          </p>
-          <span className="star">           
-            <GoStarFill size={15} />
-            {star > 0 ? star : ""}&nbsp;&nbsp;
-            {comment > 0 ? `(${comment})` : "New"}
-          </span>
-        </Card.Header>
-        <Card.Body>  
-          <p className='category'>
-            {category}
-          </p>
-          <p className="capacity">
-            Capacity: {capacity} people
-          </p>
-        </Card.Body>
-        <Card.Footer>
-          <p className="price">TRY {hour_price}</p> <span className='time'>/hour</span>
-        </Card.Footer>
-        <div className="card-action">
-          <p className="reservesion">
-            ⚡️ Immediately Reservable 
-          </p>
-        
-        </div>
-      </Link>
-      <span onClick={addFavorite} className={`addFav ${favStatus || favorite ? "added" : "noadded"}`}>
-        <PiHeartDuotone className={`${favStatus || favorite ? "heart" : ""}`} size={28} />
-      </span>
-    </Card>
-
+    <>
+      <Card className='card'>
+        <Link href={`/ship-detail/${id}`}>
+          <Image src={img_path} alt='ship' width={300} height={240}  />
+          <Card.Header>
+            <p className="location">
+              {`${city} ${district}`}
+            </p>
+            <span className="star">           
+              <GoStarFill size={15} />
+              {star > 0 ? star : ""}&nbsp;&nbsp;
+              {comment > 0 ? `(${comment})` : "New"}
+            </span>
+          </Card.Header>
+          <Card.Body>  
+            <p className='category'>
+              {category}
+            </p>
+            <p className="capacity">
+              Capacity: {capacity} people
+            </p>
+          </Card.Body>
+          <Card.Footer>
+            <p className="price">TRY {hour_price}</p> <span className='time'>/hour</span>
+          </Card.Footer>
+          <div className="card-action">
+            <p className="reservesion">
+              ⚡️ Immediately Reservable 
+            </p>
+          
+          </div>
+        </Link>
+        <span onClick={addFavorite} className={`addFav ${favStatus || favorite ? "added" : "noadded"}`}>
+          <PiHeartDuotone className={`${favStatus || favorite ? "heart" : ""}`} size={28} />
+        </span>
+        {error ?  <div className="form-message">
+            <div className="form-message-content error">
+                <p> <MdError size={24}/>{error}</p>
+            </div>
+        </div> : ""}
+        {success &&  <div className="form-message">
+            <div className="form-message-content success">
+                <p> <FaCheck size={24}/>{success}</p>
+            </div>
+        </div>}
+      </Card>
+      
+    </>
   )
 }
 

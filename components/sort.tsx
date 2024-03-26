@@ -18,16 +18,19 @@ const Sort = ({searchParams}:{searchParams:{[key:string]: string}}) => {
      }
 
      useEffect(() => {
+
+      const handleOutsideClick = (event: Event) => {
+        if (open &&  !sortMenuRef.current?.contains(event.target as HTMLElement)) {
+          setOpen(false);
+        }
+  };
+
       document.addEventListener('click', handleOutsideClick);
   
       return () => document.removeEventListener('click', handleOutsideClick);
     }, [open]); 
   
-    const handleOutsideClick = (event: Event) => {
-          if (open &&  !sortMenuRef.current?.contains(event.target as HTMLElement)) {
-            setOpen(false);
-          }
-    };
+   
   
     return (
       <div className="arrangement">

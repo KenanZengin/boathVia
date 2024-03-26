@@ -1,7 +1,7 @@
 "use client"
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { ShipsCartProps } from "@/types";
 import * as z from "zod"
 import { FaStar } from "react-icons/fa";
@@ -11,13 +11,17 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ReservationSchema } from "@/schemas";
 import { reservation } from "@/server/actions/reservation";
+import { MdError } from "react-icons/md";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 
 
 const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
 
+  const [isPending, startTransition] = useTransition();
   const [hour,setHour] = useState<number>(2);
   const [people,setPeople] = useState<number>(2);
+  const [reservationError,setReservationError] = useState<string | undefined>();
   const router = useRouter();
   
 
@@ -69,18 +73,23 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
 
   const onSubmit = (values: z.infer<typeof ReservationSchema>) => {
 
-    
-    if(ship && ship.id && values){
-        reservation(values,ship?.id.toString(),ship.hour_price).then((data)=>{console.log(data)
-                if(data.status === true){
-                    router.push(
-                        `/payment?id=${data.reservationId}`
-                    );
-                    router.refresh();
+    setReservationError(undefined)
+    startTransition(()=>{
+        if(ship && ship.id && values){
+            reservation(values,ship?.id.toString(),ship.hour_price).then((data)=>{console.log(data)
+                    if(data.status === true){
+                        router.push(
+                            `/payment?id=${data.reservationId}`
+                        );
+                        router.refresh();
+                    }
+                    if(data.error){
+                        setReservationError(data.error)
+                    }
                 }
-            }
-        )
-    }
+            )
+        }
+    })
 }
 
 
@@ -106,9 +115,9 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
             <div className="port">
                     <span className="opt-inf">Port</span>
                     <div className="port-s">
-                        <select id="port" defaultValue={ship?.district} {...register("port")}>  
+                        <select id="port"  {...register("port")}>  
                             {ship?.port.map((item,i)=>(
-                                <option value={item} key={i}>{item}</option>
+                                <option value={item} key={i} selected={i==1}>{item}</option>
                             ))}        
                         </select>
                     </div>
@@ -157,10 +166,16 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
                     </div>
                 </div>
            </form>
+           {reservationError &&  <div className="form-message">
+            <div className="form-message-content error">
+                <p> <MdError size={24}/>{reservationError}</p>
+            </div>
+        </div>}
         </div>
         <div className="order">
             <button form="reset-form">
-                Reserve!
+            {!isPending ? "Reserve" : <AiOutlineLoading3Quarters size={25} className='loading' />}
+
             </button>
             <span className="right">
                 Since instant booking is active, you will be directed to the payment page.
@@ -184,6 +199,7 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
                 </div>
             </div>
         </div>
+        
     </div>
   )
 }

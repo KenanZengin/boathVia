@@ -1,16 +1,21 @@
 "use client"
 
+import { useState, useTransition } from 'react';
 import { useCurrentUser } from '@/hooks/client/use-auth';
 import * as z from "zod"
 import { SettingsSchema } from '@/schemas';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { memo, useState, useTransition } from 'react';
-import { IoIosEye } from 'react-icons/io';
-import { FaRegEyeSlash } from 'react-icons/fa';
 import { UserLanguage } from '@prisma/client';
 import { settings } from '@/server/actions/settings';
+
 import { MdError } from 'react-icons/md';
+import { FaCheck } from "react-icons/fa6";
+import { IoIosEye } from 'react-icons/io';
+import { FaRegEyeSlash } from 'react-icons/fa';
+import { VscLoading } from "react-icons/vsc";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { AiOutlineLoading } from "react-icons/ai";
 
 const SettingsForm = () => {
 
@@ -21,8 +26,10 @@ const SettingsForm = () => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [showNewPassword, setShowNewPassword] = useState<boolean>(false);
     const [formError, setFormError] = useState<string | undefined>()
+    const [formSuccess, setFormSuccess] = useState<string | undefined>()
+
     
-    const { handleSubmit, register, formState: { errors } } = useForm<z.infer<typeof SettingsSchema>>({
+    const { handleSubmit, register, formState: { errors, isDirty } } = useForm<z.infer<typeof SettingsSchema>>({
         resolver: zodResolver(SettingsSchema),
         defaultValues:{
             name: user?.name || undefined,
@@ -38,13 +45,15 @@ const SettingsForm = () => {
     const onSubmit = (values: z.infer<typeof SettingsSchema>) => {
         
         setFormError(undefined);
-
+        setFormSuccess(undefined);
         startTransition(()=>{
             settings(values)
                 .then((data)=>{
-                    
                     if(data.error){
-                        setFormError(data.error);
+                        setFormError(data?.error);
+                    }
+                    if(data.success){
+                        setFormSuccess(data?.success)
                     }
                 })
         })
@@ -53,8 +62,8 @@ const SettingsForm = () => {
     
 
   return (
-    <main className="auth-form">
-        <div className="auth-form-content">
+    <main className="settings-form">
+        <div className="settings-form-content">
             <div className="form-title">
                 <h3>Personal Information</h3>
             </div>
@@ -165,8 +174,8 @@ const SettingsForm = () => {
                         />
                        </div>
                     </div>
-                    <button className="send-btn" type="submit" >
-                        Save
+                    <button className="send-btn" type="submit">
+                        {!isPending ? "Save" : <AiOutlineLoading3Quarters size={25} className='loading' />}
                     </button>
                 </form>
             </div>
@@ -176,6 +185,12 @@ const SettingsForm = () => {
                 <p> <MdError size={24}/>{formError}</p>
             </div>
         </div>}
+        {formSuccess &&  <div className="form-message">
+            <div className="form-message-content success">
+                <p> <FaCheck size={24}/>{formSuccess}</p>
+            </div>
+        </div>}
+        
     </main>
   )
 }

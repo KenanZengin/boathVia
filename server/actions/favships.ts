@@ -5,16 +5,15 @@ import { db } from "../db/db";
 import { getUserfavShips } from "@/hooks/server/favships";
 
 
-export const addFav = async(shipId: string, userId: string) => {
+export const addFav = async(shipId: string, userId?: string) => {
 
 
     
     if(!userId){
-        return { error : "To add ships to your favorite list, you must first log in"}
+        return { error : "You must log in to add to your favorite list"}
     }
 
     const favShips = await getUserfavShips(userId);
-    console.log("favShips",favShips);
     
 
     const checkFav = favShips?.some((filterId) => filterId == shipId);
@@ -36,7 +35,7 @@ export const addFav = async(shipId: string, userId: string) => {
             
         })
        
-        return { success : "Deletion successful", add : false}
+        return { success : "deleted to your favorite list", add : false}
     }
 
   
@@ -56,6 +55,6 @@ export const addFav = async(shipId: string, userId: string) => {
     
    
 
-    return { success : "New ships add", add: true}   
+    return { success : "Added to your favorite list", add: true}   
 
 }

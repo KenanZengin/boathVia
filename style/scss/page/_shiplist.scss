@@ -1,4 +1,4 @@
-.shiplist,.serviceslist{
+.shiplist,.serviceslist,.favorite-list{
     margin: 20px 0;
     .info{
         padding: 10px 0;     
@@ -125,6 +125,39 @@
             }
         }
     }
+    .no-record{
+        text-align: center;
+        background-color: #F1F5F9;
+        padding: 10px 24px;
+        border-radius: 20px;
+        grid-column: 1 /5;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        p{
+            color: rgb(8, 47, 62);
+            font-size: 1.25rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        span{
+            color: rgb(100, 116, 139);
+            font-size: 1rem;
+        }
+        a{
+            display: inline-block;
+            background-color: #178A87;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background-color .3s;
+            &:hover{
+                background-color: #107076;
+            }
+        }
+    }
 }
 .ships{
     padding: 2rem 0;
@@ -133,5 +166,13 @@
         grid-template-columns: repeat(4,1fr);
         justify-items: center;
         row-gap: 2rem;
+    }
+}
+
+.user-layout{
+    padding-top: 10px;
+    .back-home{
+        color: rgb(8, 47, 62);
+        font-size: 0.875rem;
     }
 }

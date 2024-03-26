@@ -1,8 +1,5 @@
 import Link from 'next/link';
 import ShortList from "../cart/ship-sort-list"
-import { getShips } from "@/server/actions/ships";
-import { currentUserId } from '@/hooks/server/auth';
-import { getUserfavShip } from '@/hooks/server/favships';
 import { getShipsData, getUserFavShipsId } from '@/hooks/server/getShips';
 
 
