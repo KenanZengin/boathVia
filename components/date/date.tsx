@@ -23,20 +23,17 @@ const MyDatePicker = ({ setValue, shipId }: {
 
 
    useEffect(() => {
-    //  const now = new Date();
-    //  setTeste(now.setHours(now.getHours(), now.getMinutes(), 0, 0));
      if (shipId) {
        getShipReservationCalendar(shipId).then((data) => {
-         if (data) {
-           if (data.time) {
-             setReservedTimes(data.time.map((timeStr) => new Date(timeStr.getTime() - (3600000 * 3))));
-           }
+         if (data && data.time) {
+            setReservedTimes(data.time.map((timeStr) => new Date(timeStr.getTime() - (3600000 * 3))));
          }
        });
      }
    }, [shipId]);
 
-  const handleDateChange = (date: Date | null) => {
+  const handleDateChange = (date: Date | null): any => {
+    
     if (!date) {
       return; 
     }
@@ -53,9 +50,22 @@ const MyDatePicker = ({ setValue, shipId }: {
     }
   
     const isReservedTime = reservedTimes.some((item) => item.getTime() === date.getTime());
+    
   
     if (isReservedTime) {
-      date.setHours(12, 0, 0, 0); 
+      const defaultDate = new Date();
+      defaultDate.setHours(defaultDate.getHours() + 1);
+      defaultDate.setMinutes(0); 
+      defaultDate.setSeconds(0); 
+       
+      const existingHours = reservedTimes.filter((item)=>item.getHours() === defaultDate.getHours());
+     
+      if(existingHours){
+        const newHours = new Date(date)
+        newHours.setHours(newHours.getHours() + 1)
+        return handleDateChange(newHours)
+      }
+      date.setHours(defaultDate.getHours()); 
     }
   
     setValue("time", date); 
@@ -78,8 +88,9 @@ const MyDatePicker = ({ setValue, shipId }: {
   
  
   const defaultDate = new Date();
-  defaultDate.setHours(0, 0, 0);  
-
+  defaultDate.setHours(defaultDate.getHours() + 1); 
+  defaultDate.setMinutes(0); 
+  defaultDate.setSeconds(0); 
   return (
     <div>
       <DatePicker

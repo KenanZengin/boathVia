@@ -63,7 +63,7 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
   const {handleSubmit, register, formState: {errors},setValue} = useForm<z.infer<typeof ReservationSchema>>({
     resolver: zodResolver(ReservationSchema),
     defaultValues:{
-        port: "Kandilli",
+        port: ship?.port[0],
         time: defaultDate,
         duration: hour,
         people: people,
@@ -115,9 +115,9 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
             <div className="port">
                     <span className="opt-inf">Port</span>
                     <div className="port-s">
-                        <select id="port"  {...register("port")}>  
+                        <select id="port"  {...register("port")} >  
                             {ship?.port.map((item,i)=>(
-                                <option value={item} key={i} selected={i==1}>{item}</option>
+                                <option value={item} key={i} >{item}</option>
                             ))}        
                         </select>
                     </div>

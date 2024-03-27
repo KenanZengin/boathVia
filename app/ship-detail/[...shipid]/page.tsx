@@ -2,7 +2,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CSSProperties } from "react";
+import ReservationForm from "@/components/forms/reservation-form";
+import { getShipDetail } from "@/hooks/server/getShips";
 import ShipImages from "@/components/ship-detail/images";
+import Section_3 from "@/components/homepage/section3";
+
 
 import { TfiTimer } from "react-icons/tfi";
 import { FiShare } from "react-icons/fi";
@@ -10,9 +14,7 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { BsLightningChargeFill } from "react-icons/bs";
 import { TiStopwatch } from "react-icons/ti";
 import { FaStar } from "react-icons/fa";
-import Section_3 from "@/components/homepage/section3";
-import ReservationForm from "@/components/forms/reservation-form";
-import { getShipDetail } from "@/hooks/server/getShips";
+import ShareLink from "@/components/share-link";
 
 
 
@@ -69,14 +71,11 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
                             </p>
                         </div>
                         <div className="share">
-                            <button>
-                                <FiShare size={20} />
-                                Share
-                            </button>
-                            <button>
+                            <ShareLink />
+                            {/* <button>
                                 <IoIosHeartEmpty size={20} />
                                 Save
-                            </button>
+                            </button> */}
                         </div>
 
                     </div>

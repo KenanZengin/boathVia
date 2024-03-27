@@ -1,20 +1,18 @@
 
+import ShipCard from "@/components/cart/ship-card";
+import { getShipsData, getUserFavShipsId } from "@/hooks/server/getShips";
+import { ShipsCartProps } from "@/types";
 import Link from "next/link"
 
 
-const getShipsData = async (location :string="All", sort?: string) => {
-const res = await fetch(`http://localhost:3000/api/ships/getShips?location=${location}&sort=${sort}`)
-const data = await res.json();
 
-return data
-}
   
 
 
 
 const Categories = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
 
-  const data = await getShipsData(searchParams.location,searchParams.sort);
+    const [ships,favShipsId] = await Promise.all([getShipsData(),getUserFavShipsId()])
 
   return (
    <main className="categories_ships">
@@ -55,10 +53,10 @@ const Categories = async ({searchParams}:{searchParams:{[key:string]: string}}) 
         </section>
         <div className="ships">
             <div className="ships-wrapper">
-            {/* {ships && ships.map((item)=>(
-                <ShipCard data={item} key={item.id} />
-                )) 
-            } */}
+            {ships.length > 0  && ships.map((item:ShipsCartProps)=>(
+                <ShipCard data={item} key={item.id} userFavList={favShipsId?.ships?.ships} userId={favShipsId.userId} />
+              )) 
+            }
             </div>
       </div>
    </main>

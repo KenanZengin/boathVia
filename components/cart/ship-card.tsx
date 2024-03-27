@@ -58,7 +58,7 @@ const ShipCard = ({data,userFavList,userId,favorite}:{data:ShipsCartProps,userFa
     
     <>
       <Card className='card'>
-        <Link href={`/ship-detail/${id}`}>
+        <Link href={`/ship-detail/${id}`} target="_blank">
           <Image src={img_path} alt='ship' width={300} height={240}  />
           <Card.Header>
             <p className="location">

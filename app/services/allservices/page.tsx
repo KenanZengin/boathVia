@@ -7,7 +7,7 @@ import {  OrganizationCartProps } from '@/types';
 
 
 const getServices = async () => {
-  const res = await fetch(`http://localhost:3000/api/ships/getServices`);
+  const res = await fetch(`http://localhost:3000/api/ships/getServices?location=All`);
   const data = await res.json();
 
   return data
