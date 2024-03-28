@@ -1,4 +1,5 @@
 import ReservationCard from '@/components/cart/reservation-card';
+import NoRecord from '@/components/no-record';
 import { getUserReservation } from '@/hooks/server/getShips'
 import React from 'react'
 
@@ -13,7 +14,9 @@ const Reservation = async () => {
       <div className="title-info">
         <span>My Reservations</span>
       </div>
-      <ReservationCard data={data} />
+      {data.length > 0 
+        ?<ReservationCard data={data} />
+        :<NoRecord message={"You haven't added any boats to your booking calendar yet"} pathMessage={"You must select a time from the calendar to make the reservation.."} /> }
     </main>
   )
 }

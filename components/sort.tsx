@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
+
 const Sort = ({searchParams}:{searchParams:{[key:string]: string}}) => {
 
     const [open,setOpen] = useState<boolean>(false)
@@ -34,6 +35,7 @@ const Sort = ({searchParams}:{searchParams:{[key:string]: string}}) => {
   
     return (
       <div className="arrangement">
+         
           <button onClick={() => setOpen(!open)}>
               
               {searchParams.sort==="high" ? "Highest Price" : searchParams.sort ==="low" ? "Lowest Price" : "Suggest Order"}

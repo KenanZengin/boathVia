@@ -1,16 +1,8 @@
 "use client"
 
 import Link from "next/link";
-import { memo } from "react";
-import { logout } from "@/hooks/client/logout";
-import { useCurrentUser } from "@/hooks/client/use-auth";
-import Dropdown from "react-bootstrap/Dropdown";
-import { useSearchParams } from "next/navigation";
-import { CSSProperties, useEffect, useRef, useState } from "react";
-
-import { IoSearchCircle   } from "react-icons/io5";
-import { TfiLocationArrow } from "react-icons/tfi";
-
+import { useEffect, useRef, useState, memo } from "react";
+import { logout } from "@/server/actions/logout";
 
 import { RxHamburgerMenu } from "react-icons/rx";
 import { LuUserCircle2 } from "react-icons/lu";
@@ -37,6 +29,13 @@ const UserSection = ({session}:{session: Session | null}) => {
         };
     }, [open])
 
+
+
+    const logOut = () => {
+        logout();
+    }
+
+
   return (
     <div className="mydropdown-menu">
         <button title="User action"  onClick={() => setOpen(!open)}   >
@@ -58,7 +57,7 @@ const UserSection = ({session}:{session: Session | null}) => {
                                 <Link href="/profile">
                                     Personal Information
                                 </Link>
-                                <button onClick={logout}>
+                                <button type="button" onClick={logOut}>
                                     Sign out
                                 </button>
                                 <Link href="/helpcenter">

@@ -5,6 +5,7 @@ import { ShipsCartProps } from '@/types';
 import Link from 'next/link';
 
 import noFound from "../../../public/img/basic/no-found.png"
+import NoRecord from '@/components/no-record';
 
 
 
@@ -30,16 +31,11 @@ const FavoriteList = async () => {
       </div>
      <div className="ships">
         <div className="ships-wrapper">
-          {favShip.ships.length > 0  ? favShip.ships.map((item:ShipsCartProps)=>(
+          {favShip.ships.length > 0  
+            ? favShip.ships.map((item:ShipsCartProps)=>(
               <ShipCard data={item} userId={favShip.userId} key={item.id} favorite={true} />
-            )) : <div className='no-record'>
-                  <p>You haven't added any boat to your favorites yet</p>
-                  <span>You can view the boats you like on this page by adding them to your favorites.</span>
-                  <Image src={noFound} alt="nofound"/>
-                  <Link href={"/chip-charter?location=All"}>
-                    Explore Boats
-                  </Link>
-                </div>
+            )) 
+            : <NoRecord message={"You haven't added any boat to your favorites yet"} pathMessage={"You can view the boats you like on this page by adding them to your favorites."} /> 
           }
         </div>
     </div>

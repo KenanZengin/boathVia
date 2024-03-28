@@ -10,7 +10,7 @@ const ReservationCard = ({data}:{data:ReservationCartProps[]}) => {
     
     return (
     <div className='reservation-carts'>
-        {data.map((item)=>{
+        {data?.map((item)=>{
 
             const date_1 = moment(item.record_date)
             const record = date_1.subtract(3,"hours");
@@ -72,7 +72,7 @@ const ReservationCard = ({data}:{data:ReservationCartProps[]}) => {
                                         <span>Confetti is prohibited</span>
                                     </div>
                                     <div className="go-detail">
-                                        <Link href={`/ship-detail/${item.shipId}`}>
+                                        <Link href={`/ship-detail/${item.shipId}`} target="_blank">
                                             See boat details
                                         </Link>
                                     </div>

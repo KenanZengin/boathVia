@@ -4,4 +4,7 @@ export const logout = () => {
     signOut({
         redirect:true,
     });
+
 }
+
+
