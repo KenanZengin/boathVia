@@ -1,3 +1,4 @@
+
 import { getShipReservationCalendar } from '@/server/data/calendar';
 import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
@@ -19,17 +20,16 @@ const MyDatePicker = ({ setValue, shipId }: {
   const [selectedDate, setSelectedDate] = useState<Date | null>();
   const [excludedTimes, setExcludedTimes] = useState<Date[]>([]);
   const [reservedTimes, setReservedTimes] = useState<Date[]>([]);
-  const [teste, setTeste] = useState<any>();
 
 
    useEffect(() => {
      if (shipId) {
        getShipReservationCalendar(shipId).then((data) => {
          if (data && data.time) {
-            const reservedTimes = data.time.map((timeStr) => new Date(timeStr.getTime() - (3600000 * 3)));
-            setReservedTimes(reservedTimes);
+            setReservedTimes(data.time.map((timeStr) => new Date(timeStr.getTime() - (3600000 * 3))));
             handleExcludedTimes(selectedDate || new Date(), reservedTimes);
-         }
+
+        }
        });
      }
    }, [shipId]);
@@ -43,8 +43,10 @@ const MyDatePicker = ({ setValue, shipId }: {
     date.setMinutes(0, 0, 0); 
   
     const today = new Date();
+    const userTimezoneOffset = new Date().getTimezoneOffset(); 
   
-    if (date.getTime() < today.getTime()) {
+    if (date.getTime() < today.getTime() || 
+        (date.getDate() === today.getDate() && date.getTime() < today.getTime() - userTimezoneOffset * 60000)) {
       setSelectedDate(null); 
       return;
     }
@@ -69,13 +71,15 @@ const MyDatePicker = ({ setValue, shipId }: {
     }
   
     setValue("time", date); 
-    setSelectedDate(date);
   
     handleExcludedTimes(date, reservedTimes);
+    setSelectedDate(date);
+
   };
 
   const handleCalendarOpen = () =>{
-    handleDateChange( new Date() );
+    const defaultDate = new Date();
+    handleDateChange( defaultDate );
   };
 
 

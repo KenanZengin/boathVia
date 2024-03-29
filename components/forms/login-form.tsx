@@ -22,7 +22,6 @@ const LoginForm = () => {
     const [showPassword,setShowPassword] = useState<boolean>(false);
     const [formState, setFormState] = useState<boolean>(false);
     const [formError, setFormError] = useState<string | undefined>()
-    const [formSuccess, setFormSuccess] = useState<string | undefined>()
 
     const { handleSubmit, register, formState: {errors, isSubmitting}, reset } = useForm<z.infer<typeof LoginSchema>>({
         resolver: zodResolver(LoginSchema),

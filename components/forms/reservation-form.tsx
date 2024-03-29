@@ -174,8 +174,7 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
         </div>
         <div className="order">
             <button form="reset-form">
-            {!isPending ? "Reserve" : <AiOutlineLoading3Quarters size={25} className='loading' />}
-
+                {!isPending ? "Reserve" : <AiOutlineLoading3Quarters size={25} className='loading' />}
             </button>
             <span className="right">
                 Since instant booking is active, you will be directed to the payment page.

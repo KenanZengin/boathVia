@@ -4,6 +4,7 @@ import { ReservationCartProps } from '@/types'
 import moment from 'moment'
 
 import { FaStar } from "react-icons/fa";
+import CancelReservation from '../cancel-reservation';
 
 const ReservationCard = ({data}:{data:ReservationCartProps[]}) => {
    
@@ -119,9 +120,7 @@ const ReservationCard = ({data}:{data:ReservationCartProps[]}) => {
                                     <Link href={`/payment?id=${item.id}`}>
                                         Reserve!
                                     </Link>
-                                    <button>
-                                        Cancel
-                                    </button>
+                                   <CancelReservation data={item} />
                                 </div>
                             </div>
                     </div>

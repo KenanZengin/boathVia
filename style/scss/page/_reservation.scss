@@ -194,6 +194,7 @@
                         }
                         .reservation-change{
                             text-align: center;
+                            position: relative;
                             a{
                                 width: 100%;
                                 display: inline-block;
@@ -209,12 +210,20 @@
                                     color: #178A87;
                                 }
                             }
-                            button{
-                                padding: 10px 16px;
-                                background-color: #fff;
-                                color: rgb(8, 47, 62);
-                                cursor: pointer;
+                            .cancel-btn{
+                                button{
+                                    padding: 10px 16px;
+                                    background-color: #fff;
+                                    color: rgb(8, 47, 62);
+                                    cursor: pointer;
+                                    max-height: 40px;
+                                    height: 40px;
+                                }
                             }
+                            .form-message{
+                                right: 0;
+                            }
+                            
                         }
                     }
                 }
