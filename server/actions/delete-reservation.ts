@@ -1,6 +1,5 @@
 "use server"
 
-import { Prisma } from "@prisma/client";
 import { db } from "../db/db";
 
 
@@ -27,16 +26,8 @@ export const deleteReservation = async (id: string,dates: Date[],shipId:string) 
         }
     })
 
-    console.log("gelen data",dates);
-    
-    console.log("allDate",allDate);
-    
-
+        
     const filteredDates = allDate?.time.filter(date => !dates.some(dateB => new Date(dateB).getTime() === date.getTime()));
-
-
-    console.log("filteredDates",filteredDates);
-    
     
     await db.reservationCalendar.update({
         where:{

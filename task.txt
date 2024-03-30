@@ -13,8 +13,7 @@
 -giriş veya çıkış yapılınca bir uyarı mesajı gösterebilirsen ekle (later)++
 -başka bir sayfaya giderken en üstte sayfanın yüklenme durumunu gösteren bir görüntü ekle çizginin dolma süresi gibi bişi. ++
 -favori , settings, sayfalarına gemilerin listelendiği ana sayfaya dönmeleri için ok ekle++
--rezervasyon butonuna basınca loading diğer sayfaya gidene kadar sürsün
-
+-rezervasyon butonuna basınca loading diğer sayfaya gidene kadar sürsün++
 
 
 

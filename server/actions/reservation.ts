@@ -10,9 +10,6 @@ import { getShipReservationCalendar } from "../data/calendar";
 import { PrismaClientValidationError } from "@prisma/client/runtime/library";
 
 
-
-
-
 export const reservation = async (values:z.infer<typeof ReservationSchema>,shipId: string,hour_price: number) => {
 
     

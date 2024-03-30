@@ -1,36 +1,50 @@
 
-import { CardSchema } from "@/schemas"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
+import { useSearchParams, useRouter } from "next/navigation"
 import Image from "next/image"
+import * as z from "zod"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { CreditCardSchema } from "@/schemas"
+import { payment } from "@/server/actions/payment"
 
 import cardService from "../../public/img/basic/cards.png"
 import { MdError } from "react-icons/md";
 
-const CardForm = ({children}:{children?:React.ReactNode}) => {
+const CardForm = () => {
 
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const reservationId = searchParams.get("id");
+  
+  
 
-  const {handleSubmit, register, formState:{isValid,errors}} = useForm<z.infer<typeof CardSchema>>({
-    resolver: zodResolver(CardSchema),
+  const {handleSubmit, register, formState:{isValid,errors}} = useForm<z.infer<typeof CreditCardSchema>>({
+    resolver: zodResolver(CreditCardSchema),
+    defaultValues:{
+      cardName:"",
+      cardNumber:undefined,
+      cardMonth: undefined,
+      cardCvv: undefined,
+      cardYear: undefined
+    }
     
   })
 
-
-  
-  
      
-  const onSubmit = (values:z.infer<typeof CardSchema>) => {
-
-    console.log(values);
-      
+  const onSubmit = (values:z.infer<typeof CreditCardSchema>) => {
+    
+    if(reservationId){
+      payment(values,reservationId).then((data)=>{
+        if(data.paymentStatus && data.start && data.location){
+          router.push(
+            `reservationconfirmed?time=${data.start.getTime()}&port=${data.location}`
+          );
+        }
+      });
+    } 
   }
 
-  const test = errors.cardCvv || errors.cardMonth || errors.cardName ||errors.cardNumber || errors.cardYear;
-
-  
-
-
+  const cardError = errors.cardCvv || errors.cardMonth || errors.cardName ||errors.cardNumber || errors.cardYear;
 
 
   const handleCardNumberInput = (event:React.ChangeEvent<HTMLInputElement>) => {
@@ -59,7 +73,6 @@ const CardForm = ({children}:{children?:React.ReactNode}) => {
 
   return (
     <div className="card-form">
-      {children}
       <form  onSubmit={handleSubmit(onSubmit)}>
         <div className="card-name">
           <label htmlFor="cardname">
@@ -67,6 +80,7 @@ const CardForm = ({children}:{children?:React.ReactNode}) => {
             <input 
               type="text" 
               id="cardname" 
+              placeholder="John"
               className={`${errors.cardName ? "error-input" : "success-input"}`}
               {...register("cardName")} 
             />
@@ -80,6 +94,7 @@ const CardForm = ({children}:{children?:React.ReactNode}) => {
                 type="text"
                 maxLength={19} 
                 id="cardnumber" 
+                placeholder="0000 0000 0000 0000"
                 className={`${errors.cardNumber ? "error-input" : "success-input"}`}
                 {...register("cardNumber")}
                 onInput={handleCardNumberInput} 
@@ -122,6 +137,7 @@ const CardForm = ({children}:{children?:React.ReactNode}) => {
               <input 
                 type="text" 
                 id="cardcvv" 
+                placeholder="000"
                 maxLength={3}
                 className={`${errors.cardCvv ? "error-input" : "success-input"}`}
                 {...register("cardCvv")} 
@@ -133,7 +149,7 @@ const CardForm = ({children}:{children?:React.ReactNode}) => {
         <button type="submit" className="ok"  >
           Pay Now
         </button>
-        {test &&  <div className="form-message">
+        {cardError &&  <div className="form-message">
             <div className="form-message-content error">
                 <p> <MdError size={24}/>You must fill in your credit card information completely.</p>
             </div>

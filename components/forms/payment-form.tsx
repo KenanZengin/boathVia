@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import Modal from 'react-bootstrap/Modal';
-import CardForm from "./card-form"
+import CardForm from "./credit-card-form"
 
 
 import { IoMdClose } from "react-icons/io";
@@ -58,8 +58,7 @@ const PaymentForm = () => {
                             <span>Credit or Debir cards All banks worldwide</span>
                         </div>
                         <div className="total-price">Total Payment Amount: <span> 31200,00 TL</span></div>
-                        <CardForm>
-                        </CardForm>
+                        <CardForm />
                     </div>
             </div>   
        </div>

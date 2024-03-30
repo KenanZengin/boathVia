@@ -35,9 +35,9 @@ export const LoginSchema = z.object({
 })
 
 
-export const CardSchema = z.object({
+export const CreditCardSchema = z.object({
     cardName: z.string().trim().nonempty({message:"Name and Last name required"}),
-    cardNumber: z.string().max(19).min(19,{message:"Credit card number must be 16 digits"}).transform((value) => value.replace(/\s/g, "")),
+    cardNumber: z.string().max(19).min(19,{message:"Credit card number must be 16 digits"}),
     cardMonth: z.string().max(2).min(2,{message:"Credit card month must be 2 digits"}),
     cardYear: z.string().max(2).min(2,{message:"Credit card year must be 2 digits"}),
     cardCvv : z.string().max(3).min(3,{message:"Credit card cvv must be 3 digits"})

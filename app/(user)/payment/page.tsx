@@ -10,7 +10,6 @@ const Payment = async ({searchParams}:{searchParams:{[key:string]: string}}) => 
 
   
   const userCalendar = await getUserCalendar(searchParams.id);
-  console.log(userCalendar?.time[0]);
 
   const date_1 = moment(userCalendar?.time[0]);
   const date_start = date_1.subtract(3,"hours");
@@ -18,7 +17,6 @@ const Payment = async ({searchParams}:{searchParams:{[key:string]: string}}) => 
   const date_2 = moment(userCalendar?.time[userCalendar.time.length - 1]);
   const date_end = date_2.subtract(3,"hours");
 
-  
 
 
   return (
@@ -55,7 +53,7 @@ const Payment = async ({searchParams}:{searchParams:{[key:string]: string}}) => 
               <p><BsInfoCircle size={20} />You can cancel your reservation in this vehicle until the last 168 hour.</p>
               <p><BsInfoCircle size={29} />As long as it does not conflict with the vehicle&apos;s cancellation policy, you can only cancel free of charge within 3 days from the date of booking. If the reservation is less than 3 days away, no free cancellation is possible.</p>
             </div>
-            <PaymentForm />
+            <PaymentForm   />
           </div>
           <div className="reservation-ship-card">
             <div className="reservation-ship-card-wrapper">

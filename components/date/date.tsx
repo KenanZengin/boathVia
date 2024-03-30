@@ -19,7 +19,6 @@ const MyDatePicker = ({ setValue, shipId }: {
   const [selectedDate, setSelectedDate] = useState<Date | null>();
   const [excludedTimes, setExcludedTimes] = useState<Date[]>([]);
   const [reservedTimes, setReservedTimes] = useState<Date[]>([]);
-  const [teste, setTeste] = useState<any>();
 
 
    useEffect(() => {
@@ -105,7 +104,6 @@ const MyDatePicker = ({ setValue, shipId }: {
         filterTime={(time)=>time.getTime() >= new Date().getTime()}
         shouldCloseOnSelect={false}
         onCalendarOpen={handleCalendarOpen}
-        
         />
     </div>
   );
