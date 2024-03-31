@@ -57,17 +57,15 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
     }
   };
 
-  const defaultDate = new Date();
-  defaultDate.setHours(0, 0, 0);  
+
+
 
   const {handleSubmit, register, formState: {errors},setValue} = useForm<z.infer<typeof ReservationSchema>>({
     resolver: zodResolver(ReservationSchema),
     defaultValues:{
         port: ship?.port[0],
-        time: defaultDate,
         duration: hour,
         people: people,
-        
     }
   });
 
@@ -90,6 +88,8 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
             )
         }
     })
+    console.log(values);
+    
 }
 
 
@@ -111,7 +111,7 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
             </div>
         </div>
         <div className="options">
-           <form id="reset-form" onSubmit={handleSubmit(onSubmit)}>
+           <form id="reservation-form" onSubmit={handleSubmit(onSubmit)}>
             <div className="port">
                     <span className="opt-inf">Port</span>
                     <div className="port-s">
@@ -169,36 +169,35 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
            {reservationError &&  <div className="form-message">
             <div className="form-message-content error">
                 <p> <MdError size={24}/>{reservationError}</p>
-            </div>
+        </div>
         </div>}
         </div>
         <div className="order">
-            <button form="reset-form">
-                {!isPending ? "Reserve" : <AiOutlineLoading3Quarters size={25} className='loading' />}
-            </button>
-            <span className="right">
-                Since instant booking is active, you will be directed to the payment page.
-            </span>
-            <div className="price-calculate">
-                <div className="calc">
-                    <span>TRY {ship?.hour_price} x {hour} hours</span>
-                    <span>TRY {ship?.hour_price && ship?.hour_price * hour}</span>
+                <button form="reservation-form">
+                    {!isPending ? "Reserve" : <AiOutlineLoading3Quarters size={25} className='loading' />}
+                </button>
+                <span className="right">
+                    Since instant booking is active, you will be directed to the payment page.
+                </span>
+                <div className="price-calculate">
+                    <div className="calc">
+                        <span>TRY {ship?.hour_price} x {hour} hours</span>
+                        <span>TRY {ship?.hour_price && ship?.hour_price * hour}</span>
+                    </div>
+                    <div className="total">
+                        <p>Total amount</p>
+                        <p>TRY {ship?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number(ship?.hour_price * hour))}</p>
+                    </div>
+                    <div className="total">
+                        <p>Online prepayment amount</p>
+                        <p>TRY {ship?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number((ship?.hour_price * (0.4 * hour)).toFixed(2)))}</p>
+                    </div>
+                    <div className="total">
+                        <p>Amount to be paid on board</p>
+                        <p>TRY {ship?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number((ship?.hour_price * (0.6 * hour)).toFixed(2)))}</p>
+                    </div>
                 </div>
-                <div className="total">
-                    <p>Total amount</p>
-                    <p>TRY {ship?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number(ship?.hour_price * hour))}</p>
-                </div>
-                <div className="total">
-                    <p>Online prepayment amount</p>
-                    <p>TRY {ship?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number((ship?.hour_price * (0.4 * hour)).toFixed(2)))}</p>
-                </div>
-                <div className="total">
-                    <p>Amount to be paid on board</p>
-                    <p>TRY {ship?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number((ship?.hour_price * (0.6 * hour)).toFixed(2)))}</p>
-                </div>
-            </div>
         </div>
-        
     </div>
   )
 }

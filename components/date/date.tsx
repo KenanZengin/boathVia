@@ -21,19 +21,27 @@ const MyDatePicker = ({ setValue, shipId }: {
   const [reservedTimes, setReservedTimes] = useState<Date[]>([]);
 
 
-   useEffect(() => {
-     if (shipId) {
-       getShipReservationCalendar(shipId).then((data) => {
-         if (data && data.time) {
-            const reservedTimes = data.time.map((timeStr) => new Date(timeStr.getTime() - (3600000 * 3)));
-            setReservedTimes(reservedTimes);
-            handleExcludedTimes(selectedDate || new Date(), reservedTimes);
-         }
-       });
-     }
-   }, [shipId]);
+  useEffect(() => {
+    if (shipId) {
+      getShipReservationCalendar(shipId).then((data) => {
+        if (data && data.time) {
+          const reservedTimes = data.time.map((timeStr) => new Date(timeStr.getTime() - (3600000 * 3)));
+          setReservedTimes(reservedTimes);
+          handleExcludedTimes(selectedDate || new Date(), reservedTimes);
+          const defaultDate = new Date();
+          defaultDate.setHours(defaultDate.getHours() + 1); 
+          defaultDate.setMinutes(0); 
+          defaultDate.setSeconds(0); 
+          defaultDate.setMilliseconds(0);
+          handleDateSet(defaultDate,reservedTimes)
+          handleDateChange(defaultDate)
+        }
+      });
+    }
+  }, [shipId]);
 
-  const handleDateChange = (date: Date | null): any => {
+  const handleDateChange = (date: Date): any => {
+    console.log("HANDLECHANGE OPENED");
     
     if (!date) {
       return; 
@@ -43,20 +51,16 @@ const MyDatePicker = ({ setValue, shipId }: {
   
     const today = new Date();
   
-    if (date.getTime() < today.getTime()) {
-      setSelectedDate(null); 
-      return;
-    }
-  
     const isReservedTime = reservedTimes.some((item) => item.getTime() === date.getTime());
     
   
-    if (isReservedTime) {
+    if (isReservedTime || date.getTime() < today.getTime()) {
       const defaultDate = new Date();
       defaultDate.setHours(defaultDate.getHours() + 1);
       defaultDate.setMinutes(0); 
       defaultDate.setSeconds(0); 
-       
+      defaultDate.setMilliseconds(0);
+
       const existingHours = reservedTimes.filter((item)=>item.getHours() === defaultDate.getHours());
      
       if(existingHours){
@@ -74,7 +78,9 @@ const MyDatePicker = ({ setValue, shipId }: {
   };
 
   const handleCalendarOpen = () =>{
-    handleDateChange( new Date() );
+    if(selectedDate){
+      handleDateChange( selectedDate )
+    }
   };
 
 
@@ -84,8 +90,20 @@ const MyDatePicker = ({ setValue, shipId }: {
       .map((data) => data);
     setExcludedTimes(excludedTimesForDate);
   };
-  
+
+  const handleDateSet = (defaultDate:Date,fullDates:Date[]):any => {
+
+    const testo = fullDates.some((item)=> item.getTime() == defaultDate.getTime())
+
+    if(testo){
+      defaultDate.setHours(defaultDate.getHours() + 1);
+      return handleDateSet(defaultDate,fullDates)
+    }
+
+    setSelectedDate(defaultDate)
+  }
  
+  
   const defaultDate = new Date();
   defaultDate.setHours(defaultDate.getHours() + 1); 
   defaultDate.setMinutes(0); 

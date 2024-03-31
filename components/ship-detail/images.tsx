@@ -1,4 +1,5 @@
 import Image from "next/image";
+import DetailCarousel from "./detail-carousel";
 
 const ShipImages = ({img_path}:{img_path:string | undefined}) => {
   return (
@@ -18,6 +19,7 @@ const ShipImages = ({img_path}:{img_path:string | undefined}) => {
         <div>
            <span><Image src={"/img/ships/inside4.png"} alt="ship-inside"     fill={true}/></span>
         </div>
+        <DetailCarousel img_path={img_path} />
     </div>
   )
 }

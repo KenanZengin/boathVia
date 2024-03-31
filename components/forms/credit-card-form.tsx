@@ -9,13 +9,17 @@ import { payment } from "@/server/actions/payment"
 
 import cardService from "../../public/img/basic/cards.png"
 import { MdError } from "react-icons/md";
+import { useTransition } from "react"
+import { AiOutlineLoading3Quarters } from "react-icons/ai"
 
 const CardForm = () => {
+
 
   const searchParams = useSearchParams();
   const router = useRouter();
   const reservationId = searchParams.get("id");
-  
+  const [isPending, startTransition] = useTransition();
+
   
 
   const {handleSubmit, register, formState:{isValid,errors}} = useForm<z.infer<typeof CreditCardSchema>>({
@@ -33,15 +37,19 @@ const CardForm = () => {
      
   const onSubmit = (values:z.infer<typeof CreditCardSchema>) => {
     
-    if(reservationId){
-      payment(values,reservationId).then((data)=>{
-        if(data.paymentStatus && data.start && data.location){
-          router.push(
-            `reservationconfirmed?time=${data.start.getTime()}&port=${data.location}`
-          );
-        }
-      });
-    } 
+
+    startTransition(()=>{
+      if(reservationId){
+        payment(values,reservationId).then((data)=>{
+          if(data.paymentStatus && data.start && data.location){
+            router.push(
+              `reservationconfirmed?time=${data.start.getTime()}&port=${data.location}`
+            );
+          }
+        });
+      } 
+    })
+
   }
 
   const cardError = errors.cardCvv || errors.cardMonth || errors.cardName ||errors.cardNumber || errors.cardYear;
@@ -147,7 +155,8 @@ const CardForm = () => {
           </div>
         </div>
         <button type="submit" className="ok"  >
-          Pay Now
+        {!isPending ? "Pay Now" : <AiOutlineLoading3Quarters size={25} className='loading' />}
+
         </button>
         {cardError &&  <div className="form-message">
             <div className="form-message-content error">

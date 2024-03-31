@@ -72,12 +72,7 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
                         </div>
                         <div className="share">
                             <ShareLink />
-                            {/* <button>
-                                <IoIosHeartEmpty size={20} />
-                                Save
-                            </button> */}
                         </div>
-
                     </div>
                 </div>
                 <ShipImages img_path={data?.img_path} />

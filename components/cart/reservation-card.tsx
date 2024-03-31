@@ -20,7 +20,7 @@ const ReservationCard = ({data}:{data:ReservationCartProps[]}) => {
             const date_start = date_2.subtract(3,"hours");
           
             const date_3 = moment(item?.time[item.time.length - 1]);
-            const date_end = date_3.subtract(3,"hours");
+            const date_end = date_3.subtract(2,"hours");
 
            
 
@@ -116,12 +116,14 @@ const ReservationCard = ({data}:{data:ReservationCartProps[]}) => {
                                     </p>
                                     
                                 </div>
-                                <div className="reservation-change">
-                                    <Link href={`/payment?id=${item.id}`}>
-                                        Reserve!
-                                    </Link>
-                                   <CancelReservation data={item} />
-                                </div>
+                                {!item.payment &&
+                                    <div className="reservation-change">
+                                        <Link href={`/payment?id=${item.id}`}>
+                                            Reserve!
+                                        </Link>
+                                        <CancelReservation data={item} />                            
+                                    </div>
+                                }
                             </div>
                     </div>
                     </div>

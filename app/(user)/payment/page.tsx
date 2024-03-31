@@ -15,7 +15,7 @@ const Payment = async ({searchParams}:{searchParams:{[key:string]: string}}) => 
   const date_start = date_1.subtract(3,"hours");
 
   const date_2 = moment(userCalendar?.time[userCalendar.time.length - 1]);
-  const date_end = date_2.subtract(3,"hours");
+  const date_end = date_2.subtract(2,"hours");
 
 
 
