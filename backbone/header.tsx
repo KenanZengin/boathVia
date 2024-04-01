@@ -10,6 +10,7 @@ import SearchInput from '@/components/search-input';
 import logo from "../public/img/basic/logo.png"
 import logo2 from "../public/img/basic/logo_2.png"
 import { Session } from 'next-auth';
+import HeaderMobile from '@/components/header-mobile';
 
 const Header = ({session}:{session:Session | null}) => {
 
@@ -33,58 +34,61 @@ const Header = ({session}:{session:Session | null}) => {
     }
   }, [pathname]);
   
-  
-
-
   return (
-    <header className={`header ${ !pathname.startsWith("/ship-detail/") ? pathname === "/" || pathname ==="/helpcenter" ? scrollY > 482 ? "sticky_header" : "" : "sticky_header": "other_page" }`}>
-      <div className="header-web container_add">
-        <div className="header-web-left">
-          <div className="headlogo">
-            <Link href={"/"}>
-              <Image src=
-                {
-                  pathname === "/" || pathname ==="/helpcenter"  ? scrollY > 482 
-                    ? logo2 : logo
-                    : logo2
-                } 
-                alt="logo" 
-              />
-            </Link>
-          </div>
-        </div>
-        {pathname === "/" || pathname ==="/helpcenter" ? scrollY > 482 
-          ?   
-            ( <div className="header-web-center">
-                <SearchInput widthValue={23} location={location} />
-              </div>
-            ) : "" 
-          : (
-              <div className="header-web-center">
-                <SearchInput widthValue={23} location={location}/>
-              </div>
-            )
-          }
-        <div className="header-web-right">
-          <div className="btnsarea">
-            <div className="btnsarea-item">
-              <Link href={"/"} >
-                Rental Boats
+   <>
+      <header className={`web-header header ${ !pathname.startsWith("/ship-detail/") ? pathname === "/" || pathname ==="/helpcenter" ? scrollY > 482 ? "sticky_header" : "" : "sticky_header": "other_page" }`}>
+        <div className="header-web container_add">
+          <div className="header-web-left">
+            <div className="headlogo">
+              <Link href={"/"}>
+                <Image src=
+                  {
+                    pathname === "/" || pathname ==="/helpcenter"  ? scrollY > 482 
+                      ? logo2 : logo
+                      : logo2
+                  } 
+                  alt="logo" 
+                />
               </Link>
             </div>
-            <div className="btnsarea-item">
-              {/*TODO: ADD LANGUAGE API  */}
-              <ChangeLang  />
-            </div>
-            <div className="btnsarea-item user-section">
-              {/*TODO: ADD USER API  */}
-              <UserSection session={session} />
+          </div>
+          {pathname === "/" || pathname ==="/helpcenter" ? scrollY > 482 
+            ?   
+              ( <div className="header-web-center">
+                  <SearchInput widthValue={23} location={location} />
+                </div>
+              ) : "" 
+            : (
+                <div className="header-web-center">
+                  <SearchInput widthValue={23} location={location}/>
+                </div>
+              )
+            }
+          <div className="header-web-right">
+            <div className="btnsarea">
+              <div className="btnsarea-item">
+                <Link href={"/"} >
+                  Rental Boats
+                </Link>
+              </div>
+              <div className="btnsarea-item">
+                {/*TODO: ADD LANGUAGE API  */}
+                <ChangeLang  />
+              </div>
+              <div className="btnsarea-item user-section">
+                {/*TODO: ADD USER API  */}
+                <UserSection session={session} />
+              </div>
             </div>
           </div>
+          
         </div>
-        
+      
+      </header>
+      <div className="header-mobile">
+        <HeaderMobile />
       </div>
-    </header>
+   </>
   )
 }
 

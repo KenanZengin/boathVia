@@ -1,3 +1,24 @@
+
+$breakpoints:(
+    xz:  0,
+    xx:  400px,
+    xm:  550px, 
+    xs:  670px,
+    xxs: 768px,
+    sm:  850px,
+    md_h : 950px,
+    md:  1024px,
+    lg_m:1200px,
+    lg:  1280px,
+    xl:  1400px,
+    xl_m: 1540px,
+    xl_h: 1640px,
+    hd:  1720px,
+    1k:  1940px,
+    2k:  2580px
+);
+
+
 // Max Width Responsive
 @mixin BootstrapMaxWidthResponsive($point) {
     @media (max-width: (map-get($breakpoints, $point) - 1)) {
@@ -36,13 +57,11 @@
 @media(min-width:1280px){
     .container_add{
         width: 1280px;
-        
     }
 }
 
 @media(min-width:1540px){
     .container_add{
         width: 1540px;
-        
     }
 }
