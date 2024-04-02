@@ -1,6 +1,12 @@
 .main{
     margin-top: 36px;
     width: 100%;
+    @include BootstrapMaxWidthResponsive(md){
+        margin-top: 20px;
+    }
+    @include BootstrapMaxWidthResponsive(xs){
+        margin-top: 0;
+    }
     .sections{
         .section{
             &_1{
@@ -50,6 +56,13 @@
                         line-height: 4.5rem;
                         font-weight: 500;
                         margin-bottom: 2.5rem;
+                        @include BootstrapMaxWidthResponsive(md){
+                            font-size: 3rem;
+                        }
+                        @include BootstrapMaxWidthResponsive(xs){
+                            font-size: 2rem;
+                            text-align: center;
+                        }
                     }
                     p{
                         font-size: 1.75rem;
@@ -57,24 +70,53 @@
                         max-width: 32rem;
                         text-align: center;
                         margin-top: 1.75rem;
+                        @include BootstrapMaxWidthResponsive(md){
+                            font-size: 1.5rem;
+                        }
+                        @include BootstrapMaxWidthResponsive(xs){
+                            font-size: 1.25rem;
+                        }
                     }
                 }
             }
             &_2{
                 margin-top: 3rem;
+               
                 .carts{
-                    display: grid;
-                    grid-template-columns: repeat(3,1fr);
-                    .cart_2{
+                    //display: grid;
+                    //grid-template-columns: repeat(3,1fr);
+                    @include BootstrapMaxWidthResponsive(xs){
+                        margin: 0 10px;
+                    }
+                    @include BootstrapMaxWidthResponsive(xm){
+                        margin: 0 15px;
+                    }
+                    .swiper{
+                        width: 100%;
+                        height: 100%;
+                        overflow: visible;
+                    }
+                    .swiper-wrapper{
+                        width: 100%;
                         display: flex;
                         justify-content: space-between;
+                        @include BootstrapMaxWidthResponsive(lg){
+                            gap: 20px;
+                        }
+                        .swiper-slide{
+                            padding: 1rem;
+                            border: 1px solid #e5e7eb;
+                            border-radius: 6px;
+                            width: max-content;
+                        }
+                    }
+                    .cart_2{
+                        display: flex;
+                        //justify-content: space-between;
                         align-items: center;
                         gap: 1rem;
-                        padding: 1rem;
-                        border: 1px solid #e5e7eb;
-                        border-radius: 6px;
-                        width: 400px;
-                        max-width: 400px;
+                        // width: 400px;
+                        // max-width: 400px;
                         .cart_imj{
                            svg{
                             color: #178a87;
@@ -101,10 +143,31 @@
                     .cart_2:last-child{
                         justify-self: flex-end;
                     }
+                    .swiper-pagination{
+                        display: none;
+                        @include BootstrapMaxWidthResponsive(xxs){
+                            display: block;
+                            top: 125px;
+                            .swiper-pagination-bullet-active{
+                                background: #178A87;
+                            }
+                        }
+                    }
                 }
             }
             &_3,&_4,&_5{
                 margin: 100px 0;
+                .swiper{
+                    &-slide{
+                        //width: auto !important; 
+                        min-width: 320px;
+                        width: 320px;
+                        margin-right: 20px;
+                        
+                    }
+                    
+                    
+                }
                 .head{
                     display: flex;
                     justify-content: space-between;

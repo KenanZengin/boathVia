@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Lato } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../style/global.scss"
+import 'swiper/css';
+
 import Header from "@/backbone/header";
 import Footer from "@/backbone/footer";
 import { SessionProvider } from "next-auth/react";

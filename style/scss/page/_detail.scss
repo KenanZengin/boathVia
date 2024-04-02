@@ -654,6 +654,11 @@
         display: flex !important;
         justify-content: space-between !important;
     }
+    .swiper{
+        &-slide{
+            width: auto !important;
+        }
+    }
 }
 
 

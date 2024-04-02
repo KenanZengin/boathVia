@@ -94,6 +94,9 @@
                 color: rgb(8, 47, 62);
                 font-size: 0.875rem;
             }
+            .actived{
+                color: rgb(23, 138, 135);
+            }   
         }
     }
     
@@ -161,6 +164,26 @@
             background-color: inherit;
             width: max-content;
             color: rgb(4, 46, 66);
+        }
+    }
+    .modal-wrapper{
+        padding: 0 25px 25px;
+        nav{
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            border-bottom: 1px solid #CBD5E1;
+            padding-bottom: 25px;
+            span,a{
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                font-size: 1rem;
+                color: rgb(8, 47, 62);
+            }
+            .actived{
+                color: rgb(23, 138, 135);
+            }
         }
     }
 }

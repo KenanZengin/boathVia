@@ -86,7 +86,7 @@ const Header = ({session}:{session:Session | null}) => {
       
       </header>
       <div className="header-mobile">
-        <HeaderMobile />
+        <HeaderMobile pathname={pathname} session={session} />
       </div>
    </>
   )
