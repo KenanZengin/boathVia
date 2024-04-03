@@ -12,19 +12,9 @@ const ShortList = ({data, maksLimit, userId, userFavList}: {userFavList:string[]
   return (
     <Swiper
     pagination={true}
-    loop={true}
     autoplay={true}
-    centerInsufficientSlides
-    breakpoints={{
-     
-      
-      200: {
-        slidesPerView: 4,
-      },
-      1540: {
-        slidesPerView: 5,
-      },
-    }}
+    slidesPerView={"auto"}
+    
       > 
       {data?.map((data: ShipsCartProps, i: number)=>(
           i < maksLimit && <SwiperSlide key={i}>

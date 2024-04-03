@@ -83,14 +83,7 @@
                 margin-top: 3rem;
                
                 .carts{
-                    //display: grid;
-                    //grid-template-columns: repeat(3,1fr);
-                    @include BootstrapMaxWidthResponsive(xs){
-                        margin: 0 10px;
-                    }
-                    @include BootstrapMaxWidthResponsive(xm){
-                        margin: 0 15px;
-                    }
+                    
                     .swiper{
                         width: 100%;
                         height: 100%;
@@ -100,37 +93,47 @@
                         width: 100%;
                         display: flex;
                         justify-content: space-between;
-                        @include BootstrapMaxWidthResponsive(lg){
-                            gap: 20px;
-                        }
+                        // @include BootstrapMaxWidthResponsive(lg){
+                        //     gap: 20px;
+                        // }
                         .swiper-slide{
-                            padding: 1rem;
-                            border: 1px solid #e5e7eb;
-                            border-radius: 6px;
-                            width: max-content;
+                            width:unset !important;
+                            .cart_2{
+                                width: 24rem;
+                                padding: 1rem;
+                                border: 1px solid #e5e7eb;
+                                border-radius: 6px;
+                                @include BootstrapMaxWidthResponsive(md){
+                                    width: 20rem;
+                                }
+                               
+                            }
                         }
                     }
                     .cart_2{
-                        display: flex;
-                        //justify-content: space-between;
-                        align-items: center;
-                        gap: 1rem;
-                        // width: 400px;
-                        // max-width: 400px;
-                        .cart_imj{
-                           svg{
-                            color: #178a87;
-                           }
-                        }
-                        .cart-info{
-                            p{
-                                font-size: 1.1rem;
-                                font-weight: 500;
-                                margin-bottom: 1rem;
+                        margin:10px;
+                        .cart_2_wrapper{
+                            display: flex;
+                            //justify-content: space-between;
+                            align-items: center;
+                            gap: 1rem;
+                            // width: 400px;
+                            // max-width: 400px;
+                            .cart_imj{
+                               svg{
+                                color: #178a87;
+                               }
                             }
-                            span{
-                                font-size: .9375rem;
-                                color: #768498;
+                            .cart-info{
+                                p{
+                                    font-size: 1.1rem;
+                                    font-weight: 500;
+                                    margin-bottom: 1rem;
+                                }
+                                span{
+                                    font-size: .9375rem;
+                                    color: #768498;
+                                }
                             }
                         }
                     }
@@ -155,24 +158,32 @@
                     }
                 }
             }
-            &_3,&_4,&_5{
-                margin: 100px 0;
+            &_3{
                 .swiper{
                     &-slide{
                         //width: auto !important; 
                         min-width: 320px;
                         width: 320px;
                         margin-right: 20px;
-                        
-                    }
-                    
-                    
+                    }         
+                }
+            }
+            &_3,&_4,&_5{    
+                margin: 100px 0;
+                @include BootstrapMaxWidthResponsive(xxs){
+                    margin: 0 15px;
                 }
                 .head{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     margin-bottom: 40px;
+                    @include BootstrapMaxWidthResponsive(xxs){
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 12px;
+                       
+                    }
                     .title{
                         text-align: start;
                         h3{
@@ -185,6 +196,15 @@
                             font-size: 1rem;
                             color: rgb(100, 116, 139);
                         }
+                        @include BootstrapMaxWidthResponsive(xxs){
+                            h3{
+                                font-size: 1.4rem;
+                              
+                            }
+                            p{
+                                font-size: .9375rem;
+                            }
+                        }
                     }
                     > a{
                         display: inline-block;
@@ -195,6 +215,22 @@
             }
             &_4{
                 width: 100%;
+                @include BootstrapMaxWidthResponsive(xxs){
+                    margin: 60px 15px;
+                }
+                .swiper{
+                    width: 100%;
+                    height: 100%;
+                    overflow: visible;
+                    &-wrapper{
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        .swiper-slide{
+                            width: unset !important;
+                        }
+                    }
+                }
                 .organization-cards{
                     width: 100%;
                     display: flex;
@@ -202,15 +238,27 @@
                     align-items: center;
                     .organization-card{
                         width: 288px;
+                        a{
+                            display: block;
+                            @include BootstrapMaxWidthResponsive(lg){
+                                margin-right: 20px;
+                            }
+                        }
                         img{
                             width: 100%;
                             max-width: 100%;
                             height: 445px;
                             max-height: 445px;
                             border-radius: 6px;
+                            object-fit: cover;
+                            @include BootstrapMaxWidthResponsive(xxs){
+                                height: 300px;
+                                max-height: 300px;
+                            }
                         }
                         .card-content{
                             margin-top: 10px;
+                           
                             .kind{
                                 font-size: 1.25rem;
                                 line-height: 1.5rem;
@@ -225,6 +273,15 @@
                             .kind,.info{
                                 max-width: 17.5rem;
                             }
+                            @include BootstrapMaxWidthResponsive(xxs){
+                                .kind{
+                                    font-size: 1rem;
+                                  
+                                }
+                                .info{
+                                    font-size: 0.875rem;
+                                }
+                            }
                         }
                     }
                 }
@@ -233,6 +290,13 @@
                 .type-cards{
                     display: flex;
                     justify-content: space-evenly;
+                    @include BootstrapMaxWidthResponsive(xxs){
+                        flex-direction: column;
+                        align-items: center;
+                        .info{
+                            margin-bottom: 15px;
+                        }
+                    }
                     .type-card{
                         width: 384px;
                         max-width: 384px;
@@ -255,6 +319,12 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    @include BootstrapMaxWidthResponsive(xxs){
+                        margin-top: 40px;
+                        flex-direction: column;
+                        align-items: center;
+                       
+                    }
                     .boat-text{
                         p{
                             font-size: 1.5rem;
@@ -270,35 +340,22 @@
                             font-weight: 500;
                         }
                     }
+                    .captain-img{
+                        position: relative;
+                        height: 500px;
+                        width: 500px;
+                        @include BootstrapMaxWidthResponsive(xxs){
+                            margin-top: 25px;
+                            height: 320px;
+                            width: 320px;
+                        }
+                        img{
+                            aspect-ratio: 16 / 9;
+                        }
+
+                    }
                 }
             }
-        }
-    }
-}
-
-.section_3{
-    .head{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 40px;
-        .title{
-            text-align: start;
-            h3{
-                font-size: 1.5rem;
-                line-height: 1.75rem;
-                color: #082f3e;
-                margin-bottom: 8px;
-            }
-            p{
-                font-size: 1rem;
-                color: rgb(100, 116, 139);
-            }
-        }
-        > a{
-            display: inline-block;
-            color: rgb(4, 46, 66);
-            text-decoration: underline;
         }
     }
 }

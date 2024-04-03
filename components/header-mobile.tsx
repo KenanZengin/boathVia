@@ -49,6 +49,10 @@ const HeaderMobile = ({pathname,session}:{pathname:string,session:Session | null
   return (
     <div className="header-mobile-wrapper">
         <nav className="mobile-items">
+            <p onClick={() => routerPush("/")} className={`${pathname === "/" ? "actived" : ""}`}>
+                <SlHome size={18}/>
+                Home Page
+            </p>
             <p onClick={() => routerPush("/ship-charter?location=All")} className={`${pathname === "/ship-charter" ? "actived" : ""}`}>
                 <IoIosSearch size={18} />
                 <span>Discover</span>

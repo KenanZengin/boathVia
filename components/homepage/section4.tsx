@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import OrganizationCard from "../cart/organization-card";
 import {  OrganizationCartProps } from '@/types';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import OrganizationList from '../organization-list';
 
 
 const getServices = async () => {
@@ -29,11 +31,7 @@ const Section_4 = async () => {
           See All &gt;
         </Link>
       </div>
-      <div className="organization-cards">
-        {data?.map((data:OrganizationCartProps, i:number)=>(
-          i < 4 && <OrganizationCard data={data} key={data.id}/>
-        ))}
-      </div>
+      <OrganizationList data={data} />
     </section>
   )
 }

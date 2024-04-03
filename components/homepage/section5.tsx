@@ -28,7 +28,9 @@ const Section5 = () => {
                 <p>Are you a Boat Owner?</p>
                 <span>Become a Teknevia partner for free and get the chance to get reservations 24/7.</span>
             </div>
-            <Image src={"/img/basic/captain.png"} alt='captain' width={427} height={415}/>
+            <div className="captain-img">
+                <Image src={"/img/basic/captain.png"} alt='captain' fill={true}/>
+            </div>
         </div>
   </section>
   )
