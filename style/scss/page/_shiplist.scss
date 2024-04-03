@@ -70,57 +70,210 @@
     }
     .services{
         &-wrapper{
-            .organization-cards{
-                width: 100%;
-                
-                margin-bottom: 25px;
-                .services-title{
-                    color: rgb(8, 47, 62);
-                    font-size: 1.25rem;
-                    margin-bottom: 20px;
-                }
-                .services-list{
-                    display: grid;
-                    grid-template-columns: repeat(4,1fr);
-                    justify-items: center;
-                    row-gap: 30px;
-                }
-                .organization-card{
-                    width: 280px;
-                    
-                    img{
-                        width: 100%;
-                        max-width: 100%;
-                        height: 445px;
-                        max-height: 445px;
-                        border-radius: 6px;
-                    }
-                    .card-content{
-                        margin-top: 10px;
-                        .kind{
-                            font-size: 1.25rem;
-                            line-height: 1.5rem;
-                            color:  rgb(8, 47, 62);
-                        }
-                        .info{
-                            margin-top: 5px;
-                            color: rgb(100, 116, 139);
-                            font-size: 1rem;
-                            line-height: 1.125rem;
-                        }
-                        .kind,.info{
-                            max-width: 17.5rem;
-                        }
-                    }
-                }
-               
-            }
+            
             .title{
                 p{
                     font-size: 1.25rem;
                     line-height: 2rem;
                     color: rgb(8, 47, 62);
                     margin: 10px 0;
+                }
+            }
+        }
+        .swiper{
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            &-wrapper{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                .swiper-slide{
+                    width: unset !important;
+                }
+            }
+        }
+        .organization-cards{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-direction: column;
+            .services-title{
+                width: 100%;
+                text-align: left;
+                color: rgb(8, 47, 62);
+                font-size: 1.25rem;
+                margin-bottom: 20px;
+            }
+            .organization-card{
+                width: 288px;
+                .card_img{
+                    position: relative;
+                    width: 288px;
+                    max-width: 288px;
+                    height: 445px;
+                    max-height: 445px;
+                    @include BootstrapMaxWidthResponsive(lg){
+                        width: 268px;
+                        max-width: 268px;
+                        height: 300px;
+                        max-height: 300px;
+                    }
+                }
+                a{
+                    display: block;
+                    @include BootstrapMaxWidthResponsive(lg){
+                        margin-right: 20px;
+                    }
+                }
+                img{
+                    border-radius: 6px;
+                    object-fit: cover;
+                   
+                }
+                .card-content{
+                    margin-top: 10px;
+                   
+                    .kind{
+                        font-size: 1.25rem;
+                        line-height: 1.5rem;
+                        color:  rgb(8, 47, 62);
+                    }
+                    .info{
+                        margin-top: 5px;
+                        color: rgb(100, 116, 139);
+                        font-size: 1rem;
+                        line-height: 1.125rem;
+                    }
+                    .kind,.info{
+                        max-width: 17.5rem;
+                    }
+                    @include BootstrapMaxWidthResponsive(xxs){
+                        .kind{
+                            font-size: 1rem;
+                          
+                        }
+                        .info{
+                            font-size: 0.875rem;
+                        }
+                    }
+                }
+            }
+        }
+        .organization-cards:nth-of-type(2){
+            .swiper{
+                &-wrapper{
+                    justify-content: space-evenly !important;
+                }
+            }
+        }
+        .other-organization-cards{  
+            .card_img{
+                position: relative;
+                width: 288px;
+                max-width: 288px;
+                height: 445px;
+                max-height: 445px;
+                @include BootstrapMaxWidthResponsive(md){
+                    width: 225px;
+                    max-width: 225px;
+                    height: 300px;
+                    max-height: 300px;
+                }
+                @include BootstrapMaxWidthResponsive(xm){
+                    width: 160px;
+                    max-width: 160px;
+                    height: 247px;
+                    max-height: 247px;
+                }
+            }
+            .services-title{
+                width: 100%;
+                text-align: left;
+                color: rgb(8, 47, 62);
+                font-size: 1.25rem;
+                margin-bottom: 20px;
+            }
+            .services-list{
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
+                justify-items: center;
+                align-items: start;
+                row-gap: 30px;
+                @include BootstrapMaxWidthResponsive(lg){
+                    grid-template-columns: repeat(3,1fr);
+                }
+                @include BootstrapMaxWidthResponsive(md){
+                    grid-template-columns: repeat(2,1fr);
+                }
+                @include BootstrapMaxWidthResponsive(xm){
+                  column-gap: 14px;
+                }
+            }
+            .organization-card{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                a{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                   
+                }
+                img{
+                    height: 100%;
+                    border-radius: 6px;
+                    object-fit: cover;
+
+                }
+                .card-content{
+                    margin-top: 10px;
+                    width: 288px;
+                    max-width: 288px;
+                    text-align: start;
+                    display: inline-block;
+                    @include BootstrapMaxWidthResponsive(md){
+                        width: 225px;
+                        max-width: 225px;
+                     
+                    }
+                    @include BootstrapMaxWidthResponsive(xm){
+                        width: 160px;
+                        max-width: 160px;
+                      
+                    }
+                    .kind{
+                        font-size: 1.25rem;
+                        line-height: 1.5rem;
+                        color:  rgb(8, 47, 62);
+                    }
+                    .info{
+                        margin-top: 5px;
+                        color: rgb(100, 116, 139);
+                        font-size: 1rem;
+                        line-height: 1.125rem;
+                    }
+                    @include BootstrapMaxWidthResponsive(lg){
+                        .kind{
+                            font-size: 1rem;
+                        }
+                        .info{
+                            font-size: .9375rem;
+                        }
+                    }
+                    @include BootstrapMaxWidthResponsive(md){
+                        .kind{
+                            font-size: .9375rem;
+                        }
+                        .info{
+                            font-size: .875rem;
+                        }
+                    }
+                    .kind,.info{
+                        width: 100%;
+                    }
                 }
             }
         }
@@ -134,6 +287,11 @@
         grid-template-columns: repeat(4,1fr);
         justify-items: center;
         row-gap: 2rem;
+    }
+}
+.serviceslist{
+    @include BootstrapMaxWidthResponsive(xxs){
+        margin: 20px;
     }
 }
 

@@ -12,8 +12,8 @@ const OrganizationCard = ({data}:{data:OrganizationCartProps}) => {
   return (
     <div className="organization-card">
         <Link href={`http://localhost:3000/services/category?categoryname=${kind}`}>
-            <div className="card-img">
-                <Image src={img_path_2} alt="organization_img" width={288} height={445} />
+            <div className="card_img">
+                <Image src={img_path_2} alt="organization_img" fill={true}  />
             </div>
             <div className="card-content">
                 <span className="kind">

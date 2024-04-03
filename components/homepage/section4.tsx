@@ -31,7 +31,7 @@ const Section_4 = async () => {
           See All &gt;
         </Link>
       </div>
-      <OrganizationList data={data} />
+      <OrganizationList data={data} max_slider={5}/>
     </section>
   )
 }

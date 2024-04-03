@@ -3,6 +3,7 @@ import Link from "next/link"
 
 import OrganizationCard from "@/components/cart/organization-card"
 import {  OrganizationCartProps } from '@/types';
+import OrganizationList from "@/components/organization-list";
 
 
 
@@ -39,36 +40,18 @@ const Services = async () => {
       </div>
       <div className="services">
         <div className="services-wrapper">
-              <div className="organization-cards">
-                  <p className="services-title">
-                    Popular Organizations
-                  </p>
-                  <div className="services-list">
-                    {data?.map((data:OrganizationCartProps, i: number)=>(
-                        i < 4 && <OrganizationCard data={data} key={data.id}/>
-                    ))}
-                  </div>
-              </div>
-              <div className="organization-cards">
-                  <p className="services-title">
-                  Corporate Organizations
-                  </p>
-                  <div className="services-list">
-                    {data?.map((data:OrganizationCartProps, i: number)=>(
-                      i >= 4 && i < 8 && <OrganizationCard data={data} key={data.id}/>
-                    ))}   
-                  </div>
-              </div>
-              <div className="organization-cards">
-                  <p className="services-title">
-                    Other Organizations
-                  </p>
-                  <div className="services-list">
-                    {data?.map((data:OrganizationCartProps, i: number)=>(
-                        i >= 8 && <OrganizationCard data={data} key={data.id}/>
-                    ))}
-                  </div>
-              </div>
+            <OrganizationList data={data} title="Popular Organizations" max_slider={5} />
+            <OrganizationList data={data} title="Corporate Organizations" min_slider={5} max_slider={9} />
+            <div className="other-organization-cards">
+                <p className="services-title">
+                  Other Organizations
+                </p>
+                <div className="services-list">
+                  {data?.map((data:OrganizationCartProps, i: number)=>(
+                      i >= 8 && <OrganizationCard data={data} key={data.id}/>
+                  ))}
+                </div>
+            </div>
         </div>
       </div>
   </main>

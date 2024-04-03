@@ -21,19 +21,48 @@
                 padding-top: 10px;      
             }
         }
+        .scroll-img{
+            @include BootstrapMaxWidthResponsive(xs){
+                opacity: 0;
+                display: none;
+            }
+        }
         &-center{
-            // @include BootstrapMaxWidthResponsive(xs){
-            //     display: none;
-            // }
+            @include BootstrapMaxWidthResponsive(xs){
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .full-search{
+                @include BootstrapMaxWidthResponsive(xs){
+                  width: 100%;
+                  padding: 0 15px;
+                  button{
+                    width: 100%;
+                    font-size: 0.9375rem;
+                  }
+                  .search-all{
+                    right: 4%;
+                  }
+                }
+            }   
         }
         &-right{
             @include BootstrapMaxWidthResponsive(xs){
                 display: none;
             }
+            
             .btnsarea{
                 display: flex;
                 align-items: center;
                 gap: 20px;
+                @include BootstrapMaxWidthResponsive(sm){
+                    .btnsarea-item{
+                        display: none;
+                    }
+                }
+               
                 &-item{
                     cursor: pointer;
                     a{
@@ -51,6 +80,11 @@
                     border: 1px solid #fff;
                     border-radius: 30px;
                     padding: 6px 8px;
+                    button{
+                        display: flex;
+                        align-items: center;
+                        flex-wrap: nowrap;
+                    }
                 }
             }
         }
@@ -93,6 +127,7 @@
                 gap: 5px;
                 color: rgb(8, 47, 62);
                 font-size: 0.875rem;
+                white-space: nowrap;
             }
             .actived{
                 color: rgb(23, 138, 135);

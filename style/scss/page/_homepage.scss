@@ -51,6 +51,7 @@
                     align-items: center;
                     justify-content: center;
                     color: #fff;
+                   
                     h1{
                         font-size: 3.75rem;
                         line-height: 4.5rem;
@@ -75,6 +76,12 @@
                         }
                         @include BootstrapMaxWidthResponsive(xs){
                             font-size: 1.25rem;
+                        }
+                    }
+                    @include BootstrapMaxWidthResponsive(xx){
+                        padding: 0 15px;
+                        h1{
+                            line-height: 2.5rem;
                         }
                     }
                 }
@@ -186,11 +193,16 @@
                     }
                     .title{
                         text-align: start;
+                        @include BootstrapMaxWidthResponsive(xm){
+                            width: 20rem;
+                            max-width: 20rem;
+                        }
                         h3{
                             font-size: 1.5rem;
                             line-height: 1.75rem;
                             color: #082f3e;
                             margin-bottom: 8px;
+
                         }
                         p{
                             font-size: 1rem;
@@ -244,18 +256,24 @@
                                 margin-right: 20px;
                             }
                         }
-                        img{
-                            width: 100%;
-                            max-width: 100%;
+                        .card_img{
+                            position: relative;
+                            width: 288px;
+                            max-width: 288px;
                             height: 445px;
                             max-height: 445px;
-                            border-radius: 6px;
-                            object-fit: cover;
-                            @include BootstrapMaxWidthResponsive(xxs){
+                            @include BootstrapMaxWidthResponsive(lg){
+                                width: 225px;
+                                max-width: 225px;
                                 height: 300px;
                                 max-height: 300px;
                             }
+                            img{
+                                object-fit: cover;
+                                border-radius: 8px;
+                            }
                         }
+                       
                         .card-content{
                             margin-top: 10px;
                            
@@ -305,6 +323,9 @@
                             width: 100%;
                             height: 317px;
                             object-fit: contain;
+                            @include BootstrapMaxWidthResponsive(xs){
+                                height: 250px;
+                            }
                         }
                         .info{
                             margin-top: 5px;
@@ -338,6 +359,15 @@
                             color: rgb(100, 116, 139);
                             font-size: 1.125rem;
                             font-weight: 500;
+                        }
+                        @include BootstrapMaxWidthResponsive(xxs){
+                            p{
+                                font-size: 1.25rem;
+                              
+                            }
+                            span{
+                                font-size: 1rem;
+                            }
                         }
                     }
                     .captain-img{

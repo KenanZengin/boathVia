@@ -14,7 +14,7 @@ interface MyCustomCSS extends CSSProperties {
 
 
 
-const SearchInput = ({widthValue,location}: {widthValue: number,location?:string | null}) => {
+const SearchInput = ({widthValue,location,pathname}: {widthValue: number,location?:string | null,pathname?:string}) => {
 
        
   const [open,setOpen] = useState<boolean>(false);
@@ -41,12 +41,12 @@ const SearchInput = ({widthValue,location}: {widthValue: number,location?:string
 
 
   return (
-        <div className="search_location"   >
+        <div className={`search_location full-search ${pathname ? "full-search" : ""}`}>
                 <button 
                   onClick={toggleMenu}
                   //className={` search_location_select ${open ? "shaowed" : ""}`}  
                   className={` search_location_select`}  
-                  title="Select Location" style={{"--wV":`${widthValue}rem`} as MyCustomCSS}
+                  title="Select Location"
                 >
                         
                         <span>  {

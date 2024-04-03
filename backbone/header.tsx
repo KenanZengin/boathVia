@@ -38,7 +38,7 @@ const Header = ({session}:{session:Session | null}) => {
    <>
       <header className={`web-header header ${ !pathname.startsWith("/ship-detail/") ? pathname === "/" || pathname ==="/helpcenter" ? scrollY > 482 ? "sticky_header" : "" : "sticky_header": "other_page" }`}>
         <div className="header-web container_add">
-          <div className="header-web-left">
+          <div className={`header-web-left ${pathname === "/" && scrollY > 482 ? "scroll-img" : ""} ${pathname !=="/" ? "scroll-img" : ""}`}>
             <div className="headlogo">
               <Link href={"/"}>
                 <Image src=
@@ -60,7 +60,7 @@ const Header = ({session}:{session:Session | null}) => {
               ) : "" 
             : (
                 <div className="header-web-center">
-                  <SearchInput widthValue={23} location={location}/>
+                  <SearchInput widthValue={23} location={location} pathname={pathname}/>
                 </div>
               )
             }
