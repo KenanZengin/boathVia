@@ -28,7 +28,7 @@ const Ships = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
         <BreadCrumb searchParams={searchParams} />
         <div className="options" tabIndex={10}>
           <div className="title">
-            <h1>{searchParams.location ? searchParams.location : "All"} Boat and Yacht Charter</h1>ShortList
+            <h1>{searchParams.location ? searchParams.location : "All"} Boat and Yacht Charter</h1>
             <p>{ships?.length} results found</p>
           </div>
           <Sort searchParams={searchParams} />

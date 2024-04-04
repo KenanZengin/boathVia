@@ -1,23 +1,44 @@
 .shiplist,.serviceslist,.favorite-list{
     margin: 20px 0;
     .info{
-        padding: 10px 0;     
+        padding: 10px 0;  
+        @include BootstrapMaxWidthResponsive(xxs){
+            margin: 0 15px;
+        }   
         .options{
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-top: 1.25rem;
+            @include BootstrapMaxWidthResponsive(xm){
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
             .title{
                 h1,h2{
                     color: rgb(8, 47, 62);
                     font-size: 1.5rem;
                     line-height: 2rem;
+                    @include BootstrapMaxWidthResponsive(md){
+                        font-size: 1.25rem;
+                    }
+                    @include BootstrapMaxWidthResponsive(xxs){
+                        font-size: 1.15rem;
+                    }
                 }
                 p{
                     color: rgb(100, 116, 139);
                     font-size: 1rem;
-                    line-height: 1.5rem;
+                    line-height: 1.25rem;
+                    @include BootstrapMaxWidthResponsive(md){
+                        font-size: 1.15rem;
+                    }
+                    @include BootstrapMaxWidthResponsive(xxs){
+                        font-size: 1rem;
+                    }
+                    
                 }
             }
             .arrangement{
@@ -35,6 +56,10 @@
                     white-space: nowrap;
                     cursor: pointer;
                     user-select: none;
+                    @include BootstrapMaxWidthResponsive(xm){
+                        font-size: 0.9rem;
+                        width: 155px;
+                    }
                 }
                 .sort{
                     display: flex;
@@ -269,6 +294,7 @@
                         }
                         .info{
                             font-size: .875rem;
+                            margin: 0 !important;
                         }
                     }
                     .kind,.info{
@@ -287,6 +313,15 @@
         grid-template-columns: repeat(4,1fr);
         justify-items: center;
         row-gap: 2rem;
+        @include BootstrapMaxWidthResponsive(lg){
+            grid-template-columns: repeat(3,1fr);
+        }
+        @include BootstrapMaxWidthResponsive(md){
+            grid-template-columns: repeat(2,1fr);
+        }
+        @include BootstrapMaxWidthResponsive(xxs){
+            grid-template-columns: repeat(1,1fr);
+        }
     }
 }
 .serviceslist{

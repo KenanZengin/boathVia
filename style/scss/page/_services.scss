@@ -9,6 +9,10 @@
                     margin:20px 0 32px;
                     color: rgb(8, 47, 62);
                     font-size: 1.75rem;
+                    @include BootstrapMaxWidthResponsive(md){
+                        font-size: 1.5rem;
+                    }
+                   
                 }
             }
         }
@@ -26,6 +30,9 @@
                 color: rgb(8, 47, 62);
                 font-size: 1rem;
                 line-height: 1.5rem;
+                @include BootstrapMaxWidthResponsive(xxs){
+                   font-size: 0.9375rem;
+                }
                 span{
                     padding: 6px 10px;
                     border-radius: 9999px;
@@ -34,6 +41,9 @@
                     display: inline-block;
                     margin-right: 5px;
                     line-height: 1rem;
+                    @include BootstrapMaxWidthResponsive(xxs){
+                        font-size: 0.9375rem;
+                    }
                 }
             }
         }
