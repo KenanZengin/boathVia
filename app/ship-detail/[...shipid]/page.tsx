@@ -15,6 +15,7 @@ import { BsLightningChargeFill } from "react-icons/bs";
 import { TiStopwatch } from "react-icons/ti";
 import { FaStar } from "react-icons/fa";
 import ShareLink from "@/components/share-link";
+import DetailSwiper from "@/components/detail-swiper";
 
 
 
@@ -76,6 +77,7 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
                     </div>
                 </div>
                 <ShipImages img_path={data?.img_path} />
+                <DetailSwiper img_path={data?.img_path} />
                 <div className="ship-info">
                     <div className="data">
                         <div className="capacity">
@@ -234,7 +236,6 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
                 </div>
             </article>
             <Section_3  maks={4}/>
-            TEST
         </main>
     )
 }

@@ -86,9 +86,21 @@
            grid-template-columns: repeat(4,1fr);
            gap: 10px;
            position: relative;
-           div{
+           height: 35rem;
+           @include BootstrapMaxWidthResponsive(xl_m){
+            height: 33rem;
+           } 
+           @include BootstrapMaxWidthResponsive(lg){
+            height: 27rem;
+           }  
+           @include BootstrapMaxWidthResponsive(md){
+            height: 20rem;
+           }  
+           @include BootstrapMaxWidthResponsive(xxs){
+            display: none;
+            } 
+           > div{
             display: inline-block;
-            height: 290px;
             position: relative;
             span{
                 display: block;
@@ -144,6 +156,9 @@
                 }
             }
            }
+           @include BootstrapMaxWidthResponsive(xxs){
+            height: 20rem;
+           }  
         }
         .ship-info{
             width: 100%;
@@ -649,6 +664,22 @@
                 }
             }
         }   
+        .detail_swiper{
+            display: none;
+            @include BootstrapMaxWidthResponsive(xxs){
+                display: block;
+            }
+            .swiper-slide{
+                height: 75vw;
+                width: 100%  !important;
+                img{
+                    object-fit: cover;
+                }
+            }
+            .swiper-pagination-bullet-active{
+                background: #178A87;
+            }
+        }
     }
     .swiper-wrapper{
         display: flex !important;

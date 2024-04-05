@@ -250,12 +250,36 @@
     }
 }
 
+
 .settings-form{
     .send-btn{
         max-height: 43px;
     }
 }
-
+.auth-form{
+    @include BootstrapMaxWidthResponsive(xs){
+        padding: 25px;
+    }
+    &-content{
+        @include BootstrapMaxWidthResponsive(xs){
+            width: 100%;
+            min-width: 100%;
+            .form-title{
+                h3{
+                    font-size: 1.5rem;
+                }
+            }
+            
+        }
+        .form-wrapper{
+            .user-names{
+                @include BootstrapMaxWidthResponsive(xm){
+                    flex-direction: column !important;
+                }
+            }
+        }
+    }
+}
 
 .loading {
     animation: svg-loading 1.5s linear infinite;
