@@ -3,6 +3,9 @@
     &-wrapper{
         padding: 30px 0;
         .ship-head{
+            @include BootstrapMaxWidthResponsive(xxs){
+                margin: 0 15px;
+            }
             .ship-title{
                 width: 100%;
                 display: flex;
@@ -13,13 +16,19 @@
                     h1{
                         color: rgb(8, 47, 62);
                         font-size: 1.5rem;
-                        font-weight: 600
+                        font-weight: 600;
+                        @include BootstrapMaxWidthResponsive(xxs){
+                            font-size: 1.25rem;
+                        }
                     }
                     p{
                         color:  rgb(100, 116, 139);
                         font-size: 1rem;
                         font-weight: 500;
                         padding-top:10px;
+                        @include BootstrapMaxWidthResponsive(xxs){
+                            font-size: 0.9375rem;
+                        }
                     }
                 }
                 .share{
@@ -160,185 +169,83 @@
             height: 20rem;
            }  
         }
-        .ship-info{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            gap: 1.5rem;
-            padding-top: 25px;
-            .data{
-                width: 70%;
-                .capacity{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    .info{
-                        font-size: 1rem;
-                        p{
-                            color: rgb(8, 47, 62);
-                            margin-bottom: 10px;
-                        }
-                        span{
-                            color: rgb(100, 116, 139);
-                        }
-                    }
+        
+        .swiper-details{
+            @include BootstrapMaxWidthResponsive(xxs){
+                padding: 0 15px;
+            }
+            .detail_swiper{
+                display: none;
+                @include BootstrapMaxWidthResponsive(xxs){
+                    display: block;
+                }
+                .swiper-slide{
+                    height: 75vw;
+                    width: 100%  !important; 
                     img{
-                        border-radius: 50%;
-                        width: 48px;
-                        height: 48px;
+                        object-fit: cover;
                     }
                 }
-                .terms{
-                    margin: 60px 0;
-                    h2{
-                        color: rgb(8, 47, 62);
-                        font-size: 1.25rem;
-                        margin-bottom: 18px;
-                        font-weight: 600;
-                    }
-                    .ters_p{
-                        margin-top: 25px;
-                        display: grid;
-                        grid-template-columns: repeat(2,1fr);
-                        align-items: center;
-                        gap: 1.5rem;
-                        span{
-                            font-size: 1rem;
-                            svg{
-                                margin-right: 5px;
-                            }
-                            span{
-                                display: inline-block;
-                                width: 13rem;
-                            }
-                        }
-                    }
-                    .question{
-                        a{
-                            color: rgb(8, 47, 62);
-                            text-decoration: underline;
-                            margin-left: 8px;
-                            display: inline-block;
-                        }
-                    }
-                }
-                .summary{                 
-                    p{
-                        color: rgb(8, 47, 62);
-                        line-height: 1.5rem;
-                        margin-bottom: 25px;
-                    }
-                }
-                .comments{
-                    margin-top: 60px;
-                    .point{
-                        display: flex;
-                        align-items: center;
-                        justify-content: flex-start;
-                        gap: .5rem;
-                        svg{
-                            color: #178a87;
-                        }
-                        p{
-                            color: rgb(8, 47, 62);
-                            font-size: 1rem;
-                        }
-                        span{
-                            color: rgb(100 116 139);
-                        }
-                    }
-                    .raiting{
-                        margin: 20px 0;
-                        display: grid;
-                        grid-template-columns: repeat(2,1fr);
-                        .score{
-                            margin-bottom: 15px;
-                            display: flex;
-                            align-items: center;
-                            gap: 5px;
-                            p{
-                                font-size: 0.875rem;
-                                color: rgb(8, 47, 62);
-                            }
-                            p:first-child{
-                                width: 8rem;
-                            }
-                            .rod{
-                                width: 140px;
-                                background-color: #cbd5e1;
-                                height: 8px;
-                                border-radius: 6px;
-                                &-val{
-                                    display: block;
-                                    width: var(--rod-w);
-                                    background-color: #178a87;
-                                    border-radius: 6px;
-                                    height: 8px;
-                                }
-                            }
-                        }
-                      
-                    }
-                    .user-comments{
-                        display: flex;
-                        flex-direction: column;
-                        gap: 20px;
-                        .comment{
-                            display: flex;
-                            flex-direction: column;
-                            margin-bottom: 15px;
-                            .user-info{
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                .name{
-                                    display: flex;
-                                    align-items: center;
-                                    gap: .5rem;
-                                    font-weight: 500;
-                                    svg{
-                                        color: #178a87;
-                                    }
-                                    p{
-                                        color: rgb(8, 47, 62);
-                                    }
-                                }
-                                .date{
-                                    color: rgb(100, 116, 139);
-                                    font-size: 0.875rem;
-                                }
-                            }
-                            .comment-text{
-                                span,p{
-                                    margin-top: 8px;
-                                }
-                                span{
-                                    color: rgb(8, 47, 62);
-                                    font-weight: 500;
-                                    display: block;
-                                }
-                                p{
-                                    color: rgb(8, 47, 62);
-                                    font-weight: 400;
-                                    font-size: 0.875rem;
-                                }
-                            }
-                        }
-                    }
+                .swiper-pagination-bullet-active{
+                    background: #178A87;
                 }
             }
-            .price{
-                width: 400px;
-                min-width: 400px;
-                position: relative;
-                &-wrapper{
-                    padding: 16px;
-                    border: 1px solid #e5e7eb;
-                    border-radius: 6px;
-                    box-shadow: 0 0 #0000, 0 0 #0000,0 0 #0000, 0 0 #0000,0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
-                    position: sticky;
+        }
+        .mobile-price{
+            box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px;
+            position: sticky;
+            bottom: 68px;
+            left: 0;
+            width: 100%;
+            background-color:#fff;
+            padding: 5px 15px;
+            display: none;
+            @include BootstrapMaxWidthResponsive(xxs){
+                display: flex;
+                justify-content: space-between;
+            }
+           .price-info{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                .price-m{
+                    display: flex;
+                    align-items: baseline;
+                    p{
+                        font-size: 1.25rem;
+                        line-height: 1.5rem;
+                        color: rgb(8, 47, 62);
+                    }
+                    span{
+                        color: rgb(100 116 139);
+                        font-size: 1rem;
+                    }
+                }
+                .capacity-m{
+                    color: rgb(8, 47, 62);
+                    font-size: 0.875rem;
+                }      
+            }
+            .mobile-reservation{
+                button,label{
+                    background-color: #178A87;
+                    color: #fff;
+                    padding: 12px 24px;
+                    height: 50px;
+                    min-height: 50px;
+                    border-radius: 5px;
+                    transition:  background-color .4s ease;
+                    &:hover{
+                        background-color: #107076;
+                    }
+                }
+                .test{
+                    position: fixed;
                     top: 0;
-                    //overflow: hidden;
+                    width: 100%;
+                    height: 100vh;
+                    z-index: 999999;
+                    background-color: #fff;
                     .head{
                         display: flex;
                         justify-content: space-between;
@@ -662,25 +569,541 @@
                         left: 0;
                     }
                 }
-            }
-        }   
-        .detail_swiper{
-            display: none;
-            @include BootstrapMaxWidthResponsive(xxs){
-                display: block;
-            }
-            .swiper-slide{
-                height: 75vw;
-                width: 100%  !important;
-                img{
-                    object-fit: cover;
+                &:has(label input[type="checkbox"]:not(:checked)) .test{
+                    display: none;
                 }
-            }
-            .swiper-pagination-bullet-active{
-                background: #178A87;
-            }
+                &:has(label input[type="checkbox"]:checked) .test{
+                    display: block;
+                }
+            }  
         }
     }
+    .ship-info{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding-top: 25px;
+        .data{
+            width: 70%;
+            @include BootstrapMaxWidthResponsive(md){
+                width: 45%;
+            } 
+            @include BootstrapMaxWidthResponsive(xxs){
+                width: 100%; 
+                margin: 0 15px;
+            }
+            .capacity{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .info{
+                    font-size: 1rem;
+                    p{
+                        color: rgb(8, 47, 62);
+                        margin-bottom: 10px;
+                    }
+                    span{
+                        color: rgb(100, 116, 139);
+                    }
+                }
+                img{
+                    border-radius: 50%;
+                    width: 48px;
+                    height: 48px;
+                }
+            }
+            .terms{
+                margin: 60px 0;
+                h2{
+                    color: rgb(8, 47, 62);
+                    font-size: 1.25rem;
+                    margin-bottom: 18px;
+                    font-weight: 600;
+                }
+                .ters_p{
+                    margin-top: 25px;
+                    display: grid;
+                    grid-template-columns: repeat(2,1fr);
+                    align-items: center;
+                    gap: 1.5rem;
+                    @include BootstrapMaxWidthResponsive(md){
+                        grid-template-columns: repeat(1,1fr);
+                    } 
+                    span{
+                        font-size: 1rem;
+                        svg{
+                            margin-right: 5px;
+                        }
+                        span{
+                            display: inline-block;
+                            width: 13rem;
+                        }
+                    }
+                }
+                .question{
+                    a{
+                        color: rgb(8, 47, 62);
+                        text-decoration: underline;
+                        margin-left: 8px;
+                        display: inline-block;
+                    }
+                }
+            }
+            .summary{                 
+                p{
+                    color: rgb(8, 47, 62);
+                    line-height: 1.5rem;
+                    margin-bottom: 25px;
+                }
+            }
+            .comments{
+                margin-top: 60px;
+                .point{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: .5rem;
+                    svg{
+                        color: #178a87;
+                    }
+                    p{
+                        color: rgb(8, 47, 62);
+                        font-size: 1rem;
+                    }
+                    span{
+                        color: rgb(100 116 139);
+                    }
+                }
+                .raiting{
+                    margin: 20px 0;
+                    display: grid;
+                    grid-template-columns: repeat(2,1fr);
+                    @include BootstrapMaxWidthResponsive(md){
+                        grid-template-columns: repeat(1,1fr);
+                    } 
+                    .score{
+                        margin-bottom: 15px;
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        p{
+                            font-size: 0.875rem;
+                            color: rgb(8, 47, 62);
+                        }
+                        p:first-child{
+                            width: 8rem;
+                        }
+                        .rod{
+                            width: 140px;
+                            background-color: #cbd5e1;
+                            height: 8px;
+                            border-radius: 6px;
+                            &-val{
+                                display: block;
+                                width: var(--rod-w);
+                                background-color: #178a87;
+                                border-radius: 6px;
+                                height: 8px;
+                            }
+                        }
+                    }
+                  
+                }
+                .user-comments{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    .comment{
+                        display: flex;
+                        flex-direction: column;
+                        margin-bottom: 15px;
+                        .user-info{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            .name{
+                                display: flex;
+                                align-items: center;
+                                gap: .5rem;
+                                font-weight: 500;
+                                svg{
+                                    color: #178a87;
+                                }
+                                p{
+                                    color: rgb(8, 47, 62);
+                                }
+                            }
+                            .date{
+                                color: rgb(100, 116, 139);
+                                font-size: 0.875rem;
+                            }
+                        }
+                        .comment-text{
+                            span,p{
+                                margin-top: 8px;
+                            }
+                            span{
+                                color: rgb(8, 47, 62);
+                                font-weight: 500;
+                                display: block;
+                            }
+                            p{
+                                color: rgb(8, 47, 62);
+                                font-weight: 400;
+                                font-size: 0.875rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .price{
+            width: 400px;
+            min-width: 400px;
+            position: relative;
+            @include BootstrapMaxWidthResponsive(md){
+                width: 380px;
+                min-width: 380px;
+            } 
+            @include BootstrapMaxWidthResponsive(xxs){
+               display: none;
+            } 
+            &-wrapper{
+                padding: 16px;
+                border: 1px solid #e5e7eb;
+                border-radius: 6px;
+                box-shadow: 0 0 #0000, 0 0 #0000,0 0 #0000, 0 0 #0000,0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
+                position: sticky;
+                top: 0;
+                //overflow: hidden;
+                .price-card{
+                    .head{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: baseline;
+                        margin-bottom: 20px;
+                        .price-v{
+                            display: flex;
+                            align-items: baseline;
+                            p{
+                                font-size: 1.75rem;
+                                line-height: 2rem;
+                                color: rgb(8, 47, 62);
+                            }
+                            span{
+                                color: rgb(100 116 139);
+                                font-size: 1.25rem;
+                            }
+                        }
+                        .comment-info{
+                            display: flex;
+                            align-items: center;
+                            gap: .5rem;
+                            svg{
+                                color: #178a87;
+                            }
+                            p{
+                                color: rgb(8, 47, 62);
+                            }
+                        }
+                    }
+                    .options{
+                        form{
+                            display: grid;
+                            grid-template-columns: repeat(2,1fr);
+                            border: 1px solid #64748B;
+                            border-radius: 12px;
+                            margin-top: 12px;
+                        .port,.date,.duration,.people{
+                            padding: 4px 12px 10px;
+                            display: flex;
+                            flex-direction: column;
+                            .opt-inf{
+                                color: rgb(8, 47, 62);
+                                font-size: 0.875rem;
+                                display: inline-block;
+                                margin-bottom: 8px;
+                            }
+                            input{
+                                color: rgb(8, 47, 62);
+                                text-align: center;
+                            }
+                        }
+                        .port{
+                            .port-s{
+                                text-align: center;
+                                position: relative;
+                                select{
+                                    appearance: none;
+                                    text-align: center;
+                                    color: rgb(8, 47, 62);
+                                    position: relative;
+                                    width: 100%;
+                                    background: url(#{$path-img-url}/arrow.png#{$cache-busting})98%/.85rem no-repeat;
+                                    background-position: right 0.3em top 64%;
+                                    &::before{
+                                        content: "";
+                                        background: url(#{$path-img-url}/arrow.png#{$cache-busting})98%/.85rem no-repeat;;
+                                        width: 24px;
+                                        height: 24px;
+                                        position: absolute;
+                                        z-index: 99;
+                                        right: 0;
+                                    }
+                                }
+                               
+                            }
+                           
+                            
+                        }
+                        .duration,.people{
+                            button{
+                                background-color: #fff;
+                                color: rgb(8, 47, 62);
+                            }
+                            input[type='number']::-webkit-inner-spin-button, 
+                            input[type='number']::-webkit-outer-spin-button { 
+                                -webkit-appearance: none;
+                                margin: 0;
+                            }
+                            input[type="number"]{
+                                text-align: center;
+                            }
+                            .opt-in{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                .opt-in-v{
+                                    span{
+                                        margin-right: 10px;
+                                    }
+                                }
+                            }
+                            .opt-in-p{
+                                border: 1px solid #6366F1;
+                                margin: 0 12px;
+                                height: 25px;
+                                padding: 0 10px 2px;
+                                border-radius: 4px;
+                                display: flex;
+                                align-items: center;
+                               
+                            }
+                        }
+                        .port,.duration{
+                            border-right: 1px solid #64748B;
+                        }
+                        .port,.date{
+                            border-bottom: 1px solid #64748B;
+                        }
+                        .date{
+                            .react-datepicker-popper{
+                                transform: translate(-113px, 128px) !important;
+                                .react-datepicker__triangle{
+                                    display: none;
+                                }
+                                .react-datepicker{
+                                    box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
+                                    border-color: rgb(203 213 225);
+                                    display: flex;
+                                    .react-datepicker__month-container{
+                                        background-color: #fff;
+                                        .react-datepicker__header{
+                                            background-color: #fff;
+                                            border: none;
+                                            .react-datepicker__current-month{
+                                                font-size: 0.875rem;
+                                                color: rgb(8, 47, 62);
+                                                font-weight: 400;
+                                                margin-bottom: 20px;
+                                            }
+                                            .react-datepicker__day-names{
+                                                display:grid;
+                                                grid-template-columns: repeat(7,1fr);
+                                                justify-items: center;
+                                                div{
+                                                    color: rgb(8, 47, 62);
+                                                    font-size: 0.875rem;
+                                                    font-weight: 600;
+                                                    text-transform: uppercase;
+                                                    padding: 7px 14px !important;
+                                                    line-height: 1rem !important;
+                                                    width: max-content !important;
+                                                }
+                                            }
+                                        }
+                                        .react-datepicker__month{
+                                            margin: 0.4rem 0 !important;
+                                            .react-datepicker__week{
+                                                display: grid;
+                                                grid-template-columns: repeat(7,1fr);
+                                                justify-items: center;
+                                                div{
+                                                    color: rgb(8, 47, 62);
+                                                    font-size: 0.875rem;
+                                                    padding: 10px 14px;
+                                                    line-height: 1rem !important;
+                                                    width: max-content !important;
+                                                    border-radius: 4.8px !important;
+                                                    &:hover{
+                                                        background-color: rgb(241 245 249) !important;
+                                                    }
+                                                }
+                                                .react-datepicker__day--today{
+                                                    background-color: #cff9e9 !important;
+                                                    color: rgb(8, 47, 62) !important;
+                                                    &:hover{
+                                                        background-color: #cff9e9  !important;
+                                                        color: rgb(8, 47, 62) !important;
+                                                    }
+                                                }
+                                                .react-datepicker__day--selected{
+                                                    background-color: #178A87 !important;
+                                                    color: #fff !important;
+                                                    &:hover{
+                                                        background-color: #178A87 !important;
+                                                        color: #fff !important;
+                                                    }
+                                                }
+                                                .react-datepicker__day--keyboard-selected{
+                                                    background-color: #fff;
+                                                }
+                                            }
+                                        }
+                                        .react-datepicker__day--disabled{
+                                            color:rgb(203, 213, 225) !important;
+                                            text-decoration: line-through;
+                                            &:hover{
+                                                cursor: not-allowed;
+                                            }
+                                        }
+                                    }
+                                    .react-datepicker__time-container{
+                                        .react-datepicker__header{
+                                            background-color: #fff;
+                                            border: none;
+                                        }
+                                        .react-datepicker__time{
+                                            .react-datepicker__time-box{
+                                                ul{
+                                                    li{
+                                                        color: rgb(8, 47, 62);
+                                                        line-height: 1rem;
+                                                        font-size: 0.875rem;
+                                                        padding: 6px 8px !important;
+                                                        margin: 0 5px !important;
+                                                        &:hover{
+                                                            background-color: rgb(241 245 249);
+                                                        }
+                                                    }
+                                                   
+                                                    .react-datepicker__time-list-item--selected{
+                                                        background-color: #178a87;
+                                                        color: #fff;
+                                                        border-radius: 8px;
+                                                        &:hover{
+                                                            background-color: #178a87 !important;
+                                                            color: #fff !important;
+                                                        }
+                                                    }
+                                                    .react-datepicker__time-list-item--disabled{
+                                                        background-color: #fff !important;
+                                                        color:rgb(203, 213, 225) !important;
+                                                        text-decoration: line-through;
+                                                        &:hover{
+                                                            background-color: #fff !important;
+                                                            cursor: not-allowed;
+                                                            color:rgb(203, 213, 225) !important;
+                                                            text-decoration: line-through;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .react-datepicker__navigation{
+                                        span{
+                                            &::before{
+                                                border-color: rgb(8, 47, 62);
+                                                border-style: solid;
+                                                border-width: 1px 1px 0 0;
+                                                content: "";
+                                                display: block;
+                                                height: 5px;
+                                                position: absolute;
+                                                top: calc(50% - 4px);
+                                                width: 5px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        }
+                    }
+                    .order{
+                        margin: 2rem 0 1rem ;
+                        button{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 100%;
+                            max-width: 100%;
+                            background-color: #178A87;
+                            color: #fff;
+                            font-size: 1rem;
+                            padding: 16px 0;
+                            border-radius: 6px;
+                            transition: background-color .2s ease-in;
+                            max-height: 51px;
+                            &:hover{
+                                background-color: #107076;
+                            }
+                        }
+                        .right{
+                            color: rgb(100, 116, 139);
+                            font-size: 0.875rem;
+                            line-height: 1rem;
+                            text-align: center;
+                            margin-top: 16px;
+                            display: block;
+                        }
+                        .price-calculate{
+                            margin-top: 1rem;
+                            .calc,.total{
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                margin-bottom: 12px;
+                            }
+                            .calc{
+                                border-bottom: 1px solid rgb(8, 47, 62);
+                                span{
+                                    color: #6B838C;
+                                    font-size: 0.875rem;
+                                    margin-bottom: 12px;
+                                }
+                            }
+                            .total{
+                                p{
+                                    font-size: 1.125rem;
+                                    color: rgb(8, 47, 62);
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                    }
+                }
+                .form-message{
+                    position: absolute !important;
+                    width: 400px !important;
+                    top: 0 !important;
+                    left: 0;
+                }
+            }
+        }
+    }  
     .swiper-wrapper{
         display: flex !important;
         justify-content: space-between !important;
@@ -690,10 +1113,23 @@
             width: auto !important;
         }
     }
+    .section_3{
+        @include BootstrapMaxWidthResponsive(xxs){
+            padding: 0 15px;
+        }
+        .swiper{
+            &-slide{
+                //width: auto !important; 
+                min-width: 320px;
+                width: 320px;
+                margin-right: 20px;
+            }         
+        }
+    }
 }
 
 
-.carousel-modal{
+.reservation-modal,.carousel-modal{
     margin: 0;
     padding: 0 !important;
     .modal-dialog{
@@ -743,6 +1179,384 @@
             padding: 10px;
             button{
                 background-color: inherit;
+            }
+        }
+    }
+}
+
+.carousel-modal{
+    .modal-dialog{ 
+        .modal-wrapper{
+            .swiper{
+                height: 100%;
+                width: 100%;
+                padding-bottom: 40px;
+                &-wrapper{
+                    .swiper-slide{
+                        width: 100% !important;
+                        height: 100% !important;
+                        img{
+                            object-fit: contain;
+                        }
+                    }
+                }
+                .swiper-button-next,.swiper-button-prev{
+                    color: #178A87;
+                }
+                .swiper-pagination-bullet-active{
+                    background: #178A87;
+                }
+            }         
+
+        }
+    }
+}
+.reservation-modal{
+    .modal-content{
+        padding: 20px !important;
+    }
+    .price{
+        width: 400px;
+        min-width: 400px;
+        position: relative;
+        @include BootstrapMaxWidthResponsive(md){
+            width: 380px;
+            min-width: 380px;
+        } 
+        @include BootstrapMaxWidthResponsive(xxs){
+           display: none;
+        } 
+        &-wrapper{
+            padding: 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            box-shadow: 0 0 #0000, 0 0 #0000,0 0 #0000, 0 0 #0000,0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
+            position: sticky;
+            top: 0;
+            //overflow: hidden;
+            .price-card{
+                .head{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    margin-bottom: 20px;
+                    .price-v{
+                        display: flex;
+                        align-items: baseline;
+                        p{
+                            font-size: 1.75rem;
+                            line-height: 2rem;
+                            color: rgb(8, 47, 62);
+                        }
+                        span{
+                            color: rgb(100 116 139);
+                            font-size: 1.25rem;
+                        }
+                    }
+                    .comment-info{
+                        display: flex;
+                        align-items: center;
+                        gap: .5rem;
+                        svg{
+                            color: #178a87;
+                        }
+                        p{
+                            color: rgb(8, 47, 62);
+                        }
+                    }
+                }
+                .options{
+                    form{
+                        display: grid;
+                        grid-template-columns: repeat(2,1fr);
+                        border: 1px solid #64748B;
+                        border-radius: 12px;
+                        margin-top: 12px;
+                    .port,.date,.duration,.people{
+                        padding: 4px 12px 10px;
+                        display: flex;
+                        flex-direction: column;
+                        .opt-inf{
+                            color: rgb(8, 47, 62);
+                            font-size: 0.875rem;
+                            display: inline-block;
+                            margin-bottom: 8px;
+                        }
+                        input{
+                            color: rgb(8, 47, 62);
+                            text-align: center;
+                        }
+                    }
+                    .port{
+                        .port-s{
+                            text-align: center;
+                            position: relative;
+                            select{
+                                appearance: none;
+                                text-align: center;
+                                color: rgb(8, 47, 62);
+                                position: relative;
+                                width: 100%;
+                                background: url(#{$path-img-url}/arrow.png#{$cache-busting})98%/.85rem no-repeat;
+                                background-position: right 0.3em top 64%;
+                                &::before{
+                                    content: "";
+                                    background: url(#{$path-img-url}/arrow.png#{$cache-busting})98%/.85rem no-repeat;;
+                                    width: 24px;
+                                    height: 24px;
+                                    position: absolute;
+                                    z-index: 99;
+                                    right: 0;
+                                }
+                            }
+                           
+                        }
+                       
+                        
+                    }
+                    .duration,.people{
+                        button{
+                            background-color: #fff;
+                            color: rgb(8, 47, 62);
+                        }
+                        input[type='number']::-webkit-inner-spin-button, 
+                        input[type='number']::-webkit-outer-spin-button { 
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+                        input[type="number"]{
+                            text-align: center;
+                        }
+                        .opt-in{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            .opt-in-v{
+                                span{
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+                        .opt-in-p{
+                            border: 1px solid #6366F1;
+                            margin: 0 12px;
+                            height: 25px;
+                            padding: 0 10px 2px;
+                            border-radius: 4px;
+                            display: flex;
+                            align-items: center;
+                           
+                        }
+                    }
+                    .port,.duration{
+                        border-right: 1px solid #64748B;
+                    }
+                    .port,.date{
+                        border-bottom: 1px solid #64748B;
+                    }
+                    .date{
+                        .react-datepicker-popper{
+                            transform: translate(-113px, 128px) !important;
+                            .react-datepicker__triangle{
+                                display: none;
+                            }
+                            .react-datepicker{
+                                box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
+                                border-color: rgb(203 213 225);
+                                display: flex;
+                                .react-datepicker__month-container{
+                                    background-color: #fff;
+                                    .react-datepicker__header{
+                                        background-color: #fff;
+                                        border: none;
+                                        .react-datepicker__current-month{
+                                            font-size: 0.875rem;
+                                            color: rgb(8, 47, 62);
+                                            font-weight: 400;
+                                            margin-bottom: 20px;
+                                        }
+                                        .react-datepicker__day-names{
+                                            display:grid;
+                                            grid-template-columns: repeat(7,1fr);
+                                            justify-items: center;
+                                            div{
+                                                color: rgb(8, 47, 62);
+                                                font-size: 0.875rem;
+                                                font-weight: 600;
+                                                text-transform: uppercase;
+                                                padding: 7px 14px !important;
+                                                line-height: 1rem !important;
+                                                width: max-content !important;
+                                            }
+                                        }
+                                    }
+                                    .react-datepicker__month{
+                                        margin: 0.4rem 0 !important;
+                                        .react-datepicker__week{
+                                            display: grid;
+                                            grid-template-columns: repeat(7,1fr);
+                                            justify-items: center;
+                                            div{
+                                                color: rgb(8, 47, 62);
+                                                font-size: 0.875rem;
+                                                padding: 10px 14px;
+                                                line-height: 1rem !important;
+                                                width: max-content !important;
+                                                border-radius: 4.8px !important;
+                                                &:hover{
+                                                    background-color: rgb(241 245 249) !important;
+                                                }
+                                            }
+                                            .react-datepicker__day--today{
+                                                background-color: #cff9e9 !important;
+                                                color: rgb(8, 47, 62) !important;
+                                                &:hover{
+                                                    background-color: #cff9e9  !important;
+                                                    color: rgb(8, 47, 62) !important;
+                                                }
+                                            }
+                                            .react-datepicker__day--selected{
+                                                background-color: #178A87 !important;
+                                                color: #fff !important;
+                                                &:hover{
+                                                    background-color: #178A87 !important;
+                                                    color: #fff !important;
+                                                }
+                                            }
+                                            .react-datepicker__day--keyboard-selected{
+                                                background-color: #fff;
+                                            }
+                                        }
+                                    }
+                                    .react-datepicker__day--disabled{
+                                        color:rgb(203, 213, 225) !important;
+                                        text-decoration: line-through;
+                                        &:hover{
+                                            cursor: not-allowed;
+                                        }
+                                    }
+                                }
+                                .react-datepicker__time-container{
+                                    .react-datepicker__header{
+                                        background-color: #fff;
+                                        border: none;
+                                    }
+                                    .react-datepicker__time{
+                                        .react-datepicker__time-box{
+                                            ul{
+                                                li{
+                                                    color: rgb(8, 47, 62);
+                                                    line-height: 1rem;
+                                                    font-size: 0.875rem;
+                                                    padding: 6px 8px !important;
+                                                    margin: 0 5px !important;
+                                                    &:hover{
+                                                        background-color: rgb(241 245 249);
+                                                    }
+                                                }
+                                               
+                                                .react-datepicker__time-list-item--selected{
+                                                    background-color: #178a87;
+                                                    color: #fff;
+                                                    border-radius: 8px;
+                                                    &:hover{
+                                                        background-color: #178a87 !important;
+                                                        color: #fff !important;
+                                                    }
+                                                }
+                                                .react-datepicker__time-list-item--disabled{
+                                                    background-color: #fff !important;
+                                                    color:rgb(203, 213, 225) !important;
+                                                    text-decoration: line-through;
+                                                    &:hover{
+                                                        background-color: #fff !important;
+                                                        cursor: not-allowed;
+                                                        color:rgb(203, 213, 225) !important;
+                                                        text-decoration: line-through;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .react-datepicker__navigation{
+                                    span{
+                                        &::before{
+                                            border-color: rgb(8, 47, 62);
+                                            border-style: solid;
+                                            border-width: 1px 1px 0 0;
+                                            content: "";
+                                            display: block;
+                                            height: 5px;
+                                            position: absolute;
+                                            top: calc(50% - 4px);
+                                            width: 5px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    }
+                }
+                .order{
+                    margin: 2rem 0 1rem ;
+                    button{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        max-width: 100%;
+                        background-color: #178A87;
+                        color: #fff;
+                        font-size: 1rem;
+                        padding: 16px 0;
+                        border-radius: 6px;
+                        transition: background-color .2s ease-in;
+                        max-height: 51px;
+                        &:hover{
+                            background-color: #107076;
+                        }
+                    }
+                    .right{
+                        color: rgb(100, 116, 139);
+                        font-size: 0.875rem;
+                        line-height: 1rem;
+                        text-align: center;
+                        margin-top: 16px;
+                        display: block;
+                    }
+                    .price-calculate{
+                        margin-top: 1rem;
+                        .calc,.total{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-bottom: 12px;
+                        }
+                        .calc{
+                            border-bottom: 1px solid rgb(8, 47, 62);
+                            span{
+                                color: #6B838C;
+                                font-size: 0.875rem;
+                                margin-bottom: 12px;
+                            }
+                        }
+                        .total{
+                            p{
+                                font-size: 1.125rem;
+                                color: rgb(8, 47, 62);
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+            .form-message{
+                position: absolute !important;
+                width: 400px !important;
+                top: 0 !important;
+                left: 0;
             }
         }
     }

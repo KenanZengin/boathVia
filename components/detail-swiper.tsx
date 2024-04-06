@@ -6,7 +6,8 @@ import {Swiper, SwiperSlide} from "swiper/react";
 
 const DetailSwiper = ({img_path}:{img_path:string | undefined}) => {
   return (
-    <Swiper
+    <div className="swiper-details">
+      <Swiper
     slidesPerView={"auto"}
     spaceBetween={0}
     className="detail_swiper"
@@ -28,7 +29,8 @@ const DetailSwiper = ({img_path}:{img_path:string | undefined}) => {
     <SwiperSlide>
         <Image src={"/img/ships/inside4.png"} alt="ship-inside"     fill={true}/>
     </SwiperSlide>
-</Swiper>
+      </Swiper>
+    </div>
   )
 }
 

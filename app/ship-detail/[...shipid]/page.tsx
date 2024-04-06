@@ -6,7 +6,8 @@ import ReservationForm from "@/components/forms/reservation-form";
 import { getShipDetail } from "@/hooks/server/getShips";
 import ShipImages from "@/components/ship-detail/images";
 import Section_3 from "@/components/homepage/section3";
-
+import ShareLink from "@/components/share-link";
+import DetailSwiper from "@/components/detail-swiper";
 
 import { TfiTimer } from "react-icons/tfi";
 import { FiShare } from "react-icons/fi";
@@ -14,8 +15,9 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { BsLightningChargeFill } from "react-icons/bs";
 import { TiStopwatch } from "react-icons/ti";
 import { FaStar } from "react-icons/fa";
-import ShareLink from "@/components/share-link";
-import DetailSwiper from "@/components/detail-swiper";
+import { MdPeopleOutline } from "react-icons/md";
+import { ImSpoonKnife } from "react-icons/im";
+import ReservationMobile from "@/components/reservation-mobile";
 
 
 
@@ -234,8 +236,25 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
                         </div>
                     </div>
                 </div>
+                <div className="mobile-price">
+                    <div className="price-info">
+                        <div className="price-m">
+                            <p>TRY {new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number(data?.hour_price))}</p>&nbsp;
+                            <span>/hour</span>
+                        </div>
+                        <div className="capacity-m">
+                            <span>Capacity: <MdPeopleOutline size={10} /> {data?.capacity} / <ImSpoonKnife size={10} /> {data?.capacity}</span>
+                        </div>
+                   </div>
+                   <div className="mobile-reservation">
+                        <ReservationMobile>
+                            <ReservationForm ship={data}/>
+                        </ReservationMobile>
+                   </div>
+                </div>
             </article>
             <Section_3  maks={4}/>
+            
         </main>
     )
 }

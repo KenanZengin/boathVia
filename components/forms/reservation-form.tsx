@@ -71,6 +71,7 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
 
   const onSubmit = (values: z.infer<typeof ReservationSchema>) => {
 
+    console.log(values);
     setReservationError(undefined)
     startTransition(()=>{
         if(ship && ship.id && values){
@@ -88,7 +89,6 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
             )
         }
     })
-    console.log(values);
     
 }
 

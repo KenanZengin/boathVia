@@ -70,7 +70,7 @@ const HeaderMobile = ({pathname,session}:{pathname:string,session:Session | null
                     </p> 
                 </>
                 :
-                <Link href={"/auth/login"}>
+                <Link href={"/auth/login"} className={`${pathname === "/auth/login" ? "actived" : ""}`}>
                     <AiOutlineUser size={18} />
                     <span>Login</span>
                 </Link>

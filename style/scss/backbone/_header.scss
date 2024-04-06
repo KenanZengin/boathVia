@@ -14,7 +14,7 @@
         color: #fff;
         &-left{
             background-color: transparent;
-            @include BootstrapMaxWidthResponsive(xs){
+            @include BootstrapMaxWidthResponsive(xxs){
                 position: absolute;
                 width: 100%;
                 text-align: center;
@@ -22,20 +22,20 @@
             }
         }
         .scroll-img{
-            @include BootstrapMaxWidthResponsive(xs){
+            @include BootstrapMaxWidthResponsive(xxs){
                 opacity: 0;
                 display: none;
             }
         }
         &-center{
-            @include BootstrapMaxWidthResponsive(xs){
+            @include BootstrapMaxWidthResponsive(xxs){
                 width: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
             .full-search{
-                @include BootstrapMaxWidthResponsive(xs){
+                @include BootstrapMaxWidthResponsive(xxs){
                   width: 100%;
                   padding: 0 15px;
                   button{
@@ -49,7 +49,7 @@
             }   
         }
         &-right{
-            @include BootstrapMaxWidthResponsive(xs){
+            @include BootstrapMaxWidthResponsive(xxs){
                 display: none;
             }
             
@@ -101,7 +101,7 @@
 }
 .header-mobile{
     display: none;
-    @include BootstrapMaxWidthResponsive(xs){
+    @include BootstrapMaxWidthResponsive(xxs){
         display: block;
         position: fixed;
         bottom: 0px;
