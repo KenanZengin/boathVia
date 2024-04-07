@@ -18,6 +18,7 @@ import { FaStar } from "react-icons/fa";
 import { MdPeopleOutline } from "react-icons/md";
 import { ImSpoonKnife } from "react-icons/im";
 import ReservationMobile from "@/components/reservation-mobile";
+import ReservationFormCopy from "@/components/forms/reservation-form-copy";
 
 
 

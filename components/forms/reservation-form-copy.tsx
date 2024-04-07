@@ -16,7 +16,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 
 
-const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
+const ReservationFormCopy = ({ship}:{ship: ShipsCartProps | undefined}) => {
 
   const [isPending, startTransition] = useTransition();
   const [hour,setHour] = useState<number>(2);
@@ -111,65 +111,60 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
             </div>
         </div>
         <div className="options">
-           <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="form_wrapper">
-                    <div className="port">
-                        <span className="opt-inf">Port</span>
-                        <div className="port-s">
-                            <select id="port"  {...register("port")} >  
-                                {ship?.port.map((item,i)=>(
-                                    <option value={item} key={i} >{item}</option>
-                                ))}        
-                            </select>
-                        </div>
-                    </div>
-                    <div className="date">
-                        <span className="opt-inf">Start Date</span>
-                        <MyDatePicker  setValue={setValue} shipId={ship?.id}/>
-                    </div>
-                    <div className="duration">
-                        <span className="opt-inf">Tour Duration</span>
-                        <div className="opt-in">
-                            <p onClick={handleHourDecrement}><FiMinusCircle size={25} /></p>
-
-                            <div className="opt-in-v">
-                                <input
-                                id="duration"
-                                type="number"   
-                                inputMode="numeric"
-                                readOnly
-                                max={10}
-                                min={2}
-                                value={hour}
-                                />
-                                <span>hour</span>
-                            </div>
-                            <p onClick={handleHourIncrement}><FiPlusCircle size={25}/></p>
-                    </div>
-                    </div>
-                    <div className="people">
-                        <span className="opt-inf">Number of People</span>
-                        <div className="opt-in">
-                                <p onClick={handlePeopleDecrement}><FiMinusCircle size={25}/></p>
-
-                                <div className="opt-in-p">
-                                        <input
-                                            type="number"   
-                                            inputMode="numeric"
-                                            readOnly
-                                            max={ship?.capacity}
-                                            min={1}
-                                            value={people}
-                                        />
-                                </div>
-                                
-                                <p onClick={handlePeopleIncrement}><FiPlusCircle size={25}/></p>
-                        </div>
+           <form id="reservation-formm" onSubmit={handleSubmit(onSubmit)}>
+            <div className="port">
+                    <span className="opt-inf">Port</span>
+                    <div className="port-s">
+                        <select id="port"  {...register("port")} >  
+                            {ship?.port.map((item,i)=>(
+                                <option value={item} key={i} >{item}</option>
+                            ))}        
+                        </select>
                     </div>
                 </div>
-                <button >
-                    {!isPending ? "Reserve" : <AiOutlineLoading3Quarters size={25} className='loading' />}
-                </button>
+                <div className="date">
+                    <span className="opt-inf">Start Date</span>
+                    <MyDatePicker  setValue={setValue} shipId={ship?.id}/>
+                </div>
+                <div className="duration">
+                    <span className="opt-inf">Tour Duration</span>
+                    <div className="opt-in">
+                        <p onClick={handleHourDecrement}><FiMinusCircle size={25} /></p>
+
+                        <div className="opt-in-v">
+                            <input
+                            id="duration"
+                            type="number"   
+                            inputMode="numeric"
+                            readOnly
+                            max={10}
+                            min={2}
+                            value={hour}
+                            />
+                            <span>hour</span>
+                        </div>
+                        <p onClick={handleHourIncrement}><FiPlusCircle size={25}/></p>
+                </div>
+                </div>
+                <div className="people">
+                    <span className="opt-inf">Number of People</span>
+                    <div className="opt-in">
+                            <p onClick={handlePeopleDecrement}><FiMinusCircle size={25}/></p>
+
+                            <div className="opt-in-p">
+                                    <input
+                                        type="number"   
+                                        inputMode="numeric"
+                                        readOnly
+                                        max={ship?.capacity}
+                                        min={1}
+                                        value={people}
+                                    />
+                            </div>
+                            
+                            <p onClick={handlePeopleIncrement}><FiPlusCircle size={25}/></p>
+                    </div>
+                </div>
            </form>
            {reservationError &&  <div className="form-message">
             <div className="form-message-content error">
@@ -178,7 +173,9 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
         </div>}
         </div>
         <div className="order">
-               
+                <button form="reservation-formm">
+                    {!isPending ? "Reserve" : <AiOutlineLoading3Quarters size={25} className='loading' />}
+                </button>
                 <span className="right">
                     Since instant booking is active, you will be directed to the payment page.
                 </span>
@@ -205,6 +202,6 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
   )
 }
 
-export default ReservationForm
+export default ReservationFormCopy
 
 

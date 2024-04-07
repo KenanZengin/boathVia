@@ -21,19 +21,22 @@ const ReservationMobile = ({children}:{children: React.ReactNode}) => {
             Check Prices
         </button>
         <Modal
-        show={show}
-        backdrop="static"
-        keyboard={false}
-        className="reservation-modal"
-        animation={true}
+            show={show}
+            backdrop="static"
+            keyboard={false}
+            className="reservation-modal"
+            animation={true}
+            fullscreen
         >
             <div className="close-model">
                 <button onClick={handleClose}>
                     <IoMdClose size={28} />
                 </button>
             </div> 
-            <div className="modal-wrapper">      
-                {children}
+            <div className="price">      
+                <div className="price-wrapper">
+                    {children}
+                </div>
             </div>
         </Modal>
     </>
