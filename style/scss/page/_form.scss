@@ -256,7 +256,7 @@
         max-height: 43px;
     }
 }
-.auth-form{
+.auth-form,.settings-form{
     @include BootstrapMaxWidthResponsive(xs){
         padding: 25px;
     }

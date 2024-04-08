@@ -6,8 +6,16 @@
             display: flex;
             justify-content: space-between;
             gap: 1rem;
+            @include BootstrapMaxWidthResponsive(md){
+                flex-direction: column-reverse;
+                //align-items: center;
+            }
             .reservation-info{
                 width: 75%;
+                @include BootstrapMaxWidthResponsive(md){
+                    width: 100%;
+                    padding: 0 15px;
+                }
                 .reservation-detail{
                     p{
                         span{
@@ -15,6 +23,9 @@
                             font-size: 1rem;
                             color:rgb(8, 47, 62);
                             margin-bottom: 10px;
+                            @include BootstrapMaxWidthResponsive(md){
+                                font-size: .95rem;
+                            }
 
                         }
                         span:first-child{
@@ -32,6 +43,9 @@
                         margin: 16px 0;
                         border-radius: 8px;
                         line-height: 1.5rem;
+                        @include BootstrapMaxWidthResponsive(md){
+                            font-size: .95rem;
+                        }
                     }
                     p:first-child{
                         background-color: #CFF9E9;
@@ -98,6 +112,11 @@
                             color: rgb(8, 47, 62);
                             line-height: 1.5rem;
                         }
+                        label{
+                            @include BootstrapMaxWidthResponsive(md){
+                                font-size: .95rem;
+                            }
+                        }
                         button{
                             width: 100%;    
                             text-align: center;
@@ -124,6 +143,11 @@
                 width: 350px;
                 min-width: 350px;
                 position: relative;
+                @include BootstrapMaxWidthResponsive(md){
+                    margin: auto;
+                    margin-bottom: 20px;
+                }
+                
                 &-wrapper{
                     padding: 16px;
                     border: 1px solid #e5e7eb;
@@ -169,6 +193,9 @@
                                 font-size: 1.125rem;
                                 color: rgb(8, 47, 62);
                                 font-weight: 500;
+                                @include BootstrapMaxWidthResponsive(md){
+                                    font-size: 1.05rem;
+                                }
                             }
                             p:last-child{
                                 white-space: nowrap;
@@ -183,9 +210,15 @@
     }
     &-id{
         margin-bottom: 25px;
+        @include BootstrapMaxWidthResponsive(md){
+            margin: 0 15px;
+        }
         h3{
             font-size: 1.5rem;
             color: rgb(8, 47, 62);
+            @include BootstrapMaxWidthResponsive(md){
+                font-size: 1.25rem;
+            }
         }
     }
 }
@@ -194,23 +227,48 @@
     padding: 0;
     .modal-dialog{
         width: 75%;
-        max-width: 75%;
+        min-width: 75%;
         height: 100%;
         border-radius: 8px;
         padding: 0;
         margin: 0 auto;
         display: flex;
         align-items: center;
+        @include BootstrapMaxWidthResponsive(xl_m){
+            min-width: 1100px;
+        }
+        @include BootstrapMaxWidthResponsive(lg_m){
+            min-width: 80%;
+        }
+        @include BootstrapMaxWidthResponsive(xxs){
+            width: 100% !important; 
+            min-width: 100% !important;
+        }
         .modal-content{
             border:none !important;
-            height: 100%;
             background-color: #fff;
             height: 700px;
-            min-height: 500px;
+            min-height: 700px;
+            @include BootstrapMaxWidthResponsive(lg_m){
+                height: 90%;
+                min-height: 90%;
+            }
+            @include BootstrapMaxWidthResponsive(xxs){
+                height: 100%;
+                min-height: 100%;
+            }
         }   
         .modal-wrapper{
-            width: 75%; 
-            max-width: 75%;
+            width: 85%; 
+            max-width: 85%;
+            @include BootstrapMaxWidthResponsive(xxs){
+                width: 100% ; 
+                min-width: 100% ;
+                padding: 0 20px;
+            }
+            @include BootstrapMaxWidthResponsive(xxs){
+                height: 100%;
+            }
             margin: auto;         
             .payment-options{
                 .card-option{
@@ -218,6 +276,7 @@
                     padding-top: 15px;
                     .option-info{
                         width: 25%;
+                        min-width: 210px;
                         background-color: #178A87;
                         color: #fff;
                         text-align: center;
@@ -248,6 +307,16 @@
                             row-gap: 15px;
                             padding: 0 40px;
                             position: relative;
+                            @include BootstrapMaxWidthResponsive(xxs){
+                                padding: 0;
+                            }
+                            .slash{
+                                height: 41px;
+                                display: flex;
+                                align-items: center;
+                                font-weight: 600;
+                                font-size: 1.25rem;
+                            }
                             label{
                                 display: flex;
                                 flex-direction: column;
@@ -278,28 +347,52 @@
                                 display: flex;
                                 align-items: flex-end;
                                 justify-content: space-between;
+                                @include BootstrapMaxWidthResponsive(lg_m){
+                                    flex-wrap: wrap;
+                                    row-gap: 15px;
+                                }
                             }
                             .card-number,.card-name{
                                 width: 40%;
+                                max-width: 445px;
+                                @include BootstrapMaxWidthResponsive(xl_m){
+                                    width: 320px;
+                                    max-width: 320px;
+                                }
+                                @include BootstrapMaxWidthResponsive(lg_m){
+                                    width: 100%;
+                                    max-width: 100%;
+                                }
                             }
                             .card-month,.card-year{
                                 width: 15%;
+                                max-width: 160px;
+                                @include BootstrapMaxWidthResponsive(xl_m){
+                                    width: 120px;
+                                    max-width: 120px;
+                                }
+                                @include BootstrapMaxWidthResponsive(lg_m){
+                                    width: 48%;
+                                    max-width: 48%;
+                                }
+                                @include BootstrapMaxWidthResponsive(xxs){
+                                    width: 45%;
+                                    max-width: 45%;
+                                }
                                 input{
                                     &::placeholder{
                                         font-weight: 600;
                                     }
                                 }
                             }
-                            .card-month{
-                                position: relative;
-                                &::after{
-                                    content: "/";
-                                    font-size: 1.2rem;
-                                    font-weight: 600;
-                                    display: block;
-                                    position: absolute;
-                                    top: 50%;
-                                    right: -14%;
+                            .card-cvv{
+                                @include BootstrapMaxWidthResponsive(xl_m){
+                                    width: 170px;
+                                    max-width: 170px;
+                                }
+                                @include BootstrapMaxWidthResponsive(lg_m){
+                                    width: 100%;
+                                    max-width: 100%;
                                 }
                             }
                             button{
@@ -334,7 +427,14 @@
                         .card-services-img{
                             margin-top: 40px;
                             text-align: center;
-                            
+                            position: relative;
+                            height: 11vh;
+                            @include BootstrapMaxWidthResponsive(md){
+                                height: 9vh;
+                            }
+                            @include BootstrapMaxWidthResponsive(xxs){
+                                height: 6vh;
+                            }
                         }
                     }
                 }
@@ -352,3 +452,8 @@
     
 }
 
+.back-home{
+    @include BootstrapMaxWidthResponsive(md){
+        margin: 0 15px;
+    }
+}

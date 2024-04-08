@@ -332,41 +332,70 @@
 
 .user-layout{
     padding-top: 10px;
+  
     .back-home{
         color: rgb(8, 47, 62);
         font-size: 0.875rem;
     }
 }
 .no-record{
-    text-align: center;
-    background-color: #F1F5F9;
-    padding: 10px 24px;
-    border-radius: 20px;
     grid-column: 1 /5;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    p{
-        color: rgb(8, 47, 62);
-        font-size: 1.25rem;
-        font-weight: 500;
-        white-space: nowrap;
+    @include BootstrapMaxWidthResponsive(xxs){
+        padding: 0 15px;
     }
-    span{
-        color: rgb(100, 116, 139);
-        font-size: 1rem;
-    }
-    a{
-        display: inline-block;
-        background-color: #178A87;
-        color: #fff;
-        padding: 10px 15px;
-        border-radius: 4px;
-        transition: background-color .3s;
-        &:hover{
-            background-color: #107076;
+    &-wrapper{
+        text-align: center;
+        background-color: #F1F5F9;
+        padding: 10px 24px;
+        border-radius: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        @include BootstrapMaxWidthResponsive(xxs){
+            grid-template-columns: repeat(1,1fr);
+        }
+        .record-img{
+            position: relative;
+            width: 35%;
+            height: auto;
+            aspect-ratio: 1.6 / 1 ;
+            @include BootstrapMaxWidthResponsive(md){
+                width: 60%
+            }
+            @include BootstrapMaxWidthResponsive(xm){
+                width: 90%
+            }
+        }
+        p{
+            color: rgb(8, 47, 62);
+            font-size: 1.25rem;
+            font-weight: 500;
+            white-space: nowrap;
+            @include BootstrapMaxWidthResponsive(xxs){
+                font-size: 1rem;
+                white-space: normal;
+            }
+        }
+        span{
+            color: rgb(100, 116, 139);
+            font-size: 1rem;
+            @include BootstrapMaxWidthResponsive(xxs){
+                font-size: .9rem;
+            }
+        }
+        a{
+            display: inline-block;
+            background-color: #178A87;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background-color .3s;
+            &:hover{
+                background-color: #107076;
+            }
         }
     }
 }

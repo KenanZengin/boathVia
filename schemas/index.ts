@@ -57,12 +57,6 @@ export const ReservationSchema = z.object({
     time: z.date(),
 })
 
-export const ReservationSchemaa = z.object({
-    port: z.string(),
-    duration: z.number(),
-    people: z.number(),
-    time: z.date(),
-})
 
 export const SettingsSchema = z.object({
     name: z.optional(z.string()),

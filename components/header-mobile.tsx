@@ -79,10 +79,15 @@ const HeaderMobile = ({pathname,session}:{pathname:string,session:Session | null
                 <FiPlus size={18} />
                 <span>Other</span>
             </p>
-            <p onClick={shareOnWhatsapp}>
-                <FaWhatsapp size={18} />
-                <span>Support</span>
-            </p>
+            {session
+                ?
+                ""
+                :
+                <p onClick={shareOnWhatsapp}>
+                    <FaWhatsapp size={18} />
+                    <span>Support</span>
+                </p>
+            }
         </nav>
         <Modal
         show={show}
@@ -127,6 +132,10 @@ const HeaderMobile = ({pathname,session}:{pathname:string,session:Session | null
                             <span onClick={logOut}>
                                 <FiLogIn size={25}/>
                                 Sign out
+                            </span>
+                            <span onClick={shareOnWhatsapp}>
+                                <FaWhatsapp size={25} />
+                                Support
                             </span>
                         </>   
                         :  

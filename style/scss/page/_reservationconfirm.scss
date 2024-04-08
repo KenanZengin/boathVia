@@ -13,14 +13,29 @@
         justify-content: center;
         background-color: #F1F5F9;
         border-radius: 12px;
+        @include BootstrapMaxWidthResponsive(xxs){
+            margin: 0 15px;
+        }
         h2{
             font-size: 1.5rem;
             text-align: center;
             color: #082F3E;
+            @include BootstrapMaxWidthResponsive(xxs){
+                font-size: 1.25rem;
+            }
         }
         p{
             color: rgb(8, 47, 62);
             margin: 20px 0;
+            @include BootstrapMaxWidthResponsive(xxs){
+                font-size: .9rem;
+                line-height: 1.5rem;
+            }
+        }
+        h2,p{
+            @include BootstrapMaxWidthResponsive(xxs){
+                padding: 0 10px;
+            }
         }
         .other-pages{
             display: flex;
@@ -29,6 +44,9 @@
             justify-content: center;
             position: relative;
             z-index: 100;
+            @include BootstrapMaxWidthResponsive(xm){
+                flex-direction: column;
+            }
             a{
                 display: inline-block;
                 padding: 7.5px;

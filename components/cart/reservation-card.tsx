@@ -63,6 +63,20 @@ const ReservationCard = ({data}:{data:ReservationCartProps[]}) => {
                                 <div className="content-img">
                                     <Image src={item.img_path} alt="ship" fill={true}/>++
                                 </div>
+                                <div className="r-cart-head">
+                                <div className="ship-info">
+                                    <p>
+                                        <span>Custom made 23m Motor Yacht</span>
+                                        <FaStar size={15} />
+                                        <span>{item.star}</span> 
+                                        <span>({item.comment})</span>
+                                    </p>
+                                </div>
+                            <div className="ship-record">
+                            <p>Hourly Rental</p>
+                            <span>Creation Date: {record.format('DD MMM YYYY ddd')} </span>
+                            </div>
+                                </div>
                                 <div className="details">
                                     <div className="detail">
                                         <span>Sound system is available and you can use it</span>
@@ -83,36 +97,35 @@ const ReservationCard = ({data}:{data:ReservationCartProps[]}) => {
                                 <div className="detail">
                                     <p>
                                         <span>Departure Port</span>
-                                        : Istanbul
+                                        <span>: Istanbul</span>
                                     </p>
                                     <p>
                                         <span>Arrival Port</span>
-                                        : {item.port}
+                                        <span>: {item.port}</span>
                                     </p>
                                     <p>
                                         <span>Number of People</span>
-                                        : {item.people}
+                                        <span>: {item.people}</span>
                                     </p>
                                     <p>
                                         <span>Starting Date</span>
-                                        : {date_start.format('DD MMM YYYY ddd HH:mm')}
+                                        <span>: {date_start.format('DD MMM YYYY ddd HH:mm')}</span>
                                     </p>
                                     <p>
                                         <span>End Date</span>
-                                        : {date_end.format('DD MMM YYYY ddd HH:mm')}
+                                        <span>: {date_end.format('DD MMM YYYY ddd HH:mm')}</span>
                                     </p>
                                     <p>
                                         <span>Total Amount</span>
-                                        : TRY {item?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number(item?.hour_price * item?.duration))}
+                                        <span> : TRY {item?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number(item?.hour_price * item?.duration))}</span>
                                     </p>
 
                                     <p>
                                         <span>Online Prepayment Amount</span>
-                                        : TRY {item?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number((item?.hour_price * (0.4 * item.duration)).toFixed(2)))}
-                                    </p>
+                                        <span>: TRY {item?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number((item?.hour_price * (0.4 * item.duration)).toFixed(2)))}</span>                                    </p>
                                     <p>
                                         <span>Amount To Be Paid on Board</span>
-                                        : TRY {item?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number((item?.hour_price * (0.6 * item?.duration)).toFixed(2)))}
+                                        <span> : TRY {item?.hour_price && new Intl.NumberFormat("en-IN",{ minimumFractionDigits: 2 }).format(Number((item?.hour_price * (0.6 * item?.duration)).toFixed(2)))}</span>
                                     </p>
                                     
                                 </div>

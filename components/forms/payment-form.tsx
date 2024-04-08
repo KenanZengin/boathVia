@@ -45,23 +45,23 @@ const PaymentForm = () => {
         className="card-modal"
         animation={false}
       >
-        <div className="close-model">
-            <button onClick={handleClose}>
-                <IoMdClose size={25} />
-            </button>
-        </div> 
-       <div className="modal-wrapper">      
-            <div className="payment-options">
-                    <div className="card-option">
-                        <div className="option-info">
-                            <p>Card Payment</p>
-                            <span>Credit or Debir cards All banks worldwide</span>
-                        </div>
-                        <div className="total-price">Total Payment Amount: <span> 31200,00 TL</span></div>
-                        <CardForm />
-                    </div>
-            </div>   
-       </div>
+            <div className="close-model">
+                <button onClick={handleClose}>
+                    <IoMdClose size={25} />
+                </button>
+            </div> 
+            <div className="modal-wrapper">      
+                    <div className="payment-options">
+                            <div className="card-option">
+                                <div className="option-info">
+                                    <p>Card Payment</p>
+                                    <span>Credit or Debir cards All banks worldwide</span>
+                                </div>
+                                <div className="total-price">Total Payment Amount: <span> 31200,00 TL</span></div>
+                                <CardForm />
+                            </div>
+                    </div>   
+            </div>
        </Modal>
     </div>
   )

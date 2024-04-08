@@ -125,6 +125,7 @@ const CardForm = () => {
 
             </label>
           </div>
+          <span className="slash">/</span>
           <div className="card-year">
             <label htmlFor="cardyear">
               <input 
@@ -165,7 +166,7 @@ const CardForm = () => {
         </div>}
       </form>
       <div className="card-services-img">
-          <Image src={cardService} alt="cards" />
+          <Image src={cardService} alt="cards" fill={true} />
         </div>
     </div>
   )

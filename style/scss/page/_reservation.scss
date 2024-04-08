@@ -1,6 +1,9 @@
 .reservation{
     .title-info{
         margin: 20px 0;
+        @include BootstrapMaxWidthResponsive(xxs){
+            margin: 20px 15px;
+        }
         span{
             display: inline-block;
             color: rgb(8, 47, 62);
@@ -17,12 +20,21 @@
         margin: 20px 0;
         .reservation-cart{
             margin: 25px 0;
+            @include BootstrapMaxWidthResponsive(xxs){
+                margin: 25px 15px;
+            }
             border: 1px solid #CBD5E1;
             border-radius: 12px;
             .cart-info{
                 width: 100%;
                 padding: 20px 36px;
                 position: relative;
+                @include BootstrapMaxWidthResponsive(md){
+                    padding: 16px;
+                }
+                @include BootstrapMaxWidthResponsive(xm){
+                    padding: 16px 10px;
+                }
                 input[type="checkbox"]{
                     opacity: 0;
                     position: absolute;
@@ -85,155 +97,227 @@
                
                 
             }
-            .r-cart-content{
-                width: 100%;
-                border-top: 1px solid #CBD5E1;
-                padding: 16px 36px;
-                .r-cart-head{
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    margin-bottom: 15px;
-                    .ship-info{
-                        p{
-                            display: flex;
-                            gap: 10px;
-                            align-items: center;
-                            span:first-child,span:nth-child(2){
-                                color: rgb(8, 47, 62);
-                            }
-                            span:last-child{
-                                color: rgb(100, 116, 139);
-                            }
-                            svg{
-                                color: #178A87;
-                            }
-                        }
-                    }
-                    .ship-record{
-                        display: flex;
-                        align-items: center;
-                        gap: 10px;
-                        font-size: 0.875rem;
-                        p{
-                            padding: 5px 10px;
-                            background-color: #CFF9E9;
-                            border: 1px solid #042E42;
-                            border-radius: 40px;
-                            color: #042E42;
-                        }
-                        span{
-                            color: rgb(100, 116, 139);
-                        }
-                    }
-                }
-                .content-info{
-                    display: flex;
-                    justify-content: space-between;
-
-                   .ship-detail{
-                        display: flex;
-                        gap: 10px;
-                        .content-img{
-                            position: relative;
-                            width: 316px;
-                            height: 240px;
-                            img{
-                                object-fit: cover;
-                                width: 100%;
-                                height: 100%;
-                                border-radius: 6px;
-                            }
-                        }
-                        .details{
-                            
-                            .detail{
-                                display: grid;
-                                grid-template-columns: repeat(2,1fr);
-                                width: 350px;
-                                max-width: 350px;
-                                align-content: start;
-                                gap: 20px;
-                                span{
-                                    display: inline-block;
-                                    font-size: 0.875rem;
-                                }
-                            }
-                            .go-detail{
-                                text-align: center;
-                                margin-top: 30px;
-                                a{
-                                    display: inline-block;
-                                    padding: 6px 16px;
-                                    color: rgb(23, 138, 135);
-                                    border: 1px solid rgb(23, 138, 135);
-                                    border-radius: 4px;
-                                    font-size: 0.875rem;
-                                    transition: all .5s ease;
-                                    &:hover{
-                                        background-color: #178A87;
-                                        color: #fff;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .reservation-details{
-                        .detail{
-                            color: rgb(8, 47, 62);
-                            font-size: 1rem;
-                            white-space: nowrap;
-                            p{
-                                line-height: 1.125rem;
-                                margin-bottom: 12px;
-                                span{
-                                    display: inline-block;
-                                    width: 13rem;
-                                }
-                            }
-                        }
-                        .reservation-change{
-                            text-align: center;
-                            position: relative;
-                            a{
-                                width: 100%;
-                                display: inline-block;
-                                padding: 10px 16px;
-                                color: rgb(23, 138, 135);
-                                border: 1px solid rgb(23, 138, 135);
-                                border-radius: 4px;
-                                transition: all .5s ease;
-                                background-color: #178A87;
-                                color: #fff;
-                                &:hover{
-                                    background-color: #fff;
-                                    color: #178A87;
-                                }
-                            }
-                            .cancel-btn{
-                                button{
-                                    padding: 10px 16px;
-                                    background-color: #fff;
-                                    color: rgb(8, 47, 62);
-                                    cursor: pointer;
-                                    max-height: 40px;
-                                    height: 40px;
-                                }
-                            }
-                            .form-message{
-                                right: 0;
-                            }
-                            
-                        }
-                    }
-                }
-
-            }
+           
             &:has(.cart-info input[type="checkbox"]:not(:checked)) .r-cart-content{
                 display: none;
             }
             &:has(.cart-info input[type="checkbox"]:checked) .r-cart-content{
                 display: block;
+            }
+        }
+    }
+    .r-cart-content{
+        width: 100%;
+        border-top: 1px solid #CBD5E1;
+        padding: 16px 36px;
+        @include BootstrapMaxWidthResponsive(md){
+            padding: 16px;
+        }
+        @include BootstrapMaxWidthResponsive(xm){
+            padding: 16px 10px;
+        }
+        .r-cart-head{
+            display: flex;
+            justify-content: space-between;
+            @include BootstrapMaxWidthResponsive(xxs){
+                display: none;
+            }
+        }
+        .content-info{
+            display: flex;
+            justify-content: space-between;
+            @include BootstrapMaxWidthResponsive(xxs){
+                flex-direction: column;
+            }
+           .ship-detail{
+                display: flex;
+                gap: 10px;
+                @include BootstrapMaxWidthResponsive(lg){
+                    flex-direction: column;
+                    width: max-content;
+                }
+
+                @include BootstrapMaxWidthResponsive(xxs){
+                    gap:0;
+                    width: 100%;
+                }
+                .r-cart-head{
+                    display: none;
+                    @include BootstrapMaxWidthResponsive(xxs){
+                        display: flex;
+                        flex-direction: column;
+                        gap: 15px;
+                        .ship-info,.ship-record{
+                            p{
+                                font-size: 1rem;
+                                span:not(:first-child){
+                                    font-size: .75rem;
+                                }
+                            }
+                        }
+                        .ship-record{
+                            p,span{
+                                font-size: .75rem;
+                            }
+                        }
+                    }
+                }
+                .content-img{
+                    position: relative;
+                    width: 316px;
+                    height: 240px;
+                    @include BootstrapMaxWidthResponsive(xxs){
+                        width: 100%;
+                        height: auto;
+                        aspect-ratio: 1 / .8;
+                    }
+                    img{
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 6px;
+                    }
+                }
+                .details{
+                    
+                    .detail{
+                        display: grid;
+                        grid-template-columns: repeat(2,1fr);
+                        width: 350px;
+                        max-width: 350px;
+                        align-content: start;
+                        gap: 20px;
+                        @include BootstrapMaxWidthResponsive(xxs){
+                            display: none;
+                        }
+                        span{
+                            display: inline-block;
+                            font-size: 0.875rem;
+                        }
+                    }
+                    .go-detail{
+                        text-align: center;
+                        margin-top: 30px;
+                        @include BootstrapMaxWidthResponsive(xxs){
+                            margin: 18px 0;
+                        }
+                        a{
+                            display: inline-block;
+                            padding: 6px 16px;
+                            color: rgb(23, 138, 135);
+                            border: 1px solid rgb(23, 138, 135);
+                            border-radius: 4px;
+                            font-size: 0.875rem;
+                            transition: all .5s ease;
+                            &:hover{
+                                background-color: #178A87;
+                                color: #fff;
+                            }
+                            @include BootstrapMaxWidthResponsive(xxs){
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            .reservation-details{
+                .detail{
+                    color: rgb(8, 47, 62);
+                    font-size: 1rem;
+                    white-space: nowrap;
+                    @include BootstrapMaxWidthResponsive(md){
+                        font-size: .9rem;
+                    }
+                    p{
+                        line-height: 1.125rem;
+                        margin-bottom: 12px;
+                       
+                        span:first-child{
+                            display: inline-block;
+                            width: 13rem;
+                            @include BootstrapMaxWidthResponsive(md){
+                                width: 12rem;
+                            }
+                            @include BootstrapMaxWidthResponsive(xm){
+                                width: 9rem;
+                                white-space: normal !important;
+                            }
+                        }
+                        span:last-child{
+                        }
+                    }
+                }
+                .reservation-change{
+                    text-align: center;
+                    position: relative;
+                    a{
+                        width: 100%;
+                        display: inline-block;
+                        padding: 10px 16px;
+                        color: rgb(23, 138, 135);
+                        border: 1px solid rgb(23, 138, 135);
+                        border-radius: 4px;
+                        transition: all .5s ease;
+                        background-color: #178A87;
+                        color: #fff;
+                        &:hover{
+                            background-color: #fff;
+                            color: #178A87;
+                        }
+                    }
+                    .cancel-btn{
+                        button{
+                            padding: 10px 16px;
+                            background-color: #fff;
+                            color: rgb(8, 47, 62);
+                            cursor: pointer;
+                            max-height: 40px;
+                            height: 40px;
+                        }
+                    }
+                    .form-message{
+                        right: 0;
+                    }
+                    
+                }
+            }
+        }
+
+    }
+    .r-cart-head{
+        width: 100%;
+        margin-bottom: 15px;
+        
+        .ship-info{
+            p{
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                span:first-child,span:nth-child(2){
+                    color: rgb(8, 47, 62);
+                }
+                span:last-child{
+                    color: rgb(100, 116, 139);
+                }
+                svg{
+                    color: #178A87;
+                }
+            }
+        }
+        .ship-record{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.875rem;
+            p{
+                padding: 5px 10px;
+                background-color: #CFF9E9;
+                border: 1px solid #042E42;
+                border-radius: 40px;
+                color: #042E42;
+            }
+            span{
+                color: rgb(100, 116, 139);
             }
         }
     }
