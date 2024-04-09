@@ -42,22 +42,31 @@
             align-items: center;
             justify-content: center;
             color: #fff;
+            width: 100%;
             h1{
                 font-size: 1.8rem;
                 line-height: 2rem;
                 font-weight: 500;
                 margin-bottom: 1.5rem;
+                @include BootstrapMaxWidthResponsive(xs){
+                    font-size: 1.5rem;
+                }
             }
             
             label{
                 width: 500px;
                 position: relative;
-                
+                @include BootstrapMaxWidthResponsive(xs){
+                    width: 90%;
+                }
                 input{
                     width: 100%;
                     padding: 15px 20px;
                     border-radius: 30px;
                     cursor: pointer;
+                    @include BootstrapMaxWidthResponsive(xs){
+                        padding: 12px 20px;
+                    }
                     &::placeholder{
                         color: #9CA3B4;
                     }
@@ -107,6 +116,13 @@
         grid-template-columns: repeat(3,1fr);
         grid-template-rows: max-content;
         gap: 25px;
+        @include BootstrapMaxWidthResponsive(md){
+            grid-template-columns: repeat(2,1fr);
+        }
+        @include BootstrapMaxWidthResponsive(xxs){
+            grid-template-columns: repeat(1,1fr);
+            margin: 0 15px;
+        }
         &-card{
             border-radius:0.375rem ;
             border: 1px solid rgb(229, 231, 235);
@@ -125,6 +141,9 @@
                     font-weight: 500;
                     color: rgb(8, 47, 62);
                     margin-top: 6px;
+                    @include BootstrapMaxWidthResponsive(xxs){
+                        font-size: 1.05rem;
+                    }
                 }
             }
             .accordion-header{
@@ -135,6 +154,9 @@
                 button{
                     &:focus{
                         box-shadow: none;
+                    }
+                    @include BootstrapMaxWidthResponsive(xxs){
+                        font-size: .925rem;
                     }
                 }
             }
