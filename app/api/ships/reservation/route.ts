@@ -17,14 +17,14 @@ export async function GET(request:NextRequest){
         })
 
         if(userReservation.length == 0 || !userReservation){
-            return NextResponse.json({error: "You do not have a reservation record"})
+            return NextResponse.json({error: "You do not have a reservation record"});
         }
 
-        return NextResponse.json(userReservation)
+        return NextResponse.json(userReservation);
 
     }
 
-    return NextResponse.json({error: "Please log in"})
+    return NextResponse.json({error: "Please log in"});
 
 
 }

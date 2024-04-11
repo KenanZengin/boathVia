@@ -3,14 +3,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { Session } from 'next-auth';
 import ChangeLang from '@/components/header/lang';
 import UserSection from '@/components/header/user-section';
 import SearchInput from '@/components/search-input';
-
-import logo from "../public/img/basic/logo.png"
-import logo2 from "../public/img/basic/logo_2.png"
-import { Session } from 'next-auth';
 import HeaderMobile from '@/components/header-mobile';
+import mainLogo from "../public/img/basic/logo.png"
+import mainLogo2 from "../public/img/basic/logo_2.png"
+
 
 const Header = ({session}:{session:Session | null}) => {
 
@@ -34,6 +34,7 @@ const Header = ({session}:{session:Session | null}) => {
     }
   }, [pathname]);
   
+
   return (
    <>
       <header className={`web-header header ${ !pathname.startsWith("/ship-detail/") ? pathname === "/" || pathname ==="/helpcenter" ? scrollY > 482 ? "sticky_header" : "" : "sticky_header": "other_page" }`}>
@@ -44,8 +45,8 @@ const Header = ({session}:{session:Session | null}) => {
                 <Image src=
                   {
                     pathname === "/" || pathname ==="/helpcenter"  ? scrollY > 482 
-                      ? logo2 : logo
-                      : logo2
+                      ? mainLogo2 : mainLogo
+                      : mainLogo2
                   } 
                   alt="logo" 
                 />
@@ -72,18 +73,14 @@ const Header = ({session}:{session:Session | null}) => {
                 </Link>
               </div>
               <div className="btnsarea-item">
-                {/*TODO: ADD LANGUAGE API  */}
                 <ChangeLang  />
               </div>
               <div className="btnsarea-item user-section">
-                {/*TODO: ADD USER API  */}
                 <UserSection session={session} />
               </div>
             </div>
           </div>
-          
         </div>
-      
       </header>
       <div className="header-mobile">
         <HeaderMobile pathname={pathname} session={session} />

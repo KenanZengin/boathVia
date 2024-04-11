@@ -1,14 +1,13 @@
 
 import Image from 'next/image';
 import moment from 'moment';
-import { getUserCalendar } from '@/server/data/usercalendar'
-
-import { BsInfoCircle } from "react-icons/bs";
 import PaymentForm from '@/components/forms/payment-form';
+import { getUserCalendar } from '@/server/data/usercalendar'
+import { BsInfoCircle } from "react-icons/bs";
+
 
 const Payment = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
 
-  
   const userCalendar = await getUserCalendar(searchParams.id);
 
   const date_1 = moment(userCalendar?.time[0]);
@@ -17,8 +16,7 @@ const Payment = async ({searchParams}:{searchParams:{[key:string]: string}}) => 
   const date_2 = moment(userCalendar?.time[userCalendar.time.length - 1]);
   const date_end = date_2.subtract(2,"hours");
 
-
-
+  
   return (
    <main className="payment">
       <section className="payment-wrapper">

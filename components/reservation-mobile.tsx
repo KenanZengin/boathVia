@@ -1,9 +1,7 @@
 "use client"
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-
 import { IoMdClose } from "react-icons/io";
-
 
 
 const ReservationMobile = ({children}:{children: React.ReactNode}) => {
@@ -14,8 +12,7 @@ const ReservationMobile = ({children}:{children: React.ReactNode}) => {
 
     const handleClose = () => setShow(() => false);
     
-
-  return (
+    return (
     <>
         <button onClick={handleShow}>
             Check Prices
@@ -40,7 +37,7 @@ const ReservationMobile = ({children}:{children: React.ReactNode}) => {
             </div>
         </Modal>
     </>
-  )
+    )
 }
 
 export default ReservationMobile

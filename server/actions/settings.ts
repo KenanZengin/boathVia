@@ -7,9 +7,8 @@ import { currentUser } from "@/hooks/server/auth"
 import { SettingsSchema } from "@/schemas"
 import { compare, hash } from "bcryptjs"
 
-export const settings = async (
-    values: z.infer<typeof SettingsSchema>
-) => {
+
+export const settings = async (values: z.infer<typeof SettingsSchema>) => {
 
     const user = await currentUser();
 

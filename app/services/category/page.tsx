@@ -1,18 +1,14 @@
 
+import Link from "next/link"
 import ShipCard from "@/components/cart/ship-card";
 import { getShipsData, getUserFavShipsId } from "@/hooks/server/getShips";
 import { ShipsCartProps } from "@/types";
-import Link from "next/link"
-
-
-
-  
-
 
 
 const Categories = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
 
-    const [ships,favShipsId] = await Promise.all([getShipsData(),getUserFavShipsId()])
+  const [ships,favShipsId] = await Promise.all([getShipsData(),getUserFavShipsId()]);
+
 
   return (
    <main className="categories_ships">
@@ -31,11 +27,9 @@ const Categories = async ({searchParams}:{searchParams:{[key:string]: string}}) 
                         </Link>
                     </nav>
                 </div>
-                
                 <div className="title">
                     <h1>{searchParams.categoryname}</h1>
-                </div>
-                
+                </div>    
             </div>
             <div className="steps">
                 <p>

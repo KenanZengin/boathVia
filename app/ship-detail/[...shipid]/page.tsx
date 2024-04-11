@@ -2,24 +2,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CSSProperties } from "react";
-import ReservationForm from "@/components/forms/reservation-form";
 import { getShipDetail } from "@/hooks/server/getShips";
+import ReservationForm from "@/components/forms/reservation-form";
 import ShipImages from "@/components/ship-detail/images";
 import Section_3 from "@/components/homepage/section3";
 import ShareLink from "@/components/share-link";
 import DetailSwiper from "@/components/detail-swiper";
+import ReservationMobile from "@/components/reservation-mobile";
 
 import { TfiTimer } from "react-icons/tfi";
-import { FiShare } from "react-icons/fi";
-import { IoIosHeartEmpty } from "react-icons/io";
 import { BsLightningChargeFill } from "react-icons/bs";
 import { TiStopwatch } from "react-icons/ti";
 import { FaStar } from "react-icons/fa";
 import { MdPeopleOutline } from "react-icons/md";
 import { ImSpoonKnife } from "react-icons/im";
-import ReservationMobile from "@/components/reservation-mobile";
-import ReservationFormCopy from "@/components/forms/reservation-form-copy";
-
 
 
 interface MyCustomCSS extends CSSProperties {
@@ -27,12 +23,11 @@ interface MyCustomCSS extends CSSProperties {
 }
 
 
-
-
 const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
 
    const data = await getShipDetail(params.shipid);
    
+
     return (
         <main className="ship-detail">
             <article className="ship-detail-wrapper">
@@ -254,8 +249,7 @@ const ShipsDetail = async ({params}:{params:{shipid:string}}) => {
                    </div>
                 </div>
             </article>
-            <Section_3  maks={4}/>
-            
+            <Section_3  maks={4}/>  
         </main>
     )
 }

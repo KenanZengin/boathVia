@@ -1,13 +1,10 @@
 "use server"
 
-import { db } from "../db/db"
 import * as z from "zod"
 import { getUserByEmail } from "../data/user"
 import { LoginSchema } from "@/schemas"
 import { signIn } from "@/auth"
 import { AuthError } from "next-auth"
-
-
 
 
 export const login = async(values : z.infer<typeof LoginSchema>) => {

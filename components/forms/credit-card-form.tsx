@@ -1,26 +1,22 @@
-
-import { useSearchParams, useRouter } from "next/navigation"
+ import { useSearchParams, useRouter } from "next/navigation"
 import Image from "next/image"
+import { useTransition } from "react"
 import * as z from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { CreditCardSchema } from "@/schemas"
 import { payment } from "@/server/actions/payment"
-
+import { CreditCardSchema } from "@/schemas"
 import cardService from "../../public/img/basic/cards.png"
 import { MdError } from "react-icons/md";
-import { useTransition } from "react"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 
-const CardForm = () => {
 
+const CardForm = () => {
 
   const searchParams = useSearchParams();
   const router = useRouter();
   const reservationId = searchParams.get("id");
   const [isPending, startTransition] = useTransition();
-
-  
 
   const {handleSubmit, register, formState:{isValid,errors}} = useForm<z.infer<typeof CreditCardSchema>>({
     resolver: zodResolver(CreditCardSchema),
@@ -31,12 +27,10 @@ const CardForm = () => {
       cardCvv: undefined,
       cardYear: undefined
     }
-    
-  })
+  });
 
      
   const onSubmit = (values:z.infer<typeof CreditCardSchema>) => {
-    
 
     startTransition(()=>{
       if(reservationId){
@@ -48,8 +42,7 @@ const CardForm = () => {
           }
         });
       } 
-    })
-
+    });
   }
 
   const cardError = errors.cardCvv || errors.cardMonth || errors.cardName ||errors.cardNumber || errors.cardYear;
@@ -166,8 +159,8 @@ const CardForm = () => {
         </div>}
       </form>
       <div className="card-services-img">
-          <Image src={cardService} alt="cards" fill={true} />
-        </div>
+        <Image src={cardService} alt="cards" fill={true} />
+      </div>
     </div>
   )
 }

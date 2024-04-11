@@ -2,18 +2,17 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState, memo } from "react";
+import { Session } from "next-auth";
 import { logout } from "@/server/actions/logout";
-
 import { RxHamburgerMenu } from "react-icons/rx";
 import { LuUserCircle2 } from "react-icons/lu";
-import { Session } from "next-auth";
 
 
 const UserSection = ({session}:{session: Session | null}) => {
 
   
-  const [open,setOpen] = useState<boolean>(false)
-  const sortMenuRef = useRef<HTMLDivElement>(null);
+    const [open,setOpen] = useState<boolean>(false);
+    const sortMenuRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handleClickOutside = (event: Event) => {
@@ -27,13 +26,11 @@ const UserSection = ({session}:{session: Session | null}) => {
         return () => {
         document.removeEventListener('click', handleClickOutside);
         };
-    }, [open])
-
-
+    }, [open]);
 
     const logOut = () => {
         logout();
-    }
+    };
 
 
   return (
@@ -77,9 +74,6 @@ const UserSection = ({session}:{session: Session | null}) => {
                                 </Link>
                             </>
                     }
-                    {/* <Link>
-                        Add your boat to Teknevia
-                    </Link> */}
                 </div>
             )
         }

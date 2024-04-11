@@ -28,8 +28,6 @@ export const getUserfavShip = async () => {
 
 export const getUserfavShips = async (id:string) => {
 
-
-
     const ships = await db.userFavShips.findUnique({
         where:{
             userId: id,
@@ -39,9 +37,3 @@ export const getUserfavShips = async (id:string) => {
     return ships?.ships;
    
 }
-
-
-// var startTime = Date.now();
-// var endTime = Date.now();
-// var duration = endTime - startTime;
-// console.log(`getUserfavShip İşlem süresi: ${duration} ms`);

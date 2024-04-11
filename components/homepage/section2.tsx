@@ -1,14 +1,13 @@
 "use client"
 
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-
 import { LuCalendarCheck } from "react-icons/lu";
 import { LuWallet } from "react-icons/lu";
 import { GoShieldLock } from "react-icons/go";
 
+
 const Section_2 = () => {
+
   return (
     <section className='section_2'>
         <div className="carts">

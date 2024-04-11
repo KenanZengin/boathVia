@@ -1,11 +1,5 @@
 import { db } from "@/server/db/db";
-import { ShipsCartProps } from "@/types";
 import { NextRequest, NextResponse } from "next/server"
-
-
-
-
-
 
 export  async function GET(request: NextRequest){
 
@@ -27,14 +21,12 @@ export  async function GET(request: NextRequest){
             }
         })
 
-        if(!ship) return NextResponse.json({error: "No found ship"})
+        if(!ship) return NextResponse.json({error: "No found ship"});
         
-        return NextResponse.json(ship) 
-        
+        return NextResponse.json(ship) ;
 
     }
 
-    return NextResponse.json({error: "No found ship"})
-
+    return NextResponse.json({error: "No found ship"});
 
 }

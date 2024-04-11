@@ -1,32 +1,27 @@
 "use client"
 
 import { useState, useTransition } from 'react';
-import { useCurrentUser } from '@/hooks/client/use-auth';
 import * as z from "zod"
-import { SettingsSchema } from '@/schemas';
 import { useForm } from 'react-hook-form';
+import { useCurrentUser } from '@/hooks/client/use-auth';
+import { SettingsSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { UserLanguage } from '@prisma/client';
 import { settings } from '@/server/actions/settings';
-
 import { MdError } from 'react-icons/md';
 import { FaCheck } from "react-icons/fa6";
 import { IoIosEye } from 'react-icons/io';
 import { FaRegEyeSlash } from 'react-icons/fa';
-import { VscLoading } from "react-icons/vsc";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { AiOutlineLoading } from "react-icons/ai";
 
 const SettingsForm = () => {
 
-
     const user = useCurrentUser();
-    
     const [isPending, startTransition] = useTransition();
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [showNewPassword, setShowNewPassword] = useState<boolean>(false);
-    const [formError, setFormError] = useState<string | undefined>()
-    const [formSuccess, setFormSuccess] = useState<string | undefined>()
+    const [formError, setFormError] = useState<string | undefined>();
+    const [formSuccess, setFormSuccess] = useState<string | undefined>();
 
     
     const { handleSubmit, register, formState: { errors, isDirty } } = useForm<z.infer<typeof SettingsSchema>>({
@@ -40,7 +35,7 @@ const SettingsForm = () => {
             phone:user?.phone || undefined,
             lang: user?.lang
         }            
-    })
+    });
 
     const onSubmit = (values: z.infer<typeof SettingsSchema>) => {
         
@@ -56,12 +51,11 @@ const SettingsForm = () => {
                         setFormSuccess(data?.success)
                     }
                 })
-        })
-    }
+        });
+    };
 
     
-
-  return (
+    return (
     <main className="settings-form">
         <div className="settings-form-content">
             <div className="form-title">
@@ -105,7 +99,7 @@ const SettingsForm = () => {
                             {...register("phone")} 
                             disabled={isPending} 
                         /> 
-                         {errors.phone?.message && <p className="form-error-msg">{errors.phone.message}</p>}
+                            {errors.phone?.message && <p className="form-error-msg">{errors.phone.message}</p>}
                     </div>
                     <div className="form-w">
                         <label htmlFor="email">Email</label>
@@ -154,8 +148,8 @@ const SettingsForm = () => {
                         {errors.newPassword?.message && <p className="form-error-msg">{errors.newPassword.message}</p>}
                     </div>
                     <div className="form-l">
-                       <p>Languages Spoken</p>
-                       <div className="lang-op">
+                        <p>Languages Spoken</p>
+                        <div className="lang-op">
                         <label htmlFor="turkish">Turkish</label>
                         <input 
                                 type="radio" 
@@ -172,7 +166,7 @@ const SettingsForm = () => {
                             {...register("lang")} 
                             className='custom-radio'
                         />
-                       </div>
+                        </div>
                     </div>
                     <button className="send-btn" type="submit">
                         {!isPending ? "Save" : <AiOutlineLoading3Quarters size={25} className='loading' />}
@@ -189,10 +183,9 @@ const SettingsForm = () => {
             <div className="form-message-content success">
                 <p> <FaCheck size={24}/>{formSuccess}</p>
             </div>
-        </div>}
-        
+        </div>}    
     </main>
-  )
+    )
 }
 
 export default SettingsForm

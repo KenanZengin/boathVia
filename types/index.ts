@@ -29,3 +29,10 @@ export interface OrganizationCartProps{
   info: string,
   img_path_2: string
 }
+
+export interface QuestionProps{
+  category: string,
+  subcategory:string,
+  question:string,
+  eventKey:string
+}

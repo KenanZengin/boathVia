@@ -1,27 +1,17 @@
-import Image from 'next/image';
+
 import ShipCard from '@/components/cart/ship-card';
+import NoRecord from '@/components/no-record';
 import {  getUserFavShips } from '@/hooks/server/getShips';
 import { ShipsCartProps } from '@/types';
-import Link from 'next/link';
-
-import noFound from "../../../public/img/basic/no-found.png"
-import NoRecord from '@/components/no-record';
-
-
-
 
 
 const FavoriteList = async () => {
 
   const favShip = await getUserFavShips();
 
-  console.log(favShip);
   
-  
-
   return (
-   <div className="favorite-list">
-      
+   <div className="favorite-list">     
       <div className="info">
         <div className="options">
           <div className="title">

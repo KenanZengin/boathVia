@@ -1,7 +1,10 @@
 import Link from 'next/link'
 import { IoIosArrowRoundBack } from 'react-icons/io'
 
-const UserLayout = ({children}:{children:React.ReactNode}) => {
+
+
+const UserLayout = ({children}:{children: React.ReactNode}) => {
+
   return (
     <div className='user-layout'>
         <Link href={"/"} className='back-home'>

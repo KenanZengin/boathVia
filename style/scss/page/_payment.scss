@@ -218,6 +218,7 @@
             color: rgb(8, 47, 62);
             @include BootstrapMaxWidthResponsive(md){
                 font-size: 1.25rem;
+                margin-bottom: 15px;
             }
         }
     }

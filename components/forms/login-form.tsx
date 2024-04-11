@@ -1,18 +1,14 @@
 "use client"
 
 import Link from "next/link"
-import {useEffect, useState, useTransition} from "react"
+import {useState, useTransition} from "react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { LoginSchema } from "@/schemas"
 import { login } from "@/server/actions/login"
-
+import { LoginSchema } from "@/schemas"
 import { FaRegEyeSlash } from "react-icons/fa";
 import { IoIosEye } from "react-icons/io";
-import FormError from "../form-error"
-import FormSuccess from "../form-success"
-import { useRouter } from "next/navigation"
 import { MdError } from "react-icons/md"
 
 
@@ -21,7 +17,7 @@ const LoginForm = () => {
     const [isPending, startTransition] = useTransition();
     const [showPassword,setShowPassword] = useState<boolean>(false);
     const [formState, setFormState] = useState<boolean>(false);
-    const [formError, setFormError] = useState<string | undefined>()
+    const [formError, setFormError] = useState<string | undefined>();
 
     const { handleSubmit, register, formState: {errors, isSubmitting}, reset } = useForm<z.infer<typeof LoginSchema>>({
         resolver: zodResolver(LoginSchema),
@@ -41,13 +37,12 @@ const LoginForm = () => {
                 .then((data)=>{
                     if(data?.error){
                         setFormError(data?.error);
-                    }
+                    };
                     if(data?.success){
                         setFormState(true)
-                    }
+                    };
                 })
         });
-        
     };
 
     

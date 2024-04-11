@@ -1,5 +1,4 @@
 
-import Link from "next/link";
 import Section_1 from "./section1"
 import Section_2 from "./section2"
 import Section_3 from "./section3"
@@ -8,7 +7,6 @@ import Section5 from "./section5";
 
 
 const Sections = async () => {
-
 
   return (
     <div className="sections">

@@ -5,15 +5,16 @@ import moment from "moment";
 const ReservationConfirmed = ({searchParams}:{searchParams:{[key:string]: string}}) => {
 
   const port = searchParams.port;
-  const startTime = Number(searchParams.time);
-  const momentTime = moment(startTime);
+  const momentTime = Number(searchParams.time);
+  const startTime = moment(momentTime);
+
   
   return (
     <main className="reservation-confirm">
         <section className="success-payment">
             <h2>Your payment has been received successfully</h2>
             <div className="info">
-                <p> On {momentTime.format("dddd")}, {momentTime.format("MMMM")} {momentTime.format("DD")}th at {momentTime.format("HH:mm")}, your ship will be waiting for you at {port} Beach. </p>
+                <p> On {startTime.format("dddd")}, {startTime.format("MMMM")} {startTime.format("DD")}th at {startTime.format("HH:mm")}, your ship will be waiting for you at {port} Beach. </p>
             </div>
             <div className="other-pages">
                 <Link href={"/reservation"}>

@@ -12,10 +12,10 @@ const ShareLink = () => {
         navigator.clipboard.writeText(window.location.href);
     };
     const shareOnWhatsapp = () => { 
-        
+
         const href = window.location.href;
         
-        window.open(`https://web.whatsapp.com/send?text=${href}.com`);
+        window.open(`https://api.whatsapp.com/send/?text=${href}&type=phone_number&app_absent=0`);
     };
 
   return (

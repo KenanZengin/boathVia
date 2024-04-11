@@ -9,7 +9,6 @@ import {
 import { NextResponse } from "next/server";
 
 
-
 const { auth } = NextAuth(authConfig);
 
 export default auth((req) => {

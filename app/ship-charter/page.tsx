@@ -1,26 +1,14 @@
-
 import ShipCard from "@/components/cart/ship-card";
-
 import Sort from "@/components/sort";
 import BreadCrumb from "@/components/bread-crumb";
-import { getUserfavShip } from "@/hooks/server/favships";
-import { currentUserId } from "@/hooks/server/auth";
-import { ShipsCartProps } from "@/types";
 import { getShipsData, getUserFavShipsId } from "@/hooks/server/getShips";
-
-
-
-
+import { ShipsCartProps } from "@/types";
 
 
 const Ships = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
 
-
-
-
-  const [ships,favShipsId] = await Promise.all([getShipsData(searchParams.location,searchParams.sort),getUserFavShipsId()])
+  const [ships,favShipsId] = await Promise.all([getShipsData(searchParams.location,searchParams.sort),getUserFavShipsId()]);
   
-
   
   return (
     <main className="shiplist">
@@ -36,7 +24,7 @@ const Ships = async ({searchParams}:{searchParams:{[key:string]: string}}) => {
       </div>
       <div className="ships">
         <div className="ships-wrapper">
-          {ships.length > 0  && ships?.map((item:ShipsCartProps)=>(
+          {ships && ships.length > 0  && ships?.map((item:ShipsCartProps)=>(
               <ShipCard data={item} key={item.id} userFavList={favShipsId?.ships?.ships} userId={favShipsId.userId} />
             )) 
           }

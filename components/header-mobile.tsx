@@ -1,6 +1,7 @@
 
-import { useRouter } from 'next/navigation';
 import Link from 'next/link'
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { logout } from '@/hooks/client/logout';
@@ -9,8 +10,6 @@ import { IoIosSearch, IoMdClose } from "react-icons/io";
 import { AiOutlineUser } from "react-icons/ai";
 import { FiPlus } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
-import logo from "../public/img/basic/logo_2.png"
-import Image from 'next/image';
 import { SlHome } from "react-icons/sl";
 import { LuPartyPopper } from "react-icons/lu";
 import { FiLogIn } from "react-icons/fi";
@@ -19,7 +18,7 @@ import { Session } from 'next-auth';
 import { LuShip } from "react-icons/lu";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoIosHeartEmpty } from "react-icons/io";
-
+import logo from "../public/img/basic/logo_2.png"
 
 
 const HeaderMobile = ({pathname,session}:{pathname:string,session:Session | null}) => {
@@ -32,42 +31,40 @@ const HeaderMobile = ({pathname,session}:{pathname:string,session:Session | null
     const handleClose = () => setShow(() => false);
 
     const shareOnWhatsapp = () => { 
-        
-        const href = window.location.href;
-        
         window.open("https://api.whatsapp.com/send/?phone=%2B905457794525&text=Hello%2C+I+would+like+to+get+information+about+Teknevia.&type=phone_number&app_absent=0");
     };
 
     const routerPush = (url:string) => {
         setShow(() => false);
-        router.push(url)
-    }
+        router.push(url);
+    };
 
     const logOut = () => {
         logout();
-    }
-  return (
+    };
+
+    return (
     <div className="header-mobile-wrapper">
         <nav className="mobile-items">
-            <p onClick={() => routerPush("/")} className={`${pathname === "/" ? "actived" : ""}`}>
+            <Link href={"/"}  className={`${pathname === "/" ? "actived" : ""}`}>
                 <SlHome size={18}/>
                 Home Page
-            </p>
-            <p onClick={() => routerPush("/ship-charter?location=All")} className={`${pathname === "/ship-charter" ? "actived" : ""}`}>
+            </Link >
+            <Link href={"/ship-charter?location=All"} className={`${pathname === "/ship-charter" ? "actived" : ""}`}>
                 <IoIosSearch size={18} />
                 <span>Discover</span>
-            </p>
+            </Link>
             {session 
                 ?
                 <>
-                   <p onClick={() => routerPush("/reservation")} className={`${pathname === "/reservation" ? "actived" : ""}`}>
+                    <Link href={"/reservation"}  className={`${pathname === "/reservation" ? "actived" : ""}`}>
                         <LuShip size={18}/>
                         Reservations
-                    </p> 
-                    <p onClick={() => routerPush("/favorites")} className={`${pathname === "/favorites" ? "actived" : ""}`}>
+                    </Link> 
+                    <Link href={"/favorites"} className={`${pathname === "/favorites" ? "actived" : ""}`}>
                         <IoIosHeartEmpty size={18}/>
                         Favorites
-                    </p> 
+                    </Link> 
                 </>
                 :
                 <Link href={"/auth/login"} className={`${pathname === "/auth/login" ? "actived" : ""}`}>
@@ -90,12 +87,12 @@ const HeaderMobile = ({pathname,session}:{pathname:string,session:Session | null
             }
         </nav>
         <Modal
-        show={show}
-        backdrop="static"
-        keyboard={false}
-        className="menu-modal"
-        animation={true}
-      >
+            show={show}
+            backdrop="static"
+            keyboard={false}
+            className="menu-modal"
+            animation={true}
+        >
             <div className="close-model">
                 <button onClick={handleClose}>
                     <IoMdClose size={28} />
@@ -150,9 +147,9 @@ const HeaderMobile = ({pathname,session}:{pathname:string,session:Session | null
                     </span>
                 </nav>
             </div>
-       </Modal>
+        </Modal>
     </div>
-  )
+    )
 }
 
 export default HeaderMobile

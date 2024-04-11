@@ -31,39 +31,35 @@ const Sort = ({searchParams}:{searchParams:{[key:string]: string}}) => {
       return () => document.removeEventListener('click', handleOutsideClick);
     }, [open]); 
   
-   
   
     return (
       <div className="arrangement">
-         
-          <button onClick={() => setOpen(!open)}>
-              
-              {searchParams.sort==="high" ? "Highest Price" : searchParams.sort ==="low" ? "Lowest Price" : "Suggest Order"}
-              <MdKeyboardArrowDown size={25} />
+        <button onClick={() => setOpen(!open)}>
+          {searchParams.sort==="high" ? "Highest Price" : searchParams.sort ==="low" ? "Lowest Price" : "Suggest Order"}
+          <MdKeyboardArrowDown size={25} />
+        </button>
+        {open &&  <div className="sort" ref={sortMenuRef} >
+            
+          <button 
+            onClick={() => goSort()}  
+            className={`${searchParams.sort !== "high" && searchParams.sort !== "low" ? "actived" : ""}`}          
+          >
+          <span>Suggest Order</span>
           </button>
-          
-          {open &&  <div className="sort" ref={sortMenuRef} >
-              
-              <button 
-                onClick={() => goSort()}  
-                className={`${searchParams.sort !== "high" && searchParams.sort !== "low" ? "actived" : ""}`}          
-              >
-              <span>Suggest Order</span>
-              </button>
-              <button 
-                onClick={() => goSort("&sort=high")}
-                className={`${searchParams.sort === "high" ? "actived" : ""}`}
-              >
-              <span>Highest Price</span>
-              </button>
-              <button 
-                onClick={() => goSort("&sort=low")} 
-                className={`${searchParams.sort === "low" ? "actived" : ""}`}
-              >
-              <span>Lowest Price</span>
-              </button>
-          </div>}
-         
+          <button 
+            onClick={() => goSort("&sort=high")}
+            className={`${searchParams.sort === "high" ? "actived" : ""}`}
+          >
+          <span>Highest Price</span>
+          </button>
+          <button 
+            onClick={() => goSort("&sort=low")} 
+            className={`${searchParams.sort === "low" ? "actived" : ""}`}
+          >
+          <span>Lowest Price</span>
+          </button>
+        </div>
+        }
       </div>
     )
   }

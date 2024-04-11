@@ -1,12 +1,11 @@
 import ReservationCard from '@/components/cart/reservation-card';
 import NoRecord from '@/components/no-record';
 import { getUserReservation } from '@/hooks/server/getShips'
-import React from 'react'
+
 
 const Reservation = async () => {
 
   const data = await getUserReservation();
-  console.log({data});
   
 
   return (

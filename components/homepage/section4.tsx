@@ -1,25 +1,13 @@
 import Link from 'next/link';
-import OrganizationCard from "../cart/organization-card";
-import {  OrganizationCartProps } from '@/types';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { getAllServices } from '@/hooks/server/getShips';
 import OrganizationList from '../organization-list';
 
 
-const getServices = async () => {
-  const res = await fetch(`http://localhost:3000/api/ships/getServices`);
-  const data = await res.json();
-
-  return data
-}
-
-
 const Section_4 = async () => {
-
   
-  const data = await getServices();
+  const data = await getAllServices();
 
 
-    
   return (
     <section className='section_4' >
       <div className="head">

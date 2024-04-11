@@ -2,7 +2,6 @@
 
 import { ReservationSchema } from "@/schemas"
 import * as z from "zod"
-import { getUserById } from "../data/user";
 import { currentUser } from "@/hooks/server/auth";
 import { getShipsById } from "../data/ships";
 import { db } from "../db/db";
@@ -11,7 +10,6 @@ import { PrismaClientValidationError } from "@prisma/client/runtime/library";
 
 
 export const reservation = async (values:z.infer<typeof ReservationSchema>,shipId: string,hour_price: number) => {
-
     
 
     const validateFields = ReservationSchema.safeParse(values);

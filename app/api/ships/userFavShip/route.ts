@@ -6,12 +6,10 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request:NextRequest){
 
     const { searchParams } = new URL(request.nextUrl);
-
-    const userId = searchParams.get("userId")
+    const userId = searchParams.get("userId");
     
     
-    
-    if(!userId) return NextResponse.json({error : "No user found"})
+    if(!userId) return NextResponse.json({error : "No user found"});
    
     const shipsId = await db.userFavShips.findUnique({
         where:{
@@ -22,7 +20,7 @@ export async function GET(request:NextRequest){
         }
     });
 
-    if(!userId) return NextResponse.json({error : "No record ship"})
+    if(!userId) return NextResponse.json({error : "No record ship"});
 
 
     const ships = await db.ships.findMany({
@@ -31,13 +29,13 @@ export async function GET(request:NextRequest){
                 in: shipsId?.ships
             }
         },
-    })
+    });
 
     
 
-    if(!ships) return NextResponse.json({error : "No record ship"})
+    if(!ships) return NextResponse.json({error : "No record ship"});
 
-
-    return NextResponse.json({ships,userId})
+;
+    return NextResponse.json({ships,userId});
 
 }

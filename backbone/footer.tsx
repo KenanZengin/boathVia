@@ -39,34 +39,23 @@ const Footer = () => {
         </div>
         <div className="link-groups">
             <div className='links'>
-                <div className="title">Teknevia</div>
-                
+                <div className="title">Teknevia</div>  
                 <nav>
                     <Link href={"/"}>
                         About Us
                     </Link>
-                
-                
                     <Link href={"/"}>
                         Press Media
                     </Link>
-                
-                
                     <Link href={"/"}>
                         Help Center
                     </Link>
-                
-                
                     <Link href={"/"}>
                         Terms and Conditions
                     </Link>
-                
-                
                     <Link href={"/"}>
                         Cancellation / Refund Process
                     </Link>
-                
-                
                     <Link href={"/"}>
                         KVKK - Clarification Text
                     </Link>
@@ -85,14 +74,11 @@ const Footer = () => {
                     </Link>
                     <div className="downloads">
                         <Image src={"/img/basic/google.png"} alt="google" width={128} height={44} />
-                        
                     </div>
-
                 </div>
             </div>
             <div className='links'>
                 <div className="title">Boat Organizations</div>
-                
                 <nav>
                     <Link href={"/"}>
                         Birthday on Boat
@@ -142,42 +128,33 @@ const Footer = () => {
             </div>
             <div className='links'>
                 <div className="title">Popular Yacht & Boat Rental Locations</div>
-                
                 <nav>
                     <Link href={"/"}>
                         Istanbul Yacht Rental
                     </Link>
-                
                     <Link href={"/"}>
                         Bodrum Yacht Rental
                     </Link>
-                       
                     <Link href={"/"}>
                         Gocek Yacht Rental
                     </Link>
-    
                 </nav>
             </div>
             <div className='links'>
                 <div className="title">Boat Options</div>
-                
                 <nav>
                     <Link href={"/"}>
                         Rental Boats
                     </Link>
-                
                     <Link href={"/"}>
                         Rental Boats Suitable for Winter
                     </Link>
-                       
                     <Link href={"/"}>
                         Gulet Charter
                     </Link>
-
                     <Link href={"/"}>
                         Motor Yacht Charter
                     </Link>
-
                 </nav>
             </div>
         </div>

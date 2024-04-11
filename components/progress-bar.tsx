@@ -2,6 +2,7 @@ import NextTopLoader from 'nextjs-toploader'
 
 
 const ProgressBar = () => {
+  
   return (
     <NextTopLoader 
         color='#178a87'

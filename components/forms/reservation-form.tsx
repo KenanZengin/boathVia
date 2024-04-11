@@ -15,7 +15,6 @@ import { MdError } from "react-icons/md";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 
-
 const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
 
   const [isPending, startTransition] = useTransition();
@@ -25,12 +24,11 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
   const router = useRouter();
   
 
-
   const handleHourIncrement =  () => {
     if(hour < 10){
         setHour(()=>hour + 1);
         setValue("duration",hour+1)
-    }
+    };
   };
 
   const handleHourDecrement =  () => {
@@ -38,7 +36,7 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
 
         setHour(hour - 1);
         setValue("duration",hour - 1)
-    }
+    };
   };
 
   const handlePeopleIncrement =  () => {
@@ -47,17 +45,15 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
             setPeople(people + 1);
             setValue("people",people +1)
         }
-    }
+    };
   };
 
   const handlePeopleDecrement =  () => {
     if(people > 1){
         setPeople(people - 1);
         setValue("people",people-1);
-    }
+    };
   };
-
-
 
 
   const {handleSubmit, register, formState: {errors},setValue} = useForm<z.infer<typeof ReservationSchema>>({
@@ -71,26 +67,25 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
 
   const onSubmit = (values: z.infer<typeof ReservationSchema>) => {
 
-    console.log(values);
     setReservationError(undefined)
     startTransition(()=>{
         if(ship && ship.id && values){
-            reservation(values,ship?.id.toString(),ship.hour_price).then((data)=>{console.log(data)
+            reservation(values,ship?.id.toString(),ship.hour_price).then((data)=>{
                     if(data.status === true){
                         router.push(
                             `/payment?id=${data.reservationId}`
                         );
                         router.refresh();
-                    }
+                    };
                     if(data.error){
-                        setReservationError(data.error)
-                    }
+                        setReservationError(data.error);
+                    };
                 }
-            )
-        }
-    })
+            );
+        };
+    });
     
-}
+  }
 
 
   return (

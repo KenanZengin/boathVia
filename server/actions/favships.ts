@@ -1,14 +1,11 @@
 "use server"
 
-import { ShipsCartProps } from "@/types";
 import { db } from "../db/db";
 import { getUserfavShips } from "@/hooks/server/favships";
 
 
 export const addFav = async(shipId: string, userId?: string) => {
 
-
-    
     if(!userId){
         return { error : "You must log in to add to your favorite list"}
     }

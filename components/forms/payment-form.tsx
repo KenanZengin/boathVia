@@ -1,19 +1,18 @@
 "use client"
 
 import { useState } from "react"
-import { PaymentSchema } from "@/schemas"
+import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import * as z from "zod"
 import Modal from 'react-bootstrap/Modal';
 import CardForm from "./credit-card-form"
-
-
+import { PaymentSchema } from "@/schemas"
 import { IoMdClose } from "react-icons/io";
+
 
 const PaymentForm = () => {
 
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState<boolean>(false);
 
     const {handleSubmit, register, formState:{errors,isValid}} = useForm<z.infer<typeof PaymentSchema>>({
         resolver: zodResolver(PaymentSchema),
@@ -39,12 +38,12 @@ const PaymentForm = () => {
             <button type="submit" className={`${!isValid ? "not-ok" : "ok"}`} disabled={!isValid}>Pay Now</button>
         </form>
         <Modal
-        show={show}
-        backdrop="static"
-        keyboard={false}
-        className="card-modal"
-        animation={false}
-      >
+            show={show}
+            backdrop="static"
+            keyboard={false}
+            className="card-modal"
+            animation={false}
+        >
             <div className="close-model">
                 <button onClick={handleClose}>
                     <IoMdClose size={25} />

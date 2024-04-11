@@ -4,14 +4,12 @@ import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { deleteReservation } from "@/server/actions/delete-reservation";
 import { ReservationCartProps } from "@/types"
-
 import { FaCheck } from "react-icons/fa";
 import { MdError } from "react-icons/md";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 
 const CancelReservation = ({data}:{data:ReservationCartProps | undefined}) => {
-
 
   const [isPending, startTransition] = useTransition();
   const [cancelMessage,setCancelMessage] = useState<string | undefined>();
@@ -20,8 +18,8 @@ const CancelReservation = ({data}:{data:ReservationCartProps | undefined}) => {
 
 
   const delete_reservation = () => {
-    setCancelMessage(undefined)
-    setErrorMessage(undefined)
+    setCancelMessage(undefined);
+    setErrorMessage(undefined);
 
    startTransition(()=>{
         if(data && data.id){
@@ -36,8 +34,9 @@ const CancelReservation = ({data}:{data:ReservationCartProps | undefined}) => {
                     }
                 });
         }
-    })
+    });
   }
+
 
   return (
     <div className="cancel-btn">

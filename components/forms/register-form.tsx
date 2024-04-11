@@ -6,11 +6,8 @@ import {useEffect, useState, useTransition} from "react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { RegisterSchema } from "@/schemas"
 import { record } from "@/server/actions/register"
-
-import { FaRegEyeSlash } from "react-icons/fa";
-import { IoIosEye } from "react-icons/io";
+import { RegisterSchema } from "@/schemas"
 import { MdError } from "react-icons/md"
 
 
@@ -19,9 +16,8 @@ const RegisterForm = () => {
     const [isPending, startTransition] = useTransition();
     const [showPassword,setShowPassword] = useState<boolean>(false);
     const [formState, setFormState] = useState<boolean>(false);
-    const [formError, setFormError] = useState<string | undefined>()
-    const [formSuccess, setFormSuccess] = useState<string | undefined>()
-
+    const [formError, setFormError] = useState<string | undefined>();
+    const [formSuccess, setFormSuccess] = useState<string | undefined>();
     const router = useRouter();
 
 
@@ -34,7 +30,7 @@ const RegisterForm = () => {
             password: "",
             phone: "",
             rights: false
-        }
+        },
     });
 
     const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
@@ -54,16 +50,14 @@ const RegisterForm = () => {
                                 "/auth/login"
                             )
                         },3000)
-                    }
+                    };
                     if(data.error){
                         setFormError(data.error);
-                    }
+                    };
                 })       
             }
         );
     };
-
-    
 
     
     return (

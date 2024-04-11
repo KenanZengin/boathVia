@@ -1,22 +1,15 @@
 
 import Link from "next/link"
-
 import OrganizationCard from "@/components/cart/organization-card"
-import {  OrganizationCartProps } from '@/types';
 import OrganizationList from "@/components/organization-list";
+import {  OrganizationCartProps } from '@/types';
+import { getAllServices } from "@/hooks/server/getShips";
 
-
-
-const getServices = async () => {
-  const res = await fetch(`http://localhost:3000/api/ships/getServices?location=All`);
-  const data = await res.json();
-
-  return data
-}
 
 const Services = async () => {
 
-  const data = await getServices();
+  const data = await getAllServices();
+
 
   return (
     <main className="serviceslist">
@@ -29,7 +22,6 @@ const Services = async () => {
             <Link href={"/ship-charter?location=All"}>
               <span>Boat Organizations on Bosphorus</span>
             </Link>
-          
           </nav>
         </div>
         <div className="options" tabIndex={10}>
@@ -54,7 +46,7 @@ const Services = async () => {
             </div>
         </div>
       </div>
-  </main>
+    </main>
   )
 } 
 

@@ -4,28 +4,17 @@ import Link from 'next/link';
 import Image from 'next/image'
 import { useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-
-import Help from "@/public/img/basic/help.png"
 import { AccordionEventKey } from 'react-bootstrap/esm/AccordionContext';
-
+import Help from "@/public/img/basic/help.png"
+import { QuestionProps } from '@/types';
 
 
 const HelpCnter = () => {
 
-
     const [activeKey, setActiveKey] = useState<AccordionEventKey>();
-    const [show,setShow] = useState<boolean>(false)
-    const [show2,setShow2] = useState<boolean>(false)
+    const [show,setShow] = useState<boolean>(false);
+    const [show2,setShow2] = useState<boolean>(false);
     const [search,setSearch] = useState<string>("");
-   
-
-    interface QuestionProps{
-        category: string,
-        subcategory:string,
-        question:string,
-        eventKey:string
-    }
-    
     const questions: QuestionProps[] = [
         {
             "category": "Visitors",
@@ -137,22 +126,22 @@ const HelpCnter = () => {
             "eventKey": "10",
         }
     ];
-
+    
     const activeAccordion = (key:string) => {
 
         setSearch("");
         setActiveKey(key);
         setShow2(false);
         setShow(false);
-    }
+    };
     
     
     const onSelect = (eventKey: AccordionEventKey  ) => {
         
         if (eventKey !== activeKey) {
           setActiveKey(eventKey);
-        }
-        setShow(false)
+        };
+        setShow(false);
 
     };
 
@@ -160,7 +149,7 @@ const HelpCnter = () => {
 
         if (!search) {
             return "No articles found";
-        }
+        };
       
         const filteredQuestions = questions.filter((question:QuestionProps) =>
           question.question.toLowerCase().includes(search.toLowerCase())
@@ -168,10 +157,10 @@ const HelpCnter = () => {
       
         if (filteredQuestions.length === 0) {
           return "No articles found";
-        }
+        };
       
         return filteredQuestions;
-    }
+    };
     
     const filteredQuestions = filterQuestions(questions, search);
 

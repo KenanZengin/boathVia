@@ -2,8 +2,10 @@ import Image from 'next/image'
 import SearchInput from '../search-input'
 import Sea from "../../public/img/basic/homepage.jpg"
 
+
 const Section_1 = () => {
-  return (
+
+    return (
     <section className='section_1'>
         <div className="abso-img">
             <span>

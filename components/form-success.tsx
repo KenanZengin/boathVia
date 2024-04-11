@@ -7,8 +7,6 @@ const FormSuccess = ({message}:{message?:string}) => {
 
   const [show, setShow] = useState<boolean | undefined>(!!message);
 
-
-
   useEffect(() => {
     if(message){
       setShow(true);
@@ -27,7 +25,10 @@ const FormSuccess = ({message}:{message?:string}) => {
   return (
     <Toast onClose={handleClose} show={show} className='toast-success'>
       <Toast.Header>
-        <p><FaCheck size={24}/>{message}</p>
+        <p>
+          <FaCheck size={24}/>
+          {message}
+        </p>
       </Toast.Header>
     </Toast>
   );

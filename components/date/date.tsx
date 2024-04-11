@@ -1,10 +1,13 @@
-import { getShipReservationCalendar } from '@/server/data/calendar';
 import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { UseFormSetValue } from 'react-hook-form';
+import { getShipReservationCalendar } from '@/server/data/calendar';
+import 'react-datepicker/dist/react-datepicker.css';
 
-const MyDatePicker = ({ setValue, shipId }: {
+const MyDatePicker = ({ 
+  setValue, 
+  shipId 
+}: {
   setValue: UseFormSetValue<{
     port: string;
     duration: number;
@@ -14,8 +17,6 @@ const MyDatePicker = ({ setValue, shipId }: {
   shipId: string | undefined;
 }) => {
 
-
-  
   const [selectedDate, setSelectedDate] = useState<Date | null>();
   const [excludedTimes, setExcludedTimes] = useState<Date[]>([]);
   const [reservedTimes, setReservedTimes] = useState<Date[]>([]);
@@ -108,6 +109,7 @@ const MyDatePicker = ({ setValue, shipId }: {
   defaultDate.setHours(defaultDate.getHours() + 1); 
   defaultDate.setMinutes(0); 
   defaultDate.setSeconds(0); 
+  
   return (
     <div>
       <DatePicker

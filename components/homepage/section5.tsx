@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+
 
 const Section5 = () => {
+    
   return (
     <section className='section_5' >
         <div className="head">
@@ -32,7 +33,7 @@ const Section5 = () => {
                 <Image src={"/img/basic/captain.png"} alt='captain' fill={true}/>
             </div>
         </div>
-  </section>
+    </section>
   )
 }
 
