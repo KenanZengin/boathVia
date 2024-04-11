@@ -39,7 +39,7 @@ export default async function RootLayout({
 
 
   return (
-   <SessionProvider session={session}>
+   <SessionProvider session={session} basePath="/api/auth">
      <html lang="en">
       <body className={`${inter.className}`}>
           <ProgressBar />
