@@ -3,7 +3,7 @@ import authConfig from "./auth.config"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { db } from "./server/db/db"
 import { getUserById } from "./server/data/user"
-import { UserLanguage, UserRole } from "@prisma/client"
+import { UserLanguage } from "@prisma/client"
 
 
 export type ExtendUser = DefaultSession["user"] & {
@@ -72,6 +72,7 @@ signOut
     },
     adapter: PrismaAdapter(db),
     session: {strategy: "jwt"},
+    basePath:"/api/auth",
     ...authConfig
 
 })
