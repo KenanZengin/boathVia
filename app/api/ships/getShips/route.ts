@@ -37,7 +37,7 @@ export async function GET(request:NextRequest){
     if(location === "İstanbul"){
         const ships = await db.ships.findMany({
             where:{
-               city: location,
+               city: "Istanbul",
             },
         });
 
