@@ -15,12 +15,6 @@ export  async function GET(request: NextRequest){
         });
         
 
-        await db.reservationCalendar.create({
-            data:{
-                shipId: id
-            }
-        })
-
         if(!ship) return NextResponse.json({error: "No found ship"});
         
         return NextResponse.json(ship) ;
