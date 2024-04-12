@@ -37,14 +37,16 @@
             .full-search{
                 @include BootstrapMaxWidthResponsive(xxs){
                   width: 100%;
-                  //padding: 0 15px;
+                  max-width: 450px;
                   button{
                     width: 100%;
-                    font-size: 0.9375rem;
-                  }
-                  .search-all{
-                    right: 4%;
-                  }
+                    padding: 15px 50px 15px 17.5px !important;
+                    }
+                }
+                @include BootstrapMaxWidthResponsive(xm){
+                    button{
+                        font-size: .9rem;
+                    }
                 }
             }   
         }

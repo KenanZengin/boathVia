@@ -54,6 +54,7 @@
                     .search_location{
                         @include BootstrapMaxWidthResponsive(xm){
                             width: 100%;
+                            max-width: 360px;
                         }
                     }
                     h1{
@@ -223,6 +224,7 @@
                         display: inline-block;
                         color: rgb(4, 46, 66);
                         text-decoration: underline;
+                        white-space: nowrap;
                     }
                 }
             }

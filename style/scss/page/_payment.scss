@@ -226,6 +226,8 @@
 .card-modal{
     margin: 0;
     padding: 0;
+    z-index: 9999999 !important;
+    background-color: #fff !important;
     .modal-dialog{
         width: 75%;
         min-width: 75%;
@@ -430,11 +432,17 @@
                             text-align: center;
                             position: relative;
                             height: 11vh;
+                            img{
+                                object-fit: contain;
+                            }
                             @include BootstrapMaxWidthResponsive(md){
                                 height: 9vh;
                             }
-                            @include BootstrapMaxWidthResponsive(xxs){
-                                height: 6vh;
+                            // @include BootstrapMaxWidthResponsive(xxs){
+                            //     height: 6vh;
+                            // }
+                            @include BootstrapMaxWidthResponsive(xm){
+                                margin-top: 5px;
                             }
                         }
                     }
@@ -445,6 +453,9 @@
             text-align: end;
             padding: 10px;
             margin-bottom: 50px;
+            @include BootstrapMaxWidthResponsive(xm){
+                margin-bottom: 0px;
+            }
             button{
                 background-color: inherit;
             }

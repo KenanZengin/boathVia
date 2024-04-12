@@ -205,8 +205,9 @@
             left: 0;
             width: 100%;
             background-color:#fff;
-            padding: 5px 15px;
+            padding: 5px;
             display: none;
+            z-index: 99;
             @include BootstrapMaxWidthResponsive(xxs){
                 display: flex;
                 justify-content: space-between;
@@ -237,7 +238,7 @@
                 button,label{
                     background-color: #178A87;
                     color: #fff;
-                    padding: 12px 24px;
+                    padding: 0 17.5px;
                     height: 50px;
                     min-height: 50px;
                     border-radius: 5px;
@@ -1237,16 +1238,16 @@
     }
 }
 .reservation-modal{
-   
+    z-index: 999999 !important;
     .modal-content{
-        padding: 20px !important;
+        padding: 20px 10px !important;
     }
     .price{
         width: 100%;
         max-width: 700px;
         position: relative;
         &-wrapper{
-            padding: 16px;
+            padding: 16px 5px;
             border: 1px solid #e5e7eb;
             border-radius: 6px;
             box-shadow: 0 0 #0000, 0 0 #0000,0 0 #0000, 0 0 #0000,0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
@@ -1262,13 +1263,13 @@
                         display: flex;
                         align-items: baseline;
                         p{
-                            font-size: 1.75rem;
+                            font-size: 1.5rem;
                             line-height: 2rem;
                             color: rgb(8, 47, 62);
                         }
                         span{
                             color: rgb(100 116 139);
-                            font-size: 1.25rem;
+                            font-size: 1rem;
                         }
                     }
                     .comment-info{
@@ -1280,6 +1281,7 @@
                         }
                         p{
                             color: rgb(8, 47, 62);
+                            font-size: .9rem;
                         }
                     }
                 }
@@ -1291,6 +1293,7 @@
                             border: 1px solid #64748B;
                             border-radius: 12px;
                             margin-top: 12px;
+                            overflow: hidden;
                             .port,.date,.duration,.people{
                                 padding: 4px 12px 10px;
                                 display: flex;
@@ -1310,7 +1313,7 @@
                                 .port-s{
                                     text-align: center;
                                     position: relative;
-                                    font-size: 0.9rem;
+                                    font-size: 0.875rem;
                                     select{
                                         appearance: none;
                                         text-align: center;
@@ -1379,7 +1382,7 @@
                         }
                         .react-datepicker-wrapper{
                             input{
-                                font-size: 0.9rem;
+                                font-size: 0.875rem;
                             }
                         }
                         .date{
@@ -1477,7 +1480,7 @@
                                                 width: 100%;
                                                 ul{
                                                     display: flex;
-                                                    max-width: 345px;
+                                                    max-width: 300px;
                                                     height: max-content !important;
                                                     li{
                                                         color: rgb(8, 47, 62);
