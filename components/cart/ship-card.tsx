@@ -56,7 +56,7 @@ const ShipCard = ({
   return (
     <Card className='card'>
       <Link href={`/ship-detail/${id}`} target="_blank">
-        <Image src={img_path} alt='ship' width={300} height={240}  />
+        <Image src={img_path} alt='ship' width={300} height={240} priority  />
         <Card.Header>
           <p className="location">
             {`${city} ${district}`}
