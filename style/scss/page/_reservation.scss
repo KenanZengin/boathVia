@@ -1,9 +1,7 @@
 .reservation{
     .title-info{
         margin: 20px 0;
-        @include BootstrapMaxWidthResponsive(xxs){
-            margin: 20px 15px;
-        }
+      
         span{
             display: inline-block;
             color: rgb(8, 47, 62);
@@ -21,7 +19,7 @@
         .reservation-cart{
             margin: 25px 0;
             @include BootstrapMaxWidthResponsive(xxs){
-                margin: 25px 15px;
+                margin: 25px 0;
             }
             border: 1px solid #CBD5E1;
             border-radius: 12px;
@@ -33,7 +31,7 @@
                     padding: 16px;
                 }
                 @include BootstrapMaxWidthResponsive(xm){
-                    padding: 16px 10px;
+                    padding: 16px 8px;
                 }
                 input[type="checkbox"]{
                     opacity: 0;
@@ -71,11 +69,17 @@
                 }
                 .offer_id{
                     display: flex;
+                    flex-wrap: wrap;
                     align-items: baseline;
                     gap: 20px;
                     color: rgb(8, 47, 62);
                     p{
                         font-size: 1.25rem;
+                    }
+                    span:first-of-type{
+                        @include BootstrapMaxWidthResponsive(xm){
+                           display: none;
+                        }
                     }
                     span:last-child{
                         padding: 5px 10px;
@@ -114,7 +118,7 @@
             padding: 16px;
         }
         @include BootstrapMaxWidthResponsive(xm){
-            padding: 16px 10px;
+            padding: 16px 8px;
         }
         .r-cart-head{
             display: flex;

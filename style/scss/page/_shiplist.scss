@@ -3,7 +3,7 @@
     .info{
         padding: 10px 0;  
         @include BootstrapMaxWidthResponsive(xxs){
-            margin: 0 15px;
+            //margin: 0 15px;
         }   
         .options{
             width: 100%;
@@ -342,7 +342,7 @@
     grid-column: 1 /5;
     width: 100%;
     @include BootstrapMaxWidthResponsive(xxs){
-        padding: 0 15px;
+        //padding: 0 15px;
     }
     &-wrapper{
         text-align: center;

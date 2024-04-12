@@ -9,7 +9,6 @@ import Footer from "@/backbone/footer";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 import ProgressBar from "@/components/progress-bar";
-// import { Container } from "react-bootstrap";
 
 
 const inter = Lato({ 
@@ -43,7 +42,6 @@ export default async function RootLayout({
      <html lang="en">
       <body className={`${inter.className}`}>
           <ProgressBar />
-        {/* TODO: Add Container */}
           <Header session={session}/>  
           <div className="container_add">    
             {children}

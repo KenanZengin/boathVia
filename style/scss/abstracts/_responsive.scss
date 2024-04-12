@@ -34,10 +34,10 @@ $breakpoints:(
 }
 
 
-// TODO:  when project finished Container delete
 .container_add{
     width: 100%;
-   margin: auto;
+    margin: auto;
+    padding: 0 15px;
 }
 @media(min-width:640px){
     .container_add{

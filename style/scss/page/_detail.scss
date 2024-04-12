@@ -4,7 +4,7 @@
         padding: 30px 0;
         .ship-head{
             @include BootstrapMaxWidthResponsive(xxs){
-                margin: 0 15px;
+                //margin: 0 15px;
             }
             .ship-title{
                 width: 100%;
@@ -177,7 +177,7 @@
         
         .swiper-details{
             @include BootstrapMaxWidthResponsive(xxs){
-                padding: 0 15px;
+                //padding: 0 15px;
             }
             .detail_swiper{
                 display: none;
@@ -599,7 +599,7 @@
             } 
             @include BootstrapMaxWidthResponsive(xxs){
                 width: 100%; 
-                margin: 0 15px;
+                //margin: 0 15px;
             }
             .capacity{
                 display: flex;
@@ -1143,7 +1143,7 @@
     }
     .section_3{
         @include BootstrapMaxWidthResponsive(xxs){
-            padding: 0 15px;
+            //padding: 0 15px;
         }
         .swiper{
             &-slide{

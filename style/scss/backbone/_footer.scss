@@ -20,7 +20,7 @@
         gap: 40px;
         flex-wrap: wrap;
         @include BootstrapMaxWidthResponsive(xxs){
-           margin: 0 15px;
+           //margin: 0 15px;
         }
         .links{
             display: flex;
