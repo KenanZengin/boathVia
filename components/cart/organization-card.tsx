@@ -12,7 +12,7 @@ const OrganizationCard = ({data}:{data:OrganizationCartProps}) => {
     <div className="organization-card">
         <Link href={`/services/category?categoryname=${kind}`}>
             <div className="card_img">
-                <Image src={img_path_2} alt="organization_img" fill={true}  />
+                <Image src={img_path_2} alt="organization_img" fill={true} sizes="(min-width: 1280px) 288px, 225px"  />
             </div>
             <div className="card-content">
                 <span className="kind">

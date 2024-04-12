@@ -22,8 +22,8 @@ const LoginForm = () => {
     const { handleSubmit, register, formState: {errors, isSubmitting}, reset } = useForm<z.infer<typeof LoginSchema>>({
         resolver: zodResolver(LoginSchema),
         defaultValues:{
-            email: "",
-            password: "",
+            email: "test@test.com",
+            password: "111111",
         }
     });
 
@@ -67,7 +67,7 @@ const LoginForm = () => {
                         {errors.email?.message && <p className="form-error-msg">{errors.email.message}</p>}
                     </div>
                     <div className="form-w">
-                        <label htmlFor="password">password</label>
+                        <label htmlFor="password">Password</label>
                         <input 
                             type={showPassword ? "text" : "password"}  
                             id="password"

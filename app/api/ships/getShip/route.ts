@@ -17,7 +17,7 @@ export  async function GET(request: NextRequest){
 
         if(!ship) return NextResponse.json({error: "No found ship"});
         
-        return NextResponse.json(ship) ;
+        return NextResponse.json(ship);
 
     }
 

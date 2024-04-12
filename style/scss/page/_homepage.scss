@@ -319,6 +319,7 @@
                         width: 384px;
                         max-width: 384px;
                         text-align: center;
+                        position: relative;
                         img{
                             width: 100%;
                             height: 317px;
@@ -376,10 +377,12 @@
                         width: 500px;
                         @include BootstrapMaxWidthResponsive(xxs){
                             margin-top: 25px;
-                            height: 320px;
-                            width: 320px;
+                            height: 300px;
+                            width: 300px;
                         }
                         img{
+                            width: 100%;
+                            height: 100%;
                             aspect-ratio: 16 / 9;
                         }
 

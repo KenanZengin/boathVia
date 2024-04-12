@@ -57,7 +57,7 @@
                 display: flex;
                 align-items: center;
                 gap: 20px;
-                @include BootstrapMaxWidthResponsive(sm){
+                @include BootstrapMaxWidthResponsive(md){
                     .btnsarea-item{
                         display: none;
                     }

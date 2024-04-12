@@ -7,9 +7,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { IoIosResize } from "react-icons/io";
 import { IoMdClose } from 'react-icons/io';
+import inside_1 from "../../public/img/ships/inside.png"
+import inside_2 from "../../public/img/ships/inside2.png"
+import inside_3 from "../../public/img/ships/inside3.png"
+import inside_4 from "../../public/img/ships/inside4.png"
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+
+
+
 
 const DetailCarousel = ({img_path}:{img_path:string | undefined}) => {
 
@@ -43,19 +51,19 @@ const DetailCarousel = ({img_path}:{img_path:string | undefined}) => {
                             cssMode
                         >
                             <SwiperSlide>
-                                <Image src={img_path || ""} alt="ships"    fill={true}   />
+                                <Image src={img_path || ""} alt="ships" priority   fill={true}  sizes='100vw' />
                             </SwiperSlide> 
                             <SwiperSlide>
-                                <Image src={"/img/ships/inside.png"} alt="ship-inside"  fill={true}/>
+                                <Image src={inside_1} alt="ship-inside"  fill={true} sizes='100vw'/>
                             </SwiperSlide>
                             <SwiperSlide>
-                                <Image src={"/img/ships/inside2.png"} alt="ship-inside"   fill={true}/>
+                                <Image src={inside_2} alt="ship-inside"   fill={true} sizes='100vw'/>
                             </SwiperSlide>
                             <SwiperSlide>
-                                <Image src={"/img/ships/inside3.png"} alt="ship-inside"  fill={true}/>
+                                <Image src={inside_3} alt="ship-inside"  fill={true} sizes='100vw'/>
                             </SwiperSlide>
                             <SwiperSlide>
-                            <Image src={"/img/ships/inside4.png"} alt="ship-inside"   fill={true}/>
+                            <Image src={inside_4} alt="ship-inside"   fill={true} sizes='100vw'/>
                             </SwiperSlide>
                         </Swiper>
                 </div>

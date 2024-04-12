@@ -42,23 +42,23 @@ export const reservation = async (values:z.infer<typeof ReservationSchema>,shipI
         return { error : "Ship not found" }
     }
 
-     const startDate = new Date(time.getTime() + ( 3 * 3600000 ));
-    
-     const hours = [];
-     for (let i = 0; i < duration; i++) {
-         const startDateTime = new Date(startDate.getTime() + (i * 3600000));
-        
-         hours.push(startDateTime);
-     }
+    const startDate = new Date(time.getTime() + ( 3 * 3600000 ));
 
+    const hours = [];
+    for (let i = 0; i < duration; i++) {
+        const startDateTime = new Date(startDate.getTime() + (i * 3600000));
     
-    
-     const arrangementReservationCalendar = reservationCalendar.time.sort((a, b) => b.getTime() - a.getTime()); 
-     const commonElements = hours.filter(item => arrangementReservationCalendar.some(test => item.getTime() === test.getTime()));
+        hours.push(startDateTime);
+    }
 
-     if(commonElements.length > 0 && commonElements){
-         return { error : "The ship is full between these hours. Choose another watch."}
-     }
+
+
+    const arrangementReservationCalendar = reservationCalendar.time.sort((a, b) => b.getTime() - a.getTime()); 
+    const commonElements = hours.filter(item => arrangementReservationCalendar.some(test => item.getTime() === test.getTime()));
+
+    if(commonElements.length > 0 && commonElements){
+        return { error : "The ship is full between these hours. Choose another watch."}
+    }
 
     try {
         await db.reservationCalendar.updateMany({
@@ -80,34 +80,34 @@ export const reservation = async (values:z.infer<typeof ReservationSchema>,shipI
 
     }
    
-     try {
+    try {
 
-        var reservationInfo =  await db.userReservation.create({
-            data:{
-                userId: user.id,
-                shipId: shipId,
-                port: port,
-                people: people,
-                duration: duration,
-                time: hours,
-                img_path: ship.img_path,
-                hour_price: hour_price,
-                star: ship.star,
-                comment: ship.comment,
-                record_date: new Date()
-            }
-        });
-        
+    var reservationInfo =  await db.userReservation.create({
+        data:{
+            userId: user.id,
+            shipId: shipId,
+            port: port,
+            people: people,
+            duration: duration,
+            time: hours,
+            img_path: ship.img_path,
+            hour_price: hour_price,
+            star: ship.star,
+            comment: ship.comment,
+            record_date: new Date()
+        }
+    });
+    
 
         
-     } catch (error) {
+    } catch (error) {
         
-         if(error instanceof PrismaClientValidationError){
-             return { error : error.message, version: error.clientVersion}
-         }
+        if(error instanceof PrismaClientValidationError){
+            return { error : error.message, version: error.clientVersion}
+        }
 
-         return { error: "There is a problem, we will solve it as soon as possible" }
-     }
+        return { error: "There is a problem, we will solve it as soon as possible" }
+    }
 
 
    return {status : true , reservationId: reservationInfo.id}

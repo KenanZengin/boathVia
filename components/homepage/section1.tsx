@@ -9,7 +9,7 @@ const Section_1 = () => {
     <section className='section_1'>
         <div className="abso-img">
             <span>
-                <Image src={Sea} alt="HomePage Image" />
+                <Image src={Sea} alt="HomePage Image"  />
             </span>
         </div>
         <div className="searching">

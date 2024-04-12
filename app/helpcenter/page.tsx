@@ -170,7 +170,7 @@ const HelpCnter = () => {
         <section className='search-area'>
         <div className="abso-img">
             <span>
-                <Image src={Help} alt="HomePage Image" />
+                <Image src={Help} alt="HomePage Image" placeholder="blur" />
             </span>
         </div>
         <div className="searching">

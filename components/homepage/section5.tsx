@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import yatch_1 from "../../public/img/organization/rental-motoryatch.png"
+import yatch_2 from "../../public/img/organization/rental-invitation-boat.png"
+import captain from "../../public/img/basic/captain.png"
 
 const Section5 = () => {
     
@@ -16,11 +19,13 @@ const Section5 = () => {
         </div>
         <div className="type-cards">
             <div className="type-card">
-                <Image src={"/img/organization/rental-motoryatch.png"} alt='Motor yatch' width={384} height={317} />
+                <Image src={yatch_1} alt='Motor yatch' 
+ />
                 <p className='info'>Motor Yacht Charter</p>
             </div>
             <div className="type-card">
-                <Image src={"/img/organization/rental-invitation-boat.png"} alt='Motor yatch' width={384} height={317} />
+                <Image src={yatch_2} alt='Motor yatch' 
+ />
                 <p className='info'>Party Boat Charter</p>
             </div>
         </div>
@@ -30,7 +35,7 @@ const Section5 = () => {
                 <span>Become a Teknevia partner for free and get the chance to get reservations 24/7.</span>
             </div>
             <div className="captain-img">
-                <Image src={"/img/basic/captain.png"} alt='captain' fill={true}/>
+                <Image src={captain} alt='captain' />
             </div>
         </div>
     </section>

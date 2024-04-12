@@ -58,7 +58,7 @@ const ReservationCard = ({data}:{data:ReservationCartProps[]}) => {
                         <div className="content-info">
                                 <div className="ship-detail">
                                     <div className="content-img">
-                                        <Image src={item.img_path} alt="ship" fill={true}/>++
+                                        <Image src={item.img_path} alt="ship" fill={true} sizes="100vw"/>
                                     </div>
                                     <div className="r-cart-head">
                                     <div className="ship-info">

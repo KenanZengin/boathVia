@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+
 import noFound from "../public/img/basic/no-found.png"
 
 
@@ -17,7 +18,7 @@ const NoRecord = ({
         <p>{message}</p>
         <span>{pathMessage}</span>
         <div className="record-img">
-          <Image src={noFound} alt="nofound" fill={true}/>
+          <Image src={noFound} alt="nofound" priority/>
         </div>
         <Link href={"/chip-charter?location=All"}>
         Explore Boats

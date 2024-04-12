@@ -27,7 +27,6 @@ const Header = ({session}:{session:Session | null}) => {
       };
       handleScroll();
       window.addEventListener("scroll", handleScroll);
-      console.log(scrollY);
       return () => {
         window.removeEventListener("scroll", handleScroll);
       };       
