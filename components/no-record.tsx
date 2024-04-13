@@ -20,7 +20,7 @@ const NoRecord = ({
         <div className="record-img">
           <Image src={noFound} alt="nofound" priority/>
         </div>
-        <Link href={"/chip-charter?location=All"}>
+        <Link href={"/ship-charter?location=All"}>
         Explore Boats
         </Link>
       </div>

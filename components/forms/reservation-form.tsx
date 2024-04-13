@@ -72,7 +72,7 @@ const ReservationForm = ({ship}:{ship: ShipsCartProps | undefined}) => {
         if(ship && ship.id && values){
             reservation(values,ship?.id.toString(),ship.hour_price).then((data)=>{
                     if(data.status === true){
-                        router.push(
+                        router.replace(
                             `/payment?id=${data.reservationId}`
                         );
                         router.refresh();

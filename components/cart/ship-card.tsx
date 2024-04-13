@@ -29,6 +29,7 @@ const ShipCard = ({
   const {id,city,district, star, comment, category, capacity, hour_price, img_path} =  data;
  
   const router = useRouter();
+  const pathName = usePathname()
   const [favStatus, setFavStatus] = useState<boolean | undefined | string >(id && userId && userFavList?.includes(id));
   const [success,setSuccessMessage] = useState<string | undefined>();
   const [error,setErrorMessage] = useState<string | undefined>();
@@ -48,6 +49,11 @@ const ShipCard = ({
         if(data.success){
           setSuccessMessage(data.success)
           router.refresh();
+          window.history.pushState(null,"",window.location.href);
+          window.onpopstate = (event: PopStateEvent) => {
+            event.preventDefault();
+            window.history.pushState(null,"",window.location.href);
+          }
         }
       });
     }

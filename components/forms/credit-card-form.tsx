@@ -36,7 +36,7 @@ const CardForm = () => {
       if(reservationId){
         payment(values,reservationId).then((data)=>{
           if(data.paymentStatus && data.start && data.location){
-            router.push(
+            router.replace(
               `reservationconfirmed?time=${data.start.getTime()}&port=${data.location}`
             );
           }

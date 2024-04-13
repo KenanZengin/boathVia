@@ -24,12 +24,15 @@
                             color:rgb(8, 47, 62);
                             margin-bottom: 10px;
                             @include BootstrapMaxWidthResponsive(md){
-                                font-size: .95rem;
+                                font-size: .90rem;
                             }
 
                         }
                         span:first-child{
                             width: 10rem;
+                            @include BootstrapMaxWidthResponsive(xm){
+                                width: 7.75rem;
+                            }
                         }
                     }
                 }
@@ -44,7 +47,7 @@
                         border-radius: 8px;
                         line-height: 1.5rem;
                         @include BootstrapMaxWidthResponsive(md){
-                            font-size: .95rem;
+                            font-size: .9rem;
                         }
                     }
                     p:first-child{
@@ -141,13 +144,16 @@
             }
             .reservation-ship-card{
                 width: 350px;
-                min-width: 350px;
+                max-width: 350px;
                 position: relative;
                 @include BootstrapMaxWidthResponsive(md){
                     margin: auto;
                     margin-bottom: 20px;
                 }
-                
+                @include BootstrapMaxWidthResponsive(xm){
+                    width: 100%;
+                    max-width: 350px;
+                }
                 &-wrapper{
                     padding: 16px;
                     border: 1px solid #e5e7eb;
@@ -172,6 +178,10 @@
                         text-align: center;
                         color: rgb(8, 47, 62);
                         font-weight: 500;
+                        @include BootstrapMaxWidthResponsive(xm){
+                            font-size: 1.05rem;
+
+                        }
                     }
                     .price-calculate{
                         .calc,.total{
@@ -195,6 +205,9 @@
                                 font-weight: 500;
                                 @include BootstrapMaxWidthResponsive(md){
                                     font-size: 1.05rem;
+                                }
+                                @include BootstrapMaxWidthResponsive(xm){
+                                    font-size: .9375rem;
                                 }
                             }
                             p:last-child{
@@ -227,7 +240,6 @@
     margin: 0;
     padding: 0;
     z-index: 9999999 !important;
-    background-color: #fff !important;
     .modal-dialog{
         width: 75%;
         min-width: 75%;
@@ -262,21 +274,27 @@
             }
         }   
         .modal-wrapper{
-            width: 85%; 
-            max-width: 85%;
-            @include BootstrapMaxWidthResponsive(xxs){
-                width: 100% ; 
-                min-width: 100% ;
-                padding: 0 20px;
-            }
+            width: 100%;
+            background-color: #fff;
             @include BootstrapMaxWidthResponsive(xxs){
                 height: 100%;
             }
             margin: auto;         
             .payment-options{
+                background-color: #fff;
+                width: 85%; 
+                max-width: 85%;
+                margin: auto;
+                @include BootstrapMaxWidthResponsive(xxs){
+                    width: 100% ; 
+                    min-width: 100% ;
+                }
                 .card-option{
                     border-top: 1px solid #DCDCDC;
                     padding-top: 15px;
+                    @include BootstrapMaxWidthResponsive(xxs){
+                        padding: 10px 20px 0;
+                    }
                     .option-info{
                         width: 25%;
                         min-width: 210px;
@@ -432,6 +450,9 @@
                             text-align: center;
                             position: relative;
                             height: 11vh;
+                            @include BootstrapMaxWidthResponsive(lg_m){
+                                margin-top: 0px;
+                            }
                             img{
                                 object-fit: contain;
                             }
