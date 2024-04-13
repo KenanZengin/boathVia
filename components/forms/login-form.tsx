@@ -22,7 +22,7 @@ const LoginForm = () => {
     const { handleSubmit, register, formState: {errors, isSubmitting}, reset } = useForm<z.infer<typeof LoginSchema>>({
         resolver: zodResolver(LoginSchema),
         defaultValues:{
-            email: "test@test.com",
+            email: "testUser@test.com",
             password: "111111",
         }
     });

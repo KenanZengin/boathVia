@@ -138,13 +138,15 @@ const RegisterForm = () => {
                         {errors.password?.message && <p className="form-error-msg">{errors.password.message}</p>}
                     </div>
                     <div className="form-v">
-                        <input 
-                            type="checkbox" 
-                            id="rights"     
-                            {...register("rights")} 
-                            disabled={isPending}
-                        /> 
-                        <label htmlFor="rights">I have read and accept <Link href={"/"}>the terms of use</Link></label>
+                        <div className="v-wrap">
+                            <input 
+                                type="checkbox" 
+                                id="rights"     
+                                {...register("rights")} 
+                                disabled={isPending}
+                            /> 
+                            <label htmlFor="rights">I have read and accept <Link href={"/"}>the terms of use</Link></label>
+                        </div>
                         {errors.rights?.message && <p className="form-error-msg">{errors.rights.message}</p>}
                     </div>
                     <button className="send-btn" type="submit" disabled={isPending}>

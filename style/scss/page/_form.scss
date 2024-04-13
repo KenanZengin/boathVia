@@ -43,11 +43,13 @@
                         align-items: flex-start;
                         gap: 12px;
                         flex:1;
-                       
                         label{
                             color: rgb(8, 47, 62);
                             font-size: 1rem;
                             width: 100%;
+                            @include BootstrapMaxWidthResponsive(xxs){
+                                font-size: 0.9rem;
+                            }
                         }
                     }
                 }
@@ -63,6 +65,9 @@
                     label{
                         color: rgb(8, 47, 62);
                         font-size: 1rem;
+                        @include BootstrapMaxWidthResponsive(xxs){
+                            font-size: 0.9rem;
+                        }
                     }
                   
                     svg{
@@ -80,15 +85,27 @@
                 }
                 .form-v{
                     display: flex;
-                    align-items: center;
+                    flex-direction: column;
                     gap: 10px;
-                    position: relative;
+                    .v-wrap{
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                    }
                     label{
                         color: rgb(8, 47, 62);
+                        font-size: 1rem;
+                        @include BootstrapMaxWidthResponsive(xxs){
+                            font-size: 0.9rem;
+                        }
                         a{
                             color: rgb(8, 47, 62);
                             text-decoration: underline;
+                            @include BootstrapMaxWidthResponsive(xxs){
+                                font-size: 0.9rem;
+                            }
                         }
+                        
                     }
                     input[type="checkbox"]{
                         -webkit-flex-shrink: 0;
@@ -136,10 +153,7 @@
                         
                         
                     }
-                    p{
-                        position: absolute;
-                        top: 26px;
-                    }
+                  
                 }
                 .send-btn{
                     margin: 15px 0;
@@ -162,7 +176,6 @@
                     border-radius: 6px;
                     box-shadow:  0 0 #000, 0 0 #0000,  0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px -1px rgba(0, 0, 0, .1);
                 }
-                
                 .success-input{
                     border: 1px solid #45B8AB;
                     &:focus{
@@ -179,6 +192,9 @@
                 .form-error-msg{
                     color: #FA1648;
                     font-size: 0.9375rem;
+                    @include BootstrapMaxWidthResponsive(xxs){
+                        font-size: 0.9rem;
+                    }
                 }
                 .form-l{
                     display: flex;
