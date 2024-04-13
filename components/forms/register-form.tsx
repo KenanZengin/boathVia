@@ -144,7 +144,7 @@ const RegisterForm = () => {
                             {...register("rights")} 
                             disabled={isPending}
                         /> 
-                        <label htmlFor="rights">I have read and accept <Link href={"/"}>the terms of use</Link></label><br />
+                        <label htmlFor="rights">I have read and accept <Link href={"/"}>the terms of use</Link></label>
                         {errors.rights?.message && <p className="form-error-msg">{errors.rights.message}</p>}
                     </div>
                     <button className="send-btn" type="submit" disabled={isPending}>

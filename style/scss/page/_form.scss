@@ -82,6 +82,7 @@
                     display: flex;
                     align-items: center;
                     gap: 10px;
+                    position: relative;
                     label{
                         color: rgb(8, 47, 62);
                         a{
@@ -135,7 +136,10 @@
                         
                         
                     }
-                    
+                    p{
+                        position: absolute;
+                        top: 26px;
+                    }
                 }
                 .send-btn{
                     margin: 15px 0;
