@@ -91,7 +91,7 @@ const LoginForm = () => {
                 </form>
             </div>
             <div className="already">Aren&apos;t you a member? <Link href={"/auth/register"}>Register?</Link></div>
-            <div className="reset-pass">Did you forget your password? <Link href={"/"}>Reset Password</Link></div>
+            {/* <div className="reset-pass">Did you forget your password? <Link href={"/"}>Reset Password</Link></div> */}
        </div>
        {formError &&  <div className="form-message">
             <div className="form-message-content error">
