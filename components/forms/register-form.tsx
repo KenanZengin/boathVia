@@ -2,13 +2,15 @@
 
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import {useEffect, useState, useTransition} from "react"
+import {useState, useTransition} from "react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { record } from "@/server/actions/register"
 import { RegisterSchema } from "@/schemas"
 import { MdError } from "react-icons/md"
+import { IoIosEye } from "react-icons/io"
+import { FaRegEyeSlash } from "react-icons/fa"
 
 
 const RegisterForm = () => {
@@ -21,7 +23,7 @@ const RegisterForm = () => {
     const router = useRouter();
 
 
-    const { handleSubmit, register, formState: {errors, isValid}, } = useForm<z.infer<typeof RegisterSchema>>({
+    const { handleSubmit, register, formState: { errors } } = useForm<z.infer<typeof RegisterSchema>>({
         resolver: zodResolver(RegisterSchema),
         defaultValues:{
             name: "",
@@ -129,11 +131,11 @@ const RegisterForm = () => {
                             {...register("password")} 
                             disabled={isPending} 
                         />
-                        {/* {showPassword 
+                        {showPassword 
                             ?  
                                 <IoIosEye className={`${errors.password ? "form-er" : "form-ok"}`}   onClick={() => setShowPassword(false) } size={25} />
                             :   <FaRegEyeSlash className={`${errors.password  ? "form-er" : "form-ok"}`} onClick={() => setShowPassword(true) } size={25} />
-                        } */}
+                        }
                         {errors.password?.message && <p className="form-error-msg">{errors.password.message}</p>}
                     </div>
                     <div className="form-v">

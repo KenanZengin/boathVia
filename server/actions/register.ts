@@ -13,7 +13,7 @@ export const record = async (values : z.infer<typeof RegisterSchema>) => {
 
     if(!validatedFields.success){
         return { error : "Invalid fields."};
-    }
+    };
 
     const {name, surname, email, phone, password, rights } = validatedFields.data;
     
@@ -21,7 +21,7 @@ export const record = async (values : z.infer<typeof RegisterSchema>) => {
 
     if(existingUser){
         return { error : "Email already in use!"};
-    }
+    };
 
     const hashedPassword = await hash(password,12);
 
@@ -41,9 +41,9 @@ export const record = async (values : z.infer<typeof RegisterSchema>) => {
         data:{
             userId:user.id
         }
-    })
+    });
 
-    return { success : "Registration completed, you are directed to the login page"}
+    return { success : "Registration is complete" };
 
 }
 

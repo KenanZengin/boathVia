@@ -12,11 +12,14 @@
         align-items: center;
         justify-content: space-between;
         color: #fff;
+        @include BootstrapMaxWidthResponsive(xxs){
+           justify-content: center;
+        }
+
         &-left{
             background-color: transparent;
             @include BootstrapMaxWidthResponsive(xxs){
                 position: absolute;
-                width: 100%;
                 text-align: center;
                 padding-top: 10px;      
             }
@@ -128,7 +131,7 @@
                 align-items: center;
                 gap: 5px;
                 color: rgb(8, 47, 62);
-                font-size: 0.875rem;
+                font-size: 0.75rem;
                 white-space: nowrap;
             }
             .actived{

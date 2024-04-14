@@ -9,6 +9,9 @@
                 p{
                     font-size: 0.875rem;
                     padding: 6px;
+                    @include BootstrapMaxWidthResponsive(xxs){
+                        font-size: .825rem;
+                    }
                 }
             }
         }

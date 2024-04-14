@@ -54,6 +54,9 @@
         color: #fff;
         font-size: .9375rem;
         font-weight: 500;
+        @include BootstrapMaxWidthResponsive(xxs){
+            font-size: .825rem;
+        }
     }
     .success{
         background-color: #16C784;
