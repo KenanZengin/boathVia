@@ -3,11 +3,11 @@ import { UserLanguage } from "@prisma/client"
 
 
 export const RegisterSchema = z.object({
-    name: z.string().min(5,{
-        message: "Name is required"
+    name: z.string().min(3,{
+        message: "Name 3 characters required"
     }),
-    surname: z.string().min(5,{
-        message: "Surname is required"
+    surname: z.string().min(3,{
+        message: "Surname 3 characters required"
     }),
     email: z.string().email({
         message: "Email is required"

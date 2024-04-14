@@ -41,7 +41,6 @@ const RegisterForm = () => {
         startTransition(() => {
             record(values)
                 .then((data)=>{          
-                    console.log(data.error);
                     if(data.success){
                         setFormState(true);
                         setFormSuccess(data.success)
